@@ -624,7 +624,7 @@ Q_{t + 1}(s_t, a_t) &:= Q_{t}(s_t, a_t)\\
 
 \multicolumn{1}{m{3cm}}{Evolutionary strategies and RL} & \multicolumn{1}{m{6cm}}{A RL approach that made use of evolution strategies for real-time task assignment among fog servers was introduced by Mai \emph{et al.} in \cite{Mai2018} to minimize the total computation latency during a long-term period.} & \multicolumn{1}{m{6cm}}{The paper claimed that the proposed model is scalable when the number of IoT devices increases, however, the approach proposed failed to examine real-world IoT-scaled scenario.} & \multicolumn{1}{m{6cm}}{We aim to apply a variant of these techniques to realistic IoT scenarios.}\\ \hline
 
-
+\multicolumn{1}{m{3cm}}{Q-learning-based duty cycle control} & \multicolumn{1}{m{6cm}}{This RL-based duty cycle control was introduced by Li \emph{et al.} in \cite{Li2015} to provide improved performance and reliable M2M communication for IoT applications with .} & \multicolumn{1}{m{6cm}}{The performance evaluation  of the proposed Q-learning based duty cycle control only considered a two-hop cluster tree network.} & \multicolumn{1}{m{6cm}}{The proposed approach can be enhanced to capture a larger network size, and DP approach employed may not be suitable.}\\ \hline
 
 
 
@@ -653,7 +653,8 @@ To optimize based on the agent's ability learn different policies that are based
   \item Storage capability: In a distributed and heterogenous network where neighbour nodes/agents have different storage capacity. An RL-based technique could be used by the agent to learn. This will in turn minimize packet loss within the network.
   \item Mobility patterns/metrics of agents and that of its neighbours: Considering a realistic IoT network where agents can be static or mobile, the  node degree of agents in the network will vary with time, and as such it will be necessary for an agent to consider the dynamics of neighbouring agents in the network.
   \item Estimated transmission delay: The position of neighbours with the network has an important role to play in determining the delay. An agent should be able to learn and follow a policy that best minimizes network latency.
-  \item Noisy and dynamic environment
+  \item Noisy and dynamic environment:
+  \item The issue of full observability and partial observability MDPs: POMDPs are known to be intractable only for small problems.
 \end{itemize}
 
 \section{Challenges we may face when implementing the above issues raised}
@@ -771,6 +772,9 @@ L. Mai, N.-N. Dao, and M. Park, ``Real-time task assignment approach leveraging 
 
 \bibitem{Kwok2004}
 C. Kwok and D. Fox, ``Reinforcement learning for sensing strategies,'' \emph{2004 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) (IEEE Cat. No.04CH37566),} Sendai, 2004, pp. 3158-3163 vol.4.
+
+\bibitem{Li2015}
+Y. Li, K. K. Chai, Y. Chen and J. Loo, ``Smart duty cycle control with reinforcement learning for machine to machine communications,'' \emph{2015 IEEE International Conference on Communication Workshop (ICCW),} London, 2015, pp. 1458-1463.
 
 \end{thebibliography}
 
