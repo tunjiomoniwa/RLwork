@@ -543,12 +543,16 @@ Over the years, many perceived difficult subproblems have began to receive resea
 \subsection{Q-Learning}
 Q-learning is also known as an off-policy temporal difference (TD) learning algorithm, which allows the agent to learn about an optimal policy using an exploratory policy~\cite{Wen15},~\cite{Sutton98}. The Q-learning algorithm can be simply defined by
 
+%ivana comment: cite original q-learning work by watkins
+
 \begin{equation}\label{eqn1}
 \begin{split}
 Q_{t + 1}(s_t, a_t) &:= Q_{t}(s_t, a_t)\\
 & + \alpha \Big[ r_{t + 1} + \gamma \max_{a}  Q_{t}(s_{t + 1}, a) -  Q_{t}(s_t, a_t) \Big].
    \end{split}
 \end{equation}
+
+%ivana comment: the statement below needs to be referenced. if it can't be backed up we can't say it - and i have a feeling we can't back it up as it sounds like a lot of speculation? who says it can be used either online, or to bootstrap, or for mission critical, or for real time? we either remove it, or add 4 references for each statement. 
 
 Q-learning will play a very important role in future IoT networks since it is online, supports bootstrapping, and can be used for mission-critical, real-time IoT data.
 
