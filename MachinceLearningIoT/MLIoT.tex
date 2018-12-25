@@ -406,7 +406,7 @@
 % not capitalized unless they are the first or last word of the title.
 % Linebreaks \\ can be used within to get better formatting as desired.
 % Do not put math or special symbols in the title.
-\title{Research Issues in Reinforcement Learning for IoT/CPS Domains}
+\title{Reinforcement Learning for Fog-based Internet-of-Things: Applications and Research Issues}
 %
 %
 % author names and IEEE memberships
@@ -481,7 +481,7 @@
 \begin{abstract}
 Reinforcement learning (RL) algorithms are the platform for connecting intelligent Internet-of-Things (IoT) devices. The data provided by
 these intelligent devices can offer more insights about the overall futuristic functionalities in terms of usage
-and preferences. Machine learning algorithms have been widely used for predictions, with several optimization algorithms using reinforcement learning techniques to improve the performance and interaction of devices within a dynamic IoT ecosystem. We present a comprehensive review of state-of-the-art RL techniques that have been applied to solve trending problems in the IoT and cyber-physical systems domain. Furthermore, we give an in-depth analysis into such problems and propose alternative approaches that may yield better outcomes.
+and preferences. Machine learning algorithms have been widely used for predictions, with several optimization algorithms using reinforcement learning techniques to improve the performance and interaction of devices within a dynamic IoT ecosystem. In this paper, we present a comprehensive review of state-of-the-art RL techniques that have been applied to solve trending problems in the IoT and cyber-physical systems domain. Furthermore, we give an in-depth analysis into its applications in the emerging fog-based IoT networks. Finally, we propose alternative research directions that may yield better outcomes.
 
 \end{abstract}
 
@@ -509,9 +509,9 @@ Reinforcement learning (RL), Internet-of-Things (IoT), cyber-physical systems (C
 \label{sec:Introduction}
 \IEEEPARstart{R}{einforcement} learning algorithms are the platform for connecting intelligent Internet-of-Things (IoT) devices. Over the years, there has been several applications of machine learning (ML) in IoTs and Cyber-physical systems (CPS). Nest learning thermostats are good examples of how IoT devices leverage data patterns to predict the preferred temperature in a room during a particular time of day. The prediction of the room temperature can also be on an aggregated neighborhood level, where energy loads can be remotely shifted by the power utility in homes operating Nest devices. Another practical application is the Amazon personal assistant that has the capability of learning voice patterns, the Jaguar's Land Monitoring system, which depends on a complex software that allows the automobile to observe, predict, monitor and notify the car's passengers to assist the driver automatically delegate his tasks and minimize the burden of driving.
 
-Optimization is a very old field with interesting algorithms that has been used to solve simple to complex problems in various fields. Many optimization algorithms use RL techniques optimize the behaviour of devices in the IoT ecosystem. For instance, in Intelligent Transport Systems (ITS), where cars act smartly, optimality in the interaction of the cars with the environment is highly required. Several CPS applications like the Industrial Internet of Things (IIoT), smart grid, and ultimately smart cities, will allow intelligent machine-type interactions. These interactions may often will require robust algorithms that evolve and are adaptable, in order for the IoT devices to be able to achieve desired objectives given some set of operational parameters.
+Optimization is a very old field with interesting algorithms that has been used to solve simple to complex problems in various areas. Many optimization algorithms use RL techniques to optimize the behaviour of devices in the IoT ecosystem. For instance, in Intelligent Transport Systems (ITS), where cars act smartly, optimality in the interaction of the cars and the environment is highly required. Several CPS applications like the Industrial Internet of Things (IIoT), smart grid, and ultimately smart cities, will allow intelligent machine-type interactions. These interactions may often will require robust algorithms that evolve and are adaptable, in order for the IoT devices to be able to achieve desired objectives given some set of operational parameters.
 
-
+With the inherent heterogeneity in the IoT ecosystem and devices operating in a highly dynamic environment, it becomes necessary to leverage robust and resource-fitting machine learning techniques that will match the resource-constrained nature and stochastic behaviour of the IoT network. 
 
 
 
@@ -552,7 +552,7 @@ Q_{t + 1}(s_t, a_t) &:= Q_{t}(s_t, a_t)\\
    \end{split}
 \end{equation}
 
-%ivana comment: the statement below needs to be referenced. if it can't be backed up we can't say it - and i have a feeling we can't back it up as it sounds like a lot of speculation? who says it can be used either online, or to bootstrap, or for mission critical, or for real time? we either remove it, or add 4 references for each statement. 
+%ivana comment: the statement below needs to be referenced. if it can't be backed up we can't say it - and i have a feeling we can't back it up as it sounds like a lot of speculation? who says it can be used either online, or to bootstrap, or for mission critical, or for real time? we either remove it, or add 4 references for each statement.
 
 %Accepted
 %Q-learning will play a very important role in future IoT networks since it is online, supports bootstrapping, and can be used for mission-critical, real-time IoT data.
