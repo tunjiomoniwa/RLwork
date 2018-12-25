@@ -406,7 +406,7 @@
 % not capitalized unless they are the first or last word of the title.
 % Linebreaks \\ can be used within to get better formatting as desired.
 % Do not put math or special symbols in the title.
-\title{Reinforcement Learning for Fog-based Internet-of-Things: Applications and Research Issues}
+\title{Reinforcement Learning in Fog-based Internet-of-Things: Applications and Research Issues}
 %
 %
 % author names and IEEE memberships
@@ -448,7 +448,7 @@
 
 % The paper headers
 \markboth{IEEE Internet of Things Journal,~Vol.~X, No.~X, August~2019}%
-{YYYY \MakeLowercase{\textit{et al.}}: Research Issues in Reinforcement Learning for IoT/CPS Domains}
+{YYYY \MakeLowercase{\textit{et al.}}: Reinforcement Learning in Fog-based Internet-of-Things}
 % The only time the second header will appear is for the odd numbered pages
 % after the title page when using the twoside option.
 %
@@ -487,7 +487,7 @@ and preferences. Machine learning algorithms have been widely used for predictio
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-Reinforcement learning (RL), Internet-of-Things (IoT), cyber-physical systems (CPS), Markov decision process (MDP), machine learning (ML).
+Reinforcement learning (RL), Internet-of-Things (IoT), Fog-based IoT, Markov decision process (MDP), machine learning (ML).
 \end{IEEEkeywords}
 
 
@@ -511,9 +511,23 @@ Reinforcement learning (RL), Internet-of-Things (IoT), cyber-physical systems (C
 
 Optimization is a very old field with interesting algorithms that has been used to solve simple to complex problems in various areas. Many optimization algorithms use RL techniques to optimize the behaviour of devices in the IoT ecosystem. For instance, in Intelligent Transport Systems (ITS), where cars act smartly, optimality in the interaction of the cars and the environment is highly required. Several CPS applications like the Industrial Internet of Things (IIoT), smart grid, and ultimately smart cities, will allow intelligent machine-type interactions. These interactions may often will require robust algorithms that evolve and are adaptable, in order for the IoT devices to be able to achieve desired objectives given some set of operational parameters.
 
-With the inherent heterogeneity in the IoT ecosystem and devices operating in a highly dynamic environment, it becomes necessary to leverage robust and resource-fitting machine learning techniques that will match the resource-constrained nature and stochastic behaviour of the IoT network. 
+With the inherent heterogeneity in the IoT ecosystem and devices operating in a highly dynamic environment, it becomes necessary to leverage robust and resource-fitting machine learning techniques that will match the resource-constrained nature and stochastic behaviour of the IoT network. Moreover, the magnanimity of the IoT has led to the emergence of the fog-based IoT architecture~\cite{Omoniwa2018}, which promises to run IoT-enabled applications for real-time control and analytics, with millisecond response time. The realization of an optimal real-time control and data analytics is subject to the ability for agents to make optimal decisions that will improve the overall performance in the network. As such, we aim to examine RL techniques as used in previous works to help us understand the intrinsic benefits to the future IoT networks.
 
-
+RL offer some immense benefit to the success of the fog-based IoT listed below.
+\indent
+    \begin{enumerate}[leftmargin=*,label= \arabic*)]
+      \item Efficient energy utilization within the network: Just like the traditional IoT architecture, the fog-based IoT networks are often power-constrained. Furthermore, IoT devices deplete energy in several ways, such as when transmitting and receiving data, listening to the medium, performing computation or even changing position.
+      
+      \item Channel assessment and intelligent routing:
+      
+      \item Minimization in network latency: Despite the interesting proximity feature of IoT end-devices to the network edge in the fog-based IoT network, delay is prevalent due to several bottlenecks, which may lead system failure or operational hazard for critical applications. Mission-critical and delay-sensitive IoT application can effectively leverage the intelligence of some RL techniques. These techniques may be used to minimize the delay especially for high priority communications.
+            
+      \item Federation and support for ubiquity of IoT devices:
+      
+      \item Resource-compatibility and adaptability in unknown/dynamic environment.
+      
+      
+    \end{enumerate}
 
 
 
@@ -724,6 +738,9 @@ We know that devices/agents in an IoT network are computationally-constrained, i
 % set second argument of \begin to the number of references
 % (used to reserve space for the reference number labels box)
 \begin{thebibliography}{1}
+
+\bibitem{Omoniwa2018}
+B. Omoniwa, R. Hussain, M. A. Javed, S. H. Bouk and S. A. Malik, "Fog/Edge Computing-based IoT (FECIoT): Architecture, Applications, and Research Issues," in IEEE Internet of Things Journal.
 
 \bibitem{Earley2015}
 S. Earley, ``Analytics, Machine Learning, and the Internet of Things,'' \emph{IT Professional,} vol. 17, no. 1, pp. 10-13, Jan.-Feb. 2015.
