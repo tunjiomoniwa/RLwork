@@ -516,15 +516,13 @@ With the inherent heterogeneity in the IoT ecosystem and devices operating in a 
 RL offer some immense benefit to the success of the fog-based IoT listed below.
 \indent
     \begin{enumerate}[leftmargin=*,label= \arabic*)]
-      \item Efficient energy utilization within the network: Just like the traditional IoT architecture, the fog-based IoT networks are often power-constrained. Furthermore, IoT devices deplete energy in several ways, such as when transmitting and receiving data, listening to the medium, performing computation or even changing position.
+      \item Efficient energy utilization within the network: Just like the traditional IoT architecture, the fog-based IoT networks are often power-constrained. IoT devices deplete energy in several ways, such as when transmitting and receiving data, listening to the medium, performing computation or even changing position. There exist several works that have used RL and its variants to optimize energy usage in different domains, some of which could be modified to suit the resource-limitation in the typical IoT domain.
       
-      \item Channel assessment and intelligent routing:
+      \item Channel assessment and intelligent routing: Prior to communicating via a link, it is very useful for nodes within the fog-based IoT network to assess the communication medium. Learning by experience using some RL techniques will go a long way in minimizing number of loss packets in highly stochastic IoT environment. Furthermore, fog nodes/agents can learn the optimal route that will not only maximize the immediate reward, but future rewards, which may be based on the agent achieving certain targets.  
       
       \item Minimization in network latency: Despite the interesting proximity feature of IoT end-devices to the network edge in the fog-based IoT network, delay is prevalent due to several bottlenecks, which may lead system failure or operational hazard for critical applications. Mission-critical and delay-sensitive IoT application can effectively leverage the intelligence of some RL techniques. These techniques may be used to minimize the delay especially for high priority communications.
             
-      \item Federation and support for ubiquity of IoT devices:
-      
-      \item Resource-compatibility and adaptability in unknown/dynamic environment.
+      \item Federation and support for ubiquity of IoT devices: Despite system dynamics and heterogeneity within the ultra-distributed IoT environment, it is important for devices which are mobile to move seamlessly without disruption in quality of service (QoS) when communicating. Moreover, the communication should be ubiquitous irrespective of technology or domain within the system. As such, the RL techniques will play a very important role in areas of IoT device/service discovery, which will support adaptability and interfacing between devices and sub-networks within the IoT. 
       
       
     \end{enumerate}
