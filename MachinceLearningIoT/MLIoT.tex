@@ -625,7 +625,7 @@ Q_{t + 1}(s_t, a_t) &:= Q_{t}(s_t, a_t)\\
   \hline
     Reinforcement learning techniques & Details  & Limitations & Potential contributions \\
   \hline \hline
-  \multicolumn{1}{m{3cm}}{RL-based mapping table (RLMT) and RL-based resource allocation} & \multicolumn{1}{m{6cm}}{These algorithm was introduced Gai \emph{et al.} in \cite{Gai2018} to handle cost mapping tables creation and for optimal resource allocation in IoT content-centric services.} & \multicolumn{1}{m{6cm}}{The work was limited to the use QoE in examining service level, which allowed a dynamic resource allocation and avoided a fixed task table.} & \multicolumn{1}{m{8cm}}{To apply RL-based approach on several other KPIs that may improve IoT services.}\\ \hline
+  \multicolumn{1}{m{3cm}}{RL-based mapping table (RLMT) and RL-based resource allocation} & \multicolumn{1}{m{6cm}}{These algorithm was introduced Gai \emph{et al.} in \cite{Gai2018} to handle cost mapping tables creation and for optimal resource allocation in IoT content-centric services.} & \multicolumn{1}{m{6cm}}{The work was limited to the use QoE in examining service level, which allowed a dynamic resource allocation and avoided a fixed task table.} & \multicolumn{1}{m{6cm}}{To apply RL-based approach on several other KPIs that may improve IoT services.}\\ \hline
 
 \multicolumn{1}{m{3cm}}{Deep-Q-learning} & \multicolumn{1}{m{6cm}}{This variant of Q-learning was introduced by Zhu \emph{et al.} in \cite{Zhu2018} to maximize system throughput by applying appropriate scheduling strategy for cognitive radio-based IoT networks.} & \multicolumn{1}{m{6cm}}{This work performed poorly when compared with the strategy iteration algorithm, though with a reduced computational complexity.} & \multicolumn{1}{m{6cm}}{To adapt the concept of cognition to our proposed IoT network and with the consideration of several network dynamics.}\\ \hline
 
@@ -646,7 +646,7 @@ Q_{t + 1}(s_t, a_t) &:= Q_{t}(s_t, a_t)\\
 
 \multicolumn{1}{m{3cm}}{Dynamic Programming based duty cycle control} & \multicolumn{1}{m{6cm}}{This technique used by Li \emph{et al.} in \cite{Li2014} to provide an optimal solution to an inventory control problem. The focus was on optimizing the duty cycle by jointly considering energy efficiency, end-to-end delay and reliability of the network.} & \multicolumn{1}{m{6cm}}{A two-hop cluster tree network model was used in the work, and the problem was evaluated using the DP approach} & \multicolumn{1}{m{6cm}}{The proposed approach can be enhanced to capture a larger network size, and the DP approach used may not be suitable for a realistic IoT scenario.}\\ \hline
 
-\multicolumn{1}{m{3cm}}{Predictive and Resilient Q-learning} & \multicolumn{1}{m{6cm}}{A variant of Q-learning algorithm employed by Grammatopoulou \emph{et al.} in \cite{Grammatopoulou2018}, which considers historical data about irregular operations such as faults and attacks by malicious agents in an IoT network (a smart water supply system).} & \multicolumn{1}{m{6cm}}{xxxx} & \multicolumn{1}{m{6cm}}{yyyy.}\\ \hline
+\multicolumn{1}{m{3cm}}{Predictive and Resilient Q-learning} & \multicolumn{1}{m{6cm}}{A variant of Q-learning algorithm employed by Grammatopoulou \emph{et al.} in \cite{Grammatopoulou2018}, which considers historical data about irregular operations such as faults and attacks by malicious agents in an IoT network (a smart water supply system).} & \multicolumn{1}{m{6cm}}{The work relied upon historical data about irregular operations such as faults and attacks by malicious agents which may not be readily available in a typical IoT network.} & \multicolumn{1}{m{6cm}}{We will attempt to depict a realistic IoT scenario where historical data will not be available, and the agent will be required to learn the optimal policy in a new and dynamic environment.}\\ \hline
 
 
 %\multicolumn{1}{m{3cm}}{Distributed W-learning} & \multicolumn{1}{m{6cm}}{This variant of W-learning was introduced by Dusparic \emph{et al.} in \cite{Dusparic2009} to address the problem of multi-policy optimization agent-based self-organizing systems.} & \multicolumn{1}{m{6cm}}{The work was limited to urban traffic control (UTC) systems in Dublin with experiments only conducted five times.} & \multicolumn{1}{m{6cm}}{To adapt the technique to broader IoT networks with mobile agents.}\\ \hline
@@ -662,6 +662,28 @@ Q_{t + 1}(s_t, a_t) &:= Q_{t}(s_t, a_t)\\
  \end{tabular}
  \end{table}
 \end{landscape}
+
+\newpage
+ \begin{landscape}
+ \xentrystretch{-0.1}
+%
+%% increase spacing between table's rows
+\renewcommand{\arraystretch}{1.2}
+
+ %\small
+\section*{Summary of works in Reinforcement Learning. (Contd. 1)}
+\centering
+\begin{tabular}{llll}
+
+ \hline
+    Reinforcement learning techniques & Details  & Limitations & Potential contributions \\
+  \hline \hline
+  \multicolumn{1}{m{3cm}}{RL-based mapping table (RLMT) and RL-based resource allocation} & \multicolumn{1}{m{6cm}}{These algorithm was introduced Gai \emph{et al.} in \cite{Gai2018} to handle cost mapping tables creation and for optimal resource allocation in IoT content-centric services.} & \multicolumn{1}{m{6cm}}{yyyy.} & \multicolumn{1}{m{6cm}}{xxxbb.}\\ \hline
+
+\hline
+ \end{tabular}
+\end{landscape}
+
 
 
 \section{Practical issues that RL could be applied to IoT (thoughts when reading your paper)}
