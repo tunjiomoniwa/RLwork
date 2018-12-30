@@ -678,7 +678,13 @@ Q_{t + 1}(s_t, a_t) &:= Q_{t}(s_t, a_t)\\
  \hline
     Reinforcement learning techniques & Details  & Limitations & Potential contributions \\
   \hline \hline
-  \multicolumn{1}{m{3cm}}{RL-based mapping table (RLMT) and RL-based resource allocation} & \multicolumn{1}{m{6cm}}{These algorithm was introduced Gai \emph{et al.} in \cite{Gai2018} to handle cost mapping tables creation and for optimal resource allocation in IoT content-centric services.} & \multicolumn{1}{m{6cm}}{yyyy.} & \multicolumn{1}{m{6cm}}{xxxbb.}\\ \hline
+  \multicolumn{1}{m{3cm}}{Q-learning-based adaptive power management} & \multicolumn{1}{m{6cm}}{The Q-learning-based adaptive power management was proposed by Debizet \emph{et al.} in \cite{Debizet2018} to optimize the power consumed during the suspend state of an Internet-of-Things (loT) System-on-
+Chip (SoC) with 8 embedded power states.} & \multicolumn{1}{m{6cm}}{The algorithm out-performed some expert-based
+solution for most suspend sequences under 12000 cycles, however, with an additional power cost.} & \multicolumn{1}{m{6cm}}{The parameters used in the study may be better tuned to produce more satisfactory performance.}\\ \hline
+
+\multicolumn{1}{m{3cm}}{Cooperative reinforcement learning} & \multicolumn{1}{m{6cm}}{A cooperative reinforcement learning algorithm was introduced by Khan \emph{et al.} in \cite{Khan2018} for adaptive power allocation in D2D communication.} & \multicolumn{1}{m{6cm}}{When compared with the Distributed RL algorithm, the proposed approach provides better system throughput as well as D2D throughput with less interference to pave way for the massive MTC in IoT. However, the experiments were conducted in a single cell.} & \multicolumn{1}{m{6cm}}{Experiments using the proposed algorithm may be conducted to in a heterogenous multi-cell environment to depict a realistic IoT scenario.}\\ \hline
+
+\multicolumn{1}{m{3cm}}{Cooperative reinforcement learning} & \multicolumn{1}{m{6cm}}{A cooperative reinforcement learning algorithm was introduced by Khan \emph{et al.} in \cite{Khan2018} for adaptive power allocation in D2D communication.} & \multicolumn{1}{m{6cm}}{When compared with the Distributed RL algorithm, the proposed approach provides better system throughput as well as D2D throughput with less interference to pave way for the massive MTC in IoT. However, the experiments were conducted in a single cell.} & \multicolumn{1}{m{6cm}}{Experiments using the proposed algorithm may be conducted to in a heterogenous multi-cell environment to depict a realistic IoT scenario.}\\ \hline
 
 \hline
  \end{tabular}
@@ -830,6 +836,13 @@ Y. Li, K. K. Chai, Y. Chen and J. Loo, ``Optimised delay-energy aware duty cycle
 
 \bibitem{Grammatopoulou2018}
 M. Grammatopoulou, A. Kanellopoulos, and K. G. Vamvoudakis, ``A multi-step and resilient predictive Q-learning algorithm for IoT: a case study in water supply networks'', \emph{ACM Proceedings of the 8th International Conference on the Internet of Things,} Santa Barbara, California, 2018, pp. 1-8.
+
+\bibitem{Debizet2018}
+Y. Debizet, G. Lallement, F. Abouzeid, P. Roche and J. Autran, "Q-Learning-based Adaptive Power Management for IoT System-on-Chips with Embedded Power States," 2018 IEEE International Symposium on Circuits and Systems (ISCAS), Florence, 2018, pp. 1-5.
+
+\bibitem{Khan2018}
+M. I. Khan, M. M. Alam, Y. Le Moullec and E. Yaacoub, "Cooperative reinforcement learning for adaptive power allocation in device-to-device communication," 2018 IEEE 4th World Forum on Internet of Things (WF-IoT), Singapore, 2018, pp. 476-481.
+
 
 \end{thebibliography}
 
