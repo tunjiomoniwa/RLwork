@@ -644,7 +644,7 @@ Q_{t + 1}(s_t, a_t) &:= Q_{t}(s_t, a_t)\\
 \multicolumn{1}{m{3cm}}{Q-learning-based duty cycle control} & \multicolumn{1}{m{6cm}}{This RL-based duty cycle control technique was introduced by Li \emph{et al.} in \cite{Li2015} to provide improved performance and reliable M2M communication for IoT applications.} & \multicolumn{1}{m{6cm}}{The performance evaluation  of the proposed Q-learning based duty cycle control only considered a two-hop cluster tree network.} & \multicolumn{1}{m{6cm}}{The proposed approach can be enhanced to capture a larger network size, and DP approach employed may not be suitable.}\\ \hline
 
 
-\multicolumn{1}{m{3cm}}{Dynamic Programming based duty cycle control} & \multicolumn{1}{m{6cm}}{This technique used by Li \emph{et al.} in \cite{Li2014} to provide an optimal solution to an inventory control problem. The focus was on optimizing the duty cycle by jointly considering energy efficiency, end-to-end delay and reliability of the network.} & \multicolumn{1}{m{6cm}}{A two-hop cluster tree network model was used in the work, and the problem was evaluated using the DP approach} & \multicolumn{1}{m{6cm}}{The proposed approach can be enhanced to capture a larger network size, and the DP approach used may not be suitable for a realistic IoT scenario.}\\ \hline
+\multicolumn{1}{m{3cm}}{Dynamic programming based duty cycle control} & \multicolumn{1}{m{6cm}}{This technique used by Li \emph{et al.} in \cite{Li2014} to provide an optimal solution to an inventory control problem. The focus was on optimizing the duty cycle by jointly considering energy efficiency, end-to-end delay and reliability of the network.} & \multicolumn{1}{m{6cm}}{A two-hop cluster tree network model was used in the work, and the problem was evaluated using the DP approach} & \multicolumn{1}{m{6cm}}{The proposed approach can be enhanced to capture a larger network size, and the DP approach used may not be suitable for a realistic IoT scenario.}\\ \hline
 
 \multicolumn{1}{m{3cm}}{Predictive and Resilient Q-learning} & \multicolumn{1}{m{6cm}}{A variant of Q-learning algorithm employed by Grammatopoulou \emph{et al.} in \cite{Grammatopoulou2018}, which considers historical data about irregular operations such as faults and attacks by malicious agents in an IoT network (a smart water supply system).} & \multicolumn{1}{m{6cm}}{The work relied upon historical data about irregular operations such as faults and attacks by malicious agents which may not be readily available in a typical IoT network.} & \multicolumn{1}{m{6cm}}{We will attempt to depict a realistic IoT scenario where historical data will not be available, and the agent will be required to learn the optimal policy in a new and dynamic environment.}\\ \hline
 
@@ -673,6 +673,7 @@ Q_{t + 1}(s_t, a_t) &:= Q_{t}(s_t, a_t)\\
  %\small
 \section*{Summary of works in Reinforcement Learning. (Contd. 1)}
 \centering
+
 \begin{tabular}{llll}
 
  \hline
@@ -684,7 +685,11 @@ solution for most suspend sequences under 12000 cycles, however, with an additio
 
 \multicolumn{1}{m{3cm}}{Cooperative reinforcement learning} & \multicolumn{1}{m{6cm}}{A cooperative reinforcement learning algorithm was introduced by Khan \emph{et al.} in \cite{Khan2018} for adaptive power allocation in D2D communication.} & \multicolumn{1}{m{6cm}}{When compared with the Distributed RL algorithm, the proposed approach provides better system throughput as well as D2D throughput with less interference to pave way for the massive MTC in IoT. However, the experiments were conducted in a single cell.} & \multicolumn{1}{m{6cm}}{Experiments using the proposed algorithm may be conducted to in a heterogenous multi-cell environment to depict a realistic IoT scenario.}\\ \hline
 
-\multicolumn{1}{m{3cm}}{Cooperative reinforcement learning} & \multicolumn{1}{m{6cm}}{A cooperative reinforcement learning algorithm was introduced by Khan \emph{et al.} in \cite{Khan2018} for adaptive power allocation in D2D communication.} & \multicolumn{1}{m{6cm}}{When compared with the Distributed RL algorithm, the proposed approach provides better system throughput as well as D2D throughput with less interference to pave way for the massive MTC in IoT. However, the experiments were conducted in a single cell.} & \multicolumn{1}{m{6cm}}{Experiments using the proposed algorithm may be conducted to in a heterogenous multi-cell environment to depict a realistic IoT scenario.}\\ \hline
+\multicolumn{1}{m{3cm}}{Dynamic programming} & \multicolumn{1}{m{6cm}}{A dynamic programming approach was deployed by Routray \emph{et al.} in \cite{routray2017} to provide near optimal results under high traffic conditions in an IoT network scenario with consideration for node mobility.} & \multicolumn{1}{m{6cm}}{The DP approach was used in routing in a dynamically changing network. However, all the nodes in the network were assumed to be routers, which is often not the case in a typical IoT environment.} & \multicolumn{1}{m{6cm}}{We will consider heterogeneity in IoT device, with some devices IoT sensors, and fog devices, which may be static or dormant, active or inactive.}\\ \hline
+
+\multicolumn{1}{m{3cm}}{Multi-agent Q-learning} & \multicolumn{1}{m{6cm}}{A distributed multi-agent Q learning algorithm was proposed by Liu \emph{et al.} in \cite{Liu2017} to optimize both the motorized and non-motorized traffic. The work considered several constraints to help depict real operational scenarios.} & \multicolumn{1}{m{6cm}}{The paper applied AI powered Internet-of-Things (AIoT) technologies for traffic light control, which is a key to the success of ITS. However, the agents considered are static and may not be suitable for other IoT applications.} & \multicolumn{1}{m{6cm}}{This approach may be applied in scenarios of non-stationary agents to examine the overall system performance in a dynamic IoT environment.}\\ \hline
+
+
 
 \hline
  \end{tabular}
@@ -843,6 +848,11 @@ Y. Debizet, G. Lallement, F. Abouzeid, P. Roche and J. Autran, "Q-Learning-based
 \bibitem{Khan2018}
 M. I. Khan, M. M. Alam, Y. Le Moullec and E. Yaacoub, "Cooperative reinforcement learning for adaptive power allocation in device-to-device communication," 2018 IEEE 4th World Forum on Internet of Things (WF-IoT), Singapore, 2018, pp. 476-481.
 
+\bibitem{routray2017}
+S. K. Routray and Sharmila K. P., ``Routing in dynamically changing node location scenarios: A reinforcement learning approach,'' 2017 Third International Conference on Advances in Electrical, Electronics, Information, Communication and Bio-Informatics (AEEICB), Chennai, 2017, pp. 458-462.
+
+\bibitem{Liu2017}
+Y. Liu, L. Liu and W. Chen, "Intelligent traffic light control using distributed multi-agent Q learning," 2017 IEEE 20th International Conference on Intelligent Transportation Systems (ITSC), Yokohama, 2017, pp. 1-8.
 
 \end{thebibliography}
 
