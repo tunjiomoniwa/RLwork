@@ -599,6 +599,8 @@ Q_{t + 1}(s_t, a_t) &:= Q_{t}(s_t, a_t)\\
 \subsection{Asynchronous Advantage Actor-Critic (A3C)}
 
 
+
+
 \pagestyle{empty}
 \begin{landscape}
 
@@ -693,7 +695,7 @@ solution for most suspend sequences under 12000 cycles, however, with an additio
 \multicolumn{1}{m{3cm}}{On-line RL} & \multicolumn{1}{m{6cm}}{A Q-learning algorithm was introduced by Dias \emph{et al.} in \cite{Dias2016} to adjust sensors' sampling interval in real-time, with respect to environmental conditions and application requirements.} & \multicolumn{1}{m{6cm}}{This work was able to learn the most suitable sampling intervals under different conditions, without an a-priori model of the environment's evolution. However, it considered only static sensor devices, of which no clear indication on where the learning computation will take place.} & \multicolumn{1}{m{6cm}}{Considering the resource-limitation of IoT sensor nodes, we leverage on the fog/edge computing paradigm to provide some learning and computational capability.}\\ \hline
 
 \multicolumn{1}{m{3cm}}{Parallel Q-learning} & \multicolumn{1}{m{6cm}}{A scalable parallel Q-learning algorithm was introduced by Camelo \emph{et al.} in \cite{Camelo2016} to minimize communication cost.} & \multicolumn{1}{m{6cm}}{The work considered distributed and resource-constrained environment.} & \multicolumn{1}{m{6cm}}{yyyyy.}\\ \hline
-   
+
 
 \hline
  \end{tabular}
@@ -719,6 +721,15 @@ To optimize based on the agent's ability learn different policies that are based
 
 We know that devices/agents in an IoT network are computationally-constrained, it will be proper to deploy lightweight RL-based techniques (or any other machine learning approach) that will improve the efficiency of the network. Furthermore, we may have to experiment on a very dynamic environment considering factors that are equally stochastic, and ultimately allow for strict quality-of-service requirements.
 
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3.5in]{fogmodel.eps}
+ %where an .eps filename suffix will be assumed under latex,
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{System model depicting the role of fog agents in a dynamic and heterogenous IoT environment.}
+\label{fogmodel}
+\end{figure}
 
 \section{Application of Reinforcement Learning in CPS}
 
