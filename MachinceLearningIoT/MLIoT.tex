@@ -513,23 +513,6 @@ Optimization is a very old field with interesting algorithms that has been used 
 
 With the inherent heterogeneity in the IoT ecosystem and devices operating in a highly dynamic environment, it becomes necessary to leverage robust and resource-fitting machine learning techniques that will match the resource-constrained nature and stochastic behaviour of the IoT network. Moreover, the magnanimity of the IoT has led to the emergence of the fog-based IoT architecture~\cite{Omoniwa2018}, which promises to run IoT-enabled applications for real-time control and analytics, with millisecond response time. The realization of an optimal real-time control and data analytics is subject to the ability for agents to make optimal decisions that will improve the overall performance in the network. As such, we aim to examine RL techniques as used in previous works to help us understand the intrinsic benefits to the future IoT networks.
 
-RL offer some immense benefit to the success of the fog-based IoT listed below.
-\indent
-    \begin{enumerate}[leftmargin=*,label= \arabic*)]
-      \item Efficient energy utilization within the network: Just like the traditional IoT architecture, the fog-based IoT networks are often power-constrained. IoT devices deplete energy in several ways, such as when transmitting and receiving data, listening to the medium, performing computation or even changing position. There exist several works that have used RL and its variants to optimize energy usage in different domains, some of which could be modified to suit the resource-limitation in the typical IoT domain.
-
-      \item Channel assessment and intelligent routing: Prior to communicating via a link, it is very useful for nodes within the fog-based IoT network to assess the communication medium. Learning by experience using some RL techniques will go a long way in minimizing number of loss packets in highly stochastic IoT environment. Furthermore, fog nodes/agents can learn the optimal route that will not only maximize the immediate reward, but future rewards, which may be based on the agent achieving certain targets.
-
-      \item Minimization in network latency: Despite the interesting proximity feature of IoT end-devices to the network edge in the fog-based IoT network, delay is prevalent due to several bottlenecks, which may lead system failure or operational hazard for critical applications. Mission-critical and delay-sensitive IoT application can effectively leverage the intelligence of some RL techniques. These techniques may be used to minimize the delay especially for high priority communications.
-
-      \item Federation and support for ubiquity of IoT devices: Despite system dynamics and heterogeneity within the ultra-distributed IoT environment, it is important for devices which are mobile to move seamlessly without degradation of the quality of service (QoS) when communicating. Moreover, the communication should be ubiquitous irrespective of technology or domain within the system. As such, the RL techniques will play a very important role in areas of IoT device/service discovery, which will support adaptability and interfacing between devices and sub-networks within the IoT.
-
-
-    \end{enumerate}
-
-
-
-
 The contribution of our work is three-fold, which are listed as follows.
 \indent
     \begin{enumerate}[leftmargin=*,label= \arabic*)]
@@ -547,10 +530,9 @@ The remainder of this work is organized as follows.~In Section
 \section{Reinforcement Learning in IoT}\label{sec:RLIoT}
 Reinforcement Learning (RL) is learning that involves mapping situations to actions with an objective of maximizing a numerical reward. Actions are made by an agent, which have the ability to sense the state of the dynamic environment and consequently take actions that influence its environment. RL facilitates sequential decision making under uncertainty, thereby making it a useful tool in prediction of non-linear phenomenon~\cite{Zhang18}. Several works have been published in the area of RL in IoT and CPS, however, there has not been any detailed review that covers their applicability in IoT and the underlying research issues in this field.
 
-Over the years, many perceived difficult subproblems have began to receive research attention.
+\subsection{Basic Overview}
 
-
-\subsection{Q-Learning}
+\subsubsection{Q-Learning}
 Q-learning is also known as an off-policy temporal difference (TD) learning algorithm, which allows the agent to learn about an optimal policy using an exploratory policy~\cite{Watkins92},~\cite{Wen15},~\cite{Sutton98}. The Q-learning algorithm can be simply defined by
 
 %ivana comment: cite original q-learning work by watkins
@@ -567,7 +549,7 @@ Q_{t + 1}(s_t, a_t) &:= Q_{t}(s_t, a_t)\\
 %Accepted
 %Q-learning will play a very important role in future IoT networks since it is online, supports bootstrapping, and can be used for mission-critical, real-time IoT data.
 
-\subsection{W-Learning}
+\subsubsection{W-Learning}
 Unlike Q-learning which is a single-agent, single-policy learning technique, W-learning is a multi-agent, multi-policy learning technique that has been used on non-cooperating agents~\cite{Dusparic2009}. The W-learning algorithm is given by
 
 \begin{equation}\label{eqn2}
@@ -578,7 +560,7 @@ W_{i}(s) &:= (1 - \alpha)W_{i}(s) \\
 \end{equation}
 
 
-\subsection{SARSA}
+\subsubsection{SARSA}
 State-action-reward-state-action (SARSA) is an On-policy TD learning algorithm, which the agent learns an action-value function instead of a state-value function. SARSA always converges to an optimal policy so long as all state-action pairs are visited an infinite number of times.
 
 \begin{equation}\label{eqn3}
@@ -588,14 +570,32 @@ Q_{t + 1}(s_t, a_t) &:= Q_{t}(s_t, a_t)\\
    \end{split}
 \end{equation}
 
-\subsection{Deep Q Net (DQN)}
+\subsubsection{Deep Q Net (DQN)}
 
-\subsection{Deep Deterministic Policy Gradients (DDPG)}
+\subsubsection{Deep Deterministic Policy Gradients (DDPG)}
 
-\subsection{Normalized Advantage Functions (NAF)}
+\subsubsection{Normalized Advantage Functions (NAF)}
 
-\subsection{Asynchronous Advantage Actor-Critic (A3C)}
+\subsubsection{Asynchronous Advantage Actor-Critic (A3C)}
 
+\subsection{Related Works}
+Over the years, many perceived difficult subproblems have began to receive research attention, some of which are categorized as follows.
+\indent
+    \begin{enumerate}[leftmargin=*,label= \arabic*)]
+      \item Energy utilization within the network: Just like the traditional IoT architecture, the fog-based IoT networks are often power-constrained. IoT devices deplete energy in several ways, such as when transmitting and receiving data, listening to the medium, performing computation or even changing position. There exist several works that have used RL and its variants to optimize energy usage in different domains, some of which could be modified to suit the resource-limitation in the typical IoT domain.
+          
+      \item Services:
+      
+      \item Resource Allocation:
+
+      \item Channel assessment and intelligent routing: Prior to communicating via a link, it is very useful for nodes within the fog-based IoT network to assess the communication medium. Learning by experience using some RL techniques will go a long way in minimizing number of loss packets in highly stochastic IoT environment. Furthermore, fog nodes/agents can learn the optimal route that will not only maximize the immediate reward, but future rewards, which may be based on the agent achieving certain targets.
+
+      \item Latency Minimization: Despite the interesting proximity feature of IoT end-devices to the network edge in the fog-based IoT network, delay is prevalent due to several bottlenecks, which may lead system failure or operational hazard for critical applications. Mission-critical and delay-sensitive IoT application can effectively leverage the intelligence of some RL techniques. These techniques may be used to minimize the delay especially for high priority communications.
+
+      \item Federation and support for ubiquity of IoT devices: Despite system dynamics and heterogeneity within the ultra-distributed IoT environment, it is important for devices which are mobile to move seamlessly without degradation of the quality of service (QoS) when communicating. Moreover, the communication should be ubiquitous irrespective of technology or domain within the system. As such, the RL techniques will play a very important role in areas of IoT device/service discovery, which will support adaptability and interfacing between devices and sub-networks within the IoT.
+
+
+    \end{enumerate}
 
 
 
@@ -759,14 +759,14 @@ q(s_0, a_0, s_1, a_1, ..., s_N) = p_0(s_0) \prod_{i=0}^{N-1} \pi(a_i|s_i) p(s_{i
 
 Fig. \ref{fogmodel} shows a dynamic IoT environment with an IoT sensor attempting to request some services from a remote target fog agent/node through randomly deployed fog devices. The devices act as relays to forward traffic from the source to the destination. However, based on their position, line-of-sight(LoS) obstruction, which affect the conditions of the wireless channel, some degree of communication outage may occur. Our aim is to ensure that the agents are able to learn the optimal route to take through their experience with the environment.
 
-
-\section{Application of Reinforcement Learning in CPS}
-
-\subsection{Smart Grid}
-
-\subsection{Intelligent Transport System}
-
-\subsection{Smart Cities}
+%
+%\section{Application of Reinforcement Learning in CPS}
+%
+%\subsection{Smart Grid}
+%
+%\subsection{Intelligent Transport System}
+%
+%\subsection{Smart Cities}
 
 
 \section{Conclusion}\label{sec:conclusions}
