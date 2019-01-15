@@ -692,7 +692,7 @@ solution for most suspend sequences under 12000 cycles, however, with an additio
 
 \multicolumn{1}{m{3cm}}{On-line RL} & \multicolumn{1}{m{6cm}}{A Q-learning algorithm was introduced by Dias \emph{et al.} in \cite{Dias2016} to adjust sensors' sampling interval in real-time, with respect to environmental conditions and application requirements.} & \multicolumn{1}{m{6cm}}{This work was able to learn the most suitable sampling intervals under different conditions, without an a-priori model of the environment's evolution. However, it considered only static sensor devices, of which no clear indication on where the learning computation will take place.} & \multicolumn{1}{m{6cm}}{Considering the resource-limitation of IoT sensor nodes, we leverage on the fog/edge computing paradigm to provide some learning and computational capability.}\\ \hline
 
-\multicolumn{1}{m{3cm}}{Parallel Q-learning} & \multicolumn{1}{m{6cm}}{A scalable parallel Q-learning algorithm was introduced by Camelo \emph{et al.} in \cite{Camelo2016} to minimize communication cost.} & \multicolumn{1}{m{6cm}}{The work considered distributed and resource-constrained environment.} & \multicolumn{1}{m{6cm}}{yyyyy.}\\ \hline
+\multicolumn{1}{m{3cm}}{Parallel Q-learning} & \multicolumn{1}{m{6cm}}{A scalable parallel Q-learning algorithm was introduced by Camelo \emph{et al.} in \cite{Camelo2016} to minimize communication cost.} & \multicolumn{1}{m{6cm}}{The work considered distributed and resource-constrained environment. However, an unrealistic assumption was made that the management agent has domain knowledge, which is not always true.} & \multicolumn{1}{m{6cm}}{We will try to implement a truly distributed IoT system with realistic assumptions.}\\ \hline
 
 
 \hline
@@ -701,19 +701,19 @@ solution for most suspend sequences under 12000 cycles, however, with an additio
 
 
 
-\section{Practical issues that RL could be applied to IoT (thoughts when reading your paper)}
-
-To optimize based on the agent's ability learn different policies that are based on the following:
-\begin{itemize}
-  \item Power level (battery/energy per time of the relay/agent): Energy is very important in IoT networks as most devices are power-constrained. An agent within the network should be able to make decisions based on its local policies as well as the remote policies from neighbouring agents within the network.
-  \item Communication outage (based on the channel conditions/state of the environment/single hop): Every physical link, which is often wireless has unique channel conditions, and as such, the agent should be able to learn the optimal route.
-  \item Cooperative capability ( malicious agents/trusted nodes): In every network, there exist possibilities of having malicious agents. Overtime, the agent should learn how to avoid malicious agents.
-  \item Storage capability: In a distributed and heterogenous network where neighbour nodes/agents have different storage capacity. An RL-based technique could be used by the agent to learn. This will in turn minimize packet loss within the network.
-  \item Mobility patterns/metrics of agents and that of its neighbours: Considering a realistic IoT network where agents can be static or mobile, the  node degree of agents in the network will vary with time, and as such it will be necessary for an agent to consider the dynamics of neighbouring agents in the network.
-  \item Estimated transmission delay: The position of neighbours with the network has an important role to play in determining the delay. An agent should be able to learn and follow a policy that best minimizes network latency.
-  \item Noisy and dynamic environment:
-  \item The issue of full observability and partial observability MDPs: POMDPs are known to be intractable only for small problems.
-\end{itemize}
+%\section{Practical issues that RL could be applied to IoT (thoughts when reading your paper)}
+%
+%To optimize based on the agent's ability learn different policies that are based on the following:
+%\begin{itemize}
+%  \item Power level (battery/energy per time of the relay/agent): Energy is very important in IoT networks as most devices are power-constrained. An agent within the network should be able to make decisions based on its local policies as well as the remote policies from neighbouring agents within the network.
+%  \item Communication outage (based on the channel conditions/state of the environment/single hop): Every physical link, which is often wireless has unique channel conditions, and as such, the agent should be able to learn the optimal route.
+%  \item Cooperative capability ( malicious agents/trusted nodes): In every network, there exist possibilities of having malicious agents. Overtime, the agent should learn how to avoid malicious agents.
+%  \item Storage capability: In a distributed and heterogenous network where neighbour nodes/agents have different storage capacity. An RL-based technique could be used by the agent to learn. This will in turn minimize packet loss within the network.
+%  \item Mobility patterns/metrics of agents and that of its neighbours: Considering a realistic IoT network where agents can be static or mobile, the  node degree of agents in the network will vary with time, and as such it will be necessary for an agent to consider the dynamics of neighbouring agents in the network.
+%  \item Estimated transmission delay: The position of neighbours with the network has an important role to play in determining the delay. An agent should be able to learn and follow a policy that best minimizes network latency.
+%  \item Noisy and dynamic environment:
+%  \item The issue of full observability and partial observability MDPs: POMDPs are known to be intractable only for small problems.
+%\end{itemize}
 
 \section{Problem Formulation}
 
