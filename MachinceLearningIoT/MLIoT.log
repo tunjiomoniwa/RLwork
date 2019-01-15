@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.1)  7 JAN 2019 22:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.1)  15 JAN 2019 19:07
 entering extended mode
 **./MLIoT.tex
 (MLIoT.tex
@@ -368,10 +368,6 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \@lastruleclass=\count121
 \@thisrulewidth=\dimen170
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\lipsum\lipsum.sty"
-Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
-\c@lips@count=\count122
-)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
 \bigstrutjot=\dimen171
 )
@@ -436,18 +432,18 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )) (xtab.sty
 Package: xtab 2011/07/31 v2.3f Extended supertabular package
-\c@tracingst=\count123
+\c@tracingst=\count122
 \PWSTcapht=\dimen172
 \ST@wd=\dimen173
 \ST@rightskip=\skip58
 \ST@leftskip=\skip59
 \ST@parfillskip=\skip60
-\c@PWSTtable=\count124
-\PWSTlastpage=\count125
-\PWSTpenultimate=\count126
-\PWSTcurpage=\count127
-\PWSTtempc=\count128
-\PWSTlines=\count129
+\c@PWSTtable=\count123
+\PWSTlastpage=\count124
+\PWSTpenultimate=\count125
+\PWSTcurpage=\count126
+\PWSTtempc=\count127
+\PWSTlines=\count128
 \PWST@lastht=\dimen174
 \PWST@generalht=\dimen175
 \PWST@ht=\dimen176
@@ -526,16 +522,16 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <24> not available
 -- Lines per column: 58 (exact).
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count130
+\scratchcounter=\count129
 \scratchdimen=\dimen187
 \scratchbox=\box39
-\nofMPsegments=\count131
-\nofMParguments=\count132
+\nofMPsegments=\count130
+\nofMParguments=\count131
 \everyMPshowfont=\toks28
-\MPscratchCnt=\count133
+\MPscratchCnt=\count132
 \MPscratchDim=\dimen188
-\MPnumerator=\count134
-\makeMPintoPDFobject=\count135
+\MPnumerator=\count133
+\makeMPintoPDFobject=\count134
 \everyMPtoPDFconversion=\toks29
 )
 Underfull \hbox (badness 3849) in paragraph at lines 489--491
@@ -547,12 +543,12 @@ rnet-of-
 
 
 ]
-LaTeX Font Info:    Try loading font information for U+msa on input line 558.
+LaTeX Font Info:    Try loading font information for U+msa on input line 540.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 558.
+LaTeX Font Info:    Try loading font information for U+msb on input line 540.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -569,7 +565,7 @@ Overfull \hbox (876.0pt too wide) has occurred while \output is active
 
 
 ]
-Overfull \hbox (6.1181pt too wide) in paragraph at lines 677--700
+Overfull \hbox (6.1181pt too wide) in paragraph at lines 677--701
  [][] 
  []
 
@@ -583,7 +579,7 @@ Overfull \hbox (876.0pt too wide) has occurred while \output is active
 
 
 ]
-Underfull \hbox (badness 2277) in paragraph at lines 722--724
+Underfull \hbox (badness 2277) in paragraph at lines 723--725
 \T1/ptm/m/n/10 con-tin-u-ous state and ac-tion spaces de-fined by the tu-
  []
 
@@ -595,13 +591,13 @@ Package epstopdf Info: Source file: <fogmodel.eps>
 (epstopdf)                    size: 65520 bytes
 (epstopdf)             Command: <epstopdf --outfile=fogmodel-eps-converted-to.p
 df fogmodel.eps>
-(epstopdf)             \includegraphics on input line 741.
+(epstopdf)             \includegraphics on input line 742.
 Package epstopdf Info: Output file is already uptodate.
 <fogmodel-eps-converted-to.pdf, id=25, 294.09875pt x 363.3575pt>
 File: fogmodel-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fogmodel-eps-converted-to.pdf>
-Package pdftex.def Info: fogmodel-eps-converted-to.pdf used on input line 741.
+Package pdftex.def Info: fogmodel-eps-converted-to.pdf used on input line 742.
 (pdftex.def)             Requested size: 231.26378pt x 285.72415pt.
 Package epstopdf Info: Source file: <fogmodel2.eps>
 (epstopdf)                    date: 2019-01-06 17:17:37
@@ -611,14 +607,14 @@ Package epstopdf Info: Source file: <fogmodel2.eps>
 (epstopdf)                    size: 148686 bytes
 (epstopdf)             Command: <epstopdf --outfile=fogmodel2-eps-converted-to.
 pdf fogmodel2.eps>
-(epstopdf)             \includegraphics on input line 751.
+(epstopdf)             \includegraphics on input line 752.
 Package epstopdf Info: Output file is already uptodate.
 
 <fogmodel2-eps-converted-to.pdf, id=26, 294.09875pt x 363.3575pt>
 File: fogmodel2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fogmodel2-eps-converted-to.pdf>
-Package pdftex.def Info: fogmodel2-eps-converted-to.pdf used on input line 751.
+Package pdftex.def Info: fogmodel2-eps-converted-to.pdf used on input line 752.
 
 (pdftex.def)             Requested size: 231.26378pt x 285.72415pt.
  [5
@@ -626,13 +622,13 @@ Package pdftex.def Info: fogmodel2-eps-converted-to.pdf used on input line 751.
  <./fogmodel-eps-converted-to.pdf> <./fogmodel2-eps-converted-to.pdf>] [6] (MLI
 oT.aux) ) 
 Here is how much of TeX's memory you used:
- 5822 strings out of 493334
- 83743 string characters out of 3139231
- 273318 words of memory out of 3000000
- 9201 multiletter control sequences out of 15000+200000
+ 5631 strings out of 493334
+ 81473 string characters out of 3139231
+ 172489 words of memory out of 3000000
+ 9014 multiletter control sequences out of 15000+200000
  122683 words of font info for 131 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,19n,35p,993b,309s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,19n,35p,993b,282s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progr
 am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files
 /MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 
@@ -647,7 +643,7 @@ iles/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/f
 onts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/t
 imes/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
 
-Output written on MLIoT.pdf (6 pages, 382495 bytes).
+Output written on MLIoT.pdf (6 pages, 382652 bytes).
 PDF statistics:
  102 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
