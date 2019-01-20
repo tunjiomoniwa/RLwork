@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.1)  15 JAN 2019 19:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.1)  20 JAN 2019 01:32
 entering extended mode
 **./RL_Ideas.tex
 (RL_Ideas.tex
@@ -539,35 +539,43 @@ Underfull \hbox (badness 3849) in paragraph at lines 489--491
 rnet-of-
  []
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 514.
+LaTeX Font Info:    Try loading font information for U+msa on input line 511.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 514.
+LaTeX Font Info:    Try loading font information for U+msb on input line 511.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 2277) in paragraph at lines 514--516
+Package epstopdf Info: Source file: <ideafig1.eps>
+(epstopdf)                    date: 2019-01-19 23:04:08
+(epstopdf)                    size: 287098 bytes
+(epstopdf)             Output file: <ideafig1-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-01-20 00:47:33
+(epstopdf)                    size: 230847 bytes
+(epstopdf)             Command: <epstopdf --outfile=ideafig1-eps-converted-to.p
+df ideafig1.eps>
+(epstopdf)             \includegraphics on input line 525.
+Package epstopdf Info: Output file is already uptodate.
+
+<ideafig1-eps-converted-to.pdf, id=1, 693.59125pt x 599.23875pt>
+File: ideafig1-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ideafig1-eps-converted-to.pdf>
+Package pdftex.def Info: ideafig1-eps-converted-to.pdf used on input line 525.
+(pdftex.def)             Requested size: 231.26378pt x 199.80672pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
+
+
+ <./ideafig1-eps-converted-to.pdf>]
+Underfull \hbox (badness 2277) in paragraph at lines 540--542
 \T1/ptm/m/n/10 con-tin-u-ous state and ac-tion spaces de-fined by the tu-
  []
 
-Package epstopdf Info: Source file: <fogmodel.eps>
-(epstopdf)                    date: 2019-01-06 11:11:02
-(epstopdf)                    size: 146469 bytes
-(epstopdf)             Output file: <fogmodel-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-01-06 11:17:09
-(epstopdf)                    size: 65520 bytes
-(epstopdf)             Command: <epstopdf --outfile=fogmodel-eps-converted-to.p
-df fogmodel.eps>
-(epstopdf)             \includegraphics on input line 533.
-Package epstopdf Info: Output file is already uptodate.
-<fogmodel-eps-converted-to.pdf, id=1, 294.09875pt x 363.3575pt>
-File: fogmodel-eps-converted-to.pdf Graphic file (type pdf)
-
-<use fogmodel-eps-converted-to.pdf>
-Package pdftex.def Info: fogmodel-eps-converted-to.pdf used on input line 533.
-(pdftex.def)             Requested size: 231.26378pt x 285.72415pt.
 Package epstopdf Info: Source file: <fogmodel2.eps>
 (epstopdf)                    date: 2019-01-06 17:17:37
 (epstopdf)                    size: 239248 bytes
@@ -576,47 +584,50 @@ Package epstopdf Info: Source file: <fogmodel2.eps>
 (epstopdf)                    size: 148686 bytes
 (epstopdf)             Command: <epstopdf --outfile=fogmodel2-eps-converted-to.
 pdf fogmodel2.eps>
-(epstopdf)             \includegraphics on input line 543.
+(epstopdf)             \includegraphics on input line 560.
 Package epstopdf Info: Output file is already uptodate.
-
-<fogmodel2-eps-converted-to.pdf, id=2, 294.09875pt x 363.3575pt>
+<fogmodel2-eps-converted-to.pdf, id=46, 294.09875pt x 363.3575pt>
 File: fogmodel2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fogmodel2-eps-converted-to.pdf>
-Package pdftex.def Info: fogmodel2-eps-converted-to.pdf used on input line 543.
+Package pdftex.def Info: fogmodel2-eps-converted-to.pdf used on input line 560.
 
 (pdftex.def)             Requested size: 231.26378pt x 285.72415pt.
- [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
- <./fogmodel-eps-converted-to.pdf>] [2 <./fogmodel2-eps-converted-to.pdf>] [3
+LaTeX Warning: Reference `fogmodel' on page 2 undefined on input line 568.
 
-] (RL_Ideas.aux) ) 
+[2 <./fogmodel2-eps-converted-to.pdf>] [3
+
+] (RL_Ideas.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 5589 strings out of 493334
- 80976 string characters out of 3139231
- 162458 words of memory out of 3000000
- 8983 multiletter control sequences out of 15000+200000
- 107652 words of font info for 112 fonts, out of 3000000 for 9000
+ 5598 strings out of 493334
+ 81092 string characters out of 3139231
+ 161467 words of memory out of 3000000
+ 8991 multiletter control sequences out of 15000+200000
+ 108759 words of font info for 113 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,6n,35p,820b,303s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
-y10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utm
-ri8a.pfb>
-Output written on RL_Ideas.pdf (3 pages, 364209 bytes).
+ 42i,6n,35p,1129b,307s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb>
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/ut
+mr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on RL_Ideas.pdf (3 pages, 532649 bytes).
 PDF statistics:
- 93 PDF objects out of 1000 (max. 8388607)
+ 117 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -505,8 +505,34 @@ Reinforcement learning (RL), Internet-of-Things (IoT), Fog-based IoT, Markov dec
 % creates the second title. It will be ignored for other modes.
 \IEEEpeerreviewmaketitle
 
+
 \section{Ideas1}
 \label{sec:Idea1}
+For services to be effectively delivered, it is important to ensure that the communication outage within the network is greatly minimized. In Fig. \ref{ideafig1}, we present a scenario where~$n$ number of IoT sensors try to send data/service request to a remote fog device, which has some unique computational/processing capability. Considering the nature of deployment of IoT devices, as well as the tendency for high level of network disruption due to potential obstacles in homes, hospitals and offices, etc., there is a need for online learning of devices to ensure interrupted communication. In addition to obstacles, the destination device may be to far from the sending node, as such, it is possible to leverage fog devices to improve the reliability in the network link. The motivation for this idea was based on some very practical examples, the Industrial IoT (IIoT) and Intelligent monitoring, where industrial robots and surveillance drones could be deployed as relays for meeting stringent quality-of-service(QoS) requirements.
+ 
+\subsection{Problem Formulation}
+In Fig. \ref{ideafig1}, we present a situation where different IoT end-devices, inclusive of smart things embedded with sensors (smart meters, traffic lights, washing machine, dish-washers, herds, or even a sick patient being monitored, etc.), which can send data/service request to a remote fog service provider via a potential relay node. However, there may be change in the topology of the network or even in the environment, making it difficult for data collection/service provision. Moreover, the environment may be too hazardous for human control. Some level of intelligence is expected from the relay node/agent (RN). The RN learns to optimize its position and adjust it's power-level to minimize the communication outage.
+
+\begin{enumerate}
+  \item Actions: The RN may lower/increase its power level to save energy or increase it to ensure better communication. Also, the RN may change its position (2D/3D) depending on the scenario considered.
+  \item Goal of the RN is to effectively minimize the communication cost by carrying out some actions. We may also consider optimizing fairness by effective scheduling.
+  \item State: The states may be divided into time steps. At each time step, the RN transmits and is in a different position and power-control level.
+  \item Reward: When the RN uses maximum power or moves in a direction that maximizes the communication outage, then a negative reward is received, otherwise, a positive reward is received.
+\end{enumerate}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3.2in]{ideafig1.eps}
+ %where an .eps filename suffix will be assumed under latex,
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{System model for Idea1.}
+\label{ideafig1}
+\end{figure}
+
+
+\section{Ideas2a}
+\label{sec:Idea2a}
 \subsection{Problem Formulation}
 
 Devices/agents in an IoT network are resource-constrained, as such, it will be proper to deploy lightweight RL-based techniques that will improve the performance of the network. Furthermore, we may have to experiment on a very dynamic environment considering factors that depict a realistic IoT scenario to meet strict quality-of-service requirements.
@@ -528,15 +554,6 @@ q(s_0, a_0, s_1, a_1, ..., s_N) = p_0(s_0) \prod_{i=0}^{N-1} \pi(a_i|s_i) p(s_{i
 \end{equation}
 
 
-\begin{figure}[!t]
-\centering
-\includegraphics[width=3.2in]{fogmodel.eps}
- %where an .eps filename suffix will be assumed under latex,
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-\caption{System model depicting the role of fog agents in a dynamic and heterogenous IoT environment.}
-\label{fogmodel}
-\end{figure}
 
 \begin{figure}[!t]
 \centering
