@@ -583,21 +583,21 @@ Over the years, many perceived difficult sub-problems have began to receive rese
 \indent
     \begin{enumerate}[leftmargin=*,label= \arabic*)]
       \item \textit{Energy allocation and utilization within the network}: IoT devices deplete energy in several ways, such as when transmitting and receiving data, listening to the medium, performing computation or even changing position. There exist several works that have used RL and its variants to optimize energy usage in different domains, some of which could be modified to suit the resource-limitation in the typical IoT domain. Zhong \emph{et al.} in \cite{Zhong2018} designed sensor energy utilization and power allocation in IoT sensors to maximize the total data throughput of the system. They proposed a low-complexity algorithm to optimally solve the two formulated sub-problems. The energy utilization sub-problem was formulated as a MDP, while the power allocation sub-problem was approached using discrete optimization. The proposed algorithm performed better than some simple heuristics when simulated. However, the work considered a scenario where the channel state is perfectly known.
-          
+
           A Markov-based analytical model was integrated with a RL process in Conti \emph{et al.} \cite{Conti2017} to optimize the server activation policy, where optimal control of an energy storage system in a green fog-computing node is needed to improve the system performance, hereby allowing the system to bear high job arrivals even at low-power generation periods. The fog-computing nodes used in this work are not typical of those used in a typical fog-based IoT environment. A Q-learning-based adaptive power management was proposed by Debizet \emph{et al.} in \cite{Debizet2018} to optimize the power consumed during the suspend state of an Internet-of-Things (loT) System-on-Chip (SoC) with eight embedded power states. The algorithm out-performed some expert-based solution for most suspend sequences under 12000 cycles, however, with an additional power cost. Just like the traditional IoT architecture, the fog-based IoT networks are often power-constrained and as such, require low complexity learning algorithms to optimize the energy utilization.
 
        \item \textit{Latency Minimization}: Mission-critical and delay-sensitive IoT application can effectively leverage the intelligence of some RL techniques. An RL approach that made use of evolution strategies for real-time task assignment among fog servers was introduced by Mai \emph{et al.} in \cite{Mai2018} to minimize the total computation latency during a long-term period. The paper claimed that the proposed model is scalable when the number of IoT devices increases, however, no experimentations were carried out on a real-world IoT scenario. A dynamic programming based duty cycle control technique was employed by Li \emph{et al.} in \cite{Li2014} to provide an optimal solution to an inventory control problem. The focus was on optimizing the duty cycle by jointly considering energy efficiency, end-to-end delay and reliability of the network. A two-hop cluster tree network model was used in the work. A distributed multi-agent Q-learning algorithm was proposed by Liu \emph{et al.} in \cite{Liu2017} to optimize both the motorized and non-motorized traffic. The work considered several constraints to help depict real operational scenarios. The paper applied AI powered Internet-of-Things (AIoT) technologies for traffic light control, which is a key to the success of ITS. However, the approach was limited to stationary agents. A dynamic programming approach was deployed by Routray \emph{et al.} in \cite{routray2017} to provide near optimal results under high traffic conditions in an IoT network scenario with consideration for node mobility. A DP approach was used in routing in a dynamically changing network. However, all the nodes in the network were assumed to be routers, which is often not the case in a typical IoT environment.
-           
+
            Despite the interesting proximity feature of IoT end-devices to the network edge in the fog-based IoT network, delay is prevalent due to several bottlenecks, which may lead system failure or operational hazard for critical applications. These techniques may be used to minimize the delay especially for high priority communications.
-           
+
       \item \textit{Channel assessment and intelligent routing}: Prior to communicating via a link, it is very useful for nodes within the network to assess the communication medium. Learning by experience using some RL techniques will go a long way in minimizing number of loss packets in highly stochastic IoT environment. A Q-learning relay selection algorithm was introduced by Jadoon \emph{et al.} in \cite{Jadoon2017} to maximize the throughput in a typical cooperative network with relays supporting communication between source and destination. The relays were assumed to be the states, with three possible actions of remaining in the present state with relay~$r$ or choosing~$r + 1$ or~$r - 1$. However, the outage analysis was carried out without a closed-form expression for the outage probability within the network. Furthermore, in an attempt to reduce the complexity of the formulated problem, the problem algorithm did not consider the relays (states) which do not satisfy the minimum mutual information constraint. A scalable parallel Q-learning algorithm was introduced by Camelo \emph{et al.} in \cite{Camelo2016} to minimize communication cost. The work considered distributed and resource-constrained environment. A Q-learning-based duty cycle control technique was introduced by Li \emph{et al.} in \cite{Li2015} to provide improved performance and reliable M2M communication for IoT applications. However, the proposed Q-learning based duty cycle control only considered a two-hop cluster tree network in evaluating the performance of the system.
           %Furthermore, fog nodes/agents can learn the optimal route that will not only maximize the immediate reward, but future rewards, which may be based on the agent achieving certain targets.
-          
+
       \item \textit{Scheduling}: Wen \emph{et al.} in \cite{Wen15} formulated an automated energy management system (EMS) rescheduling problem as a reinforcement learning (RL) problem. Simulations were carried out using Q-learning technique on a specific scenario with good results. The paper considers the EMS to act as an agent for energy users. A variant of Q-learning, Deep Q-learning, was introduced by Zhu \emph{et al.} in \cite{Zhu2018} to maximize system throughput by applying appropriate scheduling strategy for cognitive radio-based IoT networks. This work performed poorly when compared with the strategy iteration algorithm, though with a reduced computational complexity.
-          
+
       \item \textit{Resource Allocation and Services}: An RL-based resource allocation in fog radio access networks was presented by Nassar \emph{et al.} in \cite{Nassar} for various IoT environments
-      
-      
+
+
       A cooperative reinforcement learning algorithm was introduced by Khan \emph{et al.} in \cite{Khan2018} for adaptive power allocation in D2D communication. When compared with the Distributed RL algorithm, the proposed approach provides better system throughput as well as D2D throughput with less interference to pave way for the massive MTC in IoT. However, the experiments were conducted in a single cell. The RL-based mapping table (RLMT) and RL-based resource allocation algorithms were introduced  by Gai \emph{et al.} in \cite{Gai2018} to handle cost mapping tables creation and for optimal resource allocation in IoT content-centric services. The work was limited to the use QoE in examining service level, which allowed a dynamic resource allocation and avoided a fixed task table. A semi-supervised DRL model that suits IoT and smart city services was introduced in Mohammadi \emph{et al.} in \cite{Mohammadi2018}, using both labeled and unlabeled data for performance improvement and accuracy in the learning agent. The work employed an indoor localization based on the Bluetooth low energy signal strength, and limited its findings to a single floor of a building.
 
       \item \textit{Federation and support for ubiquity of IoT devices}: Despite system dynamics and heterogeneity within the ultra-distributed IoT environment, it is important for devices which are mobile to move seamlessly without degradation of the quality of service (QoS) when communicating. Moreover, the communication should be ubiquitous irrespective of technology or domain within the system. As such, the RL techniques will play a very important role in areas of IoT device/service discovery, which will support adaptability and interfacing between devices and sub-networks within the IoT.
@@ -606,6 +606,26 @@ Over the years, many perceived difficult sub-problems have began to receive rese
     \end{enumerate}
 
 
+\begin{table}
+\small
+\centering
+\caption{Simulation Parameters}
+\label{table:parameters}
+\begin{tabular}{ll}
+  \hline
+ \textit{Parameters} & \textit{Value} \\
+  \hline \hline
+   Iterations & 1000\\
+   Number of simulations & 400\\
+   Maximum transmit power~$P_{max}$  & 20 \emph{dBm}\\
+   Noise power~$N_0$ & $-99$ \emph{dBm}\\
+   Path-loss exponent~$\alpha$ & 3\\
+   Tolerance~$\epsilon$ & $-10^{-2}$\\
+   %Mobility constraint~$\varrho$  & 0.1 \emph{m}\\
+      \hline \hline
+ \end{tabular}
+ \end{table}
+ 
 
 
 \section{New Section}
