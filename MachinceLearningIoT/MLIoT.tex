@@ -597,10 +597,7 @@ Over the years, many perceived difficult sub-problems have began to receive rese
 
       \item \textit{Scheduling}: Wen \emph{et al.} in \cite{Wen15} formulated an automated energy management system (EMS) rescheduling problem as a reinforcement learning (RL) problem. Simulations were carried out using Q-learning technique on a specific scenario with good results. The paper considers the EMS to act as an agent for energy users. A variant of Q-learning, Deep Q-learning, was introduced by Zhu \emph{et al.} in \cite{Zhu2018} to maximize system throughput by applying appropriate scheduling strategy for cognitive radio-based IoT networks. This work performed poorly when compared with the strategy iteration algorithm, though with a reduced computational complexity.
 
-      \item \textit{Resource Allocation and Services}: An RL-based resource allocation in fog radio access networks was presented by Nassar \emph{et al.} in \cite{Nassar} for various IoT environments
-
-
-      A cooperative reinforcement learning algorithm was introduced by Khan \emph{et al.} in \cite{Khan2018} for adaptive power allocation in D2D communication. When compared with the Distributed RL algorithm, the proposed approach provides better system throughput as well as D2D throughput with less interference to pave way for the massive MTC in IoT. However, the experiments were conducted in a single cell. The RL-based mapping table (RLMT) and RL-based resource allocation algorithms were introduced  by Gai \emph{et al.} in \cite{Gai2018} to handle cost mapping tables creation and for optimal resource allocation in IoT content-centric services. The work was limited to the use QoE in examining service level, which allowed a dynamic resource allocation and avoided a fixed task table. A semi-supervised DRL model that suits IoT and smart city services was introduced in Mohammadi \emph{et al.} in \cite{Mohammadi2018}, using both labeled and unlabeled data for performance improvement and accuracy in the learning agent. The work employed an indoor localization based on the Bluetooth low energy signal strength, and limited its findings to a single floor of a building.
+      \item \textit{Resource Allocation and Services}: An RL-based resource allocation in fog radio access networks was presented by Nassar \emph{et al.} in \cite{Nassar} for various IoT environments. A cooperative reinforcement learning algorithm was introduced by Khan \emph{et al.} in \cite{Khan2018} for adaptive power allocation in D2D communication. When compared with the Distributed RL algorithm, the proposed approach provides better system throughput as well as D2D throughput with less interference to pave way for the massive MTC in IoT. However, the experiments were conducted in a single cell. The RL-based mapping table (RLMT) and RL-based resource allocation algorithms were introduced  by Gai \emph{et al.} in \cite{Gai2018} to handle cost mapping tables creation and for optimal resource allocation in IoT content-centric services. The work was limited to the use QoE in examining service level, which allowed a dynamic resource allocation and avoided a fixed task table. A semi-supervised DRL model that suits IoT and smart city services was introduced in Mohammadi \emph{et al.} in \cite{Mohammadi2018}, using both labeled and unlabeled data for performance improvement and accuracy in the learning agent. The work employed an indoor localization based on the Bluetooth low energy signal strength, and limited its findings to a single floor of a building.
 
 
 
@@ -610,23 +607,54 @@ Over the years, many perceived difficult sub-problems have began to receive rese
 \begin{table}
 \small
 \centering
-\caption{Simulation Parameters}
-\label{table:parameters}
+\caption{Some related works addressing key issues}
+\label{table:refissues}
 \begin{tabular}{ll}
   \hline
- \textit{Parameters} & \textit{Value} \\
+ \textit{Issues} & \textit{Some related works} \\
   \hline \hline
-   Iterations & 1000\\
-   Number of simulations & 400\\
-   Maximum transmit power~$P_{max}$  & 20 \emph{dBm}\\
-   Noise power~$N_0$ & $-99$ \emph{dBm}\\
-   Path-loss exponent~$\alpha$ & 3\\
-   Tolerance~$\epsilon$ & $-10^{-2}$\\
-   %Mobility constraint~$\varrho$  & 0.1 \emph{m}\\
+   Energy allocation and utilization & \cite{Zhong2018}, \cite{Conti2017}, \cite{Debizet2018}\\
+   Latency Minimization & \cite{Mai2018}, \cite{Li2014}, \cite{Liu2017}, \cite{routray2017}\\
+   Channel assessment and intelligent routing  & \cite{Jadoon2017}, \cite{Camelo2016}, \cite{Li2015} \\
+   Scheduling & \cite{Wen15}, \cite{Zhu2018}\\
+   Resource Allocation and Services & \cite{Nassar}, \cite{Khan2018}, \cite{Gai2018}, \cite{Mohammadi2018}\\
+  
       \hline \hline
  \end{tabular}
  \end{table}
- 
+
+
+\begin{table}
+\small
+\centering
+\caption{Categories of different objectives within IoT}
+\label{table:objectives}
+\begin{tabular}{lll}
+  \hline
+ \textit{Objective} & Work & Category \\
+  \hline \hline
+   Maximize data throughput &~\cite{Zhong2018} & SA-based\\
+                            &~\cite{Jadoon2017} & MA-based\\ \hline
+   Optimize server activation policy &~\cite{Conti2017} &  SA-based\\ \hline
+   Minimize computational latency&~\cite{Mai2018} & MA-based\\ \hline
+   Optimize duty cycle&~\cite{Li2014} & MP-based\\ \hline
+   Optimize traffic  &~\cite{routray2017} & MA-based \\ 
+                     &~\cite{Liu2017} & MA-based \\ \hline
+   Minimize communication cost &~\cite{OmoniwaRelay2018}  & SA-based\\
+                                &~\cite{Li2015}  & SA-based\\ 
+                                &~\cite{Camelo2016} & MA-based\\\hline
+   Optimize scheduling strategy &~\cite{Wen15} & SA-based\\
+                                &~\cite{Zhu2013} & SA-based\\ \hline
+   Optimize power allocation &~\cite{Khan2018} & MA-based\\ \hline
+   Optimize resource allocation &~\cite{Gai2018} & SA-based\\
+                                &~\cite{Mohammadi2018} & SA-based\\
+      
+     
+   
+      \hline \hline
+ \end{tabular}
+ \end{table}
+
 
 \section{New Section}
 
