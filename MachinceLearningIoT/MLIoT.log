@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  22 JAN 2019 17:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  25 JAN 2019 11:32
 entering extended mode
 **./MLIoT.tex
 (MLIoT.tex
@@ -560,21 +560,15 @@ Overfull \hbox (6.26813pt too wide) in paragraph at lines 612--624
  []
 
 [3]
-
-LaTeX Warning: Float too large for page by 34.77136pt on input line 722.
-
-
-Overfull \hbox (876.0pt too wide) has occurred while \output is active
-[] []|[] []
+Overfull \hbox (2.55054pt too wide) in paragraph at lines 672--684
+ [][] 
  []
 
 [4
 
-
 ]
-Overfull \hbox (6.1181pt too wide) in paragraph at lines 736--764
- [][] 
- []
+
+LaTeX Warning: Float too large for page by 34.77136pt on input line 765.
 
 
 Overfull \hbox (876.0pt too wide) has occurred while \output is active
@@ -584,15 +578,30 @@ Overfull \hbox (876.0pt too wide) has occurred while \output is active
 [5
 
 
+]
+Overfull \hbox (6.1181pt too wide) in paragraph at lines 779--807
+ [][] 
+ []
 
-] [6
+
+Overfull \hbox (876.0pt too wide) has occurred while \output is active
+[] []|[] []
+ []
+
+[6
+
+
+
+] [7
+
+] [8
 
 ] (MLIoT.aux) ) 
 Here is how much of TeX's memory you used:
- 5921 strings out of 492946
- 87264 string characters out of 3135087
- 179791 words of memory out of 3000000
- 9674 multiletter control sequences out of 15000+200000
+ 5935 strings out of 492946
+ 87430 string characters out of 3135087
+ 178852 words of memory out of 3000000
+ 9688 multiletter control sequences out of 15000+200000
  122683 words of font info for 131 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,19n,35p,1790b,304s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -607,9 +616,9 @@ fonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/urw/times/utmb8a.p
 fb><C:/Program Files/MiKTeX 2.90/fonts/type1/urw/times/utmbi8a.pfb><C:/Program 
 Files/MiKTeX 2.90/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9
 0/fonts/type1/urw/times/utmri8a.pfb>
-Output written on MLIoT.pdf (6 pages, 148313 bytes).
+Output written on MLIoT.pdf (8 pages, 154539 bytes).
 PDF statistics:
- 66 PDF objects out of 1000 (max. 8388607)
+ 74 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

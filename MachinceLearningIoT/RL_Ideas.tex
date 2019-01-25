@@ -509,7 +509,7 @@ Reinforcement learning (RL), Internet-of-Things (IoT), Fog-based IoT, Markov dec
 \section{Idea 1}
 \label{sec:Idea1}
 For services to be effectively delivered, it is important to ensure that the communication outage within the network is greatly minimized. In Fig. \ref{ideafig1}, we present a scenario where~$n$ number of IoT sensors try to send data/service request to a remote fog device, which has some unique computational/processing capability. Considering the nature of deployment of IoT devices, as well as the tendency for high level of network disruption due to potential obstacles in homes, hospitals and offices, etc., there is a need for online learning of devices to ensure interrupted communication. In addition to obstacles, the destination device may be to far from the sending node, as such, it is possible to leverage fog devices to improve the reliability in the network link. The motivation for this idea was based on some very practical examples, the Industrial IoT (IIoT) and Intelligent monitoring, where industrial robots and surveillance drones could be deployed as relays for meeting stringent quality-of-service(QoS) requirements.
- 
+
 \subsection{Problem Formulation}
 In Fig. \ref{ideafig1}, we present a situation where different IoT end-devices, inclusive of smart things embedded with sensors (smart-meters, smart-watches, traffic lights, washing machine, dish-washers, herds, or even a sick patient being monitored, etc.), which can send data/service request to a remote fog service provider via a potential relay node. However, there may be change in the topology of the network or even in the environment, making it difficult for data collection/service provision. Moreover, the environment may be too hazardous for human control. Some level of intelligence is expected from the relay node/agent (RN). The RN learns to optimize its position and adjust it's power-level to minimize the communication outage.
 
@@ -517,7 +517,7 @@ In Fig. \ref{ideafig1}, we present a situation where different IoT end-devices, 
   \item Actions: The RN may lower/increase its power level to save energy or increase it to ensure better communication. Also, the RN may change its position (2D/3D) depending on the scenario considered.
   \item Goal of the RN is to effectively minimize the communication cost by carrying out some actions. We may also consider optimizing fairness by effective scheduling.
   \item State: The states may be divided into time steps. At each time step, the RN transmits and is in a different position and power-control level.
-  \item Reward/cost: When the RN uses maximum power or moves in a direction that maximizes the communication outage, then a negative reward is received, otherwise, a positive reward is received. Also, minimizing the energy consumed by the devices yields positive rewards. 
+  \item Reward/cost: When the RN uses maximum power or moves in a direction that maximizes the communication outage, then a negative reward is received, otherwise, a positive reward is received. Also, minimizing the energy consumed by the devices yields positive rewards.
 \end{enumerate}
 
 \begin{figure}[!t]
@@ -714,6 +714,50 @@ G. M. Dias, M. Nurchis and B. Bellalta, "Adapting sampling interval of sensor ne
 
 \bibitem{Camelo2016}
 M. Camelo and J. F. a. S. Latré, "A Scalable Parallel Q-Learning Algorithm for Resource Constrained Decentralized Computing Environments," 2016 2nd Workshop on Machine Learning in HPC Environments (MLHPC), Salt Lake City, UT, 2016, pp. 27-35.
+
+\bibitem{Nassar}
+A. T. Nassar, and Y. Yilmaz, ``Reinforcement-Learning-Based Resource Allocation in Fog Radio Access Networks for Various IoT Environments,'' Arxiv
+
+%% Works on WSN
+
+\bibitem{Chen2008}
+M. Chen, T. Kwon, S. Mao, Y. Yuan and V. C. M. Leung, ``Reliable and energy-efficient routing protocol in dense wireless sensor networks,'' Int. J. Sen. Netw.
+ vol. 4, no. 1/2, pp. 104-117, July 2008.
+
+\bibitem{Chen2011}
+M. Chen, M. Qiu, L. Liao, J. Park and J. Ma, ``Distributed multi-hop cooperative communication in dense wireless sensor networks'', \emph{The Journal of Supercomputing,} vol. 56, no. 3, pp. 353-369, June 2011.
+
+\bibitem{Liang2009}
+Xuedong Liang, Min Chen, Yang Xiao, I. Balasingham and V. C. M. Leung, ``A novel cooperative communication protocol for QoS provisioning in wireless sensor networks,'' 2009 5th International Conference on Testbeds and Research Infrastructures for the Development of Networks and Communities and Workshops, Washington, DC, 2009, pp. 1-6.
+
+\bibitem{Mihaylov}
+M. Mihaylov and Y. L. Borgne, ``Decentralised reinforcement learning for energy-efficient scheduling in wireless sensor networks,'' Int. J. Communication Networks and Distributed Systems, Vol. 9, Nos. 3/4, 2012
+
+\bibitem{Shah2007}
+K. Shah and M. Kumar, ``Distributed Independent Reinforcement Learning (DIRL) Approach to Resource Management in Wireless Sensor Networks,'' 2007 IEEE International Conference on Mobile Adhoc and Sensor Systems, Pisa, 2007, pp. 1-9.
+
+\bibitem{Shah2013}
+K. Shah, M. D. Francesco and M. Kumar, ``Distributed resource management in wireless sensor networks using reinforcement learning,'' Wireless Networks, 
+vol. 19, no. 5, pp. 705-724, July 2013.
+
+\bibitem{Yau2012}
+K.-L. A. Yau, P. Komisarczuk, P. D. Teal, ``Reinforcement learning for context awareness and intelligence in wireless
+networks: Review, new features and open issues,'' Journal of Network and Computer Applications, vol. 35, no. 1, pp. 253-267, Jan. 2012.
+
+\bibitem{Yau2015}
+K.-L. A. Yau, H. G. Goh, D. Chieng and K. H. Kwong, ``Application of reinforcement learning to wireless sensor networks: models and algorithms,'' Computing, vol. 97, no. 11, pp. 1045–1075, Nov. 2015.
+
+\bibitem{Forster2008}
+A. Forster, A. L. Murphy, J. Schiller and K. Terfloth, "An Efficient Implementation of Reinforcement Learning Based Routing on Real WSN Hardware," 2008 IEEE International Conference on Wireless and Mobile Computing, Networking and Communications, Avignon, 2008, pp. 247-252.
+
+\bibitem{Forster2009}
+A. Forster and A. L. Murphy, "CLIQUE: Role-Free Clustering with Q-Learning for Wireless Sensor Networks," 2009 29th IEEE International Conference on Distributed Computing Systems, Montreal, QC, 2009, pp. 441-449.
+
+\bibitem{Forster2007}
+A. Egorova-Forster and A. L. Murphy, "Exploiting Reinforcement Learning for Multiple Sink Routing in WSNs," 2007 IEEE International Conference on Mobile Adhoc and Sensor Systems, Pisa, 2007, pp. 1-3.
+
+\bibitem{Forster2007FROMS}
+A. Forster and A. L. Murphy, "FROMS: Feedback Routing for Optimizing Multiple Sinks in WSN with Reinforcement Learning," 2007 3rd International Conference on Intelligent Sensors, Sensor Networks and Information, Melbourne, Qld., 2007, pp. 371-376.
 
 \end{thebibliography}
 

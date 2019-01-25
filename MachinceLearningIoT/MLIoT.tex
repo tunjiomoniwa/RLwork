@@ -578,7 +578,7 @@ Q_{t + 1}(s_t, a_t) &:= Q_{t}(s_t, a_t)\\
 
 \subsubsection{Asynchronous Advantage Actor-Critic (A3C)}
 
-\subsection{Related Works}
+\subsection{Related Works in IoT}
 Over the years, many perceived difficult sub-problems have began to receive research attention, some of which are categorized as follows.
 \indent
     \begin{enumerate}[leftmargin=*,label= \arabic*)]
@@ -607,7 +607,7 @@ Over the years, many perceived difficult sub-problems have began to receive rese
 \begin{table}
 \small
 \centering
-\caption{Some related works addressing key issues}
+\caption{Some IoT related works addressing key issues}
 \label{table:refissues}
 \begin{tabular}{ll}
   \hline
@@ -618,7 +618,7 @@ Over the years, many perceived difficult sub-problems have began to receive rese
    Channel assessment and intelligent routing  & \cite{Jadoon2017}, \cite{Camelo2016}, \cite{Li2015} \\
    Scheduling & \cite{Wen15}, \cite{Zhu2018}\\
    Resource Allocation and Services & \cite{Nassar}, \cite{Khan2018}, \cite{Gai2018}, \cite{Mohammadi2018}\\
-  
+
       \hline \hline
  \end{tabular}
  \end{table}
@@ -631,32 +631,75 @@ Over the years, many perceived difficult sub-problems have began to receive rese
 \label{table:objectives}
 \begin{tabular}{lll}
   \hline
- \textit{Objective} & Work & Category \\
+ \textit{Objective} & \textit{Work} & \textit{Category} \\
   \hline \hline
    Maximize data throughput &~\cite{Zhong2018} & SA-based\\
                             &~\cite{Jadoon2017} & MA-based\\ \hline
    Optimize server activation policy &~\cite{Conti2017} &  SA-based\\ \hline
    Minimize computational latency&~\cite{Mai2018} & MA-based\\ \hline
    Optimize duty cycle&~\cite{Li2014} & MP-based\\ \hline
-   Optimize traffic  &~\cite{routray2017} & MA-based \\ 
+   Optimize traffic  &~\cite{routray2017} & MA-based \\
                      &~\cite{Liu2017} & MA-based \\ \hline
    Minimize communication cost &~\cite{OmoniwaRelay2018}  & SA-based\\
-                                &~\cite{Li2015}  & SA-based\\ 
+                                &~\cite{Li2015}  & SA-based\\
                                 &~\cite{Camelo2016} & MA-based\\\hline
    Optimize scheduling strategy &~\cite{Wen15} & SA-based\\
                                 &~\cite{Zhu2013} & SA-based\\ \hline
    Optimize power allocation &~\cite{Khan2018} & MA-based\\ \hline
    Optimize resource allocation &~\cite{Gai2018} & SA-based\\
                                 &~\cite{Mohammadi2018} & SA-based\\
-      
-     
-   
+
+
+
       \hline \hline
  \end{tabular}
  \end{table}
 
 
-\section{New Section}
+\subsection{Works in WSN}
+
+In \cite{Chen2008}, a reliable and energy-efficient routing (REER) protocol was proposed using a geographic routing approach. The work considered the idea of a central entity, called a reference node (RN), which is assumed to be situated at an ideal location between source and destination. Several other cooperative nodes, which contend to relay data, are assumed to be situated around the RN. The work was able to examine the trade-off between reliability and energy-efficiency when the distances between RNs was adjusted. The work in \cite{Chen2011} proposed an improvement to \cite{Chen2008}, addressing the issue of scalability in a dynamic network. As such, a novel distributed multi-hop cooperative communication scheme (DMC) was proposed to improve certain QoS metrics such as the communication energy, hop count, and end-to-end delay. However, both works assumed complete prior knowledge of the network environment.
+In \cite{Liang2009}, a multi-agent reinforcement learning-based multi-hop mesh cooperative (MRL-CC) mechanism for the improvement of some QoS metrics such as the end-to-end delay, packet delivery ratio in the WSNs. The work out-performed the work in \cite{Chen2009}, which incurred higher delay, and was distance-based, which is not suitable for a dynamic network environment. Though the mobility of the cooperative nodes were taken into account when learning the optimal policy, the MRL-CC failed to consider the power dissipated by the power-constrained devices.
+
+A self-organizing RL technique for scheduling the wake-up cycles of nodes was proposed in \cite{Mihaylov} to effectively ensure the successful delivery of messages along a routing tree while minimizing interference. A node synchronization /desynchronization strategy was used to minimize interferences, as well as decrease the data retrieval and energy consumption. Experimentation was carried using three static topologies (line, mesh and grid) with results averaged over 50 runs, however, this does not depict a typical dynamic IoT environment. In \cite{Shah2007}, a distributed independent reinforcement learning (DIRL) techniques, which is based on Q-learning, was introduced to allow autonomous self-learning applications with inherent support for efficient task management. The DIRL approach showed significant performance improvement when compared to traditional static scheduling schemes. A resource management framework based on a two-tier RL scheme was proposed in \cite{Shah2013} to enable autonomous self-learning and adaptive applications with inherent support for efficient resource management. However, the works~\cite{Shah2007, Shah2013} only considered task scheduling. 
+
+
+\begin{table}
+\small
+\centering
+\caption{Some WSN related works addressing key issues}
+\label{table:refissuesWSN}
+\begin{tabular}{ll}
+  \hline
+ \textit{Issues} & \textit{Some related works} \\
+  \hline \hline
+   Energy allocation and utilization &  \cite{Chen2008}, \cite{Chen2011} \\
+   Latency Minimization &  \cite{Liang2009}, \cite{Chen2009}    \\
+   Channel assessment and intelligent routing  &     \\
+   Scheduling &  \cite{Mihaylov}    \\
+   Resource Allocation and Services & \cite{Shah2007}, \cite{Shah2013}\\
+
+      \hline \hline
+ \end{tabular}
+ \end{table}
+
+\subsection{Justification}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \pagestyle{empty}
 \begin{landscape}
@@ -924,6 +967,49 @@ M. Camelo and J. F. a. S. Latré, "A Scalable Parallel Q-Learning Algorithm for 
 
 \bibitem{Nassar}
 A. T. Nassar, and Y. Yilmaz, ``Reinforcement-Learning-Based Resource Allocation in Fog Radio Access Networks for Various IoT Environments,'' Arxiv
+
+%%%%%%%%%%%%%%WSN
+\bibitem{Chen2008}
+M. Chen, T. Kwon, S. Mao, Y. Yuan and V. C. M. Leung, ``Reliable and energy-efficient routing protocol in dense wireless sensor networks,'' Int. J. Sen. Netw.
+ vol. 4, no. 1/2, pp. 104-117, July 2008.
+ 
+\bibitem{Chen2011}
+M. Chen, M. Qiu, L. Liao, J. Park and J. Ma, ``Distributed multi-hop cooperative communication in dense wireless sensor networks'', \emph{The Journal of Supercomputing,} vol. 56, no. 3, pp. 353-369, June 2011.
+
+\bibitem{Liang2009}
+Xuedong Liang, Min Chen, Yang Xiao, I. Balasingham and V. C. M. Leung, ``A novel cooperative communication protocol for QoS provisioning in wireless sensor networks,'' 2009 5th International Conference on Testbeds and Research Infrastructures for the Development of Networks and Communities and Workshops, Washington, DC, 2009, pp. 1-6.
+
+\bibitem{Chen2009}
+M. Chen, Xuedong Liang, V. Leung and I. Balasingham, "Multi-hop mesh cooperative structure based data dissemination for wireless sensor networks," 2009 11th International Conference on Advanced Communication Technology, Phoenix Park, 2009, pp. 102-106.
+
+\bibitem{Mihaylov}
+M. Mihaylov and Y. L. Borgne, ``Decentralised reinforcement learning for energy-efficient scheduling in wireless sensor networks,'' Int. J. Communication Networks and Distributed Systems, Vol. 9, Nos. 3/4, 2012
+
+\bibitem{Shah2007}
+K. Shah and M. Kumar, ``Distributed Independent Reinforcement Learning (DIRL) Approach to Resource Management in Wireless Sensor Networks,'' 2007 IEEE International Conference on Mobile Adhoc and Sensor Systems, Pisa, 2007, pp. 1-9.
+
+\bibitem{Shah2013}
+K. Shah, M. D. Francesco and M. Kumar, ``Distributed resource management in wireless sensor networks using reinforcement learning,'' Wireless Networks,
+vol. 19, no. 5, pp. 705-724, July 2013.
+
+\bibitem{Yau2012}
+K.-L. A. Yau, P. Komisarczuk, P. D. Teal, ``Reinforcement learning for context awareness and intelligence in wireless
+networks: Review, new features and open issues,'' Journal of Network and Computer Applications, vol. 35, no. 1, pp. 253-267, Jan. 2012.
+
+\bibitem{Yau2015}
+K.-L. A. Yau, H. G. Goh, D. Chieng and K. H. Kwong, ``Application of reinforcement learning to wireless sensor networks: models and algorithms,'' Computing, vol. 97, no. 11, pp. 1045–1075, Nov. 2015.
+
+\bibitem{Forster2008}
+A. Forster, A. L. Murphy, J. Schiller and K. Terfloth, "An Efficient Implementation of Reinforcement Learning Based Routing on Real WSN Hardware," 2008 IEEE International Conference on Wireless and Mobile Computing, Networking and Communications, Avignon, 2008, pp. 247-252.
+
+\bibitem{Forster2009}
+A. Forster and A. L. Murphy, "CLIQUE: Role-Free Clustering with Q-Learning for Wireless Sensor Networks," 2009 29th IEEE International Conference on Distributed Computing Systems, Montreal, QC, 2009, pp. 441-449.
+
+\bibitem{Forster2007}
+A. Egorova-Forster and A. L. Murphy, "Exploiting Reinforcement Learning for Multiple Sink Routing in WSNs," 2007 IEEE International Conference on Mobile Adhoc and Sensor Systems, Pisa, 2007, pp. 1-3.
+
+\bibitem{Forster2007FROMS}
+A. Forster and A. L. Murphy, "FROMS: Feedback Routing for Optimizing Multiple Sinks in WSN with Reinforcement Learning," 2007 3rd International Conference on Intelligent Sensors, Sensor Networks and Information, Melbourne, Qld., 2007, pp. 371-376.
 
 
 \end{thebibliography}
