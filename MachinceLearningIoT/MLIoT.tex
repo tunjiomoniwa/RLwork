@@ -661,7 +661,12 @@ Over the years, many perceived difficult sub-problems have began to receive rese
 In \cite{Chen2008}, a reliable and energy-efficient routing (REER) protocol was proposed using a geographic routing approach. The work considered the idea of a central entity, called a reference node (RN), which is assumed to be situated at an ideal location between source and destination. Several other cooperative nodes, which contend to relay data, are assumed to be situated around the RN. The work was able to examine the trade-off between reliability and energy-efficiency when the distances between RNs was adjusted. The work in \cite{Chen2011} proposed an improvement to \cite{Chen2008}, addressing the issue of scalability in a dynamic network. As such, a novel distributed multi-hop cooperative communication scheme (DMC) was proposed to improve certain QoS metrics such as the communication energy, hop count, and end-to-end delay. However, both works assumed complete prior knowledge of the network environment.
 In \cite{Liang2009}, a multi-agent reinforcement learning-based multi-hop mesh cooperative (MRL-CC) mechanism for the improvement of some QoS metrics such as the end-to-end delay, packet delivery ratio in the WSNs. The work out-performed the work in \cite{Chen2009}, which incurred higher delay, and was distance-based, which is not suitable for a dynamic network environment. Though the mobility of the cooperative nodes were taken into account when learning the optimal policy, the MRL-CC failed to consider the power dissipated by the power-constrained devices.
 
-A self-organizing RL technique for scheduling the wake-up cycles of nodes was proposed in \cite{Mihaylov} to effectively ensure the successful delivery of messages along a routing tree while minimizing interference. A node synchronization /desynchronization strategy was used to minimize interferences, as well as decrease the data retrieval and energy consumption. Experimentation was carried using three static topologies (line, mesh and grid) with results averaged over 50 runs, however, this does not depict a typical dynamic IoT environment. In \cite{Shah2007}, a distributed independent reinforcement learning (DIRL) techniques, which is based on Q-learning, was introduced to allow autonomous self-learning applications with inherent support for efficient task management. The DIRL approach showed significant performance improvement when compared to traditional static scheduling schemes. A resource management framework based on a two-tier RL scheme was proposed in \cite{Shah2013} to enable autonomous self-learning and adaptive applications with inherent support for efficient resource management. However, the works~\cite{Shah2007, Shah2013} only considered task scheduling. 
+A self-organizing RL technique for scheduling the wake-up cycles of nodes was proposed in \cite{Mihaylov} to effectively ensure the successful delivery of messages along a routing tree while minimizing interference. A node synchronization /desynchronization strategy was used to minimize interferences, as well as decrease the data retrieval and energy consumption. Experimentation was carried using three static topologies (line, mesh and grid) with results averaged over 50 runs, however, this does not depict a typical dynamic IoT environment. In \cite{Shah2007}, a distributed independent reinforcement learning (DIRL) techniques, which is based on Q-learning, was introduced to allow autonomous self-learning applications with inherent support for efficient task management. The DIRL approach showed significant performance improvement when compared to traditional static scheduling schemes. A resource management framework based on a two-tier RL scheme was proposed in \cite{Shah2013} to enable autonomous self-learning and adaptive applications with inherent support for efficient resource management. However, the works~\cite{Shah2007, Shah2013} only considered task scheduling.
+
+A RL-based Q-routing technique, the Feedback Routing for Optimizing Multiple Sinks (FROMS), was proposed in \cite{Forster2007, Forster2007FROMS} to enable efficient routing to multiple sinks without overhead. Simulations were done under scenarios where the sink nodes are mobile and with consideration for node failure. However, the mobility pattern and speed was bounded. Moreover, an important cost metric such as the energy consumed by the mobile nodes was not considered. In \cite{Forster2008}, an evaluation was carried out on the previously proposed FROMS framework using real WSN hardware. The objective was to show that machine learning algorithms could be efficiently deployed on resource-constrained devices. However, during the implementation phase, certain bottlenecks were encountered such as dynamic memory allocation, interference in the wireless channel, poor data gathering, and difficulty in handling lost or corrupted packets. As such, a data clustering and aggregation approach, CLIQUE, was proposed in \cite{Forster2009} to minimize the energy expended by the selecting a cluster head using Q-learning. The approach was able to save significant amount of energy when compared to the traditional and random cluster head selection approach.
+
+
+
 
 
 \begin{table}
@@ -675,7 +680,7 @@ A self-organizing RL technique for scheduling the wake-up cycles of nodes was pr
   \hline \hline
    Energy allocation and utilization &  \cite{Chen2008}, \cite{Chen2011} \\
    Latency Minimization &  \cite{Liang2009}, \cite{Chen2009}    \\
-   Channel assessment and intelligent routing  &     \\
+   Channel assessment and intelligent routing  &  \cite{Forster2007}, \cite{Forster2007FROMS}, \cite{Forster2008}, \cite{Forster2009}\\
    Scheduling &  \cite{Mihaylov}    \\
    Resource Allocation and Services & \cite{Shah2007}, \cite{Shah2013}\\
 
@@ -684,10 +689,8 @@ A self-organizing RL technique for scheduling the wake-up cycles of nodes was pr
  \end{table}
 
 \subsection{Justification}
-
-
-
-
+The variables for the state, action and reward of an agent may be discrete or continuous, with the former represented as small interval of values which imply distinct levels~\cite{Yau2012}, and can easily be stored in a tabular form. However, it is difficult to represent continuous space using Q-learning tables. The work in \cite{Vucevic2007} considered a RL agent that explores continuous state and action space using Gaussian unit search behaviour.
+RL can be effective for learning action policies in discrete stochastic environments, but its efficiency can decay exponentially with increasing state space~\cite{Uther1998}. Our proposed model can be observed to have continuous state, action pairs, and can be approached by discretizing the state and action space.
 
 
 
@@ -972,7 +975,7 @@ A. T. Nassar, and Y. Yilmaz, ``Reinforcement-Learning-Based Resource Allocation 
 \bibitem{Chen2008}
 M. Chen, T. Kwon, S. Mao, Y. Yuan and V. C. M. Leung, ``Reliable and energy-efficient routing protocol in dense wireless sensor networks,'' Int. J. Sen. Netw.
  vol. 4, no. 1/2, pp. 104-117, July 2008.
- 
+
 \bibitem{Chen2011}
 M. Chen, M. Qiu, L. Liao, J. Park and J. Ma, ``Distributed multi-hop cooperative communication in dense wireless sensor networks'', \emph{The Journal of Supercomputing,} vol. 56, no. 3, pp. 353-369, June 2011.
 
@@ -999,17 +1002,25 @@ networks: Review, new features and open issues,'' Journal of Network and Compute
 \bibitem{Yau2015}
 K.-L. A. Yau, H. G. Goh, D. Chieng and K. H. Kwong, ``Application of reinforcement learning to wireless sensor networks: models and algorithms,'' Computing, vol. 97, no. 11, pp. 1045–1075, Nov. 2015.
 
+\bibitem{Forster2007}
+A. Egorova-Forster and A. L. Murphy, "Exploiting Reinforcement Learning for Multiple Sink Routing in WSNs," 2007 IEEE International Conference on Mobile Adhoc and Sensor Systems, Pisa, 2007, pp. 1-3.
+
+\bibitem{Forster2007FROMS}
+A. Forster and A. L. Murphy, "FROMS: Feedback Routing for Optimizing Multiple Sinks in WSN with Reinforcement Learning," 2007 3rd International Conference on Intelligent Sensors, Sensor Networks and Information, Melbourne, Qld., 2007, pp. 371-376.
+
 \bibitem{Forster2008}
 A. Forster, A. L. Murphy, J. Schiller and K. Terfloth, "An Efficient Implementation of Reinforcement Learning Based Routing on Real WSN Hardware," 2008 IEEE International Conference on Wireless and Mobile Computing, Networking and Communications, Avignon, 2008, pp. 247-252.
 
 \bibitem{Forster2009}
 A. Forster and A. L. Murphy, "CLIQUE: Role-Free Clustering with Q-Learning for Wireless Sensor Networks," 2009 29th IEEE International Conference on Distributed Computing Systems, Montreal, QC, 2009, pp. 441-449.
 
-\bibitem{Forster2007}
-A. Egorova-Forster and A. L. Murphy, "Exploiting Reinforcement Learning for Multiple Sink Routing in WSNs," 2007 IEEE International Conference on Mobile Adhoc and Sensor Systems, Pisa, 2007, pp. 1-3.
+\bibitem{Vucevic2007}
+N. Vucevic, J. Perez-Romero, O. Sallent and R. Agusti, "Reinforcement Learning for Active Queue Management in Mobile All-IP Networks," 2007 IEEE 18th International Symposium on Personal, Indoor and Mobile Radio Communications, Athens, 2007, pp. 1-5.
 
-\bibitem{Forster2007FROMS}
-A. Forster and A. L. Murphy, "FROMS: Feedback Routing for Optimizing Multiple Sinks in WSN with Reinforcement Learning," 2007 3rd International Conference on Intelligent Sensors, Sensor Networks and Information, Melbourne, Qld., 2007, pp. 371-376.
+\bibitem{Uther1998}
+W. T. B. Uther and M. M. Veloso, ``Tree Based Discretization for Continuous State Space Reinforcement Learning,'' \emph{Proceedings of the Fifteenth National/Tenth Conference on Artificial Intelligence/Innovative Applications of Artificial Intelligence,} 1998, Madison, Wisconsin, USA, pp. 769-774.
+
+
 
 
 \end{thebibliography}
