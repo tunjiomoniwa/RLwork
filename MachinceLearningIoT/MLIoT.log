@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.1)  26 JAN 2019 22:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.1)  27 JAN 2019 13:15
 entering extended mode
 **./MLIoT.tex
 (MLIoT.tex
@@ -567,7 +567,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [4]
 
-LaTeX Warning: Float too large for page by 34.77136pt on input line 768.
+LaTeX Warning: Float too large for page by 34.77136pt on input line 765.
 
 
 Overfull \hbox (876.0pt too wide) has occurred while \output is active
@@ -578,7 +578,7 @@ Overfull \hbox (876.0pt too wide) has occurred while \output is active
 
 
 ]
-Overfull \hbox (6.1181pt too wide) in paragraph at lines 782--810
+Overfull \hbox (6.1181pt too wide) in paragraph at lines 779--807
  [][] 
  []
 
@@ -597,10 +597,10 @@ Overfull \hbox (876.0pt too wide) has occurred while \output is active
 
 ] (MLIoT.aux) ) 
 Here is how much of TeX's memory you used:
- 5636 strings out of 493334
- 81388 string characters out of 3139231
- 172552 words of memory out of 3000000
- 9022 multiletter control sequences out of 15000+200000
+ 5637 strings out of 493334
+ 81404 string characters out of 3139231
+ 172556 words of memory out of 3000000
+ 9023 multiletter control sequences out of 15000+200000
  122683 words of font info for 131 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,19n,35p,1790b,309s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -615,7 +615,7 @@ s/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C
 :/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/
 MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/
 type1/urw/times/utmri8a.pfb>
-Output written on MLIoT.pdf (8 pages, 157894 bytes).
+Output written on MLIoT.pdf (8 pages, 159280 bytes).
 PDF statistics:
  74 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
