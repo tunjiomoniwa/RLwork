@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  24 JAN 2019 11:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  1 FEB 2019 16:35
 entering extended mode
 **./RL_Ideas.tex
 (RL_Ideas.tex
@@ -536,16 +536,16 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <24> not available
 \makeMPintoPDFobject=\count135
 \everyMPtoPDFconversion=\toks29
 )
-Underfull \hbox (badness 3849) in paragraph at lines 489--491
+Underfull \hbox (badness 3849) in paragraph at lines 487--489
 []\T1/ptm/b/it/9 Index Terms\T1/ptm/b/n/9 ---Reinforcement learn-ing (RL), Inte
 rnet-of-
  []
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 511.
+LaTeX Font Info:    Try loading font information for U+msa on input line 508.
 ("C:\Program Files\MiKTeX 2.90\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 511.
+LaTeX Font Info:    Try loading font information for U+msb on input line 508.
 
 ("C:\Program Files\MiKTeX 2.90\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -558,14 +558,58 @@ Package epstopdf Info: Source file: <ideafig1.eps>
 (epstopdf)                    size: 238331 bytes
 (epstopdf)             Command: <epstopdf --outfile=ideafig1-eps-converted-to.p
 df ideafig1.eps>
-(epstopdf)             \includegraphics on input line 525.
+(epstopdf)             \includegraphics on input line 512.
 Package epstopdf Info: Output file is already uptodate.
 <ideafig1-eps-converted-to.pdf, id=1, 687.56876pt x 606.265pt>
 File: ideafig1-eps-converted-to.pdf Graphic file (type pdf)
 <use ideafig1-eps-converted-to.pdf>
-Package pdftex.def Info: ideafig1-eps-converted-to.pdf  used on input line 525.
+Package pdftex.def Info: ideafig1-eps-converted-to.pdf  used on input line 512.
 
 (pdftex.def)             Requested size: 231.26378pt x 203.91641pt.
+ [1{C:/Users/tunji/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+
+
+ <./ideafig1-eps-converted-to.pdf>] [2]
+Package epstopdf Info: Source file: <ave_reward.eps>
+(epstopdf)                    date: 2019-02-01 15:54:20
+(epstopdf)                    size: 20644 bytes
+(epstopdf)             Output file: <ave_reward-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-02-01 15:54:35
+(epstopdf)                    size: 11579 bytes
+(epstopdf)             Command: <epstopdf --outfile=ave_reward-eps-converted-to
+.pdf ave_reward.eps>
+(epstopdf)             \includegraphics on input line 554.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex.exe (file ./ave_reward-eps-converted-to.pdf): PDF incl
+usion: found PDF version <1.7>, but at most version <1.5> allowed
+<ave_reward-eps-converted-to.pdf, id=50, 462.72874pt x 346.29375pt>
+File: ave_reward-eps-converted-to.pdf Graphic file (type pdf)
+<use ave_reward-eps-converted-to.pdf>
+Package pdftex.def Info: ave_reward-eps-converted-to.pdf  used on input line 55
+4.
+(pdftex.def)             Requested size: 231.26378pt x 173.07246pt.
+Package epstopdf Info: Source file: <acc_reward.eps>
+(epstopdf)                    date: 2019-02-01 15:40:36
+(epstopdf)                    size: 110105 bytes
+(epstopdf)             Output file: <acc_reward-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-02-01 15:45:37
+(epstopdf)                    size: 34288 bytes
+(epstopdf)             Command: <epstopdf --outfile=acc_reward-eps-converted-to
+.pdf acc_reward.eps>
+(epstopdf)             \includegraphics on input line 565.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex.exe (file ./acc_reward-eps-converted-to.pdf): PDF incl
+usion: found PDF version <1.7>, but at most version <1.5> allowed
+<acc_reward-eps-converted-to.pdf, id=51, 462.72874pt x 346.29375pt>
+File: acc_reward-eps-converted-to.pdf Graphic file (type pdf)
+<use acc_reward-eps-converted-to.pdf>
+Package pdftex.def Info: acc_reward-eps-converted-to.pdf  used on input line 56
+5.
+(pdftex.def)             Requested size: 231.26378pt x 173.07246pt.
 Package epstopdf Info: Source file: <mdp.eps>
 (epstopdf)                    date: 2019-01-21 09:40:38
 (epstopdf)                    size: 127744 bytes
@@ -574,24 +618,23 @@ Package epstopdf Info: Source file: <mdp.eps>
 (epstopdf)                    size: 77710 bytes
 (epstopdf)             Command: <epstopdf --outfile=mdp-eps-converted-to.pdf md
 p.eps>
-(epstopdf)             \includegraphics on input line 535.
+(epstopdf)             \includegraphics on input line 576.
 Package epstopdf Info: Output file is already uptodate.
-<mdp-eps-converted-to.pdf, id=2, 391.4625pt x 351.3125pt>
+<mdp-eps-converted-to.pdf, id=52, 391.4625pt x 351.3125pt>
 File: mdp-eps-converted-to.pdf Graphic file (type pdf)
 <use mdp-eps-converted-to.pdf>
-Package pdftex.def Info: mdp-eps-converted-to.pdf  used on input line 535.
+Package pdftex.def Info: mdp-eps-converted-to.pdf  used on input line 576.
 (pdftex.def)             Requested size: 231.26378pt x 207.54596pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [1{C:/Users/tunji/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+Underfull \vbox (badness 3590) has occurred while \output is active []
 
 
- <./ideafig1-eps-converted-to.pdf>]
-Underfull \hbox (badness 2277) in paragraph at lines 549--551
+Underfull \hbox (badness 2277) in paragraph at lines 590--592
 \T1/ptm/m/n/10 con-tin-u-ous state and ac-tion spaces de-fined by the tu-
  []
 
+[3 <./ave_reward-eps-converted-to.pdf> <./acc_reward-eps-converted-to.pdf> <./m
+dp-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <fogmodel2.eps>
 (epstopdf)                    date: 2019-01-07 12:39:55
 (epstopdf)                    size: 242702 bytes
@@ -600,31 +643,31 @@ Package epstopdf Info: Source file: <fogmodel2.eps>
 (epstopdf)                    size: 148686 bytes
 (epstopdf)             Command: <epstopdf --outfile=fogmodel2-eps-converted-to.
 pdf fogmodel2.eps>
-(epstopdf)             \includegraphics on input line 569.
+(epstopdf)             \includegraphics on input line 610.
 Package epstopdf Info: Output file is already uptodate.
-<fogmodel2-eps-converted-to.pdf, id=47, 294.09875pt x 363.3575pt>
+<fogmodel2-eps-converted-to.pdf, id=145, 294.09875pt x 363.3575pt>
 File: fogmodel2-eps-converted-to.pdf Graphic file (type pdf)
 <use fogmodel2-eps-converted-to.pdf>
-Package pdftex.def Info: fogmodel2-eps-converted-to.pdf  used on input line 569
+Package pdftex.def Info: fogmodel2-eps-converted-to.pdf  used on input line 610
 .
 (pdftex.def)             Requested size: 231.26378pt x 285.72415pt.
 
-LaTeX Warning: Reference `fogmodel' on page 2 undefined on input line 577.
 
-[2 <./mdp-eps-converted-to.pdf> <./fogmodel2-eps-converted-to.pdf>] [3]
-(RL_Ideas.aux)
+LaTeX Warning: Reference `fogmodel' on page 4 undefined on input line 618.
+
+[4 <./fogmodel2-eps-converted-to.pdf>] [5] (RL_Ideas.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5922 strings out of 492946
- 87591 string characters out of 3135087
- 172835 words of memory out of 3000000
- 9681 multiletter control sequences out of 15000+200000
+ 5941 strings out of 492946
+ 88069 string characters out of 3135087
+ 172874 words of memory out of 3000000
+ 9698 multiletter control sequences out of 15000+200000
  108759 words of font info for 113 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,6n,35p,1129b,305s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,7n,35p,2067b,301s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.90/fonts/enc/dvips/base/8r.enc}<C:/Program Files/M
 iKTeX 2.90/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2
 .90/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.90/fon
@@ -639,9 +682,9 @@ iles/MiKTeX 2.90/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.90
 /fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/ur
 w/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/urw/times/utmri8a.
 pfb>
-Output written on RL_Ideas.pdf (3 pages, 617354 bytes).
+Output written on RL_Ideas.pdf (5 pages, 670559 bytes).
 PDF statistics:
- 139 PDF objects out of 1000 (max. 8388607)
+ 207 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
