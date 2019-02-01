@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  1 FEB 2019 10:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  1 FEB 2019 16:35
 entering extended mode
 **./MLIoT.tex
 (MLIoT.tex
@@ -564,12 +564,9 @@ Overfull \hbox (6.26813pt too wide) in paragraph at lines 677--689
  [][] 
  []
 
+[4]
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4]
-
-LaTeX Warning: Float too large for page by 34.77136pt on input line 765.
+LaTeX Warning: Float too large for page by 34.77136pt on input line 758.
 
 
 Overfull \hbox (876.0pt too wide) has occurred while \output is active
@@ -580,7 +577,7 @@ Overfull \hbox (876.0pt too wide) has occurred while \output is active
 
 
 ]
-Overfull \hbox (6.1181pt too wide) in paragraph at lines 779--807
+Overfull \hbox (6.1181pt too wide) in paragraph at lines 772--800
  [][] 
  []
 
@@ -601,7 +598,7 @@ Overfull \hbox (876.0pt too wide) has occurred while \output is active
 Here is how much of TeX's memory you used:
  5938 strings out of 492946
  87470 string characters out of 3135087
- 179864 words of memory out of 3000000
+ 178864 words of memory out of 3000000
  9691 multiletter control sequences out of 15000+200000
  122683 words of font info for 131 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -617,7 +614,7 @@ fonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/urw/times/utmb8a.p
 fb><C:/Program Files/MiKTeX 2.90/fonts/type1/urw/times/utmbi8a.pfb><C:/Program 
 Files/MiKTeX 2.90/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9
 0/fonts/type1/urw/times/utmri8a.pfb>
-Output written on MLIoT.pdf (8 pages, 157892 bytes).
+Output written on MLIoT.pdf (8 pages, 156123 bytes).
 PDF statistics:
  74 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -688,14 +688,7 @@ A RL-based Q-routing technique, the Feedback Routing for Optimizing Multiple Sin
  \end{tabular}
  \end{table}
 
-\subsection{Justification}
 
-
-The main task of our work is to minimize global outage in communication within a fog-based IoT network, by optimizing the power-control parameter of the potential mobile fog-relay agent, as well as optimizing the position of all relaying agents in the network. The duration it takes an agent to learn is significantly influenced by the state space, as well as the possible set of actions~\cite{Dusparic2009}. The variables for the state, action and reward of an agent may be discrete or continuous, with the former represented as small interval of values which imply distinct levels~\cite{Yau2012}, and can easily be stored in a tabular form. However, it is difficult to represent continuous space using Q-learning tables. The work in \cite{Vucevic2007} considered a RL agent that explores continuous state and action space using Gaussian unit search behaviour. Other works~\cite{Dusparic2009, Cuayahuitl2006} considered the reduction of states by eliminating states that are unlikely to occur. However, this may pose a big risk especially in a highly dynamic environment. RL can be effective for learning action policies in discrete stochastic environments, but its efficiency can decay exponentially with increasing state space~\cite{Uther1998}. Our proposed model can be observed to have continuous state, action pairs, and can be approached by discretizing the state and action space.
-
-Furthermore, it is noteworthy that agents sharing same environment may take actions that can have direct consequences on neighbouring agents, which may have further impact on other agents within the network. For instance, if a relaying agent decides to increase the transmit power beyond some threshold value, in order to boost its communication capabilities, its action may result in channel interference to its immediate neighbours, and worst, it may deplete its energy fast, and die-out, leading to link failure that can affect the performance of the entire network. Issues like this may arise in a typical multi-agent IoT network, as such, we aim to implement a system where the agents learn to follow an optimal global policy.
-
-To the best of our knowledge, this is the first approach that employs a decentralised RL technique to minimize global outage in communication within a fog-based IoT network, taking into consideration the wireless channel conditions, by jointly optimizing the location of each relaying agent and the power-control parameter.
 
 
 

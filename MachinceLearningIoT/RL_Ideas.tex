@@ -406,7 +406,7 @@
 % not capitalized unless they are the first or last word of the title.
 % Linebreaks \\ can be used within to get better formatting as desired.
 % Do not put math or special symbols in the title.
-\title{Reinforcement Learning in Fog-based Internet-of-Things: Applications and Research Issues}
+\title{Fully-Decentralised Reinforcement Learning in Fog-based Internet-of-Things}
 %
 %
 % author names and IEEE memberships
@@ -448,7 +448,7 @@
 
 % The paper headers
 \markboth{IEEE Internet of Things Journal,~Vol.~X, No.~X, August~2019}%
-{YYYY \MakeLowercase{\textit{et al.}}: Reinforcement Learning in Fog-based Internet-of-Things}
+{YYYY \MakeLowercase{\textit{et al.}}: Fully-Decentralised Reinforcement Learning in Fog-based Internet-of-Things}
 % The only time the second header will appear is for the odd numbered pages
 % after the title page when using the twoside option.
 %
@@ -479,9 +479,7 @@
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \begin{abstract}
-Reinforcement learning (RL) algorithms are the platform for connecting intelligent Internet-of-Things (IoT) devices. The data provided by
-these intelligent devices can offer more insights about the overall futuristic functionalities in terms of usage
-and preferences. Machine learning algorithms have been widely used for predictions, with several optimization algorithms using reinforcement learning techniques to improve the performance and interaction of devices within a dynamic IoT ecosystem. In this paper, we present a comprehensive review of state-of-the-art RL techniques that have been applied to solve trending problems in the IoT and cyber-physical systems domain. Furthermore, we give an in-depth analysis into its applications in the emerging fog-based IoT networks. Finally, we propose alternative research directions that may yield better outcomes.
+Reinforcement learning (RL) algorithms offers more insights about the overall futuristic functionalities for intelligent Internet-of-Things (IoT) devices. With the explosive growth in the number of IoT devices, as well as the highly-distributed deployments of these devices today, managing the IoT devices centrally becomes infeasible. As such, several disruptive paradigms have emerged, one of which is the fog computing-based IoT, which aim towards shifting computation, control, and decision-making closer to the network edge. In this paper, we aim to minimize the global outage in communication within a fog-based IoT network, by optimizing the power-control parameter of each potential mobile fog-relay agent (MFRA), as well as optimizing the physical position. As such, each MFRA is compelled to take certain actions that may influence its environment. We optimize the communication performance by applying a decentralized q-learning approach, with each MFRA acting independently, but contributing towards a global optimal policy. Furthermore, we show that our algorithm is scalable even with very large number of devices.
 
 \end{abstract}
 
@@ -505,20 +503,9 @@ Reinforcement learning (RL), Internet-of-Things (IoT), Fog-based IoT, Markov dec
 % creates the second title. It will be ignored for other modes.
 \IEEEpeerreviewmaketitle
 
+\section{Motivation: Idea 1}
 
-\section{Idea 1}
-\label{sec:Idea1}
-For services to be effectively delivered, it is important to ensure that the communication outage within the network is greatly minimized. In Fig. \ref{ideafig1}, we present a scenario where~$n$ number of IoT sensors try to send data/service request to a remote fog device, which has some unique computational/processing capability. Considering the nature of deployment of IoT devices, as well as the tendency for high level of network disruption due to potential obstacles in homes, hospitals and offices, etc., there is a need for online learning of devices to ensure interrupted communication. In addition to obstacles, the destination device may be to far from the sending node, as such, it is possible to leverage fog devices to improve the reliability in the network link. The motivation for this idea was based on some very practical examples, the Industrial IoT (IIoT) and Intelligent monitoring, where industrial robots and surveillance drones could be deployed as relays for meeting stringent quality-of-service(QoS) requirements.
-
-\subsection{Problem Formulation}
-In Fig. \ref{ideafig1}, we present a situation where different IoT end-devices, inclusive of smart things embedded with sensors (smart-meters, smart-watches, traffic lights, washing machine, dish-washers, herds, or even a sick patient being monitored, etc.), which can send data/service request to a remote fog service provider via a potential relay node. However, there may be change in the topology of the network or even in the environment, making it difficult for data collection/service provision. Moreover, the environment may be too hazardous for human control. Some level of intelligence is expected from the relay node/agent (RN). The RN learns to optimize its position and adjust it's power-level to minimize the communication outage.
-
-\begin{enumerate}
-  \item Actions: The RN may lower/increase its power level to save energy or increase it to ensure better communication. Also, the RN may change its position (2D/3D) depending on the scenario considered.
-  \item Goal of the RN is to effectively minimize the communication cost by carrying out some actions. We may also consider optimizing fairness by effective scheduling.
-  \item State: The states may be divided into time steps. At each time step, the RN transmits and is in a different position and power-control level.
-  \item Reward/cost: When the RN uses maximum power or moves in a direction that maximizes the communication outage, then a negative reward is received, otherwise, a positive reward is received. Also, minimizing the energy consumed by the devices yields positive rewards.
-\end{enumerate}
+For services to be effectively delivered, it is important to ensure that the communication outage within the network is greatly minimized. In Fig. \ref{ideafig1}, we present a scenario where~$n$ number of IoT sensors try to send/receive data/service request to a remote fog device, which has some unique computational/processing capability. Considering the highly-distributed nature of deployed IoT devices, as well as the tendency for increase in the network disruption due to potential obstacles in homes, hospitals, offices, militarised zones, and industries etc., there is a need for some level of intelligence in these devices. In addition to obstacles that obstruct line-of-sight(LOS) communications, the destination device may be to far from the source node, as such, it is possible to leverage fog devices to improve the reliability in the network link. The motivation for this idea was based on some very practical examples, the Industrial IoT (IIoT) and Intelligent monitoring, where industrial robots and surveillance drones could be deployed as relays for meeting stringent quality-of-service(QoS) requirements~\cite{OmoniwaRelay2018}.
 
 \begin{figure}[!t]
 \centering
@@ -529,6 +516,60 @@ In Fig. \ref{ideafig1}, we present a situation where different IoT end-devices, 
 \caption{System model for Idea1.}
 \label{ideafig1}
 \end{figure}
+
+\section{Related Works: Idea 1}
+
+Considering the dynamics and heterogeneity within the ultra-distributed IoT environment, it is important for devices which are mobile to move seamlessly without degradation of the quality of service (QoS) when communicating. Moreover, the communication should be ubiquitous irrespective of technology or domain within the system. As such, the RL techniques will play a very important role in areas of IoT device/service discovery, which will support adaptability and interfacing between devices and sub-networks within the IoT domain. Several works in WSNs~\cite{Forster2007}, \cite{Forster2007FROMS}, \cite{Forster2008}, \cite{Forster2009}, focussed on improving some performance metrics such as energy, latency, throughput, within the network. 
+          
+In \cite{Chen2008}, a reliable and energy-efficient routing (REER) protocol was proposed using a geographic routing approach. The work considered the idea of a central entity, called a reference node (RN), which is assumed to be situated at an ideal location between source and destination. Several other cooperative nodes, which contend to relay data, are assumed to be situated around the RN. The work was able to examine the trade-off between reliability and energy-efficiency when the distances between RNs was adjusted. The work in \cite{Chen2011} proposed an improvement to \cite{Chen2008}, addressing the issue of scalability in a dynamic network. As such, a novel distributed multi-hop cooperative communication scheme (DMC) was proposed to improve certain QoS metrics such as the communication energy, hop count, and end-to-end delay. However, both works assumed complete prior knowledge of the network environment.
+In \cite{Liang2009}, a multi-agent reinforcement learning-based multi-hop mesh cooperative (MRL-CC) mechanism for the improvement of some QoS metrics such as the end-to-end delay, packet delivery ratio in the WSNs. The work out-performed the work in \cite{Chen2009}, which incurred higher delay, and was distance-based, which is not suitable for a dynamic network environment. Though the mobility of the cooperative nodes were taken into account when learning the optimal policy, the MRL-CC failed to consider the power dissipated by the power-constrained devices. 
+
+A RL-based Q-routing technique, the Feedback Routing for Optimizing Multiple Sinks (FROMS), was proposed in \cite{Forster2007, Forster2007FROMS} to enable efficient routing to multiple sinks without overhead. Simulations were done under scenarios where the sink nodes are mobile and with consideration for node failure. However, the mobility pattern and speed was bounded. Moreover, an important cost metric such as the energy consumed by the mobile nodes was not considered. In \cite{Forster2008}, an evaluation was carried out on the previously proposed FROMS framework using real WSN hardware. The objective was to show that machine learning algorithms could be efficiently deployed on resource-constrained devices. However, during the implementation phase, certain bottlenecks were encountered such as dynamic memory allocation, interference in the wireless channel, poor data gathering, and difficulty in handling lost or corrupted packets. As such, a data clustering and aggregation approach, CLIQUE, was proposed in \cite{Forster2009} to minimize the energy expended by the selecting a cluster head using Q-learning. The approach was able to save significant amount of energy when compared to the traditional and random cluster head selection approach.
+ 
+ 
+Some works~\cite{OmoniwaRelay2018}, \cite{Jadoon2017}, \cite{Camelo2016}, \cite{Li2015} have addressed pertinent issues on cooperative communications within the IoT environment. A Q-learning relay selection algorithm was introduced in \cite{Jadoon2017} to maximize the throughput in a typical cooperative network with relays supporting communication between source and destination. The relays were assumed to be the states, with three possible actions of remaining in the present state with relay~$r$ or choosing~$r + 1$ or~$r - 1$. However, the outage analysis was carried out without a closed-form expression for the outage probability within the network. Furthermore, in an attempt to reduce the complexity of the formulated problem, the problem algorithm did not consider the relays (states) which do not satisfy the minimum mutual information constraint. A scalable parallel Q-learning algorithm was introduced in \cite{Camelo2016} to minimize communication cost. The work considered distributed and resource-constrained environment. A Q-learning-based duty cycle control technique was introduced in \cite{Li2015} to provide improved performance and reliable M2M communication for IoT applications. However, the proposed Q-learning based duty cycle control only considered a two-hop cluster tree network in evaluating the performance of the system. The work in~\cite{OmoniwaRelay2018} built on the concept presented in~\cite{Chiangh2016},  considered a multi-tier fog-based IoT architecture where a mobile/static fog node acts as an amplify and forward relay that transmits received information from a IoT sensor node to a higher hierarchically-placed static fog device, which offers some localized services. An iterative algorithm based on the steepest descent method (SDM) was proposed to jointly optimize the mobility pattern and the transmit power of the fog relay. However, this work the scalability of the approach was not defined. Furthermore, the cost function was unrealistically assumed to be known to the fog relay.
+
+The main task of our work is to minimize global outage in communication within a fog-based IoT network, by optimizing the power-control parameter of the potential mobile fog-relay agent (MFRA), as well as optimizing the position of each relaying agents in the network. As such, each MFRA is compelled to take certain actions that may influence its environment. However, the duration it takes the MFRA to learn is significantly influenced by the state space, as well as the possible set of actions~\cite{Dusparic2009}. The variables for the state, action and reward of an agent may be discrete or continuous, with the former represented as small interval of values which imply distinct levels~\cite{Yau2012}, and can easily be represented in a tabular form. However, it is difficult to represent continuous space using Q-learning tables. The work in \cite{Vucevic2007} considered a RL agent that explores continuous state and action space using Gaussian unit search behaviour. Other works~\cite{Dusparic2009, Cuayahuitl2006} considered the reduction of states by eliminating states that are unlikely to occur. However, this may pose a big risk especially in a highly dynamic environment. RL can be effective for learning action policies in discrete stochastic environments, but its efficiency can decay exponentially with increasing state space~\cite{Uther1998}. Our proposed problem can be observed to have continuous state-action pairs, and is approached by discretizing the state and action space.
+
+It is noteworthy that agents in a multi-agent system (MAS) may take actions that can have direct consequences on neighbouring agents, which may have further impact on other agents within the network. For instance, if a relaying agent decides to increase the transmit power beyond some threshold value, in order to boost its communication capabilities, its action may result in channel interference to its immediate neighbours, and worst, it may deplete its energy fast, and die-out, leading to link failure that can affect the performance of the entire network. Issues like this may arise in a typical multi-agent IoT network, as such, we present a fully-decentralised MAS where each agents learn to follow a local policy that improves the global objective. To the best of our knowledge, this is the first approach that employs a decentralised RL technique to minimize global outage in communication within a fog-based IoT network, taking into consideration the wireless channel conditions, by jointly optimizing the location of each relaying agent and the power-control parameter.
+
+In this paper, we assume the following.
+\begin{enumerate}
+  \item The MFRA is completely oblivious of its environment, and as such, has no prior knowledge of the overall cost function.
+  \item The RN may lower/increase its power level to save energy or increase it to ensure better communication. Also, the MFRA may change its position (2D/3D) depending on the scenario considered.
+  \item The MFRA has an objective of learning to make actions that yield better outcomes within its local view of the environment.
+  \item The states are be divided into discrete levels to overcome the exponential decay in the efficiency of the proposed approach due infinite state space.
+  \item Each MFRA independently tries to optimize power usage and moves in a direction that maximizes the communication outage.
+\end{enumerate}
+
+
+
+
+
+\subsection{Problem Formulation}
+In Fig. \ref{ideafig1}, we present a situation where different IoT end-devices, inclusive of smart things embedded with sensors (smart-meters, smart-watches, traffic lights, washing machine, dish-washers, herds, or even a sick patient being monitored, etc.), which can send data/service request to a remote fog service provider via a potential relay node. However, there may be change in the topology of the network or even in the environment, making it difficult for data collection/service provision. Moreover, the environment may be too hazardous for human control. Some level of intelligence is expected from the relay node/agent (RN). The RN learns to optimize its position and adjust it's power-level to minimize the communication outage.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3.2in]{ave_reward.eps}
+ %where an .eps filename suffix will be assumed under latex,
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Average reward for each agent over 2000 episodes.}
+\label{ave_reward}
+\end{figure}
+
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3.2in]{acc_reward.eps}
+ %where an .eps filename suffix will be assumed under latex,
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Accumulated reward for each agent over 2000 episodes.}
+\label{acc_reward}
+\end{figure}
+
 
 \begin{figure}[!t]
 \centering
@@ -628,6 +669,13 @@ A. H. Ngu, M. Gutierrez, V. Metsis, S. Nepal and Q. Z. Sheng, "IoT Middleware: A
 \bibitem{Omoniwa2018}
 B. Omoniwa, R. Hussain, M. A. Javed, S. H. Bouk and S. A. Malik, "Fog/Edge Computing-based IoT (FECIoT): Architecture, Applications, and Research Issues," in IEEE Internet of Things Journal.
 
+\bibitem{OmoniwaRelay2018}
+B. Omoniwa et al., "An Optimal Relay Scheme for Outage Minimization in Fog-based Internet-of-Things (IoT) Networks," in IEEE Internet of Things Journal.
+
+\bibitem{Chiangh2016}
+M. Chiang and T. Zhang, ``Fog and IoT: An Overview of Research Opportuinities,'' IEEE Internet of Things, vol. 3, no. 6, pp. 854-864, Dec.
+2016.
+
 \bibitem{Earley2015}
 S. Earley, ``Analytics, Machine Learning, and the Internet of Things,'' \emph{IT Professional,} vol. 17, no. 1, pp. 10-13, Jan.-Feb. 2015.
 
@@ -642,6 +690,9 @@ Z. Wen, D. O'Neill and H. Maei, ``Optimal Demand Response Using Device-Based Rei
 
 \bibitem{Sutton98}
 R. S. Sutton, and A. G. Barto, \emph{Reinforcement learning - an introduction.} Cambridge, MA: MIT Press, 1998.
+
+\bibitem{Jadoon2017}
+M. A. Jadoon and S. Kim, "Relay selection Algorithm for wireless cooperative networks: a learning-based approach," in IET Communications, vol. 11, no. 7, pp. 1061-1066, 11 5 2017.
 
 \bibitem{Zhu2018}
 J. Zhu, Y. Song, D. Jiang and H. Song, ``A New Deep-Q-Learning-Based Transmission Scheduling Mechanism for the Cognitive Internet of Things,'' \emph{IEEE Internet of Things Journal,} vol. 5, no. 4, pp. 2375-2385, Aug. 2018.
@@ -718,8 +769,7 @@ M. Camelo and J. F. a. S. Latré, "A Scalable Parallel Q-Learning Algorithm for 
 \bibitem{Nassar}
 A. T. Nassar, and Y. Yilmaz, ``Reinforcement-Learning-Based Resource Allocation in Fog Radio Access Networks for Various IoT Environments,'' Arxiv
 
-%% Works on WSN
-
+%%%%%%%%%%%%%%WSN
 \bibitem{Chen2008}
 M. Chen, T. Kwon, S. Mao, Y. Yuan and V. C. M. Leung, ``Reliable and energy-efficient routing protocol in dense wireless sensor networks,'' Int. J. Sen. Netw.
  vol. 4, no. 1/2, pp. 104-117, July 2008.
@@ -730,6 +780,9 @@ M. Chen, M. Qiu, L. Liao, J. Park and J. Ma, ``Distributed multi-hop cooperative
 \bibitem{Liang2009}
 Xuedong Liang, Min Chen, Yang Xiao, I. Balasingham and V. C. M. Leung, ``A novel cooperative communication protocol for QoS provisioning in wireless sensor networks,'' 2009 5th International Conference on Testbeds and Research Infrastructures for the Development of Networks and Communities and Workshops, Washington, DC, 2009, pp. 1-6.
 
+\bibitem{Chen2009}
+M. Chen, Xuedong Liang, V. Leung and I. Balasingham, "Multi-hop mesh cooperative structure based data dissemination for wireless sensor networks," 2009 11th International Conference on Advanced Communication Technology, Phoenix Park, 2009, pp. 102-106.
+
 \bibitem{Mihaylov}
 M. Mihaylov and Y. L. Borgne, ``Decentralised reinforcement learning for energy-efficient scheduling in wireless sensor networks,'' Int. J. Communication Networks and Distributed Systems, Vol. 9, Nos. 3/4, 2012
 
@@ -737,7 +790,7 @@ M. Mihaylov and Y. L. Borgne, ``Decentralised reinforcement learning for energy-
 K. Shah and M. Kumar, ``Distributed Independent Reinforcement Learning (DIRL) Approach to Resource Management in Wireless Sensor Networks,'' 2007 IEEE International Conference on Mobile Adhoc and Sensor Systems, Pisa, 2007, pp. 1-9.
 
 \bibitem{Shah2013}
-K. Shah, M. D. Francesco and M. Kumar, ``Distributed resource management in wireless sensor networks using reinforcement learning,'' Wireless Networks, 
+K. Shah, M. D. Francesco and M. Kumar, ``Distributed resource management in wireless sensor networks using reinforcement learning,'' Wireless Networks,
 vol. 19, no. 5, pp. 705-724, July 2013.
 
 \bibitem{Yau2012}
@@ -747,18 +800,26 @@ networks: Review, new features and open issues,'' Journal of Network and Compute
 \bibitem{Yau2015}
 K.-L. A. Yau, H. G. Goh, D. Chieng and K. H. Kwong, ``Application of reinforcement learning to wireless sensor networks: models and algorithms,'' Computing, vol. 97, no. 11, pp. 1045–1075, Nov. 2015.
 
-\bibitem{Forster2008}
-A. Forster, A. L. Murphy, J. Schiller and K. Terfloth, "An Efficient Implementation of Reinforcement Learning Based Routing on Real WSN Hardware," 2008 IEEE International Conference on Wireless and Mobile Computing, Networking and Communications, Avignon, 2008, pp. 247-252.
-
-\bibitem{Forster2009}
-A. Forster and A. L. Murphy, "CLIQUE: Role-Free Clustering with Q-Learning for Wireless Sensor Networks," 2009 29th IEEE International Conference on Distributed Computing Systems, Montreal, QC, 2009, pp. 441-449.
-
 \bibitem{Forster2007}
 A. Egorova-Forster and A. L. Murphy, "Exploiting Reinforcement Learning for Multiple Sink Routing in WSNs," 2007 IEEE International Conference on Mobile Adhoc and Sensor Systems, Pisa, 2007, pp. 1-3.
 
 \bibitem{Forster2007FROMS}
 A. Forster and A. L. Murphy, "FROMS: Feedback Routing for Optimizing Multiple Sinks in WSN with Reinforcement Learning," 2007 3rd International Conference on Intelligent Sensors, Sensor Networks and Information, Melbourne, Qld., 2007, pp. 371-376.
 
+\bibitem{Forster2008}
+A. Forster, A. L. Murphy, J. Schiller and K. Terfloth, "An Efficient Implementation of Reinforcement Learning Based Routing on Real WSN Hardware," 2008 IEEE International Conference on Wireless and Mobile Computing, Networking and Communications, Avignon, 2008, pp. 247-252.
+
+\bibitem{Forster2009}
+A. Forster and A. L. Murphy, "CLIQUE: Role-Free Clustering with Q-Learning for Wireless Sensor Networks," 2009 29th IEEE International Conference on Distributed Computing Systems, Montreal, QC, 2009, pp. 441-449.
+
+\bibitem{Vucevic2007}
+N. Vucevic, J. Perez-Romero, O. Sallent and R. Agusti, "Reinforcement Learning for Active Queue Management in Mobile All-IP Networks," 2007 IEEE 18th International Symposium on Personal, Indoor and Mobile Radio Communications, Athens, 2007, pp. 1-5.
+
+\bibitem{Uther1998}
+W. T. B. Uther and M. M. Veloso, ``Tree Based Discretization for Continuous State Space Reinforcement Learning,'' \emph{Proceedings of the Fifteenth National/Tenth Conference on Artificial Intelligence/Innovative Applications of Artificial Intelligence,} 1998, Madison, Wisconsin, USA, pp. 769-774.
+
+\bibitem{Cuayahuitl2006}
+H. Cuayahuitl, S. Renals, O. Lemon, and H. Shimodaira. ``Learning multi-goal dialogue strategies using reinforcement learning with reduced state-action spaces,'' In Int. Journal of Game Theory, pp. 547–565, 2006.
 \end{thebibliography}
 
 
