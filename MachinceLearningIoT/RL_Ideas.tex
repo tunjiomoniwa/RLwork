@@ -519,14 +519,14 @@ For services to be effectively delivered, it is important to ensure that the com
 
 \section{Related Works: Idea 1}
 
-Considering the dynamics and heterogeneity within the ultra-distributed IoT environment, it is important for devices which are mobile to move seamlessly without degradation of the quality of service (QoS) when communicating. Moreover, the communication should be ubiquitous irrespective of technology or domain within the system. As such, the RL techniques will play a very important role in areas of IoT device/service discovery, which will support adaptability and interfacing between devices and sub-networks within the IoT domain. Several works in WSNs~\cite{Forster2007}, \cite{Forster2007FROMS}, \cite{Forster2008}, \cite{Forster2009}, focussed on improving some performance metrics such as energy, latency, throughput, within the network. 
-          
+Considering the dynamics and heterogeneity within the ultra-distributed IoT environment, it is important for devices which are mobile to move seamlessly without degradation of the quality of service (QoS) when communicating. Moreover, the communication should be ubiquitous irrespective of technology or domain within the system. As such, the RL techniques will play a very important role in areas of IoT device/service discovery, which will support adaptability and interfacing between devices and sub-networks within the IoT domain. Several works in WSNs~\cite{Forster2007}, \cite{Forster2007FROMS}, \cite{Forster2008}, \cite{Forster2009}, focussed on improving some performance metrics such as energy, latency, throughput, within the network.
+
 In \cite{Chen2008}, a reliable and energy-efficient routing (REER) protocol was proposed using a geographic routing approach. The work considered the idea of a central entity, called a reference node (RN), which is assumed to be situated at an ideal location between source and destination. Several other cooperative nodes, which contend to relay data, are assumed to be situated around the RN. The work was able to examine the trade-off between reliability and energy-efficiency when the distances between RNs was adjusted. The work in \cite{Chen2011} proposed an improvement to \cite{Chen2008}, addressing the issue of scalability in a dynamic network. As such, a novel distributed multi-hop cooperative communication scheme (DMC) was proposed to improve certain QoS metrics such as the communication energy, hop count, and end-to-end delay. However, both works assumed complete prior knowledge of the network environment.
-In \cite{Liang2009}, a multi-agent reinforcement learning-based multi-hop mesh cooperative (MRL-CC) mechanism for the improvement of some QoS metrics such as the end-to-end delay, packet delivery ratio in the WSNs. The work out-performed the work in \cite{Chen2009}, which incurred higher delay, and was distance-based, which is not suitable for a dynamic network environment. Though the mobility of the cooperative nodes were taken into account when learning the optimal policy, the MRL-CC failed to consider the power dissipated by the power-constrained devices. 
+In \cite{Liang2009}, a multi-agent reinforcement learning-based multi-hop mesh cooperative (MRL-CC) mechanism for the improvement of some QoS metrics such as the end-to-end delay, packet delivery ratio in the WSNs. The work out-performed the work in \cite{Chen2009}, which incurred higher delay, and was distance-based, which is not suitable for a dynamic network environment. Though the mobility of the cooperative nodes were taken into account when learning the optimal policy, the MRL-CC failed to consider the power dissipated by the power-constrained devices.
 
 A RL-based Q-routing technique, the Feedback Routing for Optimizing Multiple Sinks (FROMS), was proposed in \cite{Forster2007, Forster2007FROMS} to enable efficient routing to multiple sinks without overhead. Simulations were done under scenarios where the sink nodes are mobile and with consideration for node failure. However, the mobility pattern and speed was bounded. Moreover, an important cost metric such as the energy consumed by the mobile nodes was not considered. In \cite{Forster2008}, an evaluation was carried out on the previously proposed FROMS framework using real WSN hardware. The objective was to show that machine learning algorithms could be efficiently deployed on resource-constrained devices. However, during the implementation phase, certain bottlenecks were encountered such as dynamic memory allocation, interference in the wireless channel, poor data gathering, and difficulty in handling lost or corrupted packets. As such, a data clustering and aggregation approach, CLIQUE, was proposed in \cite{Forster2009} to minimize the energy expended by the selecting a cluster head using Q-learning. The approach was able to save significant amount of energy when compared to the traditional and random cluster head selection approach.
- 
- 
+
+
 Some works~\cite{OmoniwaRelay2018}, \cite{Jadoon2017}, \cite{Camelo2016}, \cite{Li2015} have addressed pertinent issues on cooperative communications within the IoT environment. A Q-learning relay selection algorithm was introduced in \cite{Jadoon2017} to maximize the throughput in a typical cooperative network with relays supporting communication between source and destination. The relays were assumed to be the states, with three possible actions of remaining in the present state with relay~$r$ or choosing~$r + 1$ or~$r - 1$. However, the outage analysis was carried out without a closed-form expression for the outage probability within the network. Furthermore, in an attempt to reduce the complexity of the formulated problem, the problem algorithm did not consider the relays (states) which do not satisfy the minimum mutual information constraint. A scalable parallel Q-learning algorithm was introduced in \cite{Camelo2016} to minimize communication cost. The work considered distributed and resource-constrained environment. A Q-learning-based duty cycle control technique was introduced in \cite{Li2015} to provide improved performance and reliable M2M communication for IoT applications. However, the proposed Q-learning based duty cycle control only considered a two-hop cluster tree network in evaluating the performance of the system. The work in~\cite{OmoniwaRelay2018} built on the concept presented in~\cite{Chiangh2016},  considered a multi-tier fog-based IoT architecture where a mobile/static fog node acts as an amplify and forward relay that transmits received information from a IoT sensor node to a higher hierarchically-placed static fog device, which offers some localized services. An iterative algorithm based on the steepest descent method (SDM) was proposed to jointly optimize the mobility pattern and the transmit power of the fog relay. However, this work the scalability of the approach was not defined. Furthermore, the cost function was unrealistically assumed to be known to the fog relay.
 
 The main task of our work is to minimize global outage in communication within a fog-based IoT network, by optimizing the power-control parameter of the potential mobile fog-relay agent (MFRA), as well as optimizing the position of each relaying agents in the network. As such, each MFRA is compelled to take certain actions that may influence its environment. However, the duration it takes the MFRA to learn is significantly influenced by the state space, as well as the possible set of actions~\cite{Dusparic2009}. The variables for the state, action and reward of an agent may be discrete or continuous, with the former represented as small interval of values which imply distinct levels~\cite{Yau2012}, and can easily be represented in a tabular form. However, it is difficult to represent continuous space using Q-learning tables. The work in \cite{Vucevic2007} considered a RL agent that explores continuous state and action space using Gaussian unit search behaviour. Other works~\cite{Dusparic2009, Cuayahuitl2006} considered the reduction of states by eliminating states that are unlikely to occur. However, this may pose a big risk especially in a highly dynamic environment. RL can be effective for learning action policies in discrete stochastic environments, but its efficiency can decay exponentially with increasing state space~\cite{Uther1998}. Our proposed problem can be observed to have continuous state-action pairs, and is approached by discretizing the state and action space.
@@ -551,7 +551,7 @@ In Fig. \ref{ideafig1}, we present a situation where different IoT end-devices, 
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=3.2in]{ave_reward.eps}
+\includegraphics[width=3.1in]{ave_reward.eps}
  %where an .eps filename suffix will be assumed under latex,
 % and a .pdf suffix will be assumed for pdflatex; or what has been declared
 % via \DeclareGraphicsExtensions.
@@ -562,12 +562,56 @@ In Fig. \ref{ideafig1}, we present a situation where different IoT end-devices, 
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=3.2in]{acc_reward.eps}
+\includegraphics[width=3.1in]{acc_reward.eps}
  %where an .eps filename suffix will be assumed under latex,
 % and a .pdf suffix will be assumed for pdflatex; or what has been declared
 % via \DeclareGraphicsExtensions.
 \caption{Accumulated reward for each agent over 2000 episodes.}
 \label{acc_reward}
+\end{figure}
+
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3.1in]{ave_reward_200.eps}
+ %where an .eps filename suffix will be assumed under latex,
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Average reward for 200 agent over 1000 episodes.}
+\label{ave_reward_200}
+\end{figure}
+
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3.1in]{acc_reward_200.eps}
+ %where an .eps filename suffix will be assumed under latex,
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Accumulated reward for 200 agent over 1000 episodes.}
+\label{acc_reward_200}
+\end{figure}
+
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3.1in]{ave_reward_500.eps}
+ %where an .eps filename suffix will be assumed under latex,
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Average reward for 500 agent over 1000 episodes.}
+\label{ave_reward_500}
+\end{figure}
+
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3.1in]{acc_reward_500.eps}
+ %where an .eps filename suffix will be assumed under latex,
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Accumulated reward for 500 agent over 1000 episodes.}
+\label{acc_reward_500}
 \end{figure}
 
 
