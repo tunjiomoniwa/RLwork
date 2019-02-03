@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.1)  2 FEB 2019 11:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.1)  3 FEB 2019 19:17
 entering extended mode
 **./RL_Ideas.tex
 (RL_Ideas.tex
@@ -549,26 +549,43 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 508.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 Package epstopdf Info: Source file: <ideafig1.eps>
-(epstopdf)                    date: 2019-01-20 22:17:22
-(epstopdf)                    size: 292003 bytes
+(epstopdf)                    date: 2019-02-02 18:45:04
+(epstopdf)                    size: 235879 bytes
 (epstopdf)             Output file: <ideafig1-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-01-20 22:17:42
-(epstopdf)                    size: 238331 bytes
+(epstopdf)                    date: 2019-02-02 18:46:06
+(epstopdf)                    size: 185141 bytes
 (epstopdf)             Command: <epstopdf --outfile=ideafig1-eps-converted-to.p
 df ideafig1.eps>
 (epstopdf)             \includegraphics on input line 512.
 Package epstopdf Info: Output file is already uptodate.
 
-<ideafig1-eps-converted-to.pdf, id=1, 687.56876pt x 606.265pt>
+<ideafig1-eps-converted-to.pdf, id=1, 678.535pt x 606.265pt>
 File: ideafig1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ideafig1-eps-converted-to.pdf>
 Package pdftex.def Info: ideafig1-eps-converted-to.pdf used on input line 512.
-(pdftex.def)             Requested size: 231.26378pt x 203.91641pt.
+(pdftex.def)             Requested size: 231.26378pt x 206.6269pt.
  [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
  <./ideafig1-eps-converted-to.pdf>] [2]
+Package epstopdf Info: Source file: <mdp.eps>
+(epstopdf)                    date: 2019-02-02 13:03:13
+(epstopdf)                    size: 84305 bytes
+(epstopdf)             Output file: <mdp-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-02-02 13:03:40
+(epstopdf)                    size: 29894 bytes
+(epstopdf)             Command: <epstopdf --outfile=mdp-eps-converted-to.pdf md
+p.eps>
+(epstopdf)             \includegraphics on input line 556.
+Package epstopdf Info: Output file is already uptodate.
+
+<mdp-eps-converted-to.pdf, id=47, 274.02374pt x 235.88126pt>
+File: mdp-eps-converted-to.pdf Graphic file (type pdf)
+
+<use mdp-eps-converted-to.pdf>
+Package pdftex.def Info: mdp-eps-converted-to.pdf used on input line 556.
+(pdftex.def)             Requested size: 224.03743pt x 192.8552pt.
 Package epstopdf Info: Source file: <ave_reward.eps>
 (epstopdf)                    date: 2019-02-01 19:00:01
 (epstopdf)                    size: 20644 bytes
@@ -577,161 +594,122 @@ Package epstopdf Info: Source file: <ave_reward.eps>
 (epstopdf)                    size: 11579 bytes
 (epstopdf)             Command: <epstopdf --outfile=ave_reward-eps-converted-to
 .pdf ave_reward.eps>
-(epstopdf)             \includegraphics on input line 554.
+(epstopdf)             \includegraphics on input line 566.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex.exe (file ./ave_reward-eps-converted-to.pdf): PDF incl
 usion: found PDF version <1.7>, but at most version <1.5> allowed
-<ave_reward-eps-converted-to.pdf, id=50, 462.72874pt x 346.29375pt>
+<ave_reward-eps-converted-to.pdf, id=48, 462.72874pt x 346.29375pt>
 File: ave_reward-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ave_reward-eps-converted-to.pdf>
-Package pdftex.def Info: ave_reward-eps-converted-to.pdf used on input line 554
+Package pdftex.def Info: ave_reward-eps-converted-to.pdf used on input line 566
 .
 (pdftex.def)             Requested size: 224.03743pt x 167.66164pt.
 Package epstopdf Info: Source file: <acc_reward.eps>
 (epstopdf)                    date: 2019-02-01 19:00:01
 (epstopdf)                    size: 110105 bytes
 (epstopdf)             Output file: <acc_reward-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-02-01 19:00:01
-(epstopdf)                    size: 34288 bytes
+(epstopdf)                    date: 2019-02-03 18:52:07
+(epstopdf)                    size: 37626 bytes
 (epstopdf)             Command: <epstopdf --outfile=acc_reward-eps-converted-to
 .pdf acc_reward.eps>
-(epstopdf)             \includegraphics on input line 565.
+(epstopdf)             \includegraphics on input line 577.
 Package epstopdf Info: Output file is already uptodate.
 
-
-pdfTeX warning: pdflatex.exe (file ./acc_reward-eps-converted-to.pdf): PDF incl
-usion: found PDF version <1.7>, but at most version <1.5> allowed
-<acc_reward-eps-converted-to.pdf, id=51, 462.72874pt x 346.29375pt>
+<acc_reward-eps-converted-to.pdf, id=49, 462.72874pt x 346.29375pt>
 File: acc_reward-eps-converted-to.pdf Graphic file (type pdf)
 
 <use acc_reward-eps-converted-to.pdf>
-Package pdftex.def Info: acc_reward-eps-converted-to.pdf used on input line 565
+Package pdftex.def Info: acc_reward-eps-converted-to.pdf used on input line 577
 .
 (pdftex.def)             Requested size: 224.03743pt x 167.66164pt.
-Package epstopdf Info: Source file: <ave_reward_200.eps>
-(epstopdf)                    date: 2019-02-02 11:02:00
-(epstopdf)                    size: 55383 bytes
-(epstopdf)             Output file: <ave_reward_200-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-02-02 11:17:18
-(epstopdf)                    size: 15732 bytes
-(epstopdf)             Command: <epstopdf --outfile=ave_reward_200-eps-converte
-d-to.pdf ave_reward_200.eps>
-(epstopdf)             \includegraphics on input line 576.
+Package epstopdf Info: Source file: <200agents.eps>
+(epstopdf)                    date: 2019-02-03 18:43:14
+(epstopdf)                    size: 2143253 bytes
+(epstopdf)             Output file: <200agents-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-02-03 18:52:15
+(epstopdf)                    size: 456518 bytes
+(epstopdf)             Command: <epstopdf --outfile=200agents-eps-converted-to.
+pdf 200agents.eps>
+(epstopdf)             \includegraphics on input line 588.
 Package epstopdf Info: Output file is already uptodate.
 
-<ave_reward_200-eps-converted-to.pdf, id=52, 462.72874pt x 346.29375pt>
-File: ave_reward_200-eps-converted-to.pdf Graphic file (type pdf)
+<200agents-eps-converted-to.pdf, id=50, 628.3475pt x 386.44376pt>
+File: 200agents-eps-converted-to.pdf Graphic file (type pdf)
 
-<use ave_reward_200-eps-converted-to.pdf>
-Package pdftex.def Info: ave_reward_200-eps-converted-to.pdf used on input line
- 576.
-(pdftex.def)             Requested size: 224.03743pt x 167.66164pt.
-Package epstopdf Info: Source file: <acc_reward_200.eps>
-(epstopdf)                    date: 2019-02-02 11:02:57
-(epstopdf)                    size: 2596960 bytes
-(epstopdf)             Output file: <acc_reward_200-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-02-02 11:17:26
-(epstopdf)                    size: 570118 bytes
-(epstopdf)             Command: <epstopdf --outfile=acc_reward_200-eps-converte
-d-to.pdf acc_reward_200.eps>
-(epstopdf)             \includegraphics on input line 587.
+<use 200agents-eps-converted-to.pdf>
+Package pdftex.def Info: 200agents-eps-converted-to.pdf used on input line 588.
+
+(pdftex.def)             Requested size: 238.49121pt x 146.67325pt.
+Package epstopdf Info: Source file: <500agents.eps>
+(epstopdf)                    date: 2019-02-03 18:50:19
+(epstopdf)                    size: 5055305 bytes
+(epstopdf)             Output file: <500agents-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-02-03 18:52:29
+(epstopdf)                    size: 1055790 bytes
+(epstopdf)             Command: <epstopdf --outfile=500agents-eps-converted-to.
+pdf 500agents.eps>
+(epstopdf)             \includegraphics on input line 599.
 Package epstopdf Info: Output file is already uptodate.
 
-<acc_reward_200-eps-converted-to.pdf, id=53, 462.72874pt x 346.29375pt>
-File: acc_reward_200-eps-converted-to.pdf Graphic file (type pdf)
+<500agents-eps-converted-to.pdf, id=51, 518.93875pt x 368.37625pt>
+File: 500agents-eps-converted-to.pdf Graphic file (type pdf)
 
-<use acc_reward_200-eps-converted-to.pdf>
-Package pdftex.def Info: acc_reward_200-eps-converted-to.pdf used on input line
- 587.
-(pdftex.def)             Requested size: 224.03743pt x 167.66164pt.
-Package epstopdf Info: Source file: <ave_reward_500.eps>
-(epstopdf)                    date: 2019-02-02 11:09:44
-(epstopdf)                    size: 109303 bytes
-(epstopdf)             Output file: <ave_reward_500-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-02-02 11:17:29
-(epstopdf)                    size: 18733 bytes
-(epstopdf)             Command: <epstopdf --outfile=ave_reward_500-eps-converte
-d-to.pdf ave_reward_500.eps>
-(epstopdf)             \includegraphics on input line 598.
+<use 500agents-eps-converted-to.pdf>
+Package pdftex.def Info: 500agents-eps-converted-to.pdf used on input line 599.
+
+(pdftex.def)             Requested size: 238.49121pt x 169.29773pt.
+Package epstopdf Info: Source file: <1000agents.eps>
+(epstopdf)                    date: 2019-02-03 19:14:55
+(epstopdf)                    size: 9988726 bytes
+(epstopdf)             Output file: <1000agents-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-02-03 19:17:42
+(epstopdf)                    size: 2040916 bytes
+(epstopdf)             Command: <epstopdf --outfile=1000agents-eps-converted-to
+.pdf 1000agents.eps>
+(epstopdf)             \includegraphics on input line 610.
 Package epstopdf Info: Output file is already uptodate.
 
-<ave_reward_500-eps-converted-to.pdf, id=54, 462.72874pt x 346.29375pt>
-File: ave_reward_500-eps-converted-to.pdf Graphic file (type pdf)
+<1000agents-eps-converted-to.pdf, id=52, 488.82625pt x 376.40625pt>
+File: 1000agents-eps-converted-to.pdf Graphic file (type pdf)
 
-<use ave_reward_500-eps-converted-to.pdf>
-Package pdftex.def Info: ave_reward_500-eps-converted-to.pdf used on input line
- 598.
-(pdftex.def)             Requested size: 224.03743pt x 167.66164pt.
-Package epstopdf Info: Source file: <acc_reward_500.eps>
-(epstopdf)                    date: 2019-02-02 11:10:29
-(epstopdf)                    size: 6395248 bytes
-(epstopdf)             Output file: <acc_reward_500-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-02-02 11:17:47
-(epstopdf)                    size: 1394205 bytes
-(epstopdf)             Command: <epstopdf --outfile=acc_reward_500-eps-converte
-d-to.pdf acc_reward_500.eps>
-(epstopdf)             \includegraphics on input line 609.
-Package epstopdf Info: Output file is already uptodate.
+<use 1000agents-eps-converted-to.pdf>
+Package pdftex.def Info: 1000agents-eps-converted-to.pdf used on input line 610
+.
+(pdftex.def)             Requested size: 238.49121pt x 183.64232pt.
 
-<acc_reward_500-eps-converted-to.pdf, id=55, 462.72874pt x 346.29375pt>
-File: acc_reward_500-eps-converted-to.pdf Graphic file (type pdf)
-
-<use acc_reward_500-eps-converted-to.pdf>
-Package pdftex.def Info: acc_reward_500-eps-converted-to.pdf used on input line
- 609.
-(pdftex.def)             Requested size: 224.03743pt x 167.66164pt.
-Package epstopdf Info: Source file: <mdp.eps>
-(epstopdf)                    date: 2019-01-20 14:50:40
-(epstopdf)                    size: 125532 bytes
-(epstopdf)             Output file: <mdp-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-01-20 14:52:14
-(epstopdf)                    size: 77710 bytes
-(epstopdf)             Command: <epstopdf --outfile=mdp-eps-converted-to.pdf md
-p.eps>
-(epstopdf)             \includegraphics on input line 620.
-Package epstopdf Info: Output file is already uptodate.
-
-<mdp-eps-converted-to.pdf, id=56, 391.4625pt x 351.3125pt>
-File: mdp-eps-converted-to.pdf Graphic file (type pdf)
-
-<use mdp-eps-converted-to.pdf>
-Package pdftex.def Info: mdp-eps-converted-to.pdf used on input line 620.
-(pdftex.def)             Requested size: 231.26378pt x 207.54596pt.
-
-Underfull \hbox (badness 2277) in paragraph at lines 634--636
+Underfull \hbox (badness 2277) in paragraph at lines 625--627
 \T1/ptm/m/n/10 con-tin-u-ous state and ac-tion spaces de-fined by the tu-
  []
 
-[3 <./ave_reward-eps-converted-to.pdf> <./acc_reward-eps-converted-to.pdf> <./a
-ve_reward_200-eps-converted-to.pdf> <./acc_reward_200-eps-converted-to.pdf> <./
-ave_reward_500-eps-converted-to.pdf>]
+[3 <./mdp-eps-converted-to.pdf> <./ave_reward-eps-converted-to.pdf> <./acc_rewa
+rd-eps-converted-to.pdf> <./200agents-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <fogmodel2.eps>
-(epstopdf)                    date: 2019-01-06 17:17:37
-(epstopdf)                    size: 239248 bytes
+(epstopdf)                    date: 2019-02-02 18:29:09
+(epstopdf)                    size: 305547 bytes
 (epstopdf)             Output file: <fogmodel2-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-01-06 17:19:52
-(epstopdf)                    size: 148686 bytes
+(epstopdf)                    date: 2019-02-02 18:29:27
+(epstopdf)                    size: 203642 bytes
 (epstopdf)             Command: <epstopdf --outfile=fogmodel2-eps-converted-to.
 pdf fogmodel2.eps>
-(epstopdf)             \includegraphics on input line 654.
+(epstopdf)             \includegraphics on input line 645.
 Package epstopdf Info: Output file is already uptodate.
 
-<fogmodel2-eps-converted-to.pdf, id=208, 294.09875pt x 363.3575pt>
+<fogmodel2-eps-converted-to.pdf, id=172, 294.09875pt x 334.24875pt>
 File: fogmodel2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fogmodel2-eps-converted-to.pdf>
-Package pdftex.def Info: fogmodel2-eps-converted-to.pdf used on input line 654.
+Package pdftex.def Info: fogmodel2-eps-converted-to.pdf used on input line 645.
 
-(pdftex.def)             Requested size: 231.26378pt x 285.72415pt.
+(pdftex.def)             Requested size: 231.26378pt x 262.83466pt.
 
 
-LaTeX Warning: Reference `fogmodel' on page 4 undefined on input line 662.
+LaTeX Warning: Reference `fogmodel' on page 4 undefined on input line 653.
 
-[4 <./acc_reward_500-eps-converted-to.pdf> <./mdp-eps-converted-to.pdf> <./fogm
-odel2-eps-converted-to.pdf>] [5] [6
+[4 <./500agents-eps-converted-to.pdf> <./1000agents-eps-converted-to.pdf> <./fo
+gmodel2-eps-converted-to.pdf>] [5] [6
 
 ] (RL_Ideas.aux)
 
@@ -739,13 +717,13 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5660 strings out of 493334
- 82564 string characters out of 3139231
- 167598 words of memory out of 3000000
- 9046 multiletter control sequences out of 15000+200000
+ 5655 strings out of 493334
+ 82301 string characters out of 3139231
+ 166594 words of memory out of 3000000
+ 9042 multiletter control sequences out of 15000+200000
  108759 words of font info for 113 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,6n,35p,2067b,305s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,6n,35p,2159b,305s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fon
@@ -759,9 +737,9 @@ ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files
 KTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/ut
 mr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on RL_Ideas.pdf (6 pages, 2664750 bytes).
+Output written on RL_Ideas.pdf (6 pages, 4178802 bytes).
 PDF statistics:
- 328 PDF objects out of 1000 (max. 8388607)
+ 323 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
