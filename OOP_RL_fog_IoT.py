@@ -65,6 +65,9 @@ class FogAgent:
             self.max_value = self.Q[self.action, self.max_index]
                 
             self.Q[self.current_state, self.action] = self.R[self.current_state, self.action] + self.gamma* self.max_value
+            ###learning_rate=0.1
+            ###Q[current_state, action] = R[current_state, action] + learning_rate*(gamma* max_value - Q[current_state, action])
+            
             #print('max_value', self.R[self.current_state, self.action] + self.gamma* self.max_value)
             if (np.max(self.Q) > 0):
                 self.score = np.sum(self.Q/np.max(self.Q)*25)

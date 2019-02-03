@@ -479,7 +479,7 @@
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \begin{abstract}
-Reinforcement learning (RL) algorithms offers more insights about the overall futuristic functionalities for intelligent Internet-of-Things (IoT) devices. With the explosive growth in the number of IoT devices, as well as the highly-distributed deployments of these devices today, managing the IoT devices centrally becomes infeasible. As such, several disruptive paradigms have emerged, one of which is the fog computing-based IoT, which aim towards shifting computation, control, and decision-making closer to the network edge. In this paper, we aim to minimize the global outage in communication within a fog-based IoT network, by optimizing the power-control parameter of each potential mobile fog-relay agent (MFRA), as well as optimizing the physical position. As such, each MFRA is compelled to take certain actions that may influence its environment. We optimize the communication performance by applying a decentralized q-learning approach, with each MFRA acting independently, but contributing towards a global optimal policy. Furthermore, we show that our algorithm is scalable even with very large number of devices.
+Reinforcement learning (RL) algorithms offers more insights about the overall futuristic functionalities for intelligent Internet-of-Things (IoT) devices. With the explosive growth in the number of IoT devices, as well as the highly-distributed deployments of these devices today, managing the IoT devices centrally becomes infeasible. As such, several disruptive paradigms have emerged, one of which is the fog computing-based IoT, which aim towards shifting computation, control, and decision-making closer to the network edge. However, mobility and power-constrain of these fog devices remains an issue of concern. In this paper, we aim to minimize the global outage in communication within a fog-based IoT network, by optimizing the power-control parameter of each potential mobile fog-relay agent (MFRA), as well as optimizing the physical position. As such, each MFRA is compelled to take certain actions that may influence its environment. We optimize the communication performance by applying a decentralized q-learning approach, with each MFRA acting independently, but contributing towards a global local-optimal policy. Furthermore, we show that our algorithm is scalable even with very large number of devices.
 
 \end{abstract}
 
@@ -513,7 +513,7 @@ For services to be effectively delivered, it is important to ensure that the com
  %where an .eps filename suffix will be assumed under latex,
 % and a .pdf suffix will be assumed for pdflatex; or what has been declared
 % via \DeclareGraphicsExtensions.
-\caption{System model for Idea1.}
+\caption{Micro-view of the proposed fog-based IoT system.}
 \label{ideafig1}
 \end{figure}
 
@@ -544,7 +544,15 @@ In this paper, we assume the following.
 \end{enumerate}
 
 
-
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3.8in]{random_deploy.eps}
+ %where an .eps filename suffix will be assumed under latex,
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{A pictorial view of how MFRA and IoT sensors are randomly deployed.}
+\label{random_deploy}
+\end{figure}
 
 
 \subsection{Problem Formulation}
@@ -639,16 +647,6 @@ q(s_0, a_0, s_1, a_1, ..., s_N) = p_0(s_0) \prod_{i=0}^{N-1} \pi(a_i|s_i) p(s_{i
 \end{equation}
 
 
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=3.2in]{fogmodel2.eps}
- %where an .eps filename suffix will be assumed under latex,
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-\caption{System model depicting the role of fog agents in a dynamic, multi-agent IoT environment.}
-\label{fogmodel2}
-\end{figure}
 
 Fig. \ref{fogmodel} shows a dynamic IoT environment with an IoT sensor attempting to request some services from a remote target fog agent/node through randomly deployed fog devices. The devices act as relays to forward traffic from the source to the destination. However, based on their position, line-of-sight(LoS) obstruction, which affect the conditions of the wireless channel, some degree of communication outage may occur. Our aim is to ensure that the agents are able to learn the optimal route to take through their experience with the environment.
 
