@@ -58,11 +58,23 @@ class FogAgent:
             
             self.current_state = np.random.randint(0, int(Q.shape[0]))            
             self.max_index = np.where(Q[self.action,] == np.max(self.Q[self.action,]))[1]
-            if self.max_index.shape[0] >1:
+
+##            if random.random() > epsilon:
+##                return exploit(values)
+##            else: 
+##                return explore(values)
+##
+
+            #print(self.max_index)
+            #print(np.max(self.max_index))
+            #print(self.max_index.shape[0]/np.max(self.max_index.shape[0])*8)
+            if self.max_index.shape[0] > 8:
                 self.max_index = int(np.random.choice(self.max_index, size = 1))
+                
             else:
-                self.max_index = int(self.max_index)
+                self.max_index = int(np.max(self.max_index))
             self.max_value = self.Q[self.action, self.max_index]
+            
                 
             self.Q[self.current_state, self.action] = self.R[self.current_state, self.action] + self.gamma* self.max_value
             ###learning_rate=0.1
@@ -80,7 +92,7 @@ class FogAgent:
 
 
 fog_list = []
-agents_num =1000
+agents_num =2
 for pp in range(agents_num):
     pp= FogAgent([(0,1), (0,3), (1,2), (1,4), (2,5), (3,4), (4,5), (4,7), (5,8), (6,7), (7,8)],2,0.8)
     fog_list.append(pp)
