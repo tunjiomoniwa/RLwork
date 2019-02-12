@@ -503,11 +503,22 @@ Reinforcement learning (RL), Internet-of-Things (IoT), Fog-based IoT, Markov dec
 % creates the second title. It will be ignored for other modes.
 \IEEEpeerreviewmaketitle
 
-\section{Environment Setting}
-Several disruptive paradigms have emerged, one of which is the fog computing-based IoT, which targets shifting computation, control, and decision-making closer to the network edge~\cite{Omoniwa2018}. Fog devices, which may be mobile or static, energy-constrained or not, are expected to play a key role in to the success of future IoT systems~\cite{Chiangh2016}, one of which is overcoming outages as a result of link failures caused by obstacles or long distances between a source node and a remote destination where IoT services may be rendered.
-Mobility of these fog devices is critical in minimizing outages in communication, however, these devices are at risk of draining most of their energy on movement, in addition to energy expended in communication. As such, near-optimal actions from these devices are required to drive several smart cities applications, most importantly the Industrial IoT (IIoT), where industrial robots are deployed to carry out actions based on its interaction with its environment, and Intelligent monitoring, where surveillance drones could be deployed in militarised zones to meet stringent quality-of-service (QoS) requirements~\cite{OmoniwaRelay2018}. In Fig. \ref{ideafig1}, we present micro-view of randomly deployed IoT sensors trying to send/receive data/service request to a remote fog device via a potential mobile fog-relay agent (MFRA). Intuitively, if a fog device does not have the required computational/processing capability, it may decide to forward the data/service request to other available fog devices.
+\section{Background}
+Several disruptive paradigms have emerged, one of which is the fog computing-based IoT, which targets shifting computation, control, and decision-making closer to the network edge~\cite{Omoniwa2018}. Fog devices, which may be mobile or static, energy-constrained or not, are expected to play a key role in to the success of future IoT systems~\cite{Chiangh2016}, one of which is overcoming outages as a result of link failures caused by obstacles or long distances between a source node and a remote destination where IoT services may be rendered. 
 
-Considering the highly-distributed nature of deployed IoT devices, it becomes infeasible to manage devices centrally~\cite{Wilhelmi2017}. As such, reinforcement learning can be effectively deployed on fog devices to allow them act independently based on their local experiences in the environment. Moreover, the dynamic IoT environment increases the complexity in system design, as such, many classical approaches will fail when domain knowledge of the environment mismatches the actual environment~\cite{Yau2012}. 
+However, several challenges exist, one of which is the efficient utilization of energy by power-constrained IoT devices. Energy can be used up when these devices increase power-level to communicate with neighbouring devices within the network, likewise energy can be saved when the devices regulate the transmission power, especially in situations when they are relatively close to the communicating parties. For example, a fog device that transmits at high power irrespective of the channel conditions or proximity of its neighbours may drastically deplete its energy. Another challenge to be addressed is energy consumed due to mobility. In order to deliver on some acceptable quality-of-service (QoS), it is imperative for devices to be mobile, however these devices are at risk of draining most of their energy on movement. For instance, energy will be inefficiently used if a power-constrained fog device decides to move closer to the communicating party only to transmit very few number of packets, though having a guarantee that all the packets are delivered to the destination.
+
+Moreover, since power-control mechanisms and smart mobility are critical in minimizing outages in communication, these devices should be able to learn when to increase, decrease, or maintain their power-levels or to move efficiently in order to increase the long-term performance of the network. More so, near-optimal actions from these devices are required to drive several smart cities applications, most importantly the Industrial IoT (IIoT), where industrial robots are deployed to act intelligible in a dynamic industrial setting, and intelligent monitoring applications, where surveillance drones are deployed in militarised zones to meet stringent quality-of-service (QoS) requirements~\cite{OmoniwaRelay2018}.
+ 
+A similar problem was partially addressed in~\cite{OmoniwaRelay2018}, where a multi-tier fog-based IoT architecture with a mobile/static fog device could adjust its position and power-control parameter in order to minimize outage in communication. Convergence was achieved using an iterative algorithm based on the steepest descent method (SDM), however, the fog device will have to learn about its environment each time the dynamics of the system changes. Moreover, the single-agent based work did not take into consideration the performance of the approach in a highly-decentralised IoT environment. Considering the highly-distributed nature of deployed IoT devices, it becomes infeasible to manage devices centrally~\cite{Wilhelmi2017}. As such, reinforcement learning can be effectively deployed on fog devices to allow them act independently based on their local experiences in the environment, i.e. each fog device should be able to learn independently without a central entity. 
+ 
+However, the dynamic IoT environment increases the complexity in system design, as such, many classical approaches will fail when domain knowledge of the environment mismatches the actual environment~\cite{Yau2012}.
+
+ 
+ 
+ 
+ In Fig. \ref{ideafig1}, we present micro-view of randomly deployed IoT sensors trying to send/receive data/service request to a remote fog device via a potential mobile fog-relay agent (MFRA). Intuitively, if a fog device does not have the required computational/processing capability, it may decide to forward the data/service request to other available fog devices.
+ 
 
 
 \begin{figure}[!t]
@@ -520,27 +531,16 @@ Considering the highly-distributed nature of deployed IoT devices, it becomes in
 \label{ideafig1}
 \end{figure}
 
+
 \section{Related Works: Idea 1}
-Rework This below
-Considering the dynamics and heterogeneity within the ultra-distributed IoT environment, it is important for devices which are mobile to move seamlessly without degradation of the quality of service (QoS) when communicating. Moreover, devices should communication ubiquitously irrespective of the system dynamics. The work in~\cite{OmoniwaRelay2018} considered a multi-tier fog-based IoT architecture where a mobile/static fog node acts as an amplify and forward relay that transmits received information from a IoT sensor node to a higher hierarchically-placed fog device, which offers some localized services. In order to minimize the outage in communication, an iterative algorithm based on the steepest descent method (SDM) was proposed to jointly optimize the mobility pattern and power-control parameters. However, the work only considered a single agent and did not take into consideration the performance of the approach in a highly-decentralised IoT environment.
+Considering the dynamics and heterogeneity within the ultra-distributed IoT environment, it is important for communication devices which are mobile to move seamlessly without degrading quality of service (QoS). More so, the constrained devices should communicate efficiently without depleting all their energy by transmitting at high-power, which may have long-term consequences to the network. Several non-RL-based approaches have been proposed to optimize the communication performance in IoT based networks, however, when some parameters in the network are changed, these approaches may fail.
+The work in~\cite{OmoniwaRelay2018} considered a multi-tier fog-based IoT architecture where a mobile/static fog node acts as an amplify and forward relay that transmits received information from a IoT sensor node to a higher hierarchically-placed fog device, which offers some localized services. In order to minimize the outage in communication, an iterative algorithm based on the steepest descent method (SDM) was proposed to jointly optimize the mobility pattern and power-control parameters. However, the single-agent based work did not take into consideration the performance of the approach in a highly-decentralised IoT environment. Furthermore, each time the topology is changed, the agent will need to recompute the model in other to act optimally.
 
-In \cite{Wilhelmi2017}, a fully-decentralised stateless Q-learning approach was proposed
+RL can be applied to a new environment, since the it allows the agent to learn, by take actions that will improve its long-term return. Furthermore, RL can be applied to multiple agents. In \cite{Wilhelmi2017}, a fully-decentralised, multi-agent-based stateless Q-learning approach was proposed, where no information about neighbouring nodes are available to agents. Though the paper was able to improve aggregate throughput in the network, by allowing the networks modify both the transmission power and the channel used, however, high variability was observed in the throughput of the individual networks. Only eight agents were observed using a stateless Q-learning approach. The work did not adequately depict the distributed nature of the IoT network. Moreover, mobility of agents was completely ignored.
 
+Several works in WSN have applied the decentralised RL technique. In \cite{Liang2009}, a multi-agent reinforcement learning-based multi-hop mesh cooperative (MRL-CC) mechanism for the improvement of some QoS metrics in the WSNs. Though the mobility of the cooperative nodes were taken into account when learning the optimal policy, the MRL-CC failed to consider the power dissipated by the power-constrained devices, as well as the overall outage in communication.
 
-
-
-As such, RL techniques will play a very important role in areas of IoT device/service discovery and cooperative communications, which will support adaptability and interfacing between devices and sub-networks within the IoT domain. Several works in WSNs~\cite{Forster2007}, \cite{Forster2007FROMS}, \cite{Forster2008}, \cite{Forster2009}, focussed on improving some performance metrics such as energy, latency, throughput, within the network.
-
-In \cite{Chen2008}, a reliable and energy-efficient routing (REER) protocol was proposed using a geographic routing approach. The work considered the idea of a central entity, called a reference node (RN), which is assumed to be situated at an ideal location between source and destination. Several other cooperative nodes, which contend to relay data, are assumed to be situated around the RN. The work was able to examine the trade-off between reliability and energy-efficiency when the distances between RNs was adjusted. The work in \cite{Chen2011} proposed an improvement to \cite{Chen2008}, addressing the issue of scalability in a dynamic network. As such, a novel distributed multi-hop cooperative communication scheme (DMC) was proposed to improve certain QoS metrics such as the communication energy, hop count, and end-to-end delay. However, both works assumed complete prior knowledge of the network environment.
-In \cite{Liang2009}, a multi-agent reinforcement learning-based multi-hop mesh cooperative (MRL-CC) mechanism for the improvement of some QoS metrics such as the end-to-end delay, packet delivery ratio in the WSNs. The work out-performed the work in \cite{Chen2009}, which incurred higher delay, and was distance-based, which is not suitable for a dynamic network environment. Though the mobility of the cooperative nodes were taken into account when learning the optimal policy, the MRL-CC failed to consider the power dissipated by the power-constrained devices.
-
-A RL-based Q-routing technique, the Feedback Routing for Optimizing Multiple Sinks (FROMS), was proposed in \cite{Forster2007, Forster2007FROMS} to enable efficient routing to multiple sinks without overhead. Simulations were done under scenarios where the sink nodes are mobile and with consideration for node failure. However, the mobility pattern and speed was bounded. Moreover, an important cost metric such as the energy consumed by the mobile nodes was not considered. In \cite{Forster2008}, an evaluation was carried out on the previously proposed FROMS framework using real WSN hardware. The objective was to show that machine learning algorithms could be efficiently deployed on resource-constrained devices. However, during the implementation phase, certain bottlenecks were encountered such as dynamic memory allocation, interference in the wireless channel, poor data gathering, and difficulty in handling lost or corrupted packets. As such, a data clustering and aggregation approach, CLIQUE, was proposed in \cite{Forster2009} to minimize the energy expended by the selecting a cluster head using Q-learning. The approach was able to save significant amount of energy when compared to the traditional and random cluster head selection approach.
-
-
-Some works~\cite{OmoniwaRelay2018}, \cite{Jadoon2017}, \cite{Camelo2016}, \cite{Li2015} have addressed pertinent issues on cooperative communications within the IoT environment. A Q-learning relay selection algorithm was introduced in \cite{Jadoon2017} to maximize the throughput in a typical cooperative network with relays supporting communication between source and destination. The relays were assumed to be the states, with three possible actions of remaining in the present state with relay~$r$ or choosing~$r + 1$ or~$r - 1$. However, the outage analysis was carried out without a closed-form expression for the outage probability within the network. Furthermore, in an attempt to reduce the complexity of the formulated problem, the problem algorithm did not consider the relays (states) which do not satisfy the minimum mutual information constraint. A scalable parallel Q-learning algorithm was introduced in \cite{Camelo2016} to minimize communication cost. The work considered distributed and resource-constrained environment. A Q-learning-based duty cycle control technique was introduced in \cite{Li2015} to provide improved performance and reliable M2M communication for IoT applications. However, the proposed Q-learning based duty cycle control only considered a two-hop cluster tree network in evaluating the performance of the system. 
-
-
-
+In \cite{Chen2008}, a reliable and energy-efficient routing (REER) protocol was proposed using a geographic routing approach. The work considered the idea of a central entity, called a reference node (RN), which is assumed to be situated at an ideal location between source and destination. Several other cooperative nodes, which contend to relay data, are assumed to be situated around the RN. The work was able to examine the trade-off between reliability and energy-efficiency when the distances between RNs was adjusted.
 
 
 We present a fully-decentralised multi-agent reinforcement learning approach that adequately addresses some performance issues in IoT.
@@ -558,6 +558,46 @@ In this paper, we assume the following.
 \end{enumerate}
 
 
+
+
+
+\subsection{Problem Formulation}
+States: The states can be categorized by the following:
+\begin{itemize}
+  \item No communication possible and far away from IoT device (NC/FD)
+  \item No communication possible and static (NC/S)
+  \item No communication possible and near IoT device (NC/ND)
+  \item Poor communication and far away from IoT device (PC/FD)
+  \item Poor communication and static (PC/S)
+  \item Poor communication and near IoT device (PC/ND)
+  \item Good communication and far away from IoT device (GC/FD)
+  \item Good communication and static (GC/S)
+  \item Good communication and near IoT device (GC/ND)
+  \item Excellent communication and far away from IoT device (EC/FD)
+  \item Excellent communication and static (EC/S)
+  \item Excellent communication and near IoT device (EC/ND)
+\end{itemize}
+
+
+ Actions/rewards: The actions and reward/action are listed below.
+
+ \begin{itemize}
+  \item move closer to end device ($-d$), gains 2J of energy
+  \item Mover away from end device ($+d$), loses 1J of energy
+  \item stop and transmit ($d^0$), loses 0.1J of energy
+  \item increase power to transmit ($\uparrow p$), loses 1J of energy
+  \item decrease power to transmit ($\downarrow p$), gains 1J of energy
+  \item maintain transmit power ($p^0$), loses 0.1J of energy
+
+\end{itemize}
+
+Goal: The goal is for the agent to learn to reach the EC/ND state with a goal of 100J.
+
+Metrics: Energy, Mobility, Efficient communication.
+
+
+In Fig. \ref{ideafig1}, we present a situation where different IoT end-devices, inclusive of smart things embedded with sensors (smart-meters, smart-watches, traffic lights, washing machine, dish-washers, herds, or even a sick patient being monitored, etc.), which can send data/service request to a remote fog service provider via a MFRA. However, there may be change in the topology of the network or even in the environment, making it difficult for data collection or service provision. Furthermore, the environment may be too hazardous for human control and as such, some level of intelligence is expected from the MFRA. The MFRA learns to optimize its position and adjust it's power-level to minimize the communication outage. In Fig. \ref{mdp}, we go further to define a finite state space where the MFRA acts.
+
 \begin{figure}[!t]
 \centering
 \includegraphics[width=3.8in]{random_deploy.eps}
@@ -569,73 +609,81 @@ In this paper, we assume the following.
 \end{figure}
 
 
-\subsection{Problem Formulation}
-In Fig. \ref{ideafig1}, we present a situation where different IoT end-devices, inclusive of smart things embedded with sensors (smart-meters, smart-watches, traffic lights, washing machine, dish-washers, herds, or even a sick patient being monitored, etc.), which can send data/service request to a remote fog service provider via a MFRA. However, there may be change in the topology of the network or even in the environment, making it difficult for data collection or service provision. Furthermore, the environment may be too hazardous for human control and as such, some level of intelligence is expected from the MFRA. The MFRA learns to optimize its position and adjust it's power-level to minimize the communication outage. In Fig. \ref{mdp}, we go further to define a finite state space where the MFRA acts.
+
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=3.1in]{energy_saved.eps}
+% %where an .eps filename suffix will be assumed under latex,
+%% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+%% via \DeclareGraphicsExtensions.
+%\caption{energy saved over episodes.}
+%\label{energy_saved}
+%\end{figure}
 
 
-\begin{figure}[!t]
-\centering
-\includegraphics[width=3.1in]{mdp.eps}
- %where an .eps filename suffix will be assumed under latex,
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-\caption{MDP of proposed model showing possible action range.}
-\label{mdp}
-\end{figure}
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=3.1in]{ave_reward.eps}
- %where an .eps filename suffix will be assumed under latex,
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-\caption{Average reward for each agent over 2000 episodes.}
-\label{ave_reward}
-\end{figure}
-
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=3.1in]{acc_reward.eps}
- %where an .eps filename suffix will be assumed under latex,
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-\caption{Accumulated reward for each agent over 2000 episodes.}
-\label{acc_reward}
-\end{figure}
-
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=3.3in]{200agents.eps}
- %where an .eps filename suffix will be assumed under latex,
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-\caption{Learning of 200 agents over 1000 episodes.}
-\label{200agents}
-\end{figure}
-
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=3.3in]{500agents.eps}
- %where an .eps filename suffix will be assumed under latex,
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-\caption{Learning of 500 agents over 1000 episodes.}
-\label{500agents}
-\end{figure}
-
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=3.3in]{1000agents.eps}
- %where an .eps filename suffix will be assumed under latex,
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-\caption{Learning of 1000 agents over 1000 episodes.}
-\label{1000agents}
-\end{figure}
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=3.1in]{mdp.eps}
+% %where an .eps filename suffix will be assumed under latex,
+%% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+%% via \DeclareGraphicsExtensions.
+%\caption{MDP of proposed model showing possible action range.}
+%\label{mdp}
+%\end{figure}
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=3.1in]{ave_reward.eps}
+% %where an .eps filename suffix will be assumed under latex,
+%% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+%% via \DeclareGraphicsExtensions.
+%\caption{Average reward for each agent over 2000 episodes.}
+%\label{ave_reward}
+%\end{figure}
+%
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=3.1in]{acc_reward.eps}
+% %where an .eps filename suffix will be assumed under latex,
+%% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+%% via \DeclareGraphicsExtensions.
+%\caption{Accumulated reward for each agent over 2000 episodes.}
+%\label{acc_reward}
+%\end{figure}
+%
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=3.3in]{200agents.eps}
+% %where an .eps filename suffix will be assumed under latex,
+%% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+%% via \DeclareGraphicsExtensions.
+%\caption{Learning of 200 agents over 1000 episodes.}
+%\label{200agents}
+%\end{figure}
+%
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=3.3in]{500agents.eps}
+% %where an .eps filename suffix will be assumed under latex,
+%% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+%% via \DeclareGraphicsExtensions.
+%\caption{Learning of 500 agents over 1000 episodes.}
+%\label{500agents}
+%\end{figure}
+%
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=3.3in]{1000agents.eps}
+% %where an .eps filename suffix will be assumed under latex,
+%% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+%% via \DeclareGraphicsExtensions.
+%\caption{Learning of 1000 agents over 1000 episodes.}
+%\label{1000agents}
+%\end{figure}
 
 
 \section{Idea 2}
