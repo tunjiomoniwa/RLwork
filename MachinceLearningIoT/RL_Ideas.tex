@@ -506,7 +506,7 @@ Reinforcement learning (RL), Internet-of-Things (IoT), Fog-based IoT, Markov dec
 \section{Background}
 Several disruptive paradigms have emerged, one of which is the fog computing-based IoT, which targets shifting computation, control, and decision-making closer to the network edge~\cite{Omoniwa2018}. Fog devices, which may be mobile or static, energy-constrained or not, are expected to play a key role in to the success of future IoT systems~\cite{Chiangh2016}, one of which is overcoming outages as a result of link failures caused by obstacles or long distances between a source node and a remote destination where IoT services may be rendered.
 
-However, several challenges exist, one of which is the efficient utilization of energy by power-constrained IoT devices. Energy can be used up when these devices increase power-level to communicate with neighbouring devices within the network, likewise energy can be saved when the devices regulate the transmission power, especially in situations when they are relatively close to the communicating parties. For example, a fog device that transmits at high power irrespective of the channel conditions or proximity of its neighbours may drastically deplete its energy and die-out, hence, resulting in communication breakdown due to a point-of-failure within the network. Another challenge to be addressed is the energy consumed due to mobility. In order to deliver on some acceptable quality-of-service (QoS), it is imperative for devices to be mobile, however these devices are at risk of draining most of their energy on movement. For instance, energy will be inefficiently used if a power-constrained fog device decides to move closer to the communicating party only to transmit very few number of packets, though having a guarantee that all the packets are delivered to the destination. However, if the size of number of packets to be transmitted is large, it may be optimal for the fog device to move closer and transmit at a lower power-level.
+However, several challenges exist, one of which is the efficient utilization of energy by power-constrained IoT devices. Energy can be used up when these devices unnecessarily increase their power-level in order to communicate with neighbouring devices within the network, in other words, energy can be saved when the devices regulate the transmission power, especially in situations when they are relatively close to the communicating parties. For example, a fog device that transmits at high power irrespective of the channel conditions or proximity of its neighbours may drastically deplete its energy and die-out, hence, resulting in communication breakdown due to a point-of-failure within the network. Another challenge to be addressed is the energy consumed due to mobility. In order to deliver on some acceptable quality-of-service (QoS) within the IoT ecosystem, it is imperative for devices to be mobile, however these devices are at risk of draining most of their energy on movement. For instance, energy will be inefficiently used if a power-constrained fog device decides to move closer to the communicating party only to transmit very few number of packets, though having a guarantee that all the packets are delivered to the destination. However, if the size of number of packets to be transmitted is large, it may be optimal for the fog device to move closer and transmit at a lower power-level.
 
 Moreover, since power-control mechanisms and smart mobility are critical in minimizing outages in communication, these devices should be able to learn when to increase, decrease, or maintain their power-levels or to move efficiently in order to increase the long-term performance of the network. More so, near-optimal actions from these devices are required to drive several smart cities applications, most importantly the Industrial IoT (IIoT), where industrial robots are deployed to act intelligible in a dynamic industrial setting, and intelligent monitoring applications, where surveillance drones are deployed in militarised zones to meet stringent quality-of-service (QoS) requirements~\cite{OmoniwaRelay2018}.
 
@@ -514,7 +514,7 @@ The work in~\cite{OmoniwaRelay2018} attempted to address the problem, where a mu
 
 The main contribution of this paper is to propose a fully-decentralised multi-agent-based reinforcement learning approach as in~\cite{Gueriau2018} that addresses communication performance within a fog-based IoT architecture. First, we assumed a realistic scenario of possible state-action pair for each communication scenario as seen in  Fig. \ref{ideafig1}, where each fog-agent is faced with a unique topology and environment. Next, in order to guarantee energy-efficient communications for the fog devices in the dynamic environment, we apply a decentralised q-learning algorithm, where each agent observes its position with respect to the communicating party, likewise the size of the number of packets to be transmitted and learns to take actions that improve the long-term communication performance. The fog-agents will actively try to communicate with neighbouring IoT devices in a manner where computing and processing are fully-decentralised, as well achieving energy balance within the system.
 
-The remainder of this work is organized as follows.~In Section II, we reviewed related works, and present our proposed approach in Section III. In Section IV, we evaluate the proposed fog-based IoT system, and present the results in Section V. Section V concludes the paper and outlines future directions. 
+The remainder of this work is organized as follows.~In Section II, we reviewed related works, and present our proposed approach in Section III. In Section IV, we evaluate the proposed fog-based IoT system, and present the results in Section V. Section V concludes the paper and outlines future directions.
 
 
 
@@ -563,18 +563,8 @@ In this paper, we assume the following.
 \subsection{Problem Formulation}
 States: The states can be categorized by the following:
 \begin{itemize}
-  \item No communication possible and far away from IoT device (NC/FD)
-  \item No communication possible and static (NC/S)
-  \item No communication possible and near IoT device (NC/ND)
-  \item Poor communication and far away from IoT device (PC/FD)
-  \item Poor communication and static (PC/S)
-  \item Poor communication and near IoT device (PC/ND)
-  \item Good communication and far away from IoT device (GC/FD)
-  \item Good communication and static (GC/S)
-  \item Good communication and near IoT device (GC/ND)
-  \item Excellent communication and far away from IoT device (EC/FD)
-  \item Excellent communication and static (EC/S)
-  \item Excellent communication and near IoT device (EC/ND)
+  \item Total communication outage
+  \item 
 \end{itemize}
 
 
