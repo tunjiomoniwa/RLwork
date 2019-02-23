@@ -8,9 +8,9 @@ class FogAgent:
     def __init__(self, state_list, initial_state, gamma):
     
     
-        goal= 4
+        goal= 35
 
-        MATRIX_SIZE =9
+        MATRIX_SIZE =36
 
         self.initial_state = initial_state
         self.gamma =gamma

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  15 FEB 2019 11:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  23 FEB 2019 16:26
 entering extended mode
 **./RL_Ideas.tex
 (RL_Ideas.tex
@@ -553,31 +553,31 @@ Package epstopdf Info: Source file: <ideafig1.eps>
 (epstopdf)                    size: 185141 bytes
 (epstopdf)             Command: <epstopdf --outfile=ideafig1-eps-converted-to.p
 df ideafig1.eps>
-(epstopdf)             \includegraphics on input line 525.
+(epstopdf)             \includegraphics on input line 528.
 Package epstopdf Info: Output file is already uptodate.
 <ideafig1-eps-converted-to.pdf, id=8, 678.535pt x 606.265pt>
 File: ideafig1-eps-converted-to.pdf Graphic file (type pdf)
 <use ideafig1-eps-converted-to.pdf>
-Package pdftex.def Info: ideafig1-eps-converted-to.pdf  used on input line 525.
+Package pdftex.def Info: ideafig1-eps-converted-to.pdf  used on input line 528.
 
 (pdftex.def)             Requested size: 231.26378pt x 206.6269pt.
  [2 <./ideafig1-eps-converted-to.pdf>]
-LaTeX Font Info:    Try loading font information for U+msa on input line 566.
+LaTeX Font Info:    Try loading font information for U+msa on input line 567.
 
 ("C:\Program Files\MiKTeX 2.90\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 566.
+LaTeX Font Info:    Try loading font information for U+msb on input line 567.
 
 ("C:\Program Files\MiKTeX 2.90\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 4416) in paragraph at lines 568--569
-[]\T1/ptm/m/n/10 No com-mu-ni-ca-tion pos-si-ble and near IoT de-vice
+Underfull \hbox (badness 10000) in paragraph at lines 567--569
+[]\T1/ptm/m/n/10 States: The states are de-fined as a tu-ple,
  []
 
 
-LaTeX Warning: Reference `mdp' on page 3 undefined on input line 598.
+LaTeX Warning: Reference `mdp' on page 3 undefined on input line 590.
 
 Package epstopdf Info: Source file: <random_deploy.eps>
 (epstopdf)                    date: 2019-02-04 10:03:50
@@ -587,26 +587,26 @@ Package epstopdf Info: Source file: <random_deploy.eps>
 (epstopdf)                    size: 79724 bytes
 (epstopdf)             Command: <epstopdf --outfile=random_deploy-eps-converted
 -to.pdf random_deploy.eps>
-(epstopdf)             \includegraphics on input line 602.
+(epstopdf)             \includegraphics on input line 594.
 Package epstopdf Info: Output file is already uptodate.
 <random_deploy-eps-converted-to.pdf, id=44, 476.78125pt x 474.77374pt>
 File: random_deploy-eps-converted-to.pdf Graphic file (type pdf)
 <use random_deploy-eps-converted-to.pdf>
 Package pdftex.def Info: random_deploy-eps-converted-to.pdf  used on input line
- 602.
+ 594.
 (pdftex.def)             Requested size: 274.6262pt x 273.4854pt.
 
-Overfull \hbox (22.6262pt too wide) in paragraph at lines 602--606
+Overfull \hbox (22.6262pt too wide) in paragraph at lines 594--598
  [][] 
  []
 
 [3 <./random_deploy-eps-converted-to.pdf>]
-Underfull \hbox (badness 2277) in paragraph at lines 699--701
+Underfull \hbox (badness 2277) in paragraph at lines 691--693
 \T1/ptm/m/n/10 con-tin-u-ous state and ac-tion spaces de-fined by the tu-
  []
 
 
-LaTeX Warning: Reference `fogmodel' on page 4 undefined on input line 717.
+LaTeX Warning: Reference `fogmodel' on page 4 undefined on input line 709.
 
 [4] [5] (RL_Ideas.aux)
 
@@ -614,13 +614,13 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5928 strings out of 492946
- 87626 string characters out of 3135087
- 172862 words of memory out of 3000000
- 9688 multiletter control sequences out of 15000+200000
+ 5929 strings out of 492946
+ 87637 string characters out of 3135087
+ 171866 words of memory out of 3000000
+ 9689 multiletter control sequences out of 15000+200000
  108759 words of font info for 113 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,7n,35p,1533b,301s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,6n,35p,1533b,299s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.90/fonts/enc/dvips/base/8r.enc}<C:/Program Files/M
 iKTeX 2.90/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2
 .90/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.90/fon
@@ -635,7 +635,7 @@ iles/MiKTeX 2.90/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.90
 /fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/ur
 w/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/urw/times/utmri8a.
 pfb>
-Output written on RL_Ideas.pdf (5 pages, 433445 bytes).
+Output written on RL_Ideas.pdf (5 pages, 434541 bytes).
 PDF statistics:
  136 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

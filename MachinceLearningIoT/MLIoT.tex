@@ -607,53 +607,21 @@ Over the years, many perceived difficult sub-problems have began to receive rese
 \begin{table}
 \small
 \centering
-\caption{Some IoT related works addressing key issues}
+\caption{Some related works addressing key issues}
 \label{table:refissues}
-\begin{tabular}{ll}
-  \hline
- \textit{Issues} & \textit{Some related works} \\
-  \hline \hline
-   Energy allocation and utilization & \cite{Zhong2018}, \cite{Conti2017}, \cite{Debizet2018}\\
-   Latency Minimization & \cite{Mai2018}, \cite{Li2014}, \cite{Liu2017}, \cite{routray2017}\\
-   Channel assessment and intelligent routing  & \cite{Jadoon2017}, \cite{Camelo2016}, \cite{Li2015} \\
-   Scheduling & \cite{Wen15}, \cite{Zhu2018}\\
-   Resource Allocation and Services & \cite{Nassar}, \cite{Khan2018}, \cite{Gai2018}, \cite{Mohammadi2018}\\
-
-      \hline \hline
- \end{tabular}
- \end{table}
-
-
-\begin{table}
-\small
-\centering
-\caption{Categories of different objectives within IoT}
-\label{table:objectives}
 \begin{tabular}{lll}
   \hline
- \textit{Objective} & \textit{Work} & \textit{Category} \\
+ \textit{Issues} & \textit{IoT works} & \textit{WSN works} \\
   \hline \hline
-   Maximize data throughput &~\cite{Zhong2018} & SA-based\\
-                            &~\cite{Jadoon2017} & MA-based\\ \hline
-   Optimize server activation policy &~\cite{Conti2017} &  SA-based\\ \hline
-   Minimize computational latency&~\cite{Mai2018} & MA-based\\ \hline
-   Optimize duty cycle&~\cite{Li2014} & MP-based\\ \hline
-   Optimize traffic  &~\cite{routray2017} & MA-based \\
-                     &~\cite{Liu2017} & MA-based \\ \hline
-   Minimize communication cost &~\cite{OmoniwaRelay2018}  & SA-based\\
-                                &~\cite{Li2015}  & SA-based\\
-                                &~\cite{Camelo2016} & MA-based\\\hline
-   Optimize scheduling strategy &~\cite{Wen15} & SA-based\\
-                                &~\cite{Zhu2013} & SA-based\\ \hline
-   Optimize power allocation &~\cite{Khan2018} & MA-based\\ \hline
-   Optimize resource allocation &~\cite{Gai2018} & SA-based\\
-                                &~\cite{Mohammadi2018} & SA-based\\
-
-
-
-      \hline \hline
+   \multicolumn{1}{m{3cm}}{Energy allocation and utilization} &\multicolumn{1}{m{3cm}}{ \cite{Zhong2018}, \cite{Conti2017}, \cite{Debizet2018} }& \multicolumn{1}{m{3cm}}{ \cite{Chen2008}, \cite{Chen2011}}\\ \hline
+   \multicolumn{1}{m{3cm}}{Latency Minimization} &\multicolumn{1}{m{3cm}}{ \cite{Mai2018}, \cite{Li2014}, \cite{Liu2017}, \cite{routray2017}}&\multicolumn{1}{m{3cm}}{ \cite{Liang2009}, \cite{Chen2009} }  \\ \hline
+   \multicolumn{1}{m{3cm}}{Channel assessment and intelligent routing } & \multicolumn{1}{m{3cm}}{ \cite{Jadoon2017}, \cite{Camelo2016}, \cite{Li2015}}&  \multicolumn{1}{m{3cm}}{\cite{Forster2007}-\cite{Forster2009}}\\ \hline
+   \multicolumn{1}{m{3cm}}{Scheduling} & \multicolumn{1}{m{3cm}}{\cite{Wen15}, \cite{Zhu2018}} &  \cite{Mihaylov}   \\ \hline
+   \multicolumn{1}{m{3cm}}{Resource Allocation and Services }& \multicolumn{1}{m{3cm}}{\cite{Nassar}, \cite{Khan2018}, \cite{Gai2018}, \cite{Mohammadi2018}}& \multicolumn{1}{m{3cm}}{\cite{Shah2007}, \cite{Shah2013}}\\
+   \hline \hline
  \end{tabular}
  \end{table}
+
 
 
 \subsection{Works in WSN}
@@ -669,50 +637,31 @@ A RL-based Q-routing technique, the Feedback Routing for Optimizing Multiple Sin
 
 
 
-\begin{table}
-\small
-\centering
-\caption{Some WSN related works addressing key issues}
-\label{table:refissuesWSN}
-\begin{tabular}{ll}
-  \hline
- \textit{Issues} & \textit{Some related works} \\
-  \hline \hline
-   Energy allocation and utilization &  \cite{Chen2008}, \cite{Chen2011} \\
-   Latency Minimization &  \cite{Liang2009}, \cite{Chen2009}    \\
-   Channel assessment and intelligent routing  &  \cite{Forster2007}, \cite{Forster2007FROMS}, \cite{Forster2008}, \cite{Forster2009}\\
-   Scheduling &  \cite{Mihaylov}    \\
-   Resource Allocation and Services & \cite{Shah2007}, \cite{Shah2013}\\
-
-      \hline \hline
- \end{tabular}
- \end{table}
-
-
 
 \begin{table*}
  \small
 \centering
 \caption{Classifications of Some Related Works}
 \label{table:classification}
-  \begin{tabular}{|l|lllllll|}
+  \begin{tabular}{|l|lllll|}
   \hline
- \textit{Objective} & \textit{Work} & \textit{SA-based} & \textit{MA-based} & \textit{SP-based} & \textit{MP-based} & \textit{Collaborative} & \textit{Non-collaborative} \\
+ \textit{Objective} & \textit{Work} & \textit{Agent (number)} & \textit{Policy} & \textit{Collaborative} & \textit{Algorithm}  \\
   \hline \hline
-   Maximize data throughput &~\cite{Zhong2018} & \checkmark & - & - & \checkmark & - & \checkmark\\
-                            &~\cite{Jadoon2017} & - & \checkmark & \checkmark & - & \checkmark & - \\ \hline
-   Optimize server activation policy &~\cite{Conti2017} &  \checkmark & - & \checkmark & - & - & \checkmark\\ \hline
-   Minimize computational latency&~\cite{Mai2018} & - & \checkmark & \checkmark & - & \checkmark & - \\ \hline
-   Optimize traffic  &~\cite{routray2017} & - & \checkmark & \checkmark & - & \checkmark & -\\
-                     &~\cite{Liu2017} & - & \checkmark & \checkmark & - & \checkmark & -\\ \hline
-   Minimize communication cost &~\cite{OmoniwaRelay2018}  & \checkmark & - & - & \checkmark & \checkmark & -\\
-                                &~\cite{Li2015}  & \checkmark & - & - & \checkmark & - & \checkmark \\
-                                &~\cite{Camelo2016} & - & \checkmark & \checkmark & - & - & \checkmark\\ \hline
-   Optimize scheduling strategy &~\cite{Wen15} & \checkmark & - & \checkmark & - & - & \checkmark\\
-                                &~\cite{Zhu2013} & \checkmark & - & \checkmark & - & - & \checkmark \\ \hline
-   Optimize power allocation &~\cite{Khan2018} & - & \checkmark & \checkmark & - & \checkmark & -\\ \hline
-   Optimize resource allocation &~\cite{Gai2018} & \checkmark & - & \checkmark & - & - & \checkmark\\
-                                &~\cite{Mohammadi2018} & \checkmark & - & \checkmark & - & - & \checkmark\\
+   Maximize data throughput &~\cite{Zhong2018} & SA &  MP & No &  Optimal energy utilization\\
+                            &~\cite{Jadoon2017} & MA (20) & SP & Yes & QL-based relay selection \\
+                            &~\cite{Wilhelmi2017} & MA (4) & SP & No & Decentralised QL \\ \hline
+   Optimize server activation policy &~\cite{Conti2017} &  SA  & SP & No & RL \\ \hline
+   Minimize computational latency&~\cite{Mai2018} & MA (10) & SP & Yes & Evolution strategies \& RL \\ \hline
+   Optimize traffic  &~\cite{routray2017} & MA (42) & SP & Yes & RL\\
+                     &~\cite{Liu2017} &  MA (-) & SP & Yes & QL\\ \hline
+   Minimize communication cost %&~\cite{OmoniwaRelay2018}  & \checkmark & - & - & \checkmark & \checkmark & -\\
+                                &~\cite{Li2015}  & SA  & MP & No & Smart duty cycle control \& RL \\
+                                &~\cite{Camelo2016} &  MA (16) & SP & No & QL \\ \hline
+   Optimize scheduling strategy &~\cite{Wen15} & SA & SP & No & RL\\
+                                &~\cite{Zhu2013} & SA  & SP & No & WL\\ \hline
+   Optimize power allocation &~\cite{Khan2018} &  MA (100) & SP & Yes & RL\\ \hline
+   Optimize resource allocation &~\cite{Gai2018} & SA  & SP & No & RL\\
+                                &~\cite{Mohammadi2018} & SA  & SP & No & DRL\\
 
       \hline \hline
  \end{tabular}
