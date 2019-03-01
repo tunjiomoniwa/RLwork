@@ -647,21 +647,21 @@ A RL-based Q-routing technique, the Feedback Routing for Optimizing Multiple Sin
   \hline
  \textit{Objective} & \textit{Work} & \textit{Agent (number)} & \textit{Policy} & \textit{Collaborative} & \textit{Algorithm}  \\
   \hline \hline
-   Maximize data throughput &~\cite{Zhong2018} & SA &  MP & No &  Optimal energy utilization\\
-                            &~\cite{Jadoon2017} & MA (20) & SP & Yes & QL-based relay selection \\
-                            &~\cite{Wilhelmi2017} & MA (4) & SP & No & Decentralised QL \\ \hline
-   Optimize server activation policy &~\cite{Conti2017} &  SA  & SP & No & RL \\ \hline
-   Minimize computational latency&~\cite{Mai2018} & MA (10) & SP & Yes & Evolution strategies \& RL \\ \hline
-   Optimize traffic  &~\cite{routray2017} & MA (42) & SP & Yes & RL\\
-                     &~\cite{Liu2017} &  MA (-) & SP & Yes & QL\\ \hline
-   Minimize communication cost %&~\cite{OmoniwaRelay2018}  & \checkmark & - & - & \checkmark & \checkmark & -\\
-                                &~\cite{Li2015}  & SA  & MP & No & Smart duty cycle control \& RL \\
-                                &~\cite{Camelo2016} &  MA (16) & SP & No & QL \\ \hline
-   Optimize scheduling strategy &~\cite{Wen15} & SA & SP & No & RL\\
-                                &~\cite{Zhu2013} & SA  & SP & No & WL\\ \hline
-   Optimize power allocation &~\cite{Khan2018} &  MA (100) & SP & Yes & RL\\ \hline
-   Optimize resource allocation &~\cite{Gai2018} & SA  & SP & No & RL\\
-                                &~\cite{Mohammadi2018} & SA  & SP & No & DRL\\
+   Maximize data throughput %&~\cite{Zhong2018} & SA &  MP & No &  Discrete steepest descent\\
+                            &~\cite{Jadoon2017} & MA (20) & SP & Yes & Q-learning \\
+                            &~\cite{Wilhelmi2017} & MA (4) & SP & No & Decentralised Q-learning \\ \hline
+   %no alg: Optimize server activation policy &~\cite{Conti2017} &  SA  & SP & No & RL \\ \hline
+   %Minimize computational latency&~\cite{Mai2018} & MA (10) & SP & Yes & Evolution strategies \& RL \\ \hline
+   Optimize traffic  %&~\cite{routray2017} & MA (42) & SP & Yes & RL\\
+                     &~\cite{Liu2017} &  MA (-) & SP & Yes & Q-learning\\ \hline
+   Minimize communication cost% &~\cite{OmoniwaRelay2018} &  SA (-) & SP & Yes & Iterative steepest descent\\
+                                &~\cite{Li2015}  & SA  & MP & No & Q-learning \\
+                                &~\cite{Camelo2016} &  MA (16) & SP & No & Q-learning \\ \hline
+   Optimize scheduling strategy &~\cite{Wen15} & SA & SP & No & Q-learning\\
+                                &~\cite{Zhu2013} & SA  & SP & No & W-learning\\ \hline
+   Optimize power allocation &~\cite{Khan2018} &  MA (100) & SP & Yes & SARSA($\lambda$)\\ \hline
+   Optimize resource allocation &~\cite{Gai2018} & SA  & SP & No & Q-learning\\
+                                %&~\cite{Mohammadi2018} & SA  & SP & No & DRL\\
 
       \hline \hline
  \end{tabular}
