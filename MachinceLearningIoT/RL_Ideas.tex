@@ -504,9 +504,9 @@ Reinforcement learning (RL), Internet-of-Things (IoT), Fog-based IoT, Markov dec
 \IEEEpeerreviewmaketitle
 
 \section{Background}
-\IEEEPARstart{T}{he} fog computing-based IoT paradigm aims at moving computation, control, and decision-making closer to the network edge~\cite{Omoniwa2018}. Fog devices, which are key drivers of this paradigm can either be mobile or static, energy-constrained or not, will contribute to the success of future IoT systems~\cite{Chiangh2016}, one of which is overcoming communication outages due to obstacles or long distances between a source node and a remote destination node where IoT services may be rendered.
+\IEEEPARstart{T}{he} fog computing-based IoT paradigm aims at moving computation, control, and decision-making closer to the network edge~\cite{Omoniwa2018}. Fog devices like other IoT end-devices, which are key drivers of this paradigm can either be mobile or static, energy-constrained or not, will contribute to the success of future IoT systems~\cite{Chiangh2016}, one of which is overcoming communication outages due to obstacles or long distances between a source node and a remote destination node where IoT services may be rendered.
 
-However, in order for devices to communicate efficiently with minimal outage, several bottlenecks may arise, one of which is the efficient utilization of energy by power-constrained IoT devices. Energy can be used up when these devices unnecessarily increase their power-level in order to communicate with neighbouring devices within the network, conversely, energy can be saved when the devices regulate their transmission power, especially in situations when they are relatively close to the communicating parties. For example, a fog device that transmits at high power irrespective of the channel conditions or proximity of its neighbours may drastically deplete its energy and die-out, hence, resulting in communication breakdown due to a point-of-failure within the network. Another challenge to be addressed is the energy consumed due to mobility. In order to deliver on some acceptable quality-of-service (QoS) within the IoT ecosystem, it is imperative for devices to be mobile, however these devices are at risk of draining most of their energy on movement. For instance, energy will be inefficiently used if a power-constrained fog device decides to move closer to the communicating party only to transmit very few number of packets, though having a guarantee that all the packets are delivered to the destination. However, if the size of number of packets to be transmitted is large, it may be optimal for the fog device to move closer and transmit at a lower power-level.
+However, in order for devices to communicate efficiently with minimal outage, several bottlenecks may arise, one of which is the efficient utilization of energy by power-constrained IoT devices. Energy can be used up when these devices unnecessarily increase their power-level in order to communicate with neighbouring devices within the network, conversely, energy can be saved when the devices regulate their transmission power, especially in situations when they are relatively close to the communicating parties. For example, an IoT end-device that transmits at high power irrespective of the channel conditions or proximity of its neighbours may drastically deplete its energy and die-out, hence, resulting in communication breakdown due to a point-of-failure within the network. Another challenge to be addressed is the energy consumed due to mobility. In order to deliver on some acceptable quality-of-service (QoS) within the IoT ecosystem, it is imperative for devices to be mobile, however these devices are at risk of draining most of their energy on movement. For instance, energy will be inefficiently used if a power-constrained fog device decides to move closer to the communicating party only to relay very few number of packets, though having a guarantee that all the packets are delivered to the destination. However, if the size of number of packets to be relayed is large, it may be optimal for the fog device to move closer, hence, conserving the energy of the IoT end device, who can transmit no transmit at a lower power-level.
 
 Moreover, since power-control mechanisms and smart mobility are critical in minimizing outages in communication, these devices should be able to learn when to increase, decrease, or maintain their power-levels or to move efficiently in order to increase the long-term performance of the network. More so, near-optimal actions from these devices are required to drive several smart cities applications, most importantly the Industrial IoT (IIoT), where industrial robots are deployed to act intelligible in a dynamic industrial setting, and intelligent monitoring applications, where surveillance drones are deployed in militarised zones to meet stringent quality-of-service (QoS) requirements~\cite{OmoniwaRelay2018}.
 
@@ -553,7 +553,7 @@ It is noteworthy that agents in a multi-agent system (MAS) may take actions that
 In this paper, we assume the following.
 \begin{enumerate}
   \item The MFRA is completely oblivious of its environment, and as such, has no prior knowledge of the overall cost function.
-  \item The RN may lower/increase its power level to save energy or increase it to ensure better communication. Also, the MFRA may change its position (2D/3D) depending on the scenario considered.
+  \item The MRFA may change its position in order to ensure better communication. Also, the MFRA may change its position (2D/3D) depending on the scenario considered.
   \item The MFRA has an objective of learning to make actions that yield better outcomes within its local view of the environment.
   \item The states are be divided into discrete levels to overcome the exponential decay in the efficiency of the proposed approach due infinite state space.
   \item Each MFRA independently tries to optimize power usage and moves in a direction that maximizes the communication outage.
@@ -564,27 +564,30 @@ In this paper, we assume the following.
 
 
 \subsection{Problem Formulation}
-States: The states are defined as a tuple, $\langle$distance/communication/size of number of packets$\rangle$.
+States: The states are defined as a tuple, $\langle$Outage communication cost/Energy of the fog relay/Energy of the IoT sensor$\rangle$.
+
 \begin{itemize}
-  \item Distance: Close, medium and far.
-  \item Communication: None, poor, good, excellent.
-  \item Size of number packets: None, small, large.
+  \item Outage communication cost: This observation will be evaluated based on the cost function in (\ref{eqn1c}), which gives an estimate of the communication outage when there is an action, such as, change in the power level or location, or both. ie. $P_{out}(power, location)~ =~[0-1]$.
+  \item Energy of the fog relay: This observation gives the agent insight on how much energy has been expended on mobility.
+  \item Energy of the IoT sensor: This observation gives the agent insight on how much energy the IoT sensor has used up due to high-power transmission.
 \end{itemize}
 
+\begin{equation}\label{eqn1c}
+  \mathcal{P}_{out} = 1 - (1 + 2\Psi^2 \ln \Psi) \exp\Big( -\frac{N_0 \tilde{\gamma}}{P_{I} (D_{I} + \delta)^{-\alpha}}\Big)
+\end{equation}
 
- Actions/rewards: The actions and reward/action are listed below.
+where~$\Psi = \sqrt{(N_0 \tilde{\gamma})/(P_{R}(D_{S} + \delta)^{-\alpha})}$, and~$\mathcal{P}_{out}$ is an expression for the outage probability. We assume a predefined threshold~$\tilde{\gamma}$ which determines the outage in communication,~$P_{I}$ is transmit power of the IoT sensor at time,~$P_{R}$ is transmit power of the fog relay agent,~$D_{I}$ is the distance between IoT sensor and fog relay agent, and~$D_{S}$ is the distance between fog relay agent and destination node. We assume a small change in the position of the fog relay agent,~$\delta = 0.1m$,~$N_0$ to be the channel noise, and~$\alpha$ to be the path-loss exponent.
+
+Actions: The actions are a $\langle$Mobility/power-level of IoT end-device$\rangle$.
 
  \begin{itemize}
-  \item move closer to end device ($-d$)
-  \item Mover away from end device ($+d$)
-  \item increase transmit power ($\uparrow Tx$)
-  \item decrease transmit power ($\downarrow Tx$)
-  \item transmit ($Tx$)
+  \item Mobility: Move by $\pm \delta$, where~$\delta = 0.1m$ and mobility range = [-20m, 20m]
+  \item Power-level: Choose transmit power, $\rho$, where~transmit power ranges = [0.1W, 0.2W, 0.3W, 0.4W, 0.5W, 0.6W, 0.7W, 0.8W, 0.9W, 1W]
 \end{itemize}
 
 Goal: The goal is for the agent to learn to reach the Excellent communication state with a goal of 100.
 
-Metrics: Energy, Mobility, Efficient communication (packets received).
+Metrics: Outage probability, i.e. the ratio of the number of packet lost to those transmitted, and Energy in Joules.
 
 
 In Fig. \ref{ideafig1}, we present a situation where different IoT end-devices, inclusive of smart things embedded with sensors (smart-meters, smart-watches, traffic lights, washing machine, dish-washers, herds, or even a sick patient being monitored, etc.), which can send data/service request to a remote fog service provider via a MFRA. However, there may be change in the topology of the network or even in the environment, making it difficult for data collection or service provision. Furthermore, the environment may be too hazardous for human control and as such, some level of intelligence is expected from the MFRA. The MFRA learns to optimize its position and adjust it's power-level to minimize the communication outage. In Fig. \ref{mdp}, we go further to define a finite state space where the MFRA acts.
