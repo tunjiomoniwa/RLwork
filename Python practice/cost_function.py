@@ -18,7 +18,7 @@ def range_positve(start, stop=None, step=None):
 
 Power_sensor=[]    
 
-for x in range_positve(0.1, 1.0, 0.05):
+for x in range_positve(0.0001, 1.0, 0.05):
    Power_sensor.append(x)
 
 #print(Power_sensor)
