@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  27 FEB 2019 17:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  5 MAR 2019 10:29
 entering extended mode
 **./MLIoT.tex
 (MLIoT.tex
@@ -596,7 +596,7 @@ Overfull \hbox (876.0pt too wide) has occurred while \output is active
 Here is how much of TeX's memory you used:
  5938 strings out of 492946
  87468 string characters out of 3135087
- 179859 words of memory out of 3000000
+ 178859 words of memory out of 3000000
  9691 multiletter control sequences out of 15000+200000
  122683 words of font info for 131 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -613,7 +613,7 @@ onts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/public/amsfonts/cm
 rogram Files/MiKTeX 2.90/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/Mi
 KTeX 2.90/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.90/fonts/
 type1/urw/times/utmri8a.pfb>
-Output written on MLIoT.pdf (9 pages, 164228 bytes).
+Output written on MLIoT.pdf (9 pages, 164213 bytes).
 PDF statistics:
  81 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

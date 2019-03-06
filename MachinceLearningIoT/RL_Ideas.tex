@@ -534,6 +534,8 @@ The remainder of this work is organized as follows.~In Section II, we reviewed r
 \end{figure}
 
 \section{Problem Definition}
+We adopt an RL approach, in which an agent interacts with an environment over periods of time according to a policy~$\omega$. At every time-step~$k \in N$, the environment produces a state observation~$s_{k} \in \mathbb{R}^{D_s}$. By sampling, the agent then picks an action~$a_{k}$ over~$\omega(s_{k})$,~$a_{k} \in \mathbb{R}^{D_a}$, which is applied to the environment. The environment consequently produces a reward~$R(s_{k}, a_{k})$ and may end the episode at state~$s_{N}$ or transits to a new state~$s_{k + 1}$. The agent's goal is to minimize the expected cumulative cost,~$\min_{\omega} \mathbb{E}_{s_0, a_0, s_1, a_1, ..., s_N} \Big[ \sum_{i=0}^{N} \gamma^i \mathcal{C}(s_i) \Big]$, where~$0 \leq \gamma \leq 1$ is the discount factor, and~$\mathcal{C}$ is the overall cost function of our model.
+
 \subsection{Problem Formulation}
 \emph{\textbf{States}}: The states are defined as a tuple, $\langle$Outage communication cost ($\mathcal{P}_{out}$) /Energy of the fog relay (J) /Energy of the IoT sensor (J)$\rangle$.
 
@@ -556,7 +558,7 @@ where~$\Psi = \sqrt{(N_0 \tilde{\gamma})/(P_{R}(D_{S} + \delta)^{-\alpha})}$, an
   \item Power-level: Choose power-level and transmit, $\rho$, where~transmit power ranges = [0.1W, 0.2W, 0.3W, 0.4W, 0.5W, 0.6W, 0.7W, 0.8W, 0.9W, 1W]
 \end{itemize}
 
-\emph{\textbf{Goal}}: The goal is for the agent to learn to minimize cost, $\langle$Outage communication cost ($\mathcal{P}_{out}$) /Energy of the fog relay (J) /Energy of the IoT sensor (J)$\rangle$.
+\emph{\textbf{Goal}}: The goal is for the agent to learn to minimize the overall cost~$\mathcal{C}$ in the tuple $\langle$Outage communication cost ($\mathcal{P}_{out}$) /Energy of the fog relay (J) /Energy of the IoT sensor (J)$\rangle$.
 
 \emph{\textbf{Rewards}}: We may consider the reward function in (\ref{eqn1b})
 

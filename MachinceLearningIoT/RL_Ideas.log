@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  4 MAR 2019 17:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  6 MAR 2019 12:14
 entering extended mode
 **./RL_Ideas.tex
 (RL_Ideas.tex
@@ -561,21 +561,22 @@ File: ideafig1-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: ideafig1-eps-converted-to.pdf  used on input line 528.
 
 (pdftex.def)             Requested size: 231.26378pt x 206.6269pt.
-LaTeX Font Info:    Try loading font information for U+msa on input line 538.
+LaTeX Font Info:    Try loading font information for U+msa on input line 537.
 
 ("C:\Program Files\MiKTeX 2.90\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 538.
+LaTeX Font Info:    Try loading font information for U+msb on input line 537.
 
 ("C:\Program Files\MiKTeX 2.90\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 6364) in paragraph at lines 556--557
+Underfull \hbox (badness 6364) in paragraph at lines 558--559
 []\T1/ptm/m/n/10 Power-level: Choose power-level and trans-mit, $\OML/cmm/m/it/
 10 $\T1/ptm/m/n/10 ,
  []
 
+[2 <./ideafig1-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <delta_plot.eps>
 (epstopdf)                    date: 2019-03-04 11:48:48
 (epstopdf)                    size: 20028 bytes
@@ -584,20 +585,20 @@ Package epstopdf Info: Source file: <delta_plot.eps>
 (epstopdf)                    size: 12364 bytes
 (epstopdf)             Command: <epstopdf --outfile=delta_plot-eps-converted-to
 .pdf delta_plot.eps>
-(epstopdf)             \includegraphics on input line 574.
+(epstopdf)             \includegraphics on input line 576.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex.exe (file ./delta_plot-eps-converted-to.pdf): PDF incl
 usion: found PDF version <1.7>, but at most version <1.5> allowed
-<delta_plot-eps-converted-to.pdf, id=9, 462.72874pt x 346.29375pt>
+<delta_plot-eps-converted-to.pdf, id=55, 462.72874pt x 346.29375pt>
 File: delta_plot-eps-converted-to.pdf Graphic file (type pdf)
 <use delta_plot-eps-converted-to.pdf>
 Package pdftex.def Info: delta_plot-eps-converted-to.pdf  used on input line 57
-4.
+6.
 (pdftex.def)             Requested size: 274.6262pt x 205.52158pt.
 
-Overfull \hbox (22.6262pt too wide) in paragraph at lines 574--578
+Overfull \hbox (22.6262pt too wide) in paragraph at lines 576--580
  [][] 
  []
 
@@ -609,29 +610,26 @@ Package epstopdf Info: Source file: <power_plot.eps>
 (epstopdf)                    size: 13228 bytes
 (epstopdf)             Command: <epstopdf --outfile=power_plot-eps-converted-to
 .pdf power_plot.eps>
-(epstopdf)             \includegraphics on input line 585.
+(epstopdf)             \includegraphics on input line 587.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex.exe (file ./power_plot-eps-converted-to.pdf): PDF incl
 usion: found PDF version <1.7>, but at most version <1.5> allowed
-<power_plot-eps-converted-to.pdf, id=10, 462.72874pt x 346.29375pt>
+<power_plot-eps-converted-to.pdf, id=56, 462.72874pt x 346.29375pt>
 File: power_plot-eps-converted-to.pdf Graphic file (type pdf)
 <use power_plot-eps-converted-to.pdf>
 Package pdftex.def Info: power_plot-eps-converted-to.pdf  used on input line 58
-5.
+7.
 (pdftex.def)             Requested size: 274.6262pt x 205.52158pt.
 
-Overfull \hbox (22.6262pt too wide) in paragraph at lines 585--589
+Overfull \hbox (22.6262pt too wide) in paragraph at lines 587--591
  [][] 
  []
 
-[2 <./ideafig1-eps-converted-to.pdf>]
-Underfull \vbox (badness 1371) has occurred while \output is active []
+[3 <./delta_plot-eps-converted-to.pdf> <./power_plot-eps-converted-to.pdf>]
 
- [3 <./delta_plot-eps-converted-to.pdf> <./power_plot-eps-converted-to.pdf>]
-
-LaTeX Warning: Reference `mdp' on page 4 undefined on input line 626.
+LaTeX Warning: Reference `mdp' on page 4 undefined on input line 628.
 
 Package epstopdf Info: Source file: <random_deploy.eps>
 (epstopdf)                    date: 2019-02-04 10:03:50
@@ -641,31 +639,29 @@ Package epstopdf Info: Source file: <random_deploy.eps>
 (epstopdf)                    size: 79724 bytes
 (epstopdf)             Command: <epstopdf --outfile=random_deploy-eps-converted
 -to.pdf random_deploy.eps>
-(epstopdf)             \includegraphics on input line 630.
+(epstopdf)             \includegraphics on input line 632.
 Package epstopdf Info: Output file is already uptodate.
-<random_deploy-eps-converted-to.pdf, id=121, 476.78125pt x 474.77374pt>
+<random_deploy-eps-converted-to.pdf, id=124, 476.78125pt x 474.77374pt>
 File: random_deploy-eps-converted-to.pdf Graphic file (type pdf)
 <use random_deploy-eps-converted-to.pdf>
 Package pdftex.def Info: random_deploy-eps-converted-to.pdf  used on input line
- 630.
+ 632.
 (pdftex.def)             Requested size: 274.6262pt x 273.4854pt.
 
-Overfull \hbox (22.6262pt too wide) in paragraph at lines 630--634
+Overfull \hbox (22.6262pt too wide) in paragraph at lines 632--636
  [][] 
  []
 
 
-Underfull \hbox (badness 2277) in paragraph at lines 727--729
+Underfull \hbox (badness 2277) in paragraph at lines 729--731
 \T1/ptm/m/n/10 con-tin-u-ous state and ac-tion spaces de-fined by the tu-
  []
 
 [4 <./random_deploy-eps-converted-to.pdf>]
 
-LaTeX Warning: Reference `fogmodel' on page 5 undefined on input line 745.
+LaTeX Warning: Reference `fogmodel' on page 5 undefined on input line 747.
 
-[5] [6
-
-] (RL_Ideas.aux)
+[5] [6] (RL_Ideas.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -677,7 +673,7 @@ Here is how much of TeX's memory you used:
  9701 multiletter control sequences out of 15000+200000
  114354 words of font info for 117 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,7n,35p,1568b,299s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,6n,35p,1568b,299s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.90/fonts/enc/dvips/base/8r.enc}<C:/Program Files/M
 iKTeX 2.90/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2
 .90/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.90/fon
@@ -692,7 +688,7 @@ iles/MiKTeX 2.90/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.90
 /fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/ur
 w/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/urw/times/utmri8a.
 pfb>
-Output written on RL_Ideas.pdf (6 pages, 467883 bytes).
+Output written on RL_Ideas.pdf (6 pages, 471968 bytes).
 PDF statistics:
  205 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
