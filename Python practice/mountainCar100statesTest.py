@@ -16,8 +16,8 @@ env.reset();
 iteration_steps = 100000
 episodes=1000
 #epsilon =0.5
-alpha = 0.2
-gamma =0.8
+alpha = 0.1
+gamma =0.9
 
 len_action=3
 len_states =100
@@ -360,7 +360,7 @@ for epi in range(episodes):
         # do learning thingy
 
           
-        if epi<999:
+        if epi<500:
             # update q values
             update_q(current_state, new_state, action, reward_tj, alpha, gamma)
 
