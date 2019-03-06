@@ -14,7 +14,7 @@ env = gym.make('MountainCar-v0')
 env.reset();
 
 iteration_steps = 100000
-episodes=1000
+episodes=500
 #epsilon =0.5
 alpha = 0.1
 gamma =0.9

@@ -19,7 +19,7 @@ print(max(Q[3]))
 
 t = 200#float(list(range(1, 21)))
 print(t)
-epsilon = float(np.exp(-0.015*t))
+epsilon = float(np.exp(-0.02*t))
 print(epsilon)
 
 plt.plot(t,epsilon)

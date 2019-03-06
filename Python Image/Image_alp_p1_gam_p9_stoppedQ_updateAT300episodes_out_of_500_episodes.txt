@@ -1,0 +1,1006 @@
+Python 3.7.2 (tags/v3.7.2:9a3ffc0492, Dec 23 2018, 22:20:52) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 
+ RESTART: C:/Users/tunji/OneDrive/Documents/GitHub/RLwork/Python practice/mountainCar100statesTest.py 
+
+Reached goal state
+End of episode # 0   in  10384 iterations
+Reached goal state
+End of episode # 1   in  8566 iterations
+Reached goal state
+End of episode # 2   in  78088 iterations
+Reached goal state
+End of episode # 3   in  6777 iterations
+End of episode # 4   in  100000 iterations
+Reached goal state
+End of episode # 5   in  93644 iterations
+End of episode # 6   in  100000 iterations
+Reached goal state
+End of episode # 7   in  70468 iterations
+Reached goal state
+End of episode # 8   in  37887 iterations
+Reached goal state
+End of episode # 9   in  31244 iterations
+Reached goal state
+End of episode # 10   in  23451 iterations
+Reached goal state
+End of episode # 11   in  2279 iterations
+Reached goal state
+End of episode # 12   in  4191 iterations
+Reached goal state
+End of episode # 13   in  40289 iterations
+Reached goal state
+End of episode # 14   in  17504 iterations
+Reached goal state
+End of episode # 15   in  40607 iterations
+Reached goal state
+End of episode # 16   in  17940 iterations
+Reached goal state
+End of episode # 17   in  3377 iterations
+Reached goal state
+End of episode # 18   in  44817 iterations
+Reached goal state
+End of episode # 19   in  8047 iterations
+Reached goal state
+End of episode # 20   in  1624 iterations
+Reached goal state
+End of episode # 21   in  3426 iterations
+Reached goal state
+End of episode # 22   in  22918 iterations
+Reached goal state
+End of episode # 23   in  12240 iterations
+Reached goal state
+End of episode # 24   in  7861 iterations
+Reached goal state
+End of episode # 25   in  1962 iterations
+Reached goal state
+End of episode # 26   in  12730 iterations
+Reached goal state
+End of episode # 27   in  633 iterations
+Reached goal state
+End of episode # 28   in  7279 iterations
+Reached goal state
+End of episode # 29   in  2146 iterations
+Reached goal state
+End of episode # 30   in  15373 iterations
+Reached goal state
+End of episode # 31   in  637 iterations
+Reached goal state
+End of episode # 32   in  5301 iterations
+Reached goal state
+End of episode # 33   in  3524 iterations
+Reached goal state
+End of episode # 34   in  1647 iterations
+Reached goal state
+End of episode # 35   in  2576 iterations
+Reached goal state
+End of episode # 36   in  5298 iterations
+Reached goal state
+End of episode # 37   in  1967 iterations
+Reached goal state
+End of episode # 38   in  6499 iterations
+Reached goal state
+End of episode # 39   in  14208 iterations
+Reached goal state
+End of episode # 40   in  1206 iterations
+Reached goal state
+End of episode # 41   in  6592 iterations
+Reached goal state
+End of episode # 42   in  730 iterations
+Reached goal state
+End of episode # 43   in  6659 iterations
+Reached goal state
+End of episode # 44   in  4693 iterations
+Reached goal state
+End of episode # 45   in  923 iterations
+Reached goal state
+End of episode # 46   in  2530 iterations
+Reached goal state
+End of episode # 47   in  1509 iterations
+Reached goal state
+End of episode # 48   in  1377 iterations
+Reached goal state
+End of episode # 49   in  1320 iterations
+Reached goal state
+End of episode # 50   in  15387 iterations
+Reached goal state
+End of episode # 51   in  5663 iterations
+Reached goal state
+End of episode # 52   in  3349 iterations
+Reached goal state
+End of episode # 53   in  4544 iterations
+Reached goal state
+End of episode # 54   in  1359 iterations
+Reached goal state
+End of episode # 55   in  3370 iterations
+Reached goal state
+End of episode # 56   in  1129 iterations
+Reached goal state
+End of episode # 57   in  824 iterations
+Reached goal state
+End of episode # 58   in  571 iterations
+Reached goal state
+End of episode # 59   in  8227 iterations
+Reached goal state
+End of episode # 60   in  2224 iterations
+Reached goal state
+End of episode # 61   in  317 iterations
+Reached goal state
+End of episode # 62   in  390 iterations
+Reached goal state
+End of episode # 63   in  317 iterations
+Reached goal state
+End of episode # 64   in  521 iterations
+Reached goal state
+End of episode # 65   in  602 iterations
+Reached goal state
+End of episode # 66   in  506 iterations
+Reached goal state
+End of episode # 67   in  813 iterations
+Reached goal state
+End of episode # 68   in  969 iterations
+Reached goal state
+End of episode # 69   in  3383 iterations
+Reached goal state
+End of episode # 70   in  6006 iterations
+Reached goal state
+End of episode # 71   in  8035 iterations
+Reached goal state
+End of episode # 72   in  547 iterations
+Reached goal state
+End of episode # 73   in  713 iterations
+Reached goal state
+End of episode # 74   in  289 iterations
+Reached goal state
+End of episode # 75   in  5688 iterations
+Reached goal state
+End of episode # 76   in  550 iterations
+Reached goal state
+End of episode # 77   in  437 iterations
+Reached goal state
+End of episode # 78   in  501 iterations
+Reached goal state
+End of episode # 79   in  928 iterations
+Reached goal state
+End of episode # 80   in  626 iterations
+Reached goal state
+End of episode # 81   in  361 iterations
+Reached goal state
+End of episode # 82   in  473 iterations
+Reached goal state
+End of episode # 83   in  522 iterations
+Reached goal state
+End of episode # 84   in  738 iterations
+Reached goal state
+End of episode # 85   in  26973 iterations
+Reached goal state
+End of episode # 86   in  409 iterations
+Reached goal state
+End of episode # 87   in  432 iterations
+Reached goal state
+End of episode # 88   in  384 iterations
+Reached goal state
+End of episode # 89   in  537 iterations
+Reached goal state
+End of episode # 90   in  381 iterations
+Reached goal state
+End of episode # 91   in  408 iterations
+Reached goal state
+End of episode # 92   in  343 iterations
+Reached goal state
+End of episode # 93   in  467 iterations
+Reached goal state
+End of episode # 94   in  7817 iterations
+Reached goal state
+End of episode # 95   in  1020 iterations
+Reached goal state
+End of episode # 96   in  16977 iterations
+Reached goal state
+End of episode # 97   in  4470 iterations
+Reached goal state
+End of episode # 98   in  480 iterations
+Reached goal state
+End of episode # 99   in  6487 iterations
+Reached goal state
+End of episode # 100   in  434 iterations
+Reached goal state
+End of episode # 101   in  426 iterations
+Reached goal state
+End of episode # 102   in  543 iterations
+Reached goal state
+End of episode # 103   in  1474 iterations
+Reached goal state
+End of episode # 104   in  1222 iterations
+Reached goal state
+End of episode # 105   in  1894 iterations
+Reached goal state
+End of episode # 106   in  483 iterations
+Reached goal state
+End of episode # 107   in  724 iterations
+Reached goal state
+End of episode # 108   in  391 iterations
+Reached goal state
+End of episode # 109   in  463 iterations
+Reached goal state
+End of episode # 110   in  311 iterations
+Reached goal state
+End of episode # 111   in  380 iterations
+Reached goal state
+End of episode # 112   in  301 iterations
+Reached goal state
+End of episode # 113   in  308 iterations
+Reached goal state
+End of episode # 114   in  530 iterations
+Reached goal state
+End of episode # 115   in  335 iterations
+Reached goal state
+End of episode # 116   in  483 iterations
+Reached goal state
+End of episode # 117   in  425 iterations
+Reached goal state
+End of episode # 118   in  1084 iterations
+Reached goal state
+End of episode # 119   in  232 iterations
+Reached goal state
+End of episode # 120   in  282 iterations
+Reached goal state
+End of episode # 121   in  402 iterations
+Reached goal state
+End of episode # 122   in  5597 iterations
+Reached goal state
+End of episode # 123   in  99591 iterations
+Reached goal state
+End of episode # 124   in  68001 iterations
+Reached goal state
+End of episode # 125   in  306 iterations
+Reached goal state
+End of episode # 126   in  608 iterations
+Reached goal state
+End of episode # 127   in  855 iterations
+Reached goal state
+End of episode # 128   in  320 iterations
+Reached goal state
+End of episode # 129   in  302 iterations
+Reached goal state
+End of episode # 130   in  281 iterations
+Reached goal state
+End of episode # 131   in  281 iterations
+Reached goal state
+End of episode # 132   in  261 iterations
+Reached goal state
+End of episode # 133   in  281 iterations
+Reached goal state
+End of episode # 134   in  211 iterations
+Reached goal state
+End of episode # 135   in  271 iterations
+Reached goal state
+End of episode # 136   in  214 iterations
+Reached goal state
+End of episode # 137   in  299 iterations
+Reached goal state
+End of episode # 138   in  384 iterations
+Reached goal state
+End of episode # 139   in  401 iterations
+Reached goal state
+End of episode # 140   in  394 iterations
+Reached goal state
+End of episode # 141   in  276 iterations
+Reached goal state
+End of episode # 142   in  382 iterations
+Reached goal state
+End of episode # 143   in  814 iterations
+Reached goal state
+End of episode # 144   in  302 iterations
+Reached goal state
+End of episode # 145   in  342 iterations
+Reached goal state
+End of episode # 146   in  265 iterations
+Reached goal state
+End of episode # 147   in  303 iterations
+Reached goal state
+End of episode # 148   in  287 iterations
+Reached goal state
+End of episode # 149   in  284 iterations
+Reached goal state
+End of episode # 150   in  386 iterations
+Reached goal state
+End of episode # 151   in  283 iterations
+Reached goal state
+End of episode # 152   in  288 iterations
+Reached goal state
+End of episode # 153   in  368 iterations
+Reached goal state
+End of episode # 154   in  385 iterations
+Reached goal state
+End of episode # 155   in  220 iterations
+Reached goal state
+End of episode # 156   in  274 iterations
+Reached goal state
+End of episode # 157   in  259 iterations
+Reached goal state
+End of episode # 158   in  292 iterations
+Reached goal state
+End of episode # 159   in  223 iterations
+Reached goal state
+End of episode # 160   in  290 iterations
+Reached goal state
+End of episode # 161   in  199 iterations
+Reached goal state
+End of episode # 162   in  273 iterations
+Reached goal state
+End of episode # 163   in  205 iterations
+Reached goal state
+End of episode # 164   in  218 iterations
+Reached goal state
+End of episode # 165   in  277 iterations
+Reached goal state
+End of episode # 166   in  186 iterations
+Reached goal state
+End of episode # 167   in  188 iterations
+Reached goal state
+End of episode # 168   in  179 iterations
+Reached goal state
+End of episode # 169   in  207 iterations
+Reached goal state
+End of episode # 170   in  185 iterations
+Reached goal state
+End of episode # 171   in  189 iterations
+Reached goal state
+End of episode # 172   in  198 iterations
+Reached goal state
+End of episode # 173   in  210 iterations
+Reached goal state
+End of episode # 174   in  179 iterations
+Reached goal state
+End of episode # 175   in  181 iterations
+Reached goal state
+End of episode # 176   in  181 iterations
+Reached goal state
+End of episode # 177   in  185 iterations
+Reached goal state
+End of episode # 178   in  197 iterations
+Reached goal state
+End of episode # 179   in  274 iterations
+Reached goal state
+End of episode # 180   in  205 iterations
+Reached goal state
+End of episode # 181   in  183 iterations
+Reached goal state
+End of episode # 182   in  194 iterations
+Reached goal state
+End of episode # 183   in  179 iterations
+Reached goal state
+End of episode # 184   in  204 iterations
+Reached goal state
+End of episode # 185   in  195 iterations
+Reached goal state
+End of episode # 186   in  210 iterations
+Reached goal state
+End of episode # 187   in  178 iterations
+Reached goal state
+End of episode # 188   in  179 iterations
+Reached goal state
+End of episode # 189   in  200 iterations
+Reached goal state
+End of episode # 190   in  176 iterations
+Reached goal state
+End of episode # 191   in  200 iterations
+Reached goal state
+End of episode # 192   in  196 iterations
+Reached goal state
+End of episode # 193   in  186 iterations
+Reached goal state
+End of episode # 194   in  198 iterations
+Reached goal state
+End of episode # 195   in  185 iterations
+Reached goal state
+End of episode # 196   in  181 iterations
+Reached goal state
+End of episode # 197   in  189 iterations
+Reached goal state
+End of episode # 198   in  201 iterations
+Reached goal state
+End of episode # 199   in  193 iterations
+Reached goal state
+End of episode # 200   in  193 iterations
+Reached goal state
+End of episode # 201   in  209 iterations
+Reached goal state
+End of episode # 202   in  215 iterations
+Reached goal state
+End of episode # 203   in  271 iterations
+Reached goal state
+End of episode # 204   in  188 iterations
+Reached goal state
+End of episode # 205   in  326 iterations
+Reached goal state
+End of episode # 206   in  206 iterations
+Reached goal state
+End of episode # 207   in  239 iterations
+Reached goal state
+End of episode # 208   in  259 iterations
+Reached goal state
+End of episode # 209   in  216 iterations
+Reached goal state
+End of episode # 210   in  269 iterations
+Reached goal state
+End of episode # 211   in  310 iterations
+Reached goal state
+End of episode # 212   in  243 iterations
+Reached goal state
+End of episode # 213   in  289 iterations
+Reached goal state
+End of episode # 214   in  235 iterations
+Reached goal state
+End of episode # 215   in  302 iterations
+Reached goal state
+End of episode # 216   in  270 iterations
+Reached goal state
+End of episode # 217   in  335 iterations
+Reached goal state
+End of episode # 218   in  275 iterations
+Reached goal state
+End of episode # 219   in  301 iterations
+Reached goal state
+End of episode # 220   in  291 iterations
+Reached goal state
+End of episode # 221   in  331 iterations
+Reached goal state
+End of episode # 222   in  262 iterations
+Reached goal state
+End of episode # 223   in  317 iterations
+Reached goal state
+End of episode # 224   in  382 iterations
+Reached goal state
+End of episode # 225   in  323 iterations
+Reached goal state
+End of episode # 226   in  280 iterations
+Reached goal state
+End of episode # 227   in  200 iterations
+Reached goal state
+End of episode # 228   in  200 iterations
+Reached goal state
+End of episode # 229   in  181 iterations
+Reached goal state
+End of episode # 230   in  201 iterations
+Reached goal state
+End of episode # 231   in  227 iterations
+Reached goal state
+End of episode # 232   in  197 iterations
+Reached goal state
+End of episode # 233   in  294 iterations
+Reached goal state
+End of episode # 234   in  61435 iterations
+Reached goal state
+End of episode # 235   in  284 iterations
+Reached goal state
+End of episode # 236   in  1117 iterations
+Reached goal state
+End of episode # 237   in  1092 iterations
+Reached goal state
+End of episode # 238   in  1194 iterations
+Reached goal state
+End of episode # 239   in  370 iterations
+Reached goal state
+End of episode # 240   in  282 iterations
+Reached goal state
+End of episode # 241   in  318 iterations
+Reached goal state
+End of episode # 242   in  310 iterations
+Reached goal state
+End of episode # 243   in  320 iterations
+Reached goal state
+End of episode # 244   in  297 iterations
+Reached goal state
+End of episode # 245   in  295 iterations
+Reached goal state
+End of episode # 246   in  353 iterations
+Reached goal state
+End of episode # 247   in  279 iterations
+Reached goal state
+End of episode # 248   in  391 iterations
+Reached goal state
+End of episode # 249   in  271 iterations
+Reached goal state
+End of episode # 250   in  335 iterations
+Reached goal state
+End of episode # 251   in  382 iterations
+Reached goal state
+End of episode # 252   in  297 iterations
+Reached goal state
+End of episode # 253   in  272 iterations
+Reached goal state
+End of episode # 254   in  287 iterations
+Reached goal state
+End of episode # 255   in  203 iterations
+Reached goal state
+End of episode # 256   in  240 iterations
+Reached goal state
+End of episode # 257   in  257 iterations
+Reached goal state
+End of episode # 258   in  281 iterations
+Reached goal state
+End of episode # 259   in  209 iterations
+Reached goal state
+End of episode # 260   in  253 iterations
+Reached goal state
+End of episode # 261   in  369 iterations
+Reached goal state
+End of episode # 262   in  283 iterations
+Reached goal state
+End of episode # 263   in  333 iterations
+Reached goal state
+End of episode # 264   in  260 iterations
+Reached goal state
+End of episode # 265   in  262 iterations
+Reached goal state
+End of episode # 266   in  250 iterations
+Reached goal state
+End of episode # 267   in  234 iterations
+Reached goal state
+End of episode # 268   in  355 iterations
+Reached goal state
+End of episode # 269   in  172 iterations
+Reached goal state
+End of episode # 270   in  207 iterations
+Reached goal state
+End of episode # 271   in  225 iterations
+Reached goal state
+End of episode # 272   in  258 iterations
+Reached goal state
+End of episode # 273   in  204 iterations
+Reached goal state
+End of episode # 274   in  197 iterations
+Reached goal state
+End of episode # 275   in  191 iterations
+Reached goal state
+End of episode # 276   in  202 iterations
+Reached goal state
+End of episode # 277   in  194 iterations
+Reached goal state
+End of episode # 278   in  223 iterations
+Reached goal state
+End of episode # 279   in  220 iterations
+Reached goal state
+End of episode # 280   in  278 iterations
+Reached goal state
+End of episode # 281   in  207 iterations
+Reached goal state
+End of episode # 282   in  200 iterations
+Reached goal state
+End of episode # 283   in  201 iterations
+Reached goal state
+End of episode # 284   in  256 iterations
+Reached goal state
+End of episode # 285   in  174 iterations
+Reached goal state
+End of episode # 286   in  286 iterations
+Reached goal state
+End of episode # 287   in  260 iterations
+Reached goal state
+End of episode # 288   in  216 iterations
+Reached goal state
+End of episode # 289   in  271 iterations
+Reached goal state
+End of episode # 290   in  227 iterations
+Reached goal state
+End of episode # 291   in  182 iterations
+Reached goal state
+End of episode # 292   in  194 iterations
+Reached goal state
+End of episode # 293   in  250 iterations
+Reached goal state
+End of episode # 294   in  254 iterations
+Reached goal state
+End of episode # 295   in  196 iterations
+Reached goal state
+End of episode # 296   in  231 iterations
+Reached goal state
+End of episode # 297   in  286 iterations
+Reached goal state
+End of episode # 298   in  292 iterations
+Reached goal state
+End of episode # 299   in  199 iterations
+Reached goal state
+End of episode # 300   in  268 iterations
+Reached goal state
+End of episode # 301   in  257 iterations
+Reached goal state
+End of episode # 302   in  227 iterations
+Reached goal state
+End of episode # 303   in  245 iterations
+Reached goal state
+End of episode # 304   in  177 iterations
+Reached goal state
+End of episode # 305   in  196 iterations
+Reached goal state
+End of episode # 306   in  215 iterations
+Reached goal state
+End of episode # 307   in  289 iterations
+Reached goal state
+End of episode # 308   in  227 iterations
+Reached goal state
+End of episode # 309   in  206 iterations
+Reached goal state
+End of episode # 310   in  210 iterations
+Reached goal state
+End of episode # 311   in  205 iterations
+Reached goal state
+End of episode # 312   in  207 iterations
+Reached goal state
+End of episode # 313   in  254 iterations
+Reached goal state
+End of episode # 314   in  246 iterations
+Reached goal state
+End of episode # 315   in  205 iterations
+Reached goal state
+End of episode # 316   in  228 iterations
+Reached goal state
+End of episode # 317   in  224 iterations
+Reached goal state
+End of episode # 318   in  195 iterations
+Reached goal state
+End of episode # 319   in  275 iterations
+Reached goal state
+End of episode # 320   in  231 iterations
+Reached goal state
+End of episode # 321   in  212 iterations
+Reached goal state
+End of episode # 322   in  203 iterations
+Reached goal state
+End of episode # 323   in  207 iterations
+Reached goal state
+End of episode # 324   in  227 iterations
+Reached goal state
+End of episode # 325   in  171 iterations
+Reached goal state
+End of episode # 326   in  205 iterations
+Reached goal state
+End of episode # 327   in  246 iterations
+Reached goal state
+End of episode # 328   in  242 iterations
+Reached goal state
+End of episode # 329   in  174 iterations
+Reached goal state
+End of episode # 330   in  285 iterations
+Reached goal state
+End of episode # 331   in  234 iterations
+Reached goal state
+End of episode # 332   in  213 iterations
+Reached goal state
+End of episode # 333   in  176 iterations
+Reached goal state
+End of episode # 334   in  181 iterations
+Reached goal state
+End of episode # 335   in  175 iterations
+Reached goal state
+End of episode # 336   in  277 iterations
+Reached goal state
+End of episode # 337   in  226 iterations
+Reached goal state
+End of episode # 338   in  240 iterations
+Reached goal state
+End of episode # 339   in  211 iterations
+Reached goal state
+End of episode # 340   in  225 iterations
+Reached goal state
+End of episode # 341   in  227 iterations
+Reached goal state
+End of episode # 342   in  224 iterations
+Reached goal state
+End of episode # 343   in  201 iterations
+Reached goal state
+End of episode # 344   in  205 iterations
+Reached goal state
+End of episode # 345   in  206 iterations
+Reached goal state
+End of episode # 346   in  229 iterations
+Reached goal state
+End of episode # 347   in  210 iterations
+Reached goal state
+End of episode # 348   in  207 iterations
+Reached goal state
+End of episode # 349   in  243 iterations
+Reached goal state
+End of episode # 350   in  257 iterations
+Reached goal state
+End of episode # 351   in  257 iterations
+Reached goal state
+End of episode # 352   in  211 iterations
+Reached goal state
+End of episode # 353   in  213 iterations
+Reached goal state
+End of episode # 354   in  240 iterations
+Reached goal state
+End of episode # 355   in  203 iterations
+Reached goal state
+End of episode # 356   in  270 iterations
+Reached goal state
+End of episode # 357   in  173 iterations
+Reached goal state
+End of episode # 358   in  207 iterations
+Reached goal state
+End of episode # 359   in  277 iterations
+Reached goal state
+End of episode # 360   in  190 iterations
+Reached goal state
+End of episode # 361   in  167 iterations
+Reached goal state
+End of episode # 362   in  219 iterations
+Reached goal state
+End of episode # 363   in  273 iterations
+Reached goal state
+End of episode # 364   in  224 iterations
+Reached goal state
+End of episode # 365   in  175 iterations
+Reached goal state
+End of episode # 366   in  223 iterations
+Reached goal state
+End of episode # 367   in  258 iterations
+Reached goal state
+End of episode # 368   in  175 iterations
+Reached goal state
+End of episode # 369   in  197 iterations
+Reached goal state
+End of episode # 370   in  254 iterations
+Reached goal state
+End of episode # 371   in  173 iterations
+Reached goal state
+End of episode # 372   in  205 iterations
+Reached goal state
+End of episode # 373   in  250 iterations
+Reached goal state
+End of episode # 374   in  210 iterations
+Reached goal state
+End of episode # 375   in  251 iterations
+Reached goal state
+End of episode # 376   in  232 iterations
+Reached goal state
+End of episode # 377   in  207 iterations
+Reached goal state
+End of episode # 378   in  231 iterations
+Reached goal state
+End of episode # 379   in  195 iterations
+Reached goal state
+End of episode # 380   in  224 iterations
+Reached goal state
+End of episode # 381   in  207 iterations
+Reached goal state
+End of episode # 382   in  226 iterations
+Reached goal state
+End of episode # 383   in  205 iterations
+Reached goal state
+End of episode # 384   in  186 iterations
+Reached goal state
+End of episode # 385   in  260 iterations
+Reached goal state
+End of episode # 386   in  180 iterations
+Reached goal state
+End of episode # 387   in  242 iterations
+Reached goal state
+End of episode # 388   in  209 iterations
+Reached goal state
+End of episode # 389   in  204 iterations
+Reached goal state
+End of episode # 390   in  253 iterations
+Reached goal state
+End of episode # 391   in  249 iterations
+Reached goal state
+End of episode # 392   in  222 iterations
+Reached goal state
+End of episode # 393   in  261 iterations
+Reached goal state
+End of episode # 394   in  271 iterations
+Reached goal state
+End of episode # 395   in  231 iterations
+Reached goal state
+End of episode # 396   in  231 iterations
+Reached goal state
+End of episode # 397   in  209 iterations
+Reached goal state
+End of episode # 398   in  254 iterations
+Reached goal state
+End of episode # 399   in  209 iterations
+Reached goal state
+End of episode # 400   in  229 iterations
+Reached goal state
+End of episode # 401   in  266 iterations
+Reached goal state
+End of episode # 402   in  169 iterations
+Reached goal state
+End of episode # 403   in  269 iterations
+Reached goal state
+End of episode # 404   in  205 iterations
+Reached goal state
+End of episode # 405   in  220 iterations
+Reached goal state
+End of episode # 406   in  282 iterations
+Reached goal state
+End of episode # 407   in  199 iterations
+Reached goal state
+End of episode # 408   in  244 iterations
+Reached goal state
+End of episode # 409   in  255 iterations
+Reached goal state
+End of episode # 410   in  202 iterations
+Reached goal state
+End of episode # 411   in  177 iterations
+Reached goal state
+End of episode # 412   in  170 iterations
+Reached goal state
+End of episode # 413   in  257 iterations
+Reached goal state
+End of episode # 414   in  203 iterations
+Reached goal state
+End of episode # 415   in  197 iterations
+Reached goal state
+End of episode # 416   in  219 iterations
+Reached goal state
+End of episode # 417   in  252 iterations
+Reached goal state
+End of episode # 418   in  269 iterations
+Reached goal state
+End of episode # 419   in  176 iterations
+Reached goal state
+End of episode # 420   in  205 iterations
+Reached goal state
+End of episode # 421   in  223 iterations
+Reached goal state
+End of episode # 422   in  206 iterations
+Reached goal state
+End of episode # 423   in  197 iterations
+Reached goal state
+End of episode # 424   in  243 iterations
+Reached goal state
+End of episode # 425   in  212 iterations
+Reached goal state
+End of episode # 426   in  196 iterations
+Reached goal state
+End of episode # 427   in  251 iterations
+Reached goal state
+End of episode # 428   in  255 iterations
+Reached goal state
+End of episode # 429   in  208 iterations
+Reached goal state
+End of episode # 430   in  173 iterations
+Reached goal state
+End of episode # 431   in  252 iterations
+Reached goal state
+End of episode # 432   in  200 iterations
+Reached goal state
+End of episode # 433   in  227 iterations
+Reached goal state
+End of episode # 434   in  252 iterations
+Reached goal state
+End of episode # 435   in  203 iterations
+Reached goal state
+End of episode # 436   in  223 iterations
+Reached goal state
+End of episode # 437   in  243 iterations
+Reached goal state
+End of episode # 438   in  212 iterations
+Reached goal state
+End of episode # 439   in  252 iterations
+Reached goal state
+End of episode # 440   in  197 iterations
+Reached goal state
+End of episode # 441   in  266 iterations
+Reached goal state
+End of episode # 442   in  256 iterations
+Reached goal state
+End of episode # 443   in  225 iterations
+Reached goal state
+End of episode # 444   in  255 iterations
+Reached goal state
+End of episode # 445   in  253 iterations
+Reached goal state
+End of episode # 446   in  244 iterations
+Reached goal state
+End of episode # 447   in  200 iterations
+Reached goal state
+End of episode # 448   in  253 iterations
+Reached goal state
+End of episode # 449   in  255 iterations
+Reached goal state
+End of episode # 450   in  272 iterations
+Reached goal state
+End of episode # 451   in  209 iterations
+Reached goal state
+End of episode # 452   in  281 iterations
+Reached goal state
+End of episode # 453   in  257 iterations
+Reached goal state
+End of episode # 454   in  280 iterations
+Reached goal state
+End of episode # 455   in  224 iterations
+Reached goal state
+End of episode # 456   in  221 iterations
+Reached goal state
+End of episode # 457   in  208 iterations
+Reached goal state
+End of episode # 458   in  272 iterations
+Reached goal state
+End of episode # 459   in  215 iterations
+Reached goal state
+End of episode # 460   in  211 iterations
+Reached goal state
+End of episode # 461   in  206 iterations
+Reached goal state
+End of episode # 462   in  205 iterations
+Reached goal state
+End of episode # 463   in  223 iterations
+Reached goal state
+End of episode # 464   in  222 iterations
+Reached goal state
+End of episode # 465   in  254 iterations
+Reached goal state
+End of episode # 466   in  256 iterations
+Reached goal state
+End of episode # 467   in  249 iterations
+Reached goal state
+End of episode # 468   in  257 iterations
+Reached goal state
+End of episode # 469   in  226 iterations
+Reached goal state
+End of episode # 470   in  258 iterations
+Reached goal state
+End of episode # 471   in  222 iterations
+Reached goal state
+End of episode # 472   in  176 iterations
+Reached goal state
+End of episode # 473   in  202 iterations
+Reached goal state
+End of episode # 474   in  211 iterations
+Reached goal state
+End of episode # 475   in  196 iterations
+Reached goal state
+End of episode # 476   in  223 iterations
+Reached goal state
+End of episode # 477   in  197 iterations
+Reached goal state
+End of episode # 478   in  171 iterations
+Reached goal state
+End of episode # 479   in  242 iterations
+Reached goal state
+End of episode # 480   in  181 iterations
+Reached goal state
+End of episode # 481   in  205 iterations
+Reached goal state
+End of episode # 482   in  203 iterations
+Reached goal state
+End of episode # 483   in  204 iterations
+Reached goal state
+End of episode # 484   in  208 iterations
+Reached goal state
+End of episode # 485   in  205 iterations
+Reached goal state
+End of episode # 486   in  244 iterations
+Reached goal state
+End of episode # 487   in  176 iterations
+Reached goal state
+End of episode # 488   in  197 iterations
+Reached goal state
+End of episode # 489   in  224 iterations
+Reached goal state
+End of episode # 490   in  252 iterations
+Reached goal state
+End of episode # 491   in  232 iterations
+Reached goal state
+End of episode # 492   in  248 iterations
+Reached goal state
+End of episode # 493   in  292 iterations
+Reached goal state
+End of episode # 494   in  246 iterations
+Reached goal state
+End of episode # 495   in  230 iterations
+Reached goal state
+End of episode # 496   in  252 iterations
+Reached goal state
+End of episode # 497   in  212 iterations
+Reached goal state
+End of episode # 498   in  257 iterations
+Reached goal state
+End of episode # 499   in  208 iterations
+The Q matrix is: 
+ 
+
