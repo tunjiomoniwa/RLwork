@@ -345,7 +345,7 @@ for epi in range(episodes):
         #epsilon =1-(epi/1000)
 
         #exp decay
-        epsilon =float(np.exp(-0.0015*epi))
+        epsilon =float(np.exp(-0.015*epi))
 
         #print(epsilon)
         action = select_action(epsilon, current_state, Q)
@@ -360,7 +360,7 @@ for epi in range(episodes):
         # do learning thingy
 
           
-        if epi<500:
+        if epi<300:
             # update q values
             update_q(current_state, new_state, action, reward_tj, alpha, gamma)
 
