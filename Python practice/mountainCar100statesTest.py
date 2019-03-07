@@ -17,7 +17,7 @@ iteration_steps = 100000
 episodes=500
 #epsilon =0.5
 alpha = 0.1
-gamma =0.9
+gamma =0.92
 
 len_action=3
 len_states =100
@@ -316,30 +316,6 @@ for epi in range(episodes):
         
         #env.render()
        
-
-##        if epi<10:
-##            #rand = randint(0,100)
-##            #if rand<80:
-##                action = env.action_space.sample() # 90% exploration of agent, 10% exploitation 
-##            #else:
-##            #    action = pickBestAction(current_state)
-##        elif epi<100:
-##            rand = randint(0,100)
-##            if rand<80:
-##                action = env.action_space.sample() # 90% exploration of agent, 10% exploitation 
-##            else:
-##                action = pickBestAction(current_state)
-##        elif  epi<200:
-##            rand = randint(0,100)
-##            if rand<50:
-##                action = env.action_space.sample() # 90% exploration of agent, 10% exploitation 
-##            else:
-##                action = pickBestAction(current_state)
-##        else:
-##            action = pickBestAction(current_state)
-##            #action = select_action(0.99, current_state, Q) # full exploit
-##        
-##
 
         #linear
         #epsilon =1-(epi/1000)
