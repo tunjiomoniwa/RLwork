@@ -9,16 +9,39 @@ import random
 from random import randint
 
 
+##Paremeters
+cdelta = 0.1 # in meters
+p1 = 0.01 # in watts
+p2 = 0.1
+p3 = 0.3
+p4 = 0.7
+p5 = 0.9
+p6 = 1
 
-min_position = -1.2
-max_position = 0.6
-max_speed = 0.07
-goal_position = 0.5
+## energy drain
+ed1 = 0.4
+ed2 = 0.3
+ed3 = 0.1
+ed4 = 0.3
+ed5 = 0.5
+ed6 =0.8
+ed7 = 1
+ed8 = 2
 
-low = np.array([min_position, -max_speed])
-high = np.array([max_position, max_speed])
 
-action_space = spaces.Discrete(3)
+min_outage = 0
+max_outage = 100
+min_energy_fog = 0
+max_energy_fog = 100
+min_energy_IoT = 0
+max_energy_IoT = 100
+
+goal_outage = 90
+
+low = np.array([min_outage, min_energy_fog, min_energy_IoT])
+high = np.array([max_outage, max_energy_fog, max_energy_IoT])
+
+action_space = spaces.Discrete(8)
 observation_space = spaces.Box(low, high, dtype=np.float32)
 
 iteration_steps = 100000
@@ -27,18 +50,18 @@ episodes=500
 alpha = 0.1
 gamma =0.9
 
-len_action=3
-len_states =100
-buckets =(10,10,) # learn
+#len_action=8
+#len_states =100
+buckets =(10,10,10,) # learn
 
-Q = np.zeros(shape=[len_states, len_action], dtype=np.float32)
-#Q = np.zeros(buckets + (action_space.n,))
+#Q = np.zeros(shape=[len_states, len_action], dtype=np.float32)
+Q = np.zeros(buckets + (action_space.n,))
 #Q = defaultdict(lambda: np.zeros(action_space.n))
 
 print(Q)
 
 
-np.array([random.uniform(-0.6, -0.4), 0])
+np.array([random.uniform(0, 100), random.uniform(0, 100), random.uniform(0, 100)])
 
 
 
@@ -60,25 +83,77 @@ def seed(seed=None):
 def step(action):
     assert action_space.contains(action), "%r (%s) invalid" % (action, type(action))
     
-    global obs
-    position, velocity = obs #np.array([random.uniform(-0.6, -0.4), 0])
-    velocity += (action-1)*0.001 + math.cos(3*position)*(-0.0025)
-    velocity = np.clip(velocity, -max_speed, max_speed)
-    position += velocity
-    position = np.clip(position, min_position, max_position)
-    if (position==min_position and velocity<0): velocity = 0
+    global obs, ECF, ECI
+    outage, ef, ei = obs 
+    if action==1:
+        delta = cdelta
+        ECF= ed1 #Energy consumed by fog node
+    elif action==2:
+        delta = -cdelta
+        ECF= ed2
+    elif action==3:
+        sensorpower = p1
+        ECI= ed3
+    elif action==4:
+        sensorpower = p2
+        ECI= ed4
+    elif action==5:
+        sensorpower = p3
+        ECI= ed5
+    elif action==6:
+        sensorpower = p4
+        ECI= ed6
+    elif action==8:
+        sensorpower = p5
+        ECI= ed7
+    else:
+        sensorpower = p6
+        ECI= ed8
 
-    done = bool(position >= goal_position)
+    if action==1 or action==2:
+        Power_sensor = 0.1
+        Power_relay = 0.33 
+        alpha = 3
+        Noise = 2*(10**-7)
+        gamma = 1
+        
+        PP= np.sqrt((Noise * gamma)/(Power_relay *(35 + delta)**(-alpha)))
+        ZZ = (-Noise * gamma)/(Power_sensor *(40+delta)**(-alpha))
+        p_out = 100*(1 - (1 + 2* (PP**2) * np.log(2))*(np.exp(ZZ)))
+        outage = np.max([0,p_out])
+    else:
+        Power_relay = 0.33 
+        dist_sensor =40
+        dist_dest = 35
+        alpha = 3
+        Noise = 2*(10**-7)
+        gamma = 1
+
+        PP= np.sqrt((Noise * gamma)/(Power_relay *(dist_dest)**(-alpha)))
+        ZZ = (-Noise * gamma)/(sensorpower *(dist_sensor)**(-alpha))
+        p_out = 100*(1 - (1 + 2* (PP**2) * np.log(2))*(np.exp(ZZ)))
+        outage = np.max([0,p_out])
+        
+    outage = np.clip(outage, min_outage, max_outage)
+
+
+    ef -= ECF
+    ei -= ECI
+    ef = np.clip(ef, min_energy_fog, max_energy_fog)
+    ei = np.clip(ei, min_energy_IoT, max_energy_IoT)
+    
+    done = bool(outage >= goal_outage)
     rew = -1.0
 
-    obs = (position, velocity)
+    obs = (outage, ef, ei)
     return np.array(obs), rew, done, {}
     #return obs, rew, done, {}
 
 
+
 def grouping(obs):
-    upper_bounds = [observation_space.high[0], observation_space.high[1]]
-    lower_bounds = [observation_space.low[0], observation_space.low[1]]
+    upper_bounds = [observation_space.high[0], observation_space.high[1], observation_space.high[2]]
+    lower_bounds = [observation_space.low[0], observation_space.low[1], observation_space.low[2]]
     ratios = [(obs[i] + abs(lower_bounds[i]))/ (upper_bounds[i] - lower_bounds[i]) for i in range(len(obs))]
     new_obs = [int(round((buckets[i]-1)*ratios[i])) for i in range(len(obs))]
     new_obs = [min(buckets[i] - 1, max(0, new_obs[i])) for i in range(len(obs))]
@@ -328,10 +403,14 @@ for epi in range(episodes):
 
     cur_action = action_space.sample()
 
-    obs = np.array([random.uniform(-1.2, 0.5), random.uniform(-0.07, 0.07)])
-    #obs = np.array([random.uniform(-0.6, -0.4), 0])
+    ECI = 0
+    ECF = 0
+    
+
+    obs = np.array([random.uniform(0, 100), random.uniform(95, 100), random.uniform(95, 100)])
 
     obs, reward, done, _ = step(cur_action)
+    print(obs)
 
     p_state = grouping(obs)
     
@@ -352,7 +431,8 @@ for epi in range(episodes):
         #print(epsilon)
         action = select_action(epsilon, current_state, Q)
         obs, reward, done, _ = step(action)
-        #print(step(action))
+        #print(obs)
+        print(step(action))
 
         #do the mapping from obs to state
 

@@ -26,7 +26,7 @@ for x in range_positve(0.0001, 1.0, 0.05):
 #Power_sensor = [0.05, 0.15, 0.25, 0.4, 0.6]
 Power_relay = 0.33 
 dist_sensor =40
-dist_dest = 29
+dist_dest = 35
 alpha = 3
 Noise = 2*(10**-7)
 gamma = 1

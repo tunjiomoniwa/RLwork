@@ -185,16 +185,18 @@ for epi in range(episodes):
 
     
     iter=0
+    cc = []
     while ((iter < iteration_steps)  or not done):#(obs[2] >= -24 and obs[2] <= 24) or (obs[0] >= -2.4 and obs[0] <= 2.4)):
 
         iter+=1
+        cc.append(iter)
          
       
         #linear
         #epsilon =1-(epi/1000)
 
         #exp decay
-        epsilon =float(np.exp(-0.015*epi))
+        epsilon =float(np.exp(-0.00015*epi))
 
         #print(epsilon)
         action = select_action(epsilon, current_state, Q)
@@ -234,9 +236,11 @@ for epi in range(episodes):
          
 print("The Q matrix is: \n ")
 print(Q)
-
-line=plt.plot(store)
-plt.setp(line, color='r', linewidth=1.0)
+print(cc)
+print(store)
+#line=plt.plot(store)
+#plt.setp(line, color='r', linewidth=1.0)
+plt.plot(store)
 plt.ylabel('Acc. scores')
 plt.xlabel('Episodes')
 plt.show()
