@@ -1,88 +1,41 @@
-#import gym
-
-
+import gym
 import numpy as np
 import pylab as plt
 from collections import deque
 from collections import defaultdict
-from tjays import spaces
-import seeding
-
-
+from gym import spaces
 import math
 import random
+
 from random import randint
 
 
-
-min_position = -1.2
-max_position = 0.6
-max_speed = 0.07
-goal_position = 0.5
-
-low = np.array([min_position, -max_speed])
-high = np.array([max_position, max_speed])
-
-action_space = spaces.Discrete(3)
-observation_space = spaces.Box(low, high, dtype=np.float32)
+env = gym.make('MountainCar-v0')
+env.reset();
 
 iteration_steps = 100000
-episodes=500
+episodes=300
+#epsilon =0.8
 alpha = 0.1
-gamma =0.91
+gamma =0.9
 
 len_action=3
 len_states =100
 buckets =(10,10,) # learn
 
+
 Q = np.zeros(shape=[len_states, len_action], dtype=np.float32)
-#Q = np.zeros(buckets + (action_space.n,))
-#Q = defaultdict(lambda: np.zeros(action_space.n))
+#Q = np.zeros(buckets + (env.action_space.n,))
+#Q = defaultdict(lambda: np.zeros(env.action_space.n))
 
 print(Q)
+# create the states (table)
 
-
-np.array([random.uniform(-0.6, -0.4), 0])
-
-
-
-def np_random(seed=None):
-    if seed is not None and not (isinstance(seed, integer_types) and 0 <= seed):
-        raise error.Error('Seed must be a non-negative integer or omitted, not {}'.format(seed))
-
-    seed = create_seed(seed)
-
-    rng = np.random.RandomState()
-    rng.seed(_int_list_from_bigint(hash_seed(seed)))
-    return rng, seed
-
-
-def seed(seed=None):
-    np_random, seed = seeding.np_random(seed)
-    return [seed]
-
-def step(action):
-    assert action_space.contains(action), "%r (%s) invalid" % (action, type(action))
-    
-    global obs
-    position, velocity = obs #np.array([random.uniform(-0.6, -0.4), 0])
-    velocity += (action-1)*0.001 + math.cos(3*position)*(-0.0025)
-    velocity = np.clip(velocity, -max_speed, max_speed)
-    position += velocity
-    position = np.clip(position, min_position, max_position)
-    if (position==min_position and velocity<0): velocity = 0
-
-    done = bool(position >= goal_position)
-    rew = -1.0
-
-    obs = (position, velocity)
-    return np.array(obs), rew, done, {}
-    #return obs, rew, done, {}
 
 
 def grouping(obs):
-    upper_bounds = [observation_space.high[0], observation_space.high[1]]
-    lower_bounds = [observation_space.low[0], observation_space.low[1]]
+    upper_bounds = [env.observation_space.high[0], env.observation_space.high[1]]
+    lower_bounds = [env.observation_space.low[0], env.observation_space.low[1]]
     ratios = [(obs[i] + abs(lower_bounds[i]))/ (upper_bounds[i] - lower_bounds[i]) for i in range(len(obs))]
     new_obs = [int(round((buckets[i]-1)*ratios[i])) for i in range(len(obs))]
     new_obs = [min(buckets[i] - 1, max(0, new_obs[i])) for i in range(len(obs))]
@@ -311,33 +264,30 @@ def map_reward(state):
 
 def update_q(current_state, new_state, action, reward, alpha, gamma):
     Q[current_state][action] = (1- alpha)*Q[current_state][action] + alpha*(reward + gamma* max(Q[new_state]))
-    
 
 
-def select_action(epsilon, state, Q):
+
+#def select_action(epsilon, state, Q):
     '''
     If the random number is greater than epsilon
     then we exploit else we explore.
     '''
-   
-    if random.random() < epsilon:
-        action = action_space.sample() # Explore action space
-    else:
-        action = np.argmax(Q[state]) # Exploit learned values
-    return action
+    #action = env.action_space.sample() # Explore action space
+    #if random.random() < epsilon:
+     #   action = env.action_space.sample() # Explore action space
+##    else:
+##        action = np.argmax(Q[state]) # Exploit learned values
+    #return action
 
 
 aa = []
 for epi in range(episodes):
 
-    cur_action = action_space.sample()
+    cur_action = env.action_space.sample()
 
-    if epi<300:
-        obs = np.array([random.uniform(-1.2, 0.5), random.uniform(-0.07, 0.07)])
-    else:
-        obs = np.array([random.uniform(-0.6, -0.4), 0])
+    env.reset()
 
-    obs, reward, done, _ = step(cur_action)
+    obs, reward, done, _ = env.step(cur_action)
 
     p_state = grouping(obs)
     
@@ -348,17 +298,19 @@ for epi in range(episodes):
     while ((iter < iteration_steps) and current_state!=99):
 
         iter+=1
-      
-        #linear
-        #epsilon =1-(epi/1000)
+        
+        env.render()
+       
+        
+        if epi<50:        
+            action = env.action_space.sample() # 90% exploration of agent, 10% exploitation 
+        
+        else:
+            action = np.argmax(Q[current_state])
+            #action = select_action(0.99, current_state, Q) # full exploit
+        
 
-        #exp decay
-        epsilon =float(np.exp(-0.015*epi))
-
-        #print(epsilon)
-        action = select_action(epsilon, current_state, Q)
-        obs, reward, done, _ = step(action)
-        #print(step(action))
+        obs, reward, done, _ = env.step(action)
 
         #do the mapping from obs to state
 
@@ -369,15 +321,13 @@ for epi in range(episodes):
         # do learning thingy
 
           
-        if epi<300:
-            # update q values
-            update_q(current_state, new_state, action, reward_tj, alpha, gamma)
-
-        
+        # update q values
+        update_q(current_state, new_state, action, reward_tj, alpha, gamma)
+             
         #save current state
         current_state = new_state
-        #print(obs)
-        #print(current_state)
+
+        
 
         if(current_state==99):
             print("Reached goal state")
