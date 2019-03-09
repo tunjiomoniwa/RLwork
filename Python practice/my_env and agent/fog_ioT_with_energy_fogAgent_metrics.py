@@ -201,8 +201,8 @@ def select_action(epsilon, state, Q):
 
 aa = []
 #packets_holder = []
-#fog_energy_holder = []
-IoT_energy_holder = []
+fog_energy_holder = []
+#IoT_energy_holder = []
 
 for epi in range(episodes):
 
@@ -273,10 +273,10 @@ for epi in range(episodes):
         if dead:
             print("No more communications")
             break
-    IoT_cons = 100 - obs[1]
+    fog_cons = 100 - obs[1]
     print("End of episode #",epi, "  in ", iter , "iterations")
     aa.append(iter)
-    IoT_energy_holder.append(IoT_cons)
+    fog_energy_holder.append(fog_cons)
     
 
      
@@ -286,9 +286,9 @@ for epi in range(episodes):
 #print(Q)
 
 #line=plt.plot(aa)
-line=plt.plot(IoT_energy_holder)
+line=plt.plot(fog_energy_holder)
 plt.setp(line, color='r', linewidth=1.0)
-plt.ylabel('Energy consumed by IoT end-device (%)')
+plt.ylabel('Energy consumed by fog Agent (%)')
 plt.xlabel('Episodes')
 
 plt.show()
