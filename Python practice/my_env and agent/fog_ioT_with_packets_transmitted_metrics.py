@@ -37,7 +37,7 @@ min_energy_IoT = 0
 max_energy_IoT = 100
 min_delta = -35
 max_delta = 35
-goal_outage = 5 # 5% tolerable outage
+goal_outage = 5 # 8% tolerable outage
 goal_ef = 0
 goal_ei = 0
 
@@ -200,9 +200,9 @@ def select_action(epsilon, state, Q):
         
 
 aa = []
-#packets_holder = []
+packets_holder = []
 fog_energy_holder = []
-#IoT_energy_holder = []
+IoT_energy_holder = []
 
 for epi in range(episodes):
 
@@ -228,7 +228,7 @@ for epi in range(episodes):
 
     
     iter=0
-    #sum_pack = 0
+    sum_pack = 0
     while ((iter < iteration_steps) and  not done):#(current_state[0]>=8 and current_state[1]>0 and current_state[2]> 0)): #current_state[0]!= 0):
 
         iter+=1
@@ -252,7 +252,7 @@ for epi in range(episodes):
         reward_tj = map_reward(new_state)
         #print(obs[0])
         #print(new_state)
-        
+        sum_pack+=(100 - obs[0])
    
         # do learning thingy
 
@@ -273,10 +273,10 @@ for epi in range(episodes):
         if dead:
             print("No more communications")
             break
-    fog_cons = 100 - obs[1]
+    ave_pack = sum_pack/iter
     print("End of episode #",epi, "  in ", iter , "iterations")
     aa.append(iter)
-    fog_energy_holder.append(fog_cons)
+    packets_holder.append(ave_pack)
     
 
      
@@ -286,9 +286,9 @@ for epi in range(episodes):
 #print(Q)
 
 #line=plt.plot(aa)
-line=plt.plot(fog_energy_holder)
+line=plt.plot(packets_holder)
 plt.setp(line, color='r', linewidth=1.0)
-plt.ylabel('Energy consumed by fog Agent (%)')
+plt.ylabel('Percentage of Packets Tx')
 plt.xlabel('Episodes')
 
 plt.show()
