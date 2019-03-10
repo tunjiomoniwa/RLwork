@@ -48,7 +48,7 @@ action_space = spaces.Discrete(8)
 observation_space = spaces.Box(low, high, dtype=np.float32)
 
 iteration_steps = 100000
-episodes=500
+episodes=800
 #epsilon =0.5
 alpha = 0.1
 gamma =0.9
@@ -64,25 +64,7 @@ Q = np.zeros(buckets + (action_space.n,))
 
 print(Q)
 
-
-
-
-
-def np_random(seed=None):
-    if seed is not None and not (isinstance(seed, integer_types) and 0 <= seed):
-        raise error.Error('Seed must be a non-negative integer or omitted, not {}'.format(seed))
-
-    seed = create_seed(seed)
-
-    rng = np.random.RandomState()
-    rng.seed(_int_list_from_bigint(hash_seed(seed)))
-    return rng, seed
-
-
-def seed(seed=None):
-    np_random, seed = seeding.np_random(seed)
-    return [seed]
-
+ 
 def step(action):
     assert action_space.contains(action), "%r (%s) invalid" % (action, type(action))
     
@@ -257,7 +239,7 @@ for epi in range(episodes):
         # do learning thingy
 
           
-        if epi<300:
+        if epi<600:
             # update q values
             update_q(current_state, new_state, action, reward_tj, alpha, gamma)
 

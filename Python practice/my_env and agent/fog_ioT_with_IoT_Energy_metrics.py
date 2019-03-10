@@ -48,7 +48,7 @@ action_space = spaces.Discrete(8)
 observation_space = spaces.Box(low, high, dtype=np.float32)
 
 iteration_steps = 100000
-episodes=500
+episodes=800
 #epsilon =0.5
 alpha = 0.1
 gamma =0.9
@@ -64,7 +64,6 @@ Q = np.zeros(buckets + (action_space.n,))
 
 print(Q)
 
- 
 
 def step(action):
     assert action_space.contains(action), "%r (%s) invalid" % (action, type(action))
@@ -240,7 +239,7 @@ for epi in range(episodes):
         # do learning thingy
 
           
-        if epi<300:
+        if epi<600:
             # update q values
             update_q(current_state, new_state, action, reward_tj, alpha, gamma)
 
@@ -256,19 +255,14 @@ for epi in range(episodes):
         if dead:
             print("No more communications")
             break
-    IoT_cons = 100 - obs[1]
+    IoT_cons = 100 - obs[2]
     print("End of episode #",epi, "  in ", iter , "iterations")
     aa.append(iter)
     IoT_energy_holder.append(IoT_cons)
     
 
      
-#print(ave_pack)
-#print(packets_holder)
-#print("The Q matrix is: \n ")
-#print(Q)
 
-#line=plt.plot(aa)
 line=plt.plot(IoT_energy_holder)
 plt.setp(line, color='r', linewidth=1.0)
 plt.ylabel('Energy consumed by IoT end-device (%)')
