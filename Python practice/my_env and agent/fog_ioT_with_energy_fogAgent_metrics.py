@@ -190,15 +190,25 @@ for epi in range(episodes):
 
     
 
-    ECI = 0
-    ECF = 0
-    deltak = np.random.randint(-5, 5)
-    sensorpower= random.uniform(0, 0.3)
-    delta=0.1
-    
-    #np.random.randint() --discrete uniform distribution
-    obs = np.array([np.random.randint(0, 60), np.random.randint(65, max_energy_fog), np.random.randint(65, max_energy_IoT)])
-    #obs = np.array([np.random.randint(min_outage, max_outage), np.random.randint(min_energy_fog, max_energy_fog), np.random.randint(min_energy_IoT, max_energy_IoT)])
+    if epi < episodes/2:
+        ECI = 0
+        ECF = 0
+        deltak = np.random.randint(-5, 5)
+        sensorpower= random.uniform(0, 0.3)
+        delta=0.1
+        dd=0
+        #np.random.randint() --discrete uniform distribution
+        obs = np.array([np.random.randint(0, 60), np.random.randint(65, max_energy_fog), np.random.randint(65, max_energy_IoT)])
+        #obs = np.array([np.random.randint(min_outage, max_outage), np.random.randint(min_energy_fog, max_energy_fog), np.random.randint(min_energy_IoT, max_energy_IoT)])
+    else:
+        ECI = 0
+        ECF = 0
+        deltak = np.random.randint(-1, 1)
+        sensorpower= random.uniform(0, 0.3)
+        delta=0.1
+        dd=0
+        obs = (30, 90, 90)
+
     cur_action = action_space.sample()
     obs, reward, done, dead, _ = step(cur_action)
     #print(obs)
@@ -239,7 +249,7 @@ for epi in range(episodes):
         # do learning thingy
 
           
-        if epi<600:
+        if epi<(2*episodes/3):
             # update q values
             update_q(current_state, new_state, action, reward_tj, alpha, gamma)
 

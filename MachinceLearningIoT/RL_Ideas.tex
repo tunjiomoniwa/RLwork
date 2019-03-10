@@ -504,18 +504,18 @@ Reinforcement learning (RL), Internet-of-Things (IoT), Fog-based IoT, Markov dec
 \IEEEpeerreviewmaketitle
 
 \section{Background}
-\IEEEPARstart{T}{he} fog computing-based IoT paradigm aims at moving computation, control, and decision-making within the IoT ecosystem closer to the network edge~\cite{Omoniwa2018}. The key driver of this paradigm are fog devices, which may be energy-constrained or not, and can either be mobile or static. The deployment and efficient utilization of these fog devices will contribute to the success of future IoT systems~\cite{Chiangh2016}, one of which is overcoming communication outages due to obstacles or long distances between a source node and a remote destination node where IoT services may be rendered.
+\IEEEPARstart{T}{he} fog computing-based IoT paradigm aims at moving computation, control, and decision-making within the IoT ecosystem closer to the network edge~\cite{Omoniwa2018}. The key driver of this paradigm are fog devices, which may be energy-constrained or not, and can either be mobile or static. The deployment and efficient utilization of these fog devices will contribute to the success of future IoT systems~\cite{Chiangh2016}, one of which is serving as relays to overcome communication outages due to obstacles or long distances between a source node and a remote destination node where IoT services may be rendered.
 
-However, in order for devices to communicate efficiently with minimal outage, several bottlenecks may arise, one of which is the efficient utilization of energy by power-constrained IoT devices. Energy can be used up when these devices unnecessarily increase their power-level in order to communicate with neighbouring devices within the network, conversely, energy can be saved when the devices regulate their transmission power, especially in situations when they are relatively close to the communicating parties. For example, an IoT end-device that transmits at high power irrespective of the channel conditions or proximity of its neighbours may drastically deplete its energy and die-out, hence, resulting in communication breakdown due to a point-of-failure within the network. Another challenge to be addressed is the energy consumed due to mobility. In order to deliver on some acceptable quality-of-service (QoS) within the IoT ecosystem, it is imperative for devices to be mobile, however these devices are at risk of draining most of their energy on movement. For instance, energy will be inefficiently used if a power-constrained fog device decides to move closer to the communicating party only to relay very few number of packets, though having a guarantee that all the packets are delivered to the destination. However, if the size of number of packets to be relayed is large, it may be optimal for the fog device to move closer, hence, conserving the energy of the IoT end device, who can transmit no transmit at a lower power-level.
+However, in order for devices to communicate efficiently with minimal outage (loss of transmitted packets), several bottlenecks may arise, one of which is the efficient utilization of energy by power-constrained IoT devices. Energy can be used up when these devices unnecessarily increase their power-level in order to communicate with neighbouring devices within the network, conversely, energy can be saved when the devices regulate their transmission power, especially in situations when they are relatively close to the communicating parties. For example, an IoT end-device that transmits at high power irrespective of the channel conditions or proximity of its neighbours may drastically deplete its energy and die-out, hence, resulting in communication breakdown due to a point-of-failure within the network. Another challenge to be addressed is the energy consumed due to mobility. In order to deliver on some acceptable quality-of-service (QoS) within the IoT ecosystem, it is imperative for devices to be mobile, however, these devices are at risk of draining most of their energy on movement. For instance, energy will be inefficiently used if a power-constrained fog device decides to move closer to the communicating party only to relay very few numbers of packets, though having a guarantee that all the packets are delivered to the destination. However, if the size of the number of packets to be relayed is large, it may be optimal for the fog device to move closer, hence, conserving the energy of the IoT end-device, who can now transmit at a lower power level.
 
-Moreover, since power-control mechanisms and smart mobility are critical in minimizing outages in communication, these devices should be able to learn when to increase, decrease, or maintain their power-levels or to move efficiently in order to increase the long-term performance of the network. More so, near-optimal actions from these devices are required to drive several smart cities applications, most importantly the Industrial IoT (IIoT), where industrial robots are deployed to act intelligible in a dynamic industrial setting, and intelligent monitoring applications, where surveillance drones are deployed in militarised zones to meet stringent quality-of-service (QoS) requirements~\cite{OmoniwaRelay2018}.
+Moreover, since power-control mechanisms and smart mobility are critical in minimizing outages in communication, these devices should be able to learn when to increase, decrease, or maintain their power-levels or to move efficiently in order to increase the long-term performance of the network. More so, near-optimal actions from these devices are required to drive several smart cities applications, most importantly the Industrial IoT (IIoT), where industrial robots are deployed to act intelligibly in a dynamic industrial setting, and intelligent monitoring applications, where surveillance drones are deployed in militarised zones to meet stringent quality-of-service (QoS) requirements~\cite{OmoniwaRelay2018}.
 
-The work in~\cite{OmoniwaRelay2018} used an iterative algorithm based on the steepest descent method to address the problem in a multi-tier fog-based IoT architecture with a fog device which could adjust its position and power-control parameter in order to minimize outage in communication. However, the work did not take into consideration the performance of the approach in a highly-decentralised IoT environment. In~\cite{Mozaffari2016}, a clustering algorithm was used on eight (8) unmanned aerial vehicle (UAVs) to collect data from ground IoT devices with an objective of minimizing the energy consumed by the IoT devices during uplink communications. However, this work considered a centralized network where the locations of every IoT device and UAV were known to the control center. Considering the highly-distributed nature of deployed IoT devices, it becomes infeasible to manage devices centrally~\cite{Wilhelmi2017}. As such, reinforcement learning can be effectively deployed on fog devices to allow them act independently based on their local experiences in the environment, i.e. each fog device should be able to learn independently without a central entity.
+The work in~\cite{OmoniwaRelay2018} used an iterative algorithm based on the steepest descent method to address the problem in a multi-tier fog-based IoT architecture with a fog device which could adjust its position and power-control parameter in order to minimize outage in communication. However, the work did not take into consideration the performance of the approach in a highly-decentralised IoT environment. In~\cite{Mozaffari2016}, a clustering algorithm was used on eight (8) unmanned aerial vehicle (UAVs) to collect data from ground IoT devices with an objective of minimizing the energy consumed by the IoT devices during uplink communications. However, this work considered a centralized network where the locations of every IoT device and UAV were known to the controller. Considering the highly-distributed nature of deployed IoT devices, it becomes infeasible to manage devices centrally~\cite{Wilhelmi2017}. As such, reinforcement learning can be effectively deployed on fog devices to allow them to act independently based on their local experiences in the environment, i.e. each fog device should be able to learn independently without a central entity.
 
 A decentralised stateless Q-learning approach was proposed in \cite{Wilhelmi2017} to improve aggregate throughput in four coexistent wireless networks (WN). Each WN was considered to be an agent running the stateless Q-learning algorithm with agents having action space as channel number, and transmit power
-(dBm). A lightweight distributed learning approach was proposed in \cite{Azari2018} to increase energy efficiency and reliability of IoT communications. There was significant performance improvement when the proposed algorithm was compared to a centralized optimized strategy. Transmit power, sub-channel, and spreading factor made up the action space. However, the system model in both works were rather hierarchical than distributed, ie. each WN was assumed to be an independent central entity with no specifications to what is learnt within each sub-network. Though IoT is defined as a large-scale network where various sub-networks coexist~\cite{Omoniwa2018}, applying RL to end-devices within sub-network may bring about meaningful performance improvement in the overall IoT network.
+(dBm). A lightweight distributed learning approach was proposed in \cite{Azari2018} to increase energy efficiency and reliability of IoT communications. There was significant performance improvement when the proposed algorithm was compared to a centralized optimized strategy. Transmit power, sub-channel, and spreading factor made up the action space. However, the system model in both works was rather hierarchical than distributed, ie. each WN was assumed to be an independent central entity with no specifications to what is learnt within each sub-network. Though IoT is defined as a large-scale network where various sub-networks coexist~\cite{Omoniwa2018}, applying RL to end-devices within sub-network may bring about meaningful performance improvement in the overall IoT network.
 
-The main contribution of this paper is to propose a fully-decentralised multi-agent-based reinforcement learning approach as in~\cite{Gueriau2018} that addresses communication performance within a fog-based IoT architecture. First, we assumed a realistic scenario of possible state-action pair for each communication scenario as seen in  Fig. \ref{ideafig1}, where each fog-agent is faced with a unique topology and environment. Next, in order to guarantee energy-efficient communications for the fog devices in the dynamic environment, we apply a decentralised q-learning algorithm, where each agent observes its position with respect to the communicating party, likewise the size of the number of packets to be transmitted and learns to take actions that improve the long-term communication performance. The fog-agents will actively try to communicate with neighbouring IoT devices in a manner where computing and processing are fully-decentralised, as well achieving energy balance within the system.
+The main contribution of this paper is to propose a fully-decentralised multi-agent-based reinforcement learning approach as in~\cite{Gueriau2018} that addresses communication performance within a fog-based IoT architecture. First, we assumed a realistic scenario of possible state-action pair for each communication scenario as seen in  Fig. \ref{ideafig1}, where each fog-agent is faced with a unique topology and environment. Next, in order to guarantee energy-efficient communications for the fog devices in the dynamic environment, we apply a decentralised q-learning algorithm, where each agent observes its position with respect to the communicating party, likewise the size of the number of packets to be transmitted and learns to take actions that improve the long-term communication performance. The fog-agents will actively try to communicate with neighbouring IoT devices in a manner where computing and processing are fully-decentralised, as well as achieving energy balance within the system.
 
 The remainder of this work is organized as follows.~In Section II, we reviewed related works, and present our proposed approach in Section III. In Section IV, we evaluate the proposed fog-based IoT system, and present the results in Section V. Section V concludes the paper and outlines future directions.
 
@@ -540,10 +540,11 @@ We adopt an RL approach, in which an agent interacts with an environment over pe
 \emph{\textbf{States}}: The states are defined as a tuple, $\langle$Outage communication cost ($\mathcal{P}_{out}$) /Energy of the fog relay (J) /Energy of the IoT sensor (J)$\rangle$.
 
 \begin{itemize}
-  \item Outage communication cost: This observation will be evaluated based on the cost function in (\ref{eqn1a}), which gives an estimate of the communication outage when there is an action, such as, change in the power level or location, or both.
-  \item Energy of the fog relay: This observation gives the agent insight on how much energy has been expended on mobility.
-  \item Energy of the IoT sensor: This observation gives the agent insight on how much energy the IoT sensor has used up due to high-power transmission.
+  \item Outage communication cost: Outage observations from the environment is estimated using (\ref{eqn1a}) from \cite{OmoniwaRelay2018}, which gives an estimate of the communication outage when the agent takes an action, such as changing power levels or location, or both.
+  \item Energy expended by fog relay: This observation gives the agent insight on how much energy by the fog agent when following policy~$\omega_i \in \omega_{fog}$. If the fog agent continues to take sub-optimal actions, it depletes its energy and dies out.
+  \item Energy expended by IoT sensor: This observation gives the agent insight on how much energy the IoT sensor has used up by following a policy~$\omega_i \in \omega_{IoT}$. If the IoT sensor continues to take sub-optimal actions, it depletes its energy and dies out.
 \end{itemize}
+
 
 \begin{equation}\label{eqn1a}
   \mathcal{P}_{out} = 1 - (1 + 2\Psi^2 \ln \Psi) \exp\Big( -\frac{N_0 \tilde{\gamma}}{P_{I} (D_{I} + \delta)^{-\alpha}}\Big),
@@ -551,22 +552,25 @@ We adopt an RL approach, in which an agent interacts with an environment over pe
 
 where~$\Psi = \sqrt{(N_0 \tilde{\gamma})/(P_{R}(D_{S} + \delta)^{-\alpha})}$, and~$\mathcal{P}_{out}$ is an expression for the outage probability with values between 0 and 1. We assume a predefined threshold~$\tilde{\gamma}$ which determines the outage in communication,~$P_{I}$ is transmit power of the IoT sensor,~$P_{R}$ is transmit power of the fog relay agent,~$D_{I}$ is the distance between IoT sensor and fog relay agent, and~$D_{S}$ is the distance between fog relay agent and destination node. We assume a small change in the position of the fog relay agent,~$\delta = 0.1m$,~$N_0$ to be the channel noise, and~$\alpha$ to be the path-loss exponent.
 
-\emph{\textbf{Actions}}: The actions are a tuple, $\langle$Move and transmit/power-level of IoT end-device$\rangle$.
+\emph{\textbf{Actions}}: The actions are move and transmit by fog, and select a power-level and transmit by IoT end-device, which make up eight possible actions.
 
  \begin{itemize}
-  \item Mobility: Move by $\pm \delta$ and transmit, where~$\delta = 0.1m$ and mobility range = [-20m, 20m]
-  \item Power-level: Choose power-level and transmit, $\rho$, where~transmit power ranges = [0.1W, 0.2W, 0.3W, 0.4W, 0.5W, 0.6W, 0.7W, 0.8W, 0.9W, 1W]
+  \item Mobility: Move by $\pm \delta$ and transmit, where~$\delta = 0.25m$ and mobility range = [-30m, 30m]
+  \item Power-level: Choose power-level and transmit, $\rho$, where~transmit power ranges = [0.001W, 0.01W, 0.15W, 0.2W, 0.25W, 0.3W]
 \end{itemize}
 
-\emph{\textbf{Goal}}: The goal is for the agent to learn to minimize the overall cost~$\mathcal{C}$ in the tuple $\langle$Outage communication cost ($\mathcal{P}_{out}$) /Energy of the fog relay (J) /Energy of the IoT sensor (J)$\rangle$.
+\emph{\textbf{Goal}}: The goal is for the agent to learn to minimize the overall cost~$\mathcal{C}$ in the tuple $\langle$Outage communication cost ($\mathcal{P}_{out}$) /Energy of the fog relay (J) /Energy of the IoT sensor (J)$\rangle$, by keeping all nodes within the link alive while ensuring that the communication outage does not fall below the pre-defined threshold, which was set at 5\%.
 
 \emph{\textbf{Rewards}}: We may consider the reward function in (\ref{eqn1b})
 
-\begin{equation}\label{eqn1b}
-  R  = 100\Big[(1 - \mathcal{P}_{out}) + (1 - \frac{EU_{fog}}{C_{fog}}) + (1 - \frac{EU_{IoT}}{C_{IoT}})\Big],
-\end{equation}
-
-where~$EU_{fog}$ and~$EU_{IoT}$ are the energy used up by the fog agent and the IoT sensor,~$C_{fog}$ and~$C_{IoT}$ are the initial capacity of the fog agent and the IoT sensor, respectively.
+ \begin{equation}\label{eqn1b}
+    R =
+    \begin{cases}
+      100, & \text{if}\ goal==Reached \\
+      0, & \text{otherwise}
+    \end{cases}
+  \end{equation}
+  
 
 Metrics: Outage probability, i.e. the ratio of the number of packet lost to those transmitted, and Energy in Joules.
 
@@ -591,6 +595,49 @@ Metrics: Outage probability, i.e. the ratio of the number of packet lost to thos
 \caption{Model relationship showing the outage observation w.r.t. change in power level of the IoT end-device.}
 \label{power_plot}
 \end{figure}
+
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3.8in]{num_iter.eps}
+ %where an .eps filename suffix will be assumed under latex,
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Number of iteration over episodes prior to the point of failure.}
+\label{num_iter}
+\end{figure}
+
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3.8in]{pckt_sent.eps}
+ %where an .eps filename suffix will be assumed under latex,
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Percentage of packets successfully transmitted via the fog agent.}
+\label{pckt_sent}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3.8in]{energy_fog.eps}
+ %where an .eps filename suffix will be assumed under latex,
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Average energy consumed by fog agent over episodes.}
+\label{energy_fog}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3.8in]{energy_iot.eps}
+ %where an .eps filename suffix will be assumed under latex,
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Average energy consumed by IoT sensor over episodes.}
+\label{energy_iot}
+\end{figure}
+
 
 
 \subsection{Related Works: Idea 1}
@@ -625,7 +672,7 @@ In this paper, we assume the following.
 
 
 
-In Fig. \ref{ideafig1}, we present a situation where different IoT end-devices, inclusive of smart things embedded with sensors (smart-meters, smart-watches, traffic lights, washing machine, dish-washers, herds, or even a sick patient being monitored, etc.), which can send data/service request to a remote fog service provider via a MFRA. However, there may be change in the topology of the network or even in the environment, making it difficult for data collection or service provision. Furthermore, the environment may be too hazardous for human control and as such, some level of intelligence is expected from the MFRA. The MFRA learns to optimize its position and adjust it's power-level to minimize the communication outage. In Fig. \ref{mdp}, we go further to define a finite state space where the MFRA acts.
+In Fig. \ref{ideafig1}, we present a situation where different IoT end-devices, inclusive of smart things embedded with sensors (smart-meters, smart-watches, traffic lights, washing machine, dish-washers, herds, or even a sick patient being monitored, etc.), which can send data/service request to a remote fog service provider via a MFRA. However, there may be change in the topology of the network or even in the environment, making it difficult for data collection or service provision. Furthermore, the environment may be too hazardous for human control and as such, some level of intelligence is expected from the MFRA. The MFRA learns to optimize its position and adjust it's power-level to minimize the communication outage.
 
 \begin{figure}[!t]
 \centering
@@ -644,48 +691,8 @@ However, the dynamic IoT environment increases the complexity in system design, 
 
 
 
-%\begin{figure}[!t]
-%\centering
-%\includegraphics[width=3.1in]{energy_saved.eps}
-% %where an .eps filename suffix will be assumed under latex,
-%% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-%% via \DeclareGraphicsExtensions.
-%\caption{energy saved over episodes.}
-%\label{energy_saved}
-%\end{figure}
 
 
-%\begin{figure}[!t]
-%\centering
-%\includegraphics[width=3.1in]{mdp.eps}
-% %where an .eps filename suffix will be assumed under latex,
-%% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-%% via \DeclareGraphicsExtensions.
-%\caption{MDP of proposed model showing possible action range.}
-%\label{mdp}
-%\end{figure}
-%
-%\begin{figure}[!t]
-%\centering
-%\includegraphics[width=3.1in]{ave_reward.eps}
-% %where an .eps filename suffix will be assumed under latex,
-%% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-%% via \DeclareGraphicsExtensions.
-%\caption{Average reward for each agent over 2000 episodes.}
-%\label{ave_reward}
-%\end{figure}
-%
-%
-%\begin{figure}[!t]
-%\centering
-%\includegraphics[width=3.1in]{acc_reward.eps}
-% %where an .eps filename suffix will be assumed under latex,
-%% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-%% via \DeclareGraphicsExtensions.
-%\caption{Accumulated reward for each agent over 2000 episodes.}
-%\label{acc_reward}
-%\end{figure}
-%
 %
 %\begin{figure}[!t]
 %\centering
