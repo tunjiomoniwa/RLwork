@@ -537,7 +537,7 @@ The remainder of this work is organized as follows.~In Section II, we reviewed r
 We adopt an RL approach, in which an agent interacts with an environment over periods of time according to a policy~$\omega$. At every time-step~$k \in N$, the environment produces a state observation~$s_{k} \in \mathbb{R}^{D_s}$. By sampling, the agent then picks an action~$a_{k}$ over~$\omega(s_{k})$,~$a_{k} \in \mathbb{R}^{D_a}$, which is applied to the environment. The environment consequently produces a reward~$R(s_{k}, a_{k})$ and may end the episode at state~$s_{N}$ or transits to a new state~$s_{k + 1}$. The agent's goal is to minimize the expected cumulative cost,~$\min_{\omega} \mathbb{E}_{s_0, a_0, s_1, a_1, ..., s_N} \Big[ \sum_{i=0}^{N} \gamma^i \mathcal{C}(s_i) \Big]$, where~$0 \leq \gamma \leq 1$ is the discount factor, and~$\mathcal{C}$ is the overall cost function of our model.
 
 \subsection{Problem Formulation}
-\emph{\textbf{States}}: The states are defined as a tuple, $\langle$Outage communication cost ($\mathcal{P}_{out}$) /Energy of the fog relay (J) /Energy of the IoT sensor (J)$\rangle$.
+\emph{\textbf{States}}: The states are defined as a tuple, $\langle$Outage communication cost ($\mathcal{P}_{out}$) /Energy status of the fog relay (J) /Energy status of the IoT sensor (J)$\rangle$.
 
 \begin{itemize}
   \item Outage communication cost: Outage observations from the environment is estimated using (\ref{eqn1a}) from \cite{OmoniwaRelay2018}, which gives an estimate of the communication outage when the agent takes an action, such as changing power levels or location, or both.
@@ -559,15 +559,15 @@ where~$\Psi = \sqrt{(N_0 \tilde{\gamma})/(P_{R}(D_{S} + \delta)^{-\alpha})}$, an
   \item Power-level: Choose power-level and transmit, $\rho$, where~transmit power ranges = [0.001W, 0.01W, 0.15W, 0.2W, 0.25W, 0.3W]
 \end{itemize}
 
-\emph{\textbf{Goal}}: The goal is for the agent to learn to minimize the overall cost~$\mathcal{C}$ in the tuple $\langle$Outage communication cost ($\mathcal{P}_{out}$) /Energy of the fog relay (J) /Energy of the IoT sensor (J)$\rangle$, by keeping all nodes within the link alive while ensuring that the communication outage does not fall below the pre-defined threshold, which was set at 5\%.
+\emph{\textbf{Goal}}: The goal is for the agent to learn to minimize the overall cost~$\mathcal{C}$ in the tuple, $\langle$Outage communication cost ($\mathcal{P}_{out}$) /Energy status of the fog relay (J) /Energy status of the IoT sensor (J)$\rangle$, by keeping all nodes within the link alive while ensuring that the packets received in each transmission does not fall below the pre-defined threshold, which was set at 95\%.
 
-\emph{\textbf{Rewards}}: We may consider the reward function in (\ref{eqn1b})
+\emph{\textbf{Rewards}}: The reward function used is given in (\ref{eqn1b}) as
 
  \begin{equation}\label{eqn1b}
     R =
     \begin{cases}
       100, & \text{if}\ goal==Reached \\
-      0, & \text{otherwise}
+      0, & \text{otherwise.}
     \end{cases}
   \end{equation}
   
@@ -637,6 +637,10 @@ Metrics: Outage probability, i.e. the ratio of the number of packet lost to thos
 \caption{Average energy consumed by IoT sensor over episodes.}
 \label{energy_iot}
 \end{figure}
+
+\subsection{Problem Design}
+We discretize the agent's view of the continuous observations emanating from the environment into ~$50 \times 10 \times 10$ state space for the tuple, $\langle$Outage communication cost ($\mathcal{P}_{out}$) /Energy status of the fog relay (J) /Energy status of the IoT sensor (J)$\rangle$.
+
 
 
 
