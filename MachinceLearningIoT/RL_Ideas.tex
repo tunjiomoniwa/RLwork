@@ -203,18 +203,22 @@
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
 % *** MATH PACKAGES ***
-%
-%\usepackage{amsmath}
-% A popular package from the American Mathematical Society that provides
-% many useful and powerful commands for dealing with mathematics.
-%
-% Note that the amsmath package sets \interdisplaylinepenalty to 10000
-% thus preventing page breaks from occurring within multiline equations. Use:
-%\interdisplaylinepenalty=2500
-% after loading amsmath to restore such page breaks as IEEEtran.cls normally
-% does. amsmath.sty is already installed on most LaTeX systems. The latest
-% version and documentation can be obtained at:
-% http://www.ctan.org/pkg/amsmath
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
+
+\algnewcommand\algorithmicswitch{\textbf{switch}}
+\algnewcommand\algorithmiccase{\textbf{case}}
+\algnewcommand\algorithmicassert{\texttt{assert}}
+\algnewcommand\Assert[1]{\State \algorithmicassert(#1)}%
+% New "environments"
+\algdef{SE}[SWITCH]{Switch}{EndSwitch}[1]{\algorithmicswitch\ #1\ \algorithmicdo}{\algorithmicend\ \algorithmicswitch}%
+\algdef{SE}[CASE]{Case}{EndCase}[1]{\algorithmiccase\ #1}{\algorithmicend\ \algorithmiccase}%
+\algtext*{EndSwitch}%
+\algtext*{EndCase}%
 
 
 
@@ -550,7 +554,11 @@ We adopt an RL approach, in which an agent interacts with an environment over pe
   \mathcal{P}_{out} = 1 - (1 + 2\Psi^2 \ln \Psi) \exp\Big( -\frac{N_0 \tilde{\kappa}}{P_{I} (D_{I} + \delta)^{-\sigma}}\Big),
 \end{equation}
 
+
 where~$\Psi = \sqrt{(N_0 \tilde{\kappa})/(P_{R}(D_{S} + \delta)^{-\sigma})}$, and~$\mathcal{P}_{out}$ is an expression for the outage probability with values between 0 and 1. We assume a predefined threshold~$\tilde{\kappa}$ which determines the outage in communication,~$P_{I}$ is transmit power of the IoT sensor,~$P_{R}$ is transmit power of the fog relay agent,~$D_{I}$ is the distance between IoT sensor and fog relay agent, and~$D_{S}$ is the distance between fog relay agent and destination node. We assume a small change in the position of the fog relay agent,~$\delta = 0.1m$,~$N_0$ to be the channel noise, and~$\sigma$ to be the path-loss exponent.
+
+where~$\Psi = \sqrt{(N_0 \tilde{\gamma})/(P_{R}(D_{S} + \delta)^{-\alpha})}$, and~$\mathcal{P}_{out}$ is an expression for the outage probability with values between 0 and 1. We assume a predefined threshold~$\tilde{\gamma}$ which determines the outage in communication,~$P_{I}$ is transmit power of the IoT sensor,~$P_{R}$ is transmit power of the fog relay agent,~$D_{I}$ is the distance between IoT sensor and fog relay agent, and~$D_{S}$ is the distance between fog relay agent and destination node. We assume a small change in the position of the fog relay agent,~$\delta = 0.25m$,~$N_0$ to be the channel noise power, and~$\sigma$ to be the path-loss exponent.
+
 
 \emph{\textbf{Actions}}: The actions are move and transmit by fog, and select a power-level and transmit by IoT end-device, which make up eight possible actions.
 
@@ -570,6 +578,9 @@ where~$\Psi = \sqrt{(N_0 \tilde{\kappa})/(P_{R}(D_{S} + \delta)^{-\sigma})}$, an
       0, & \text{otherwise.}
     \end{cases}
   \end{equation}
+
+
+
 
 
 \emph{\textbf{Metrics}}: Outage probability, i.e. the ratio of the number of packet lost to those transmitted, which we measure in percentages, and energy status of the fog relay agent and the IoT sensor, i.e. the ratio of depleted energy to the initial capacity in Joules, which we measure as a percentage.
@@ -643,6 +654,24 @@ We discretize the agent's view of the continuous observations emanating from the
 
 
 Table~\ref{table:simparameters} shows a summary of the parameters used in simulating
+\begin{algorithm}
+\caption{Steepest Descent Method}\label{sdm}
+\begin{algorithmic}[1]
+\State \textbf{data} $x_0 \in R^n$
+\State \textbf{initialize} $i = 0$
+\BState \emph{top}:
+\If {$\nabla \mathcal{P}_{out}(x_i) \leq \epsilon $} \Return stop,
+\State compute search direction $h_i \gets -\nabla \mathcal{P}_{out}(x_i)$
+\EndIf
+\State \textbf{endif}
+\BState \emph{compute the step-size}:\\
+ $\lambda_i \in \arg{\min_{\lambda \geq 0}}~\mathcal{P}_{out}(x_i + \lambda h_i)$
+\BState \emph{set}:\\
+$x_{i + 1} = x_i + \lambda_i h_i$
+\State \textbf{goto} \emph{top}.
+\end{algorithmic}
+\end{algorithm}
+
 
 \begin{table}
 \small
@@ -672,7 +701,7 @@ Table~\ref{table:simparameters} shows a summary of the parameters used in simula
    \hline \hline
  \end{tabular}
  \end{table}
- 
+
 \subsection{Related Works: Idea 1}
 Considering the dynamics and heterogeneity within the ultra-distributed IoT environment, it is important for communication devices which are mobile to move seamlessly without degrading quality of service (QoS). More so, the constrained devices should communicate efficiently without depleting all their energy by transmitting at high-power, which may have long-term consequences to the network. Several non-RL-based approaches have been proposed to optimize the communication performance in IoT based networks, however, when some parameters in the network are changed, these approaches may fail.
 The work in~\cite{OmoniwaRelay2018} considered a multi-tier fog-based IoT architecture where a mobile/static fog node acts as an amplify and forward relay that transmits received information from a IoT sensor node to a higher hierarchically-placed fog device, which offers some localized services. In order to minimize the outage in communication, an iterative algorithm based on the steepest descent method (SDM) was proposed to jointly optimize the mobility pattern and power-control parameters. However, the single-agent based work did not take into consideration the performance of the approach in a highly-decentralised IoT environment. Furthermore, each time the topology is changed, the agent will need to recompute the model in other to act optimally.
