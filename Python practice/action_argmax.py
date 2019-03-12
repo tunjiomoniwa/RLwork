@@ -2,7 +2,7 @@ import numpy as np
 import pylab as plt
 import math
 import random
-
+from random import randint
 
 
 Q = [[7, 5],
@@ -33,3 +33,6 @@ for ww in range(3):
 
 cc=np.array([random.uniform(-0.6, -0.4), 0])
 #print(cc)
+
+kk = np.random.randint(0, 99)
+print(kk)
