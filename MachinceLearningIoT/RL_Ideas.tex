@@ -538,9 +538,9 @@ The remainder of this work is organized as follows.~In Section II, we reviewed r
 \end{figure}
 
 \section{Problem Definition}
-We adopt an RL approach, in which an agent interacts with an environment over periods of time according to a policy~$\omega$. At every time-step~$k \in N$, the environment produces a state observation~$s_{k} \in \mathbb{R}^{D_s}$. By sampling, the agent then picks an action~$a_{k}$ over~$\omega(s_{k})$,~$a_{k} \in \mathbb{R}^{D_a}$, which is applied to the environment. The environment consequently produces a reward~$R(s_{k}, a_{k})$ and may end the episode at state~$s_{N}$ or transits to a new state~$s_{k + 1}$. The agent's goal is to minimize the expected cumulative cost,~$\min_{\omega} \mathbb{E}_{s_0, a_0, s_1, a_1, ..., s_N} \Big[ \sum_{i=0}^{N} \gamma^i \mathcal{C}(s_i) \Big]$, where~$0 \leq \gamma \leq 1$ is the discount factor, and~$\mathcal{C}$ is the overall cost function of our model.
+In this section, we provide full description of the system model, as well the RL approach used to address the problem. The Mobile Fog Relay Agent (MFRA) and its environment are discussed below.
 
-\subsection{Problem Formulation}
+\subsection{MFRA environment}
 \emph{\textbf{States}}: The states are defined as a tuple, $\langle$Outage communication cost ($\mathcal{P}_{out}$) /Energy status of the fog relay (J) /Energy status of the IoT sensor (J)$\rangle$.
 
 \begin{itemize}
@@ -555,16 +555,28 @@ We adopt an RL approach, in which an agent interacts with an environment over pe
 \end{equation}
 
 
-where~$\Psi = \sqrt{(N_0 \tilde{\kappa})/(P_{R}(D_{S} + \delta)^{-\sigma})}$, and~$\mathcal{P}_{out}$ is an expression for the outage probability with values between 0 and 1. We assume a predefined threshold~$\tilde{\kappa}$ which determines the outage in communication,~$P_{I}$ is transmit power of the IoT sensor,~$P_{R}$ is transmit power of the fog relay agent,~$D_{I}$ is the distance between IoT sensor and fog relay agent, and~$D_{S}$ is the distance between fog relay agent and destination node. We assume a small change in the position of the fog relay agent,~$\delta = 0.1m$,~$N_0$ to be the channel noise, and~$\sigma$ to be the path-loss exponent.
-
-where~$\Psi = \sqrt{(N_0 \tilde{\gamma})/(P_{R}(D_{S} + \delta)^{-\alpha})}$, and~$\mathcal{P}_{out}$ is an expression for the outage probability with values between 0 and 1. We assume a predefined threshold~$\tilde{\gamma}$ which determines the outage in communication,~$P_{I}$ is transmit power of the IoT sensor,~$P_{R}$ is transmit power of the fog relay agent,~$D_{I}$ is the distance between IoT sensor and fog relay agent, and~$D_{S}$ is the distance between fog relay agent and destination node. We assume a small change in the position of the fog relay agent,~$\delta = 0.25m$,~$N_0$ to be the channel noise power, and~$\sigma$ to be the path-loss exponent.
+where~$\Psi = \sqrt{(N_0 \tilde{\kappa})/(P_{R}(D_{S} + \delta)^{-\sigma})}$, and~$\mathcal{P}_{out}$ is an expression for the outage probability with values between 0 and 1. We assume a predefined threshold~$\tilde{\kappa}$ which determines the outage in communication,~$P_{I}$ is transmit power of the IoT sensor,~$P_{R}$ is transmit power of the fog relay agent,~$D_{I}$ is the distance between IoT sensor and fog relay agent, and~$D_{S}$ is the distance between fog relay agent and destination node. We assume a small change in the position of the fog relay agent,~$\delta = \pm0.25 m$,~$N_0$ to be the channel noise, and~$\sigma$ to be the path-loss exponent.
 
 
-\emph{\textbf{Actions}}: The actions are move and transmit by fog, and select a power-level and transmit by IoT end-device, which make up eight possible actions.
+
+\subsection{MRFA agent}
+We apply a the Q-Learning algorithm, an RL approach which requires no prior knowledge of the environment by the agent. In Q-learning, the agent interacts with the environment over periods of time according to a policy~$\omega$. At every time-step~$k \in N$, the environment produces an observation~$s_{k} \in \mathbb{R}^{D_s}$. By sampling, the agent then picks an action~$a_{k}$ over~$\omega(s_{k})$,~$a_{k} \in \mathbb{R}^{D_a}$, which is applied to the environment. The environment consequently produces a reward~$r(s_{k}, a_{k})$ and may end the episode at state~$s_{N}$ or transits to a new state~$s_{k + 1}$. The agent's goal is to minimize the expected cumulative cost,~$\min_{\omega} \mathbb{E}_{s_0, a_0, s_1, a_1, ..., s_N} \Big[ \sum_{i=0}^{N} \gamma^i \mathcal{C}(s_i) \Big]$, where~$0 \leq \gamma \leq 1$ is the discount factor, and~$\mathcal{C}$ is the overall cost function of our model.
+
+First, the agent takes an initial random action~$a_{k}$ and gets observations from the environment which corresponds to that action, as well as a reward. It then discretizes the continuous observations emanating from the environment into a~$50 \times 10 \times 10$ state space corresponding to the tuple, $\langle$Outage communication cost ($\mathcal{P}_{out}$) /Energy status of the fog relay (J) /Energy status of the IoT sensor (J)$\rangle$. The agent then updates it's Q-values at each time-step~$k$ following (\ref{eqn1b}).
+
+\begin{equation}\label{eqn1b}
+\begin{split}
+Q(s_k, a_k) &:= Q(s_k, a_k)\\
+& + \alpha \Big[ r_{k + 1} + \gamma \max_{a}  Q(s_{k + 1}, a) -  Q(s_k, a_k) \Big],
+   \end{split}
+\end{equation}
+where~$\alpha$ is the learning rate, which determines the impact of new experience on the Q-value,~$r_{k + 1}$ is the reward the agent receives by being in~$s_{k + 1}$ from~$s_{k}$. Based on the policy followed by the agent, it gets observations and rewards from the environment.
+
+\emph{\textbf{Action space}}: The actions are move and transmit by fog relay, and select a power-level and transmit by IoT end-device, which make up eight possible actions.
 
  \begin{itemize}
-  \item Mobility: Move by $\pm \delta$ and transmit, where~$\delta = 0.25m$ and mobility range = [-30m, 30m]
-  \item Power-level: Choose power-level and transmit, $\rho$, where~transmit power ranges = [0.001W, 0.01W, 0.15W, 0.2W, 0.25W, 0.3W]
+  \item Mobility: Move by $\pm \delta$ and transmit, where~$\delta = \pm0.25m$ and mobility range (m) = [-30, 30]
+  \item Power-level: Choose power-level and transmit, $P$, where~transmit power ranges (W) = [0.001, 0.01, 0.15, 0.2, 0.25, 0.3]
 \end{itemize}
 
 \emph{\textbf{Goal}}: The goal is for the agent to learn to minimize the overall cost~$\mathcal{C}$ in the tuple, $\langle$Outage communication cost ($\mathcal{P}_{out}$) /Energy status of the fog relay (J) /Energy status of the IoT sensor (J)$\rangle$, by keeping all nodes within the link alive while ensuring that the packets received in each transmission does not fall below the pre-defined threshold, which was set at 95\%.
@@ -580,32 +592,69 @@ where~$\Psi = \sqrt{(N_0 \tilde{\gamma})/(P_{R}(D_{S} + \delta)^{-\alpha})}$, an
   \end{equation}
 
 
-
-
-
 \emph{\textbf{Metrics}}: Outage probability, i.e. the ratio of the number of packet lost to those transmitted, which we measure in percentages, and energy status of the fog relay agent and the IoT sensor, i.e. the ratio of depleted energy to the initial capacity in Joules, which we measure as a percentage.
 
 
-\begin{figure}[!t]
-\centering
-\includegraphics[width=3.8in]{delta_plot.eps}
- %where an .eps filename suffix will be assumed under latex,
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-\caption{Model relationship showing the outage observation w.r.t. change in position of fog agent.}
-\label{delta_plot}
-\end{figure}
+The MFRA's learning process is summarized in Algorithm \ref{fiotRL}. A new learning episode is terminated when the agent attains the pre-defined goal of minimizing the communication outage in the link, or when either the fog relay or the IoT sensor dies out due to taking sub-optimal actions without getting to the goal. When an fog relay moves closer to the communicating parties, the IoT sensor uses a lower power level as compared to when it is far away, hereby saving IoT sensor energy. However, mobility have some cost and if the fog relay continues to move in order to minimize the communication outage, it may die out soon, hereby causing a point-of-failure to the network. As each episode is completed, a reward of 100 points is given to the agent if it reaches its goal and a 0 points otherwise. The reward is updated in the Q-learning table, with environmental information updated as well.
+
+\begin{algorithm}
+\caption{MFRA Learning Process}\label{fiotRL}
+\begin{algorithmic}[1]
+\State \textbf{Initialize:} Power levels (W) = [0.001, 0.01, 0.15, 0.2, 0.25, 0.3],~$\delta = \pm0.25m$ and mobility range (m) = [-30, 30]
+\BState \emph{top}:
+\State ResetEnvironment()
+\State \emph{state} $\leftarrow$ MapLocalObservationToState(\emph{env})
+\State \emph{action} $\leftarrow$ QLearning.SelectAction(\emph{state})
+%\BState \emph{top}:
+\If { \emph{action}  == ``move close and Tx''} %\Return stop,
+\State Env.EstimateOutage (\ref{eqn1a})
+\State Env.EstimateFogEnergyStatus
+\ElsIf {\emph{action}  == ``move away and Tx''}
+\State Env.EstimateOutage (\ref{eqn1a})
+\State Env.EstimateSensorEnergyStatus
+\ElsIf { \emph{action}  == ``choose power level and Tx''}
+\State Env.EstimateOutage (\ref{eqn1a})
+\State Env.EstimateSensorEnergyStatus
+\EndIf
+\State \textbf{endif}
+\State InvokePolicy(ExponentialDecay)
+\State UpdateQLearningProcedure() (\ref{eqn1b})
+\State CurrentState $\leftarrow$ NewState
+\If { \emph{goal}  == ``Reached''}  \Return Reward = 100,
+\ElsIf { \emph{goal}  != ``Reached'' or Agent == Death}  \Return Reward = 0
+\EndIf
+\State \textbf{endif}
+\State EndEpisode \textbf{goto} \emph{top}.
+\end{algorithmic}
+\end{algorithm}
 
 
-\begin{figure}[!t]
-\centering
-\includegraphics[width=3.8in]{power_plot.eps}
- %where an .eps filename suffix will be assumed under latex,
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-\caption{Model relationship showing the outage observation w.r.t. change in power level of the IoT end-device.}
-\label{power_plot}
-\end{figure}
+
+
+
+
+
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=3.8in]{delta_plot.eps}
+% %where an .eps filename suffix will be assumed under latex,
+%% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+%% via \DeclareGraphicsExtensions.
+%\caption{Model relationship showing the outage observation w.r.t. change in position of fog agent.}
+%\label{delta_plot}
+%\end{figure}
+%
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=3.8in]{power_plot.eps}
+% %where an .eps filename suffix will be assumed under latex,
+%% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+%% via \DeclareGraphicsExtensions.
+%\caption{Model relationship showing the outage observation w.r.t. change in power level of the IoT end-device.}
+%\label{power_plot}
+%\end{figure}
 
 
 \begin{figure}[!t]
@@ -649,29 +698,18 @@ where~$\Psi = \sqrt{(N_0 \tilde{\gamma})/(P_{R}(D_{S} + \delta)^{-\alpha})}$, an
 \label{energy_iot}
 \end{figure}
 
-\subsection{Problem Design}
-We discretize the agent's view of the continuous observations emanating from the environment into ~$50 \times 10 \times 10$ state space for the tuple, $\langle$Outage communication cost ($\mathcal{P}_{out}$) /Energy status of the fog relay (J) /Energy status of the IoT sensor (J)$\rangle$.
+
+
+
+\section{Experimental Setup}
+
+\subsection{General settings}
+We carried out experimentation with 150 fog relays and 1000 IoT sensors randomly deployed. 
+
+
 
 
 Table~\ref{table:simparameters} shows a summary of the parameters used in simulating
-\begin{algorithm}
-\caption{Steepest Descent Method}\label{sdm}
-\begin{algorithmic}[1]
-\State \textbf{data} $x_0 \in R^n$
-\State \textbf{initialize} $i = 0$
-\BState \emph{top}:
-\If {$\nabla \mathcal{P}_{out}(x_i) \leq \epsilon $} \Return stop,
-\State compute search direction $h_i \gets -\nabla \mathcal{P}_{out}(x_i)$
-\EndIf
-\State \textbf{endif}
-\BState \emph{compute the step-size}:\\
- $\lambda_i \in \arg{\min_{\lambda \geq 0}}~\mathcal{P}_{out}(x_i + \lambda h_i)$
-\BState \emph{set}:\\
-$x_{i + 1} = x_i + \lambda_i h_i$
-\State \textbf{goto} \emph{top}.
-\end{algorithmic}
-\end{algorithm}
-
 
 \begin{table}
 \small
@@ -688,7 +726,7 @@ $x_{i + 1} = x_i + \lambda_i h_i$
    $D_{S}$ & 35 metres\\
    $P_{R}$ & 0.3 Watts\\
    $\delta$ & $\pm0.25$ metres\\
-   mobility bound & [-35,~35] metres\\
+   Mobility bound & [-35,~35] metres\\
    Noise power $N_0$ & $2 \times 10^{-7}$ Watts\\
    Path-loss exponent $\sigma$ & 3\\
    Pre-defined threshold $\kappa$ & 1\\
@@ -701,8 +739,17 @@ $x_{i + 1} = x_i + \lambda_i h_i$
    \hline \hline
  \end{tabular}
  \end{table}
+ 
+ 
+\subsection{Baselines}
 
-\subsection{Related Works: Idea 1}
+
+\subsection{MFRA scenarios}
+
+\subsection{Indicators}
+
+
+\section{Related Works}
 Considering the dynamics and heterogeneity within the ultra-distributed IoT environment, it is important for communication devices which are mobile to move seamlessly without degrading quality of service (QoS). More so, the constrained devices should communicate efficiently without depleting all their energy by transmitting at high-power, which may have long-term consequences to the network. Several non-RL-based approaches have been proposed to optimize the communication performance in IoT based networks, however, when some parameters in the network are changed, these approaches may fail.
 The work in~\cite{OmoniwaRelay2018} considered a multi-tier fog-based IoT architecture where a mobile/static fog node acts as an amplify and forward relay that transmits received information from a IoT sensor node to a higher hierarchically-placed fog device, which offers some localized services. In order to minimize the outage in communication, an iterative algorithm based on the steepest descent method (SDM) was proposed to jointly optimize the mobility pattern and power-control parameters. However, the single-agent based work did not take into consideration the performance of the approach in a highly-decentralised IoT environment. Furthermore, each time the topology is changed, the agent will need to recompute the model in other to act optimally.
 
