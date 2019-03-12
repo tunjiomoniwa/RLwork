@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  12 MAR 2019 17:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  12 MAR 2019 17:26
 entering extended mode
 **./RL_Ideas.tex
 (RL_Ideas.tex
@@ -739,7 +739,7 @@ Underfull \hbox (badness 2277) in paragraph at lines 845--847
 
 LaTeX Warning: Reference `fogmodel' on page 6 undefined on input line 863.
 
-[6 <./random_deploy-eps-converted-to.pdf>] [7] (RL_Ideas.aux)
+[6 <./random_deploy-eps-converted-to.pdf>] (RL_Ideas.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -748,13 +748,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6629 strings out of 492946
- 97950 string characters out of 3135087
- 185030 words of memory out of 3000000
- 10355 multiletter control sequences out of 15000+200000
+ 6589 strings out of 492946
+ 97509 string characters out of 3135087
+ 184870 words of memory out of 3000000
+ 10315 multiletter control sequences out of 15000+200000
  124886 words of font info for 133 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,19n,35p,1596b,297s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,19n,35p,1596b,272s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.90/fonts/enc/dvips/base/8r.enc}<C:/Program Files/M
 iKTeX 2.90/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2
 .90/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.90/fon
@@ -774,9 +774,9 @@ bols/msbm10.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/urw/times/utmb8a.pfb>
 <C:/Program Files/MiKTeX 2.90/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Fil
 es/MiKTeX 2.90/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.90/f
 onts/type1/urw/times/utmri8a.pfb>
-Output written on RL_Ideas.pdf (7 pages, 591441 bytes).
+Output written on RL_Ideas.pdf (6 pages, 580257 bytes).
 PDF statistics:
- 306 PDF objects out of 1000 (max. 8388607)
+ 301 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
