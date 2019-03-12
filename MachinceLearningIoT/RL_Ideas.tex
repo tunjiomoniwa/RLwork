@@ -547,10 +547,10 @@ We adopt an RL approach, in which an agent interacts with an environment over pe
 
 
 \begin{equation}\label{eqn1a}
-  \mathcal{P}_{out} = 1 - (1 + 2\Psi^2 \ln \Psi) \exp\Big( -\frac{N_0 \tilde{\gamma}}{P_{I} (D_{I} + \delta)^{-\alpha}}\Big),
+  \mathcal{P}_{out} = 1 - (1 + 2\Psi^2 \ln \Psi) \exp\Big( -\frac{N_0 \tilde{\kappa}}{P_{I} (D_{I} + \delta)^{-\sigma}}\Big),
 \end{equation}
 
-where~$\Psi = \sqrt{(N_0 \tilde{\gamma})/(P_{R}(D_{S} + \delta)^{-\alpha})}$, and~$\mathcal{P}_{out}$ is an expression for the outage probability with values between 0 and 1. We assume a predefined threshold~$\tilde{\gamma}$ which determines the outage in communication,~$P_{I}$ is transmit power of the IoT sensor,~$P_{R}$ is transmit power of the fog relay agent,~$D_{I}$ is the distance between IoT sensor and fog relay agent, and~$D_{S}$ is the distance between fog relay agent and destination node. We assume a small change in the position of the fog relay agent,~$\delta = 0.1m$,~$N_0$ to be the channel noise, and~$\alpha$ to be the path-loss exponent.
+where~$\Psi = \sqrt{(N_0 \tilde{\kappa})/(P_{R}(D_{S} + \delta)^{-\sigma})}$, and~$\mathcal{P}_{out}$ is an expression for the outage probability with values between 0 and 1. We assume a predefined threshold~$\tilde{\kappa}$ which determines the outage in communication,~$P_{I}$ is transmit power of the IoT sensor,~$P_{R}$ is transmit power of the fog relay agent,~$D_{I}$ is the distance between IoT sensor and fog relay agent, and~$D_{S}$ is the distance between fog relay agent and destination node. We assume a small change in the position of the fog relay agent,~$\delta = 0.1m$,~$N_0$ to be the channel noise, and~$\sigma$ to be the path-loss exponent.
 
 \emph{\textbf{Actions}}: The actions are move and transmit by fog, and select a power-level and transmit by IoT end-device, which make up eight possible actions.
 
@@ -570,9 +570,9 @@ where~$\Psi = \sqrt{(N_0 \tilde{\gamma})/(P_{R}(D_{S} + \delta)^{-\alpha})}$, an
       0, & \text{otherwise.}
     \end{cases}
   \end{equation}
-  
 
-Metrics: Outage probability, i.e. the ratio of the number of packet lost to those transmitted, and Energy in Joules.
+
+\emph{\textbf{Metrics}}: Outage probability, i.e. the ratio of the number of packet lost to those transmitted, which we measure in percentages, and energy status of the fog relay agent and the IoT sensor, i.e. the ratio of depleted energy to the initial capacity in Joules, which we measure as a percentage.
 
 
 \begin{figure}[!t]
@@ -642,8 +642,37 @@ Metrics: Outage probability, i.e. the ratio of the number of packet lost to thos
 We discretize the agent's view of the continuous observations emanating from the environment into ~$50 \times 10 \times 10$ state space for the tuple, $\langle$Outage communication cost ($\mathcal{P}_{out}$) /Energy status of the fog relay (J) /Energy status of the IoT sensor (J)$\rangle$.
 
 
+Table~\ref{table:simparameters} shows a summary of the parameters used in simulating
 
+\begin{table}
+\small
+\centering
+\caption{Simulation Parameters}
+\label{table:simparameters}
+\begin{tabular}{ll}
+  \hline
+ \textit{Parameter} & \textit{Values} \\
+  \hline \hline
 
+   $D_{I}$ & 40 metres\\
+   $P_{I}$ & [0.001, 0.3] Watts \\
+   $D_{S}$ & 35 metres\\
+   $P_{R}$ & 0.3 Watts\\
+   $\delta$ & $\pm0.25$ metres\\
+   mobility bound & [-35,~35] metres\\
+   Noise power $N_0$ & $2 \times 10^{-7}$ Watts\\
+   Path-loss exponent $\sigma$ & 3\\
+   Pre-defined threshold $\kappa$ & 1\\
+   Discount factor $\gamma$ & 0.9\\
+   Learning rate $\alpha$ & 0.1\\
+   Episodes $N$ & 1000\\
+   Iteration runs & 100000\\
+   Policy $\epsilon$ & $e^{-0.0015N}$\\
+
+   \hline \hline
+ \end{tabular}
+ \end{table}
+ 
 \subsection{Related Works: Idea 1}
 Considering the dynamics and heterogeneity within the ultra-distributed IoT environment, it is important for communication devices which are mobile to move seamlessly without degrading quality of service (QoS). More so, the constrained devices should communicate efficiently without depleting all their energy by transmitting at high-power, which may have long-term consequences to the network. Several non-RL-based approaches have been proposed to optimize the communication performance in IoT based networks, however, when some parameters in the network are changed, these approaches may fail.
 The work in~\cite{OmoniwaRelay2018} considered a multi-tier fog-based IoT architecture where a mobile/static fog node acts as an amplify and forward relay that transmits received information from a IoT sensor node to a higher hierarchically-placed fog device, which offers some localized services. In order to minimize the outage in communication, an iterative algorithm based on the steepest descent method (SDM) was proposed to jointly optimize the mobility pattern and power-control parameters. However, the single-agent based work did not take into consideration the performance of the approach in a highly-decentralised IoT environment. Furthermore, each time the topology is changed, the agent will need to recompute the model in other to act optimally.
