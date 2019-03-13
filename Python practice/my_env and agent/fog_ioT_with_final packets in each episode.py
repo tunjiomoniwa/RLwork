@@ -187,7 +187,6 @@ final_pckt_holder = []
 #IoT_energy_holder = []
 
 for epi in range(episodes):
-
     
 
     if epi < episodes/2:

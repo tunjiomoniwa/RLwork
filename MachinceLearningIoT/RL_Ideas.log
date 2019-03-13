@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  12 MAR 2019 17:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  13 MAR 2019 16:53
 entering extended mode
 **./RL_Ideas.tex
 (RL_Ideas.tex
@@ -704,11 +704,37 @@ Overfull \hbox (22.6262pt too wide) in paragraph at lines 693--697
  [][] 
  []
 
+Package epstopdf Info: Source file: <fixed_mob.eps>
+(epstopdf)                    date: 2019-03-13 16:50:06
+(epstopdf)                    size: 59113 bytes
+(epstopdf)             Output file: <fixed_mob-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-03-13 16:53:16
+(epstopdf)                    size: 24141 bytes
+(epstopdf)             Command: <epstopdf --outfile=fixed_mob-eps-converted-to.
+pdf fixed_mob.eps>
+(epstopdf)             \includegraphics on input line 703.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex.exe (file ./fixed_mob-eps-converted-to.pdf): PDF inclu
+sion: found PDF version <1.7>, but at most version <1.5> allowed
+<fixed_mob-eps-converted-to.pdf, id=59, 462.72874pt x 346.29375pt>
+File: fixed_mob-eps-converted-to.pdf Graphic file (type pdf)
+<use fixed_mob-eps-converted-to.pdf>
+Package pdftex.def Info: fixed_mob-eps-converted-to.pdf  used on input line 703
+.
+(pdftex.def)             Requested size: 274.6262pt x 205.52158pt.
+
+Overfull \hbox (22.6262pt too wide) in paragraph at lines 703--707
+ [][] 
+ []
+
 
 Underfull \vbox (badness 2221) has occurred while \output is active []
 
  [3 <./num_iter-eps-converted-to.pdf>] [4 <./pckt_sent-eps-converted-to.pdf> <.
-/energy_fog-eps-converted-to.pdf> <./energy_iot-eps-converted-to.pdf>]
+/energy_fog-eps-converted-to.pdf> <./energy_iot-eps-converted-to.pdf> <./fixed_
+mob-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <random_deploy.eps>
 (epstopdf)                    date: 2019-02-04 10:03:50
 (epstopdf)                    size: 24708 bytes
@@ -717,29 +743,30 @@ Package epstopdf Info: Source file: <random_deploy.eps>
 (epstopdf)                    size: 79724 bytes
 (epstopdf)             Command: <epstopdf --outfile=random_deploy-eps-converted
 -to.pdf random_deploy.eps>
-(epstopdf)             \includegraphics on input line 788.
+(epstopdf)             \includegraphics on input line 796.
 Package epstopdf Info: Output file is already uptodate.
-<random_deploy-eps-converted-to.pdf, id=205, 476.78125pt x 474.77374pt>
+<random_deploy-eps-converted-to.pdf, id=236, 476.78125pt x 474.77374pt>
 File: random_deploy-eps-converted-to.pdf Graphic file (type pdf)
 <use random_deploy-eps-converted-to.pdf>
 Package pdftex.def Info: random_deploy-eps-converted-to.pdf  used on input line
- 788.
+ 796.
 (pdftex.def)             Requested size: 274.6262pt x 273.4854pt.
 
-Overfull \hbox (22.6262pt too wide) in paragraph at lines 788--792
+Overfull \hbox (22.6262pt too wide) in paragraph at lines 796--800
  [][] 
  []
 
-
-Underfull \hbox (badness 2277) in paragraph at lines 845--847
+[5]
+Underfull \hbox (badness 2277) in paragraph at lines 853--855
 \T1/ptm/m/n/10 con-tin-u-ous state and ac-tion spaces de-fined by the tu-
  []
 
-[5]
 
-LaTeX Warning: Reference `fogmodel' on page 6 undefined on input line 863.
+LaTeX Warning: Reference `fogmodel' on page 6 undefined on input line 871.
 
-[6 <./random_deploy-eps-converted-to.pdf>] (RL_Ideas.aux)
+[6 <./random_deploy-eps-converted-to.pdf>] [7
+
+] (RL_Ideas.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -748,13 +775,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6589 strings out of 492946
- 97509 string characters out of 3135087
- 184870 words of memory out of 3000000
- 10315 multiletter control sequences out of 15000+200000
+ 6595 strings out of 492946
+ 97696 string characters out of 3135087
+ 184878 words of memory out of 3000000
+ 10320 multiletter control sequences out of 15000+200000
  124886 words of font info for 133 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,19n,35p,1596b,272s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,19n,35p,1596b,297s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.90/fonts/enc/dvips/base/8r.enc}<C:/Program Files/M
 iKTeX 2.90/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2
 .90/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.90/fon
@@ -774,9 +801,9 @@ bols/msbm10.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/urw/times/utmb8a.pfb>
 <C:/Program Files/MiKTeX 2.90/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Fil
 es/MiKTeX 2.90/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.90/f
 onts/type1/urw/times/utmri8a.pfb>
-Output written on RL_Ideas.pdf (6 pages, 580257 bytes).
+Output written on RL_Ideas.pdf (7 pages, 603756 bytes).
 PDF statistics:
- 301 PDF objects out of 1000 (max. 8388607)
+ 343 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
