@@ -50,7 +50,7 @@ class FogIoT:
         self.observation_space = spaces.Box(self.low, self.high, dtype=np.float32)
 
         self.iteration_steps = 100000
-        self.episodes=1000
+        self.episodes=20
 
         self.alpha = 0.1
         self.gamma =0.9
@@ -182,30 +182,40 @@ class FogIoT:
     def run(self,colorx, cutoff, labelx):
         #packets_holder = []
         #fog_energy_holder = []
-        self.IoT_energy_holder = []
+        self.fog_energy_holder = []
 
         for epi in range(self.episodes):
 
             #cutoff is to minimize
 
-            if epi < cutoff:
-                self.ECI = 0
-                self.ECF = 0
-                self.deltak = np.random.randint(-5, 5)
-                self.sensorpower= random.uniform(0, 0.3)
-                #self.delta=0.1
-                self.dd=0
-                #np.random.randint() --discrete uniform distribution
-                self.obs = np.array([np.random.randint(0, 60), np.random.randint(65, self.max_energy_fog), np.random.randint(65, self.max_energy_IoT)])
-                #obs = np.array([np.random.randint(min_outage, max_outage), np.random.randint(min_energy_fog, max_energy_fog), np.random.randint(min_energy_IoT, max_energy_IoT)])
-            else:
-                self.ECI = 0
-                self.ECF = 0
-                self.deltak = np.random.randint(-1, 1)
-                self.sensorpower= random.uniform(0, 0.3)
-                #delta=0.1
-                self.dd=0
-                self.obs = (30, 90, 90)
+
+            self.ECI = 0
+            self.ECF = 0
+            self.deltak = np.random.randint(-5, 5)
+            self.sensorpower= random.uniform(0, 0.3)
+            #self.delta=0.1
+            self.dd=0
+            #np.random.randint() --discrete uniform distribution
+            self.obs = np.array([np.random.randint(0, 60), np.random.randint(65, self.max_energy_fog), np.random.randint(65, self.max_energy_IoT)])
+            
+##            if epi < cutoff:
+##                self.ECI = 0
+##                self.ECF = 0
+##                self.deltak = np.random.randint(-5, 5)
+##                self.sensorpower= random.uniform(0, 0.3)
+##                #self.delta=0.1
+##                self.dd=0
+##                #np.random.randint() --discrete uniform distribution
+##                self.obs = np.array([np.random.randint(0, 60), np.random.randint(65, self.max_energy_fog), np.random.randint(65, self.max_energy_IoT)])
+##                #obs = np.array([np.random.randint(min_outage, max_outage), np.random.randint(min_energy_fog, max_energy_fog), np.random.randint(min_energy_IoT, max_energy_IoT)])
+##            else:
+##                self.ECI = 0
+##                self.ECF = 0
+##                self.deltak = np.random.randint(-1, 1)
+##                self.sensorpower= random.uniform(0, 0.3)
+##                #delta=0.1
+##                self.dd=0
+##                self.obs = (30, 90, 90)
 
             cur_action = self.action_space.sample()
             obs, reward, done, dead, _ = self.step(cur_action)
@@ -227,12 +237,12 @@ class FogIoT:
                 #epsilon =1-(epi/1000)
 
                 #exp decay
-                epsilon =float(np.exp(-0.0015*epi))
+                self.epsilon =float(np.exp(-0.0015*epi))
                 alpha=0.1
                 gamma =0.9
 
                 #print(epsilon)
-                action = self.select_action(epsilon, current_state)
+                action = self.select_action(self.epsilon, current_state)
                 obs, reward, done, dead, _ = self.step(action)
                  
                 
@@ -265,12 +275,13 @@ class FogIoT:
                 if dead:
                     print("No more communications")
                     break
-            self.IoT_cons = 100 - obs[2]
+            self.fog_cons = 100 - obs[1]
             print("End of episode #",epi, "  in ", iter , "iterations")
             #aa.append(iter)
-            self.IoT_energy_holder.append(self.IoT_cons)
-        self.line=plt.plot(self.IoT_energy_holder, label = labelx)
+            self.fog_energy_holder.append(self.fog_cons)
+        self.line, =plt.plot(self.fog_energy_holder, label=labelx)
         plt.setp(self.line, color= colorx, linewidth=1.0)
+        
 
         
 
@@ -280,8 +291,9 @@ data1 = kk1.run('r', 1000, "Baseline")
 kk2 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
 data2 = kk2.run('b', 1000, "Q-learning")
 
+
 plt.legend([kk1.line, kk2.line], ["Baseline", "Q-learning"])
-plt.ylabel('Energy consumed by IoT end-device (%)')
+plt.ylabel('Energy consumed by fog relay (%)')
 plt.xlabel('Episodes')
 
 plt.show()
