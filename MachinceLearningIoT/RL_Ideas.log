@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  14 MAR 2019 10:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  15 MAR 2019 13:56
 entering extended mode
 **./RL_Ideas.tex
 (RL_Ideas.tex
@@ -641,6 +641,31 @@ Overfull \hbox (22.6262pt too wide) in paragraph at lines 662--666
  [][] 
  []
 
+Package epstopdf Info: Source file: <rew_iter.eps>
+(epstopdf)                    date: 2019-03-15 13:53:50
+(epstopdf)                    size: 20683 bytes
+(epstopdf)             Output file: <rew_iter-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-03-15 13:55:20
+(epstopdf)                    size: 11402 bytes
+(epstopdf)             Command: <epstopdf --outfile=rew_iter-eps-converted-to.p
+df rew_iter.eps>
+(epstopdf)             \includegraphics on input line 673.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex.exe (file ./rew_iter-eps-converted-to.pdf): PDF inclus
+ion: found PDF version <1.7>, but at most version <1.5> allowed
+<rew_iter-eps-converted-to.pdf, id=56, 462.72874pt x 346.29375pt>
+File: rew_iter-eps-converted-to.pdf Graphic file (type pdf)
+<use rew_iter-eps-converted-to.pdf>
+Package pdftex.def Info: rew_iter-eps-converted-to.pdf  used on input line 673.
+
+(pdftex.def)             Requested size: 274.6262pt x 205.52158pt.
+
+Overfull \hbox (22.6262pt too wide) in paragraph at lines 673--677
+ [][] 
+ []
+
 Package epstopdf Info: Source file: <pckt_sent.eps>
 (epstopdf)                    date: 2019-03-11 09:31:15
 (epstopdf)                    size: 52737 bytes
@@ -649,16 +674,16 @@ Package epstopdf Info: Source file: <pckt_sent.eps>
 (epstopdf)                    size: 25580 bytes
 (epstopdf)             Command: <epstopdf --outfile=pckt_sent-eps-converted-to.
 pdf pckt_sent.eps>
-(epstopdf)             \includegraphics on input line 673.
+(epstopdf)             \includegraphics on input line 683.
 Package epstopdf Info: Output file is already uptodate.
-<pckt_sent-eps-converted-to.pdf, id=56, 462.72874pt x 346.29375pt>
+<pckt_sent-eps-converted-to.pdf, id=57, 462.72874pt x 346.29375pt>
 File: pckt_sent-eps-converted-to.pdf Graphic file (type pdf)
 <use pckt_sent-eps-converted-to.pdf>
-Package pdftex.def Info: pckt_sent-eps-converted-to.pdf  used on input line 673
+Package pdftex.def Info: pckt_sent-eps-converted-to.pdf  used on input line 683
 .
 (pdftex.def)             Requested size: 274.6262pt x 205.52158pt.
 
-Overfull \hbox (22.6262pt too wide) in paragraph at lines 673--677
+Overfull \hbox (22.6262pt too wide) in paragraph at lines 683--687
  [][] 
  []
 
@@ -670,37 +695,41 @@ Package epstopdf Info: Source file: <energy_fog.eps>
 (epstopdf)                    size: 23147 bytes
 (epstopdf)             Command: <epstopdf --outfile=energy_fog-eps-converted-to
 .pdf energy_fog.eps>
-(epstopdf)             \includegraphics on input line 683.
-Package epstopdf Info: Output file is already uptodate.
-<energy_fog-eps-converted-to.pdf, id=57, 462.72874pt x 346.29375pt>
-File: energy_fog-eps-converted-to.pdf Graphic file (type pdf)
-<use energy_fog-eps-converted-to.pdf>
-Package pdftex.def Info: energy_fog-eps-converted-to.pdf  used on input line 68
-3.
-(pdftex.def)             Requested size: 274.6262pt x 205.52158pt.
-
-Overfull \hbox (22.6262pt too wide) in paragraph at lines 683--687
- [][] 
- []
-
-Package epstopdf Info: Source file: <energy_iot.eps>
-(epstopdf)                    date: 2019-03-11 09:31:15
-(epstopdf)                    size: 40972 bytes
-(epstopdf)             Output file: <energy_iot-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-03-11 09:31:15
-(epstopdf)                    size: 23219 bytes
-(epstopdf)             Command: <epstopdf --outfile=energy_iot-eps-converted-to
-.pdf energy_iot.eps>
 (epstopdf)             \includegraphics on input line 693.
 Package epstopdf Info: Output file is already uptodate.
-<energy_iot-eps-converted-to.pdf, id=58, 462.72874pt x 346.29375pt>
-File: energy_iot-eps-converted-to.pdf Graphic file (type pdf)
-<use energy_iot-eps-converted-to.pdf>
-Package pdftex.def Info: energy_iot-eps-converted-to.pdf  used on input line 69
+<energy_fog-eps-converted-to.pdf, id=58, 462.72874pt x 346.29375pt>
+File: energy_fog-eps-converted-to.pdf Graphic file (type pdf)
+<use energy_fog-eps-converted-to.pdf>
+Package pdftex.def Info: energy_fog-eps-converted-to.pdf  used on input line 69
 3.
 (pdftex.def)             Requested size: 274.6262pt x 205.52158pt.
 
 Overfull \hbox (22.6262pt too wide) in paragraph at lines 693--697
+ [][] 
+ []
+
+Package epstopdf Info: Source file: <energy_iot.eps>
+(epstopdf)                    date: 2019-03-14 12:02:29
+(epstopdf)                    size: 67215 bytes
+(epstopdf)             Output file: <energy_iot-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-03-14 17:57:48
+(epstopdf)                    size: 26270 bytes
+(epstopdf)             Command: <epstopdf --outfile=energy_iot-eps-converted-to
+.pdf energy_iot.eps>
+(epstopdf)             \includegraphics on input line 703.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex.exe (file ./energy_iot-eps-converted-to.pdf): PDF incl
+usion: found PDF version <1.7>, but at most version <1.5> allowed
+<energy_iot-eps-converted-to.pdf, id=59, 462.72874pt x 346.29375pt>
+File: energy_iot-eps-converted-to.pdf Graphic file (type pdf)
+<use energy_iot-eps-converted-to.pdf>
+Package pdftex.def Info: energy_iot-eps-converted-to.pdf  used on input line 70
+3.
+(pdftex.def)             Requested size: 274.6262pt x 205.52158pt.
+
+Overfull \hbox (22.6262pt too wide) in paragraph at lines 703--707
  [][] 
  []
 
@@ -712,29 +741,29 @@ Package epstopdf Info: Source file: <fixed_mob.eps>
 (epstopdf)                    size: 24141 bytes
 (epstopdf)             Command: <epstopdf --outfile=fixed_mob-eps-converted-to.
 pdf fixed_mob.eps>
-(epstopdf)             \includegraphics on input line 703.
+(epstopdf)             \includegraphics on input line 713.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex.exe (file ./fixed_mob-eps-converted-to.pdf): PDF inclu
 sion: found PDF version <1.7>, but at most version <1.5> allowed
-<fixed_mob-eps-converted-to.pdf, id=59, 462.72874pt x 346.29375pt>
+<fixed_mob-eps-converted-to.pdf, id=60, 462.72874pt x 346.29375pt>
 File: fixed_mob-eps-converted-to.pdf Graphic file (type pdf)
 <use fixed_mob-eps-converted-to.pdf>
-Package pdftex.def Info: fixed_mob-eps-converted-to.pdf  used on input line 703
+Package pdftex.def Info: fixed_mob-eps-converted-to.pdf  used on input line 713
 .
 (pdftex.def)             Requested size: 274.6262pt x 205.52158pt.
 
-Overfull \hbox (22.6262pt too wide) in paragraph at lines 703--707
+Overfull \hbox (22.6262pt too wide) in paragraph at lines 713--717
  [][] 
  []
 
 
 Underfull \vbox (badness 2221) has occurred while \output is active []
 
- [3 <./num_iter-eps-converted-to.pdf>] [4 <./pckt_sent-eps-converted-to.pdf> <.
-/energy_fog-eps-converted-to.pdf> <./energy_iot-eps-converted-to.pdf> <./fixed_
-mob-eps-converted-to.pdf>]
+ [3 <./num_iter-eps-converted-to.pdf>] [4 <./rew_iter-eps-converted-to.pdf> <./
+pckt_sent-eps-converted-to.pdf> <./energy_fog-eps-converted-to.pdf> <./energy_i
+ot-eps-converted-to.pdf>] [5 <./fixed_mob-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <random_deploy.eps>
 (epstopdf)                    date: 2019-02-04 10:03:50
 (epstopdf)                    size: 24708 bytes
@@ -743,26 +772,26 @@ Package epstopdf Info: Source file: <random_deploy.eps>
 (epstopdf)                    size: 79724 bytes
 (epstopdf)             Command: <epstopdf --outfile=random_deploy-eps-converted
 -to.pdf random_deploy.eps>
-(epstopdf)             \includegraphics on input line 796.
+(epstopdf)             \includegraphics on input line 809.
 Package epstopdf Info: Output file is already uptodate.
-<random_deploy-eps-converted-to.pdf, id=236, 476.78125pt x 474.77374pt>
+<random_deploy-eps-converted-to.pdf, id=268, 476.78125pt x 474.77374pt>
 File: random_deploy-eps-converted-to.pdf Graphic file (type pdf)
 <use random_deploy-eps-converted-to.pdf>
 Package pdftex.def Info: random_deploy-eps-converted-to.pdf  used on input line
- 796.
+ 809.
 (pdftex.def)             Requested size: 274.6262pt x 273.4854pt.
 
-Overfull \hbox (22.6262pt too wide) in paragraph at lines 796--800
+Overfull \hbox (22.6262pt too wide) in paragraph at lines 809--813
  [][] 
  []
 
-[5]
-Underfull \hbox (badness 2277) in paragraph at lines 853--855
+
+Underfull \hbox (badness 2277) in paragraph at lines 866--868
 \T1/ptm/m/n/10 con-tin-u-ous state and ac-tion spaces de-fined by the tu-
  []
 
 
-LaTeX Warning: Reference `fogmodel' on page 6 undefined on input line 871.
+LaTeX Warning: Reference `fogmodel' on page 6 undefined on input line 884.
 
 [6 <./random_deploy-eps-converted-to.pdf>] [7
 
@@ -775,10 +804,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6595 strings out of 492946
- 97696 string characters out of 3135087
- 184878 words of memory out of 3000000
- 10320 multiletter control sequences out of 15000+200000
+ 6601 strings out of 492946
+ 97877 string characters out of 3135087
+ 185886 words of memory out of 3000000
+ 10325 multiletter control sequences out of 15000+200000
  124886 words of font info for 133 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,19n,35p,1596b,297s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -801,9 +830,9 @@ bols/msbm10.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/urw/times/utmb8a.pfb>
 <C:/Program Files/MiKTeX 2.90/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Fil
 es/MiKTeX 2.90/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.90/f
 onts/type1/urw/times/utmri8a.pfb>
-Output written on RL_Ideas.pdf (7 pages, 603756 bytes).
+Output written on RL_Ideas.pdf (7 pages, 616510 bytes).
 PDF statistics:
- 343 PDF objects out of 1000 (max. 8388607)
+ 366 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
