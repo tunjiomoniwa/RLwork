@@ -10,7 +10,7 @@ from random import randint
 
 
 ##Paremeters of actions
-cdelta = 0.25 # in meters
+cdelta = 0.1#0.000001#0.25 # in meters
 p1 = 0.001 # in watts
 p2 = 0.01
 p3 = 0.15
@@ -48,14 +48,14 @@ action_space = spaces.Discrete(8)
 observation_space = spaces.Box(low, high, dtype=np.float32)
 
 iteration_steps = 100000
-episodes=800
-#epsilon =0.5
+episodes=5#800
+
 alpha = 0.1
 gamma =0.9
 
 #len_action=8
 #len_states =100
-buckets =(50,5,5,) # learn
+buckets =(50,10,10,) # learn
 
 #Q = np.zeros(shape=[len_states, len_action], dtype=np.float32)
 Q = np.zeros(buckets + (action_space.n,))
@@ -271,10 +271,9 @@ for epi in range(episodes):
     IoT_energy_holder.append(IoT_cons)
     
 
-     
-
 line=plt.plot(IoT_energy_holder)
 plt.setp(line, color='r', linewidth=1.0)
+
 plt.ylabel('Energy consumed by IoT end-device (%)')
 plt.xlabel('Episodes')
 
