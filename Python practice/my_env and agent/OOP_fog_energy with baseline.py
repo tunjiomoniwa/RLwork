@@ -50,14 +50,14 @@ class FogIoT:
         self.observation_space = spaces.Box(self.low, self.high, dtype=np.float32)
 
         self.iteration_steps = 100000
-        self.episodes=20
+        self.episodes=100
 
         self.alpha = 0.1
         self.gamma =0.9
 
         #len_action=8
         #len_states =100
-        self.buckets =(50,10,10,) # learn
+        self.buckets =(50,5,5,) # learn
 
         #Q = np.zeros(shape=[len_states, len_action], dtype=np.float32)
         self.Q = np.zeros(self.buckets + (self.action_space.n,))
