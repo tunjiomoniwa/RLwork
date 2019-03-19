@@ -410,7 +410,7 @@
 % not capitalized unless they are the first or last word of the title.
 % Linebreaks \\ can be used within to get better formatting as desired.
 % Do not put math or special symbols in the title.
-\title{Decentralised Reinforcement Learning in Fog-based Internet-of-Things}
+\title{Fully-Decentralised Reinforcement Learning in Fog-based Internet-of-Things}
 %
 %
 % author names and IEEE memberships
@@ -452,7 +452,7 @@
 
 % The paper headers
 \markboth{IEEE Internet of Things Journal,~Vol.~X, No.~X, August~2019}%
-{YYYY \MakeLowercase{\textit{et al.}}: Decentralised Reinforcement Learning in Fog-based Internet-of-Things}
+{YYYY \MakeLowercase{\textit{et al.}}: Fully-Decentralised Reinforcement Learning in Fog-based Internet-of-Things}
 % The only time the second header will appear is for the odd numbered pages
 % after the title page when using the twoside option.
 %
@@ -483,13 +483,13 @@
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \begin{abstract}
-Reinforcement learning (RL) algorithms offers more insights about the overall futuristic functionalities for intelligent Internet-of-Things (IoT) devices. With the explosive growth in the number of IoT devices, as well as the highly-distributed deployments of these devices today, managing the IoT devices centrally becomes infeasible. As such, several disruptive paradigms have emerged, one of which is the fog computing-based IoT, which aim towards shifting computation, control, and decision-making closer to the network edge. However, mobility and power-constrain of these fog devices remains an issue of concern. In this paper, we apply a q-learning algorithm to minimize the outage in communication within a fog-based IoT network, by optimizing the power-control parameter of the agent, as well as optimizing the physical position. Furthermore, the agent was able to efficiently minimize the energy consumed by the fog relay and the IoT sensor, while guaranteeing efficient transmission.
+Reinforcement learning (RL) algorithms offers more insights about the overall futuristic functionalities for intelligent Internet-of-Things (IoT) devices. With the explosive growth in the number of IoT devices, as well as the highly-distributed deployments of these devices today, managing the IoT devices centrally becomes infeasible. As such, several disruptive paradigms have emerged, one of which is the fog computing-based IoT, which aim towards shifting computation, control, and decision-making closer to the network edge. However, mobility and power-constrain of these fog devices remains an issue of concern. In this paper, we aim to minimize the global outage in communication within a fog-based IoT network, by optimizing the power-control parameter of each potential mobile fog-relay agent (MFRA), as well as optimizing the physical position. As such, each MFRA is compelled to take certain actions that may influence its environment. We optimize the communication performance by applying a decentralized q-learning approach, with each MFRA acting independently, but contributing towards a global local-optimal policy. Furthermore, we show that our algorithm is scalable even with very large number of devices.
 
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-Reinforcement learning (RL), Fog-based Internet-of-Things (IoT), q-learning, communication outage, energy management.
+Reinforcement learning (RL), Internet-of-Things (IoT), Fog-based IoT, Markov decision process (MDP), machine learning (ML).
 \end{IEEEkeywords}
 
 
@@ -514,14 +514,16 @@ However, in order for devices to communicate efficiently with minimal outage (lo
 
 Moreover, since power-control mechanisms and smart mobility are critical in minimizing outages in communication, these devices should be able to learn when to increase, decrease, or maintain their power-levels or to move efficiently in order to increase the long-term performance of the network. More so, near-optimal actions from these devices are required to drive several smart cities applications, most importantly the Industrial IoT (IIoT), where industrial robots are deployed to act intelligibly in a dynamic industrial setting, and intelligent monitoring applications, where surveillance drones are deployed in militarised zones to meet stringent quality-of-service (QoS) requirements~\cite{OmoniwaRelay2018}.
 
-The work in~\cite{OmoniwaRelay2018} used an iterative algorithm based on the steepest descent method to address the problem in a multi-tier fog-based IoT architecture with a fog device which could adjust its position and power-control parameter in order to minimize outage in communication. However, optimization was carried out using the gradient descent method with slow convergence and unspecified states and actions set. In~\cite{Mozaffari2016}, a clustering algorithm was used on eight (8) unmanned aerial vehicle (UAVs) to collect data from ground IoT devices with an objective of minimizing the energy consumed by the IoT devices during uplink communications. However, this work considered a centralized network where the locations of every IoT device and UAV were known to the controller. Considering the highly-distributed nature of deployed IoT devices, it becomes infeasible to manage devices centrally~\cite{Wilhelmi2017}. As such, reinforcement learning can be effectively deployed on fog devices to allow them to act independently based on their local experiences in the environment, i.e. each fog device should be able to learn independently without a central entity.
+The work in~\cite{OmoniwaRelay2018} used an iterative algorithm based on the steepest descent method to address the problem in a multi-tier fog-based IoT architecture with a fog device which could adjust its position and power-control parameter in order to minimize outage in communication. However, the work did not take into consideration the performance of the approach in a highly-decentralised IoT environment. In~\cite{Mozaffari2016}, a clustering algorithm was used on eight (8) unmanned aerial vehicle (UAVs) to collect data from ground IoT devices with an objective of minimizing the energy consumed by the IoT devices during uplink communications. However, this work considered a centralized network where the locations of every IoT device and UAV were known to the controller. Considering the highly-distributed nature of deployed IoT devices, it becomes infeasible to manage devices centrally~\cite{Wilhelmi2017}. As such, reinforcement learning can be effectively deployed on fog devices to allow them to act independently based on their local experiences in the environment, i.e. each fog device should be able to learn independently without a central entity.
 
 A decentralised stateless Q-learning approach was proposed in \cite{Wilhelmi2017} to improve aggregate throughput in four coexistent wireless networks (WN). Each WN was considered to be an agent running the stateless Q-learning algorithm with agents having action space as channel number, and transmit power
 (dBm). A lightweight distributed learning approach was proposed in \cite{Azari2018} to increase energy efficiency and reliability of IoT communications. There was significant performance improvement when the proposed algorithm was compared to a centralized optimized strategy. Transmit power, sub-channel, and spreading factor made up the action space. However, the system model in both works was rather hierarchical than distributed, ie. each WN was assumed to be an independent central entity with no specifications to what is learnt within each sub-network. Though IoT is defined as a large-scale network where various sub-networks coexist~\cite{Omoniwa2018}, applying RL to end-devices within sub-network may bring about meaningful performance improvement in the overall IoT network.
 
-The main contribution of this paper is to propose a decentralised reinforcement learning approach as in~\cite{Gueriau2018} that addresses communication performance within a fog-based IoT architecture. First, we assumed a single-agent scenario of possible state-action pair for each communication scenario as seen in  Fig. \ref{ideafig1}, where an agent may be faced with a unique topology and environment. Next, in order to guarantee energy-efficient communications for the fog devices in the dynamic environment, we apply a decentralised q-learning algorithm, where each agent observes its position with respect to the communicating party, as well as its present transmit power level and learns to take actions that minimize loss of packets, as well as efficient energy utilization.
+The main contribution of this paper is to propose a fully-decentralised multi-agent-based reinforcement learning approach as in~\cite{Gueriau2018} that addresses communication performance within a fog-based IoT architecture. First, we assumed a realistic scenario of possible state-action pair for each communication scenario as seen in  Fig. \ref{ideafig1}, where each fog-agent is faced with a unique topology and environment. Next, in order to guarantee energy-efficient communications for the fog devices in the dynamic environment, we apply a decentralised q-learning algorithm, where each agent observes its position with respect to the communicating party, likewise the size of the number of packets to be transmitted and learns to take actions that improve the long-term communication performance. The fog-agents will actively try to communicate with neighbouring IoT devices in a manner where computing and processing are fully-decentralised, as well as achieving energy balance within the system.
 
 The remainder of this work is organized as follows.~In Section II, we reviewed related works, and present our proposed approach in Section III. In Section IV, we evaluate the proposed fog-based IoT system, and present the results in Section V. Section V concludes the paper and outlines future directions.
+
+
 
 
 
@@ -531,7 +533,7 @@ The remainder of this work is organized as follows.~In Section II, we reviewed r
  %where an .eps filename suffix will be assumed under latex,
 % and a .pdf suffix will be assumed for pdflatex; or what has been declared
 % via \DeclareGraphicsExtensions.
-\caption{Single-agent fog-based IoT system.}
+\caption{Micro-view of the proposed fog-based IoT system.}
 \label{ideafig1}
 \end{figure}
 
@@ -560,7 +562,7 @@ where~$\Psi = \sqrt{(N_0 \tilde{\kappa})/(P_{R}(D_{S} + \delta)^{-\sigma})}$, an
 \subsection{MRFA agent}
 We apply a the Q-Learning algorithm, an RL approach which requires no prior knowledge of the environment by the agent. In Q-learning, the agent interacts with the environment over periods of time according to a policy~$\omega$. At every time-step~$k \in N$, the environment produces an observation~$s_{k} \in \mathbb{R}^{D_s}$. By sampling, the agent then picks an action~$a_{k}$ over~$\omega(s_{k})$,~$a_{k} \in \mathbb{R}^{D_a}$, which is applied to the environment. The environment consequently produces a reward~$r(s_{k}, a_{k})$ and may end the episode at state~$s_{N}$ or transits to a new state~$s_{k + 1}$. The agent's goal is to minimize the expected cumulative cost,~$\min_{\omega} \mathbb{E}_{s_0, a_0, s_1, a_1, ..., s_N} \Big[ \sum_{i=0}^{N} \gamma^i \mathcal{C}(s_i) \Big]$, where~$0 \leq \gamma \leq 1$ is the discount factor, and~$\mathcal{C}$ is the overall cost function of our model.
 
-First, the agent takes an initial random action~$a_{k}$ and gets observations from the environment which corresponds to that action, as well as a reward. It then discretizes the continuous observations emanating from the environment into a~$50 \times 5 \times 5$ state space corresponding to the tuple, $\langle$Outage communication cost ($\mathcal{P}_{out}$) /Energy status of the fog relay (J) /Energy status of the IoT sensor (J)$\rangle$. The agent then updates it's Q-values at each time-step~$k$ following (\ref{eqn1b}).
+First, the agent takes an initial random action~$a_{k}$ and gets observations from the environment which corresponds to that action, as well as a reward. It then discretizes the continuous observations emanating from the environment into a~$50 \times 10 \times 10$ state space corresponding to the tuple, $\langle$Outage communication cost ($\mathcal{P}_{out}$) /Energy status of the fog relay (J) /Energy status of the IoT sensor (J)$\rangle$. The agent then updates it's Q-values at each time-step~$k$ following (\ref{eqn1b}).
 
 \begin{equation}\label{eqn1b}
 \begin{split}
@@ -628,22 +630,95 @@ The MFRA's learning process is summarized in Algorithm \ref{fiotRL}. A new learn
 
 
 
+
+
+
+
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=3.8in]{delta_plot.eps}
+% %where an .eps filename suffix will be assumed under latex,
+%% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+%% via \DeclareGraphicsExtensions.
+%\caption{Model relationship showing the outage observation w.r.t. change in position of fog agent.}
+%\label{delta_plot}
+%\end{figure}
+%
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=3.8in]{power_plot.eps}
+% %where an .eps filename suffix will be assumed under latex,
+%% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+%% via \DeclareGraphicsExtensions.
+%\caption{Model relationship showing the outage observation w.r.t. change in power level of the IoT end-device.}
+%\label{power_plot}
+%\end{figure}
+
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3.8in]{num_iter.eps}
+ %where an .eps filename suffix will be assumed under latex,
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Number of iteration over episodes prior to the point of failure.}
+\label{num_iter}
+\end{figure}
+
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3.8in]{rew_iter.eps}
+ %where an .eps filename suffix will be assumed under latex,
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Normalized Iterations per reward over 1000 episodes.}
+\label{rew_iter}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3.8in]{pckt_sent.eps}
+ %where an .eps filename suffix will be assumed under latex,
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Percentage of packets successfully transmitted via the fog agent.}
+\label{pckt_sent}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3.8in]{energy_fog.eps}
+ %where an .eps filename suffix will be assumed under latex,
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Average energy consumed by fog agent over episodes.}
+\label{energy_fog}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3.8in]{energy_iot.eps}
+ %where an .eps filename suffix will be assumed under latex,
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Average energy consumed by IoT sensor over episodes.}
+\label{energy_iot}
+\end{figure}
+
+
+
 \section{Experimental Setup}
-We carried out experimentation using the Python IDE 3.7.2, and considered a single agent to help us compare our proposed approach with the baseline. 
 
-\subsection{Baselines}
-The baseline~\cite{OmoniwaRelay2018} used for the comparative analysis applied a gradient descent approach to arrive at a local optima in minimizing the communication outage within the network. The baseline approach is known to arrive at a local optima, however, may take significant amount of time to converge.
-
-\subsection{Indicators}
-To evaluate our proposed approach, we examine the convergence of our approach in minimizing the steps it takes the agent to get to its goal, the energy utilization of the fog relay and IoT sensor.
+\subsection{General settings}
+We carried out experimentation with 150 fog relays and 1000 IoT sensors randomly deployed.
 
 
 
-\section{Results and Discussions}
-In this section, we present the results of the fog-based IoT system. First, we compare the proposed approach with the baseline, then we examine the number of steps required by the agent to reach it's goal over learning episodes. Finally, we evaluate the energy utilization of both the fog relay agent and the IoT sensor.
 
-\subsection{Proposed approach vs. baselines}
-We carried out comparison of the proposed approach, applying the Q-learning algorithm and the baseline, using the gradient descent algorithm. Simulations were done using Python IDE 3.7.2, and Table~\ref{table:simparameters} shows a summary of the parameters used. Fig. \ref{pckt_sent} shows the percentage of packets successfully transmitted, with each algorithm learning to minimize the number of packets lost over each episode. We observe that in the first 20 episode, the baseline had better performance than the proposed approach, however, for the remaining part of the episodes, the proposed approach out-performed the baseline. This signifies that the agent's exploration within the environment plays some significant role in improving the packets successfully transmitted. Convergence can be observed around 200th episodes where about 55\% - 100\% of transmitted packets are successfully received at the destination. Interestingly, we know that gradient descent methods may be slow to converge, but always surely converge to a local optima~\cite{OmoniwaRelay2018}. This is well depicted Fig. \ref{pckt_sent}, where around 1000th episode the baseline approach is able to successfully transmit about 75\% of packets.
+Table~\ref{table:simparameters} shows a summary of the parameters used in simulating
 
 \begin{table}
 \small
@@ -674,65 +749,13 @@ We carried out comparison of the proposed approach, applying the Q-learning algo
  \end{tabular}
  \end{table}
 
-\begin{figure}[!t]
-\centering
-\includegraphics[width=3.8in]{pckt_sent.eps}
- %where an .eps filename suffix will be assumed under latex,
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-\caption{Percentage of packets successfully transmitted.}
-\label{pckt_sent}
-\end{figure}
 
-Overall, the performance of the proposed approach yields better results than the baseline. In Fig. \ref{num_iter}, we observe the number of iterations required for the agent to reach it's goal following policy~$\epsilon$. After 200 episodes, we achieve convergence. This implies that the agent learns to reach the goal state faster and more efficiently. Similarly, in Fig. \ref{rew_iter}, which shows the number of iterations per reward, convergence was attained at about 200 episodes. This implies that the agent learns to follow policies that maximize its total expected reward. Therefore, the proposed RL approach has shown good performance behaviour as compared to the previous approach. 
+\subsection{Baselines}
 
 
-\begin{figure}[!t]
-\centering
-\includegraphics[width=3.8in]{num_iter.eps}
- %where an .eps filename suffix will be assumed under latex,
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-\caption{Number of iteration over episodes.}
-\label{num_iter}
-\end{figure}
+\subsection{MFRA scenarios}
 
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=3.8in]{rew_iter.eps}
- %where an .eps filename suffix will be assumed under latex,
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-\caption{Normalized Iterations per reward over 1000 episodes.}
-\label{rew_iter}
-\end{figure}
-
-\subsection{Energy utilization}
-We examine the impact of the learning process on the energy utilization of both the fog relay and the IoT sensor. Fig. \ref{energy_fog}, shows the energy consumed by the fog relay during transmission. We observe that at about 50 episodes, the fog relay consumes less than 10\% of its energy in moving and transmitting. This has significant impact to increasing the longevity of fog devices within the network. A similar behaviour is also observed for the IoT sensor shown in Fig. \ref{energy_iot}, where the IoT sensor after about 60 episodes, spends less than 10\% of its energy on transmission. The outcome of this experiments reveal that energy management within the IoT domain can be efficiently tackled using RL approach. 
-
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=3.8in]{energy_fog.eps}
- %where an .eps filename suffix will be assumed under latex,
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-\caption{Energy consumed by fog agent over episodes.}
-\label{energy_fog}
-\end{figure}
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=3.8in]{energy_iot.eps}
- %where an .eps filename suffix will be assumed under latex,
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-\caption{Energy consumed by IoT sensor over episodes.}
-\label{energy_iot}
-\end{figure}
-
-
+\subsection{Indicators}
 
 
 \section{Related Works}
@@ -746,9 +769,10 @@ Several works in WSN have applied the decentralised RL technique. In \cite{Liang
 In \cite{Chen2008}, a reliable and energy-efficient routing (REER) protocol was proposed using a geographic routing approach. The work considered the idea of a central entity, called a reference node (RN), which is assumed to be situated at an ideal location between source and destination. Several other cooperative nodes, which contend to relay data, are assumed to be situated around the RN. The work was able to examine the trade-off between reliability and energy-efficiency when the distances between RNs was adjusted.
 
 
-We present a decentralised reinforcement learning approach that adequately addresses some key performance issues within the IoT domain.
+We present a fully-decentralised multi-agent reinforcement learning approach that adequately addresses some performance issues in IoT.
 The main task of our work is to minimize global outage in communication within a fog-based IoT network, by optimizing the power-control parameter of the potential mobile fog-relay agent (MFRA), as well as optimizing the position of each relaying agents in the network. As such, each MFRA is compelled to take certain actions that may influence its environment. However, the duration it takes the MFRA to learn is significantly influenced by the state space, as well as the possible set of actions~\cite{Dusparic2009}. The variables for the state, action and reward of an agent may be discrete or continuous, with the former represented as small interval of values which imply distinct levels~\cite{Yau2012}, and can easily be represented in a tabular form. However, it is difficult to represent continuous space using Q-learning tables. The work in \cite{Vucevic2007} considered a RL agent that explores continuous state and action space using Gaussian unit search behaviour. Other works~\cite{Dusparic2009, Cuayahuitl2006} considered the reduction of states by eliminating states that are unlikely to occur. However, this may pose a big risk especially in a highly dynamic environment. RL can be effective for learning action policies in discrete stochastic environments, but its efficiency can decay exponentially with increasing state space~\cite{Uther1998}. Our proposed problem can be observed to have continuous state-action pairs, and is approached by discretizing the state and action space.
 
+It is noteworthy that agents in a multi-agent system (MAS) may take actions that can have direct consequences on neighbouring agents, which may have further impact on other agents within the network. For instance, if a relaying agent decides to increase the transmit power beyond some threshold value, in order to boost its communication capabilities, its action may result in channel interference to its immediate neighbours, and worst, it may deplete its energy fast, and die-out, leading to link failure that can affect the performance of the entire network. Issues like this may arise in a typical multi-agent IoT network, as such, we present a fully-decentralised MAS where each agents learn to follow a local policy that improves the global objective. To the best of our knowledge, this is the first approach that employs a decentralised RL technique to minimize global outage in communication within a fog-based IoT network, taking into consideration the wireless channel conditions, by jointly optimizing the location of each relaying agent and the power-control parameter.
 
 In this paper, we assume the following.
 \begin{enumerate}
@@ -756,19 +780,114 @@ In this paper, we assume the following.
   \item The MRFA may change its position in order to ensure better communication. Also, the MFRA may change its position (2D/3D) depending on the scenario considered.
   \item The MFRA has an objective of learning to make actions that yield better outcomes within its local view of the environment.
   \item The states are be divided into discrete levels to overcome the exponential decay in the efficiency of the proposed approach due infinite state space.
-  \item The MFRA independently tries to optimize power usage and moves in a direction that maximizes the communication outage.
+  \item Each MFRA independently tries to optimize power usage and moves in a direction that maximizes the communication outage.
 \end{enumerate}
 
 
 
 
 
-\section{Conclusion and Future works}
-We aim to apply the q-learning algorithm on a multi-agent fog-based IoT system where multiple agents compete to transmit reliably in a highly dynamic environment, where interference contributes significantly to communication outages with the network. For instance, agents may take actions that can have direct consequences on neighbouring agents, which may have further impact on other agents within the network. For instance, if an agent decides to increase the transmit power beyond some threshold value, in order to boost its communication capabilities, its action may result in channel interference to its immediate neighbours, and worst, it may deplete its energy fast, and die-out, leading to link failure that can affect the performance of the entire network. This will be looked at in our future work.
+
+
+
+In Fig. \ref{ideafig1}, we present a situation where different IoT end-devices, inclusive of smart things embedded with sensors (smart-meters, smart-watches, traffic lights, washing machine, dish-washers, herds, or even a sick patient being monitored, etc.), which can send data/service request to a remote fog service provider via a MFRA. However, there may be change in the topology of the network or even in the environment, making it difficult for data collection or service provision. Furthermore, the environment may be too hazardous for human control and as such, some level of intelligence is expected from the MFRA. The MFRA learns to optimize its position and adjust it's power-level to minimize the communication outage.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3.8in]{random_deploy.eps}
+ %where an .eps filename suffix will be assumed under latex,
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{A pictorial view of how MFRA and IoT sensors are randomly deployed.}
+\label{random_deploy}
+\end{figure}
+
+
+However, the dynamic IoT environment increases the complexity in system design, as such, many classical approaches will fail when domain knowledge of the environment mismatches the actual environment~\cite{Yau2012}.
+
+ In Fig. \ref{ideafig1}, we present micro-view of randomly deployed IoT sensors trying to send/receive data/service request to a remote fog device via a potential mobile fog-relay agent (MFRA). Intuitively, if a fog device does not have the required computational/processing capability, it may decide to forward the data/service request to other available fog devices.
 
 
 
 
+
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=3.3in]{200agents.eps}
+% %where an .eps filename suffix will be assumed under latex,
+%% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+%% via \DeclareGraphicsExtensions.
+%\caption{Learning of 200 agents over 1000 episodes.}
+%\label{200agents}
+%\end{figure}
+%
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=3.3in]{500agents.eps}
+% %where an .eps filename suffix will be assumed under latex,
+%% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+%% via \DeclareGraphicsExtensions.
+%\caption{Learning of 500 agents over 1000 episodes.}
+%\label{500agents}
+%\end{figure}
+%
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=3.3in]{1000agents.eps}
+% %where an .eps filename suffix will be assumed under latex,
+%% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+%% via \DeclareGraphicsExtensions.
+%\caption{Learning of 1000 agents over 1000 episodes.}
+%\label{1000agents}
+%\end{figure}
+
+
+\section{Idea 2}
+\label{sec:Idea2a}
+\subsection{Problem Formulation}
+
+Devices/agents in an IoT network are resource-constrained, as such, it will be proper to deploy lightweight RL-based techniques that will improve the performance of the network. Furthermore, we may have to experiment on a very dynamic environment considering factors that depict a realistic IoT scenario to meet strict quality-of-service requirements.
+
+In this work, a finite-horizon MDP is considered with continuous state and action spaces defined by the tuple~$\langle \mathcal{S}, \mathcal{A}, p, p_0, \mathcal{P}_{out}, \gamma \rangle$, where~$\mathcal{S}$ is the set of states,~$\mathcal{A}$ is the set of actions,~$p: \mathcal{S}\times \mathcal{A} \times \mathcal{S} \rightarrow \mathbb{G}^+$ is the conditional probability density over successor states given the current state and action,~$p_0: \mathcal{S} \rightarrow \mathbb{G}^+ $ is the probability density over initial states,~$\mathcal{P}_{out}$ is a function that maps state to cost, and the discount factor is~$\gamma \in (0,1]$.
+In the RL techniques, the agent has a choice to take certain actions in each time step, causing the environment to respond with new conditions, and consequently, the agent receives reward for that action as a form of feedback. The reward could be positive, negative or even zero, and the main objective of the agent is to maximize the positive reward or minimize the negative reward (often the cost) over the entire time step~$N$.
+
+Our objective is to learn a stochastic policy~$\pi^*: \mathcal{S}\times \mathcal{A}\rightarrow \mathbb{G}^+,$ which is a conditional probability density over the present state, in such a way as to minimize the expected cumulative cost.
+
+
+\begin{equation}\label{eqn4}
+\pi^* = \arg \min_{\pi} \mathbb{E}_{s_0, a_0, s_1, a_1, ..., s_N} \Big[ \sum_{i=0}^{N} \gamma^i \mathcal{P}_{out}(s_i) \Big],
+\end{equation}
+
+We take the expectation over the joint distribution of all state-action pairs, with the density give as,
+
+\begin{equation}\label{eqn5}
+q(s_0, a_0, s_1, a_1, ..., s_N) = p_0(s_0) \prod_{i=0}^{N-1} \pi(a_i|s_i) p(s_{i+1}|s_i, a_i).
+\end{equation}
+
+
+
+Fig. \ref{fogmodel} shows a dynamic IoT environment with an IoT sensor attempting to request some services from a remote target fog agent/node through randomly deployed fog devices. The devices act as relays to forward traffic from the source to the destination. However, based on their position, line-of-sight(LoS) obstruction, which affect the conditions of the wireless channel, some degree of communication outage may occur. Our aim is to ensure that the agents are able to learn the optimal route to take through their experience with the environment.
+
+\section{Ideas2}\label{sec:Ideas2}
+
+\section{Ideas3}\label{sec:Ideas3}
+
+
+
+
+
+
+
+
+% use section* for acknowledgment
+%\section*{Acknowledgment}
+%The authors would like to acknowledge the intellectual and material contributions of COMSATS Institute of Information Technology (CIIT) and The World Academy of Sciences (TWAS) in supporting the Fellowship (FR number: 3240293236).
+
+% Can use something like this to put references on a page
+% by themselves when using endfloat and the captionsoff option.
 \ifCLASSOPTIONcaptionsoff
   \newpage
 \fi
