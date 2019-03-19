@@ -17,22 +17,30 @@ state =3
 #print(np.argmax(Q[3]))
 #print(max(Q[3]))
 
-t = 200#float(list(range(1, 21)))
+#t = 1#float(list(range(1, 21)))
 #print(t)
-epsilon = float(np.exp(-0.02*t))
-#print(epsilon)
+hh=[]
+for pp in range(1000):
+    #epsilon = float(np.exp(-0.008*pp))
+    epsilon = float(np.exp(-0.009*pp))
+    
+    hh.append(epsilon)
 
-plt.plot(t,epsilon)
 
+#print(hh)
 
-low=-0.6
-high=-0.4
-for ww in range(3):
-    bb=random.uniform(low, high)
-    print(bb)
-
-cc=np.array([random.uniform(-0.6, -0.4), 0])
-#print(cc)
-
-kk = np.random.randint(0, 99)
-print(kk)
+plt.plot(hh)
+plt.show()
+##
+##
+##low=-0.6
+##high=-0.4
+##for ww in range(3):
+##    bb=random.uniform(low, high)
+##    print(bb)
+##
+##cc=np.array([random.uniform(-0.6, -0.4), 0])
+###print(cc)
+##
+##kk = np.random.randint(0, 99)
+##print(kk)

@@ -50,7 +50,7 @@ class FogIoT:
         self.observation_space = spaces.Box(self.low, self.high, dtype=np.float32)
 
         self.iteration_steps = 100000
-        self.episodes=400
+        self.episodes=1000
 
         self.alpha = 0.1
         self.gamma =0.9
@@ -175,14 +175,36 @@ class FogIoT:
             action = np.argmax(self.Q[state]) # Exploit learned values
         return action
 
+    def runGD(self,colorx, cutoff, labelx):
+        self.cur_x = 0.5 # The algorithm starts at x=3
+        self.d1= 35
+        self.d2 =35
+        self.rate = 0.08 # Learning rate
+        self.precision = 0.00001 #This tells us when to stop the algorithm
+        self.previous_step_size = 1 #
+        self.max_iters = 1000 # maximum number of iterations
+        self.iters = 0 #iteration counter
 
+        #Gradient of our function
+        self.df = lambda x: (-2*10**-6)* np.exp((-6.66667*10**-7) *(x + 35)**3) * (x + 35)**2 + (2.66667*10**-12)* np.exp((-6.66667*10**-7 )*(x + 35)**3) *((x + 35)**5)* np.log(0.000816497 * np.sqrt((x + 35)**3)) - (4*10**-6)* np.exp((-6.66667*10**-7)*(x + 35)**3) * ((x + 35)**2)* np.log(0.000816497*(np.sqrt((x + 35)**3)))
 
+        self.rec_pct_gd = []
+        while self.previous_step_size > self.precision and self.iters < self.max_iters and  self.cur_x > cutoff:
+            self.prev_x = self.cur_x #Store current x value in prev_x
+            self.cur_x = self.cur_x - self.rate * self.df(self.prev_x) #Grad descent
+            self.previous_step_size = abs(self.cur_x - self.prev_x) #Change in x
+            self.iters = self.iters+1 #iteration count
+            print("Iteration",self.iters,"\nX value is",self.cur_x) #Print iterations
+            self.rec_pct_gd.append(100- 100*self.cur_x)
+             
+        self.line, =plt.plot(self.rec_pct_gd, label=labelx)
+        plt.setp(self.line, color= colorx, linewidth=1.0)
         
 
-    def run(self,colorx, cutoff, labelx):
-        #packets_holder = []
+    def runRL(self,colorx, cutoff, labelx):
+        self.packets_holder = []
         #fog_energy_holder = []
-        self.fog_energy_holder = []
+        #self.fog_energy_holder = []
 
         for epi in range(self.episodes):
 
@@ -198,24 +220,6 @@ class FogIoT:
             #np.random.randint() --discrete uniform distribution
             self.obs = np.array([np.random.randint(0, 80), np.random.randint(95, self.max_energy_fog), np.random.randint(95, self.max_energy_IoT)])
             
-##            if epi < cutoff:
-##                self.ECI = 0
-##                self.ECF = 0
-##                self.deltak = np.random.randint(-5, 5)
-##                self.sensorpower= random.uniform(0, 0.3)
-##                #self.delta=0.1
-##                self.dd=0
-##                #np.random.randint() --discrete uniform distribution
-##                self.obs = np.array([np.random.randint(0, 60), np.random.randint(65, self.max_energy_fog), np.random.randint(65, self.max_energy_IoT)])
-##                #obs = np.array([np.random.randint(min_outage, max_outage), np.random.randint(min_energy_fog, max_energy_fog), np.random.randint(min_energy_IoT, max_energy_IoT)])
-##            else:
-##                self.ECI = 0
-##                self.ECF = 0
-##                self.deltak = np.random.randint(-1, 1)
-##                self.sensorpower= random.uniform(0, 0.3)
-##                #delta=0.1
-##                self.dd=0
-##                self.obs = (30, 90, 90)
 
             cur_action = self.action_space.sample()
             obs, reward, done, dead, _ = self.step(cur_action)
@@ -228,7 +232,7 @@ class FogIoT:
 
             
             iter=0
-            #sum_pack = 0
+            self.sum_pack = 0
             while ((iter < self.iteration_steps) and  not done):#(current_state[0]>=8 and current_state[1]>0 and current_state[2]> 0)): #current_state[0]!= 0):
 
                 iter+=1
@@ -254,6 +258,7 @@ class FogIoT:
                 reward_tj = reward#self.map_reward(new_state)
                 #print(obs[0])
                 #print(new_state)
+                self.sum_pack+=(100 - obs[0])
                 
            
                 # do learning thingy
@@ -275,25 +280,26 @@ class FogIoT:
                 if dead:
                     print("No more communications")
                     break
-            self.fog_cons = 100 - obs[1]
+            self.ave_pack = self.sum_pack/iter
+            self.final_pckt = (100 - obs[0])
             print("End of episode #",epi, "  in ", iter , "iterations")
-            #aa.append(iter)
-            self.fog_energy_holder.append(self.fog_cons)
-        self.line, =plt.plot(self.fog_energy_holder, label=labelx)
+            self.packets_holder.append(self.final_pckt)
+        self.line, =plt.plot(self.packets_holder, label=labelx)
         plt.setp(self.line, color= colorx, linewidth=1.0)
         
 
         
 
-#kk1 = FogIoT(0.0001, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3)
-#data1 = kk1.run('r', 1000, "Baseline")
 
-kk2 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
-data2 = kk2.run('b', 1000, "Q-learning")
+kk1 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
+data1 = kk1.runRL('b', 1000, "Q-learning")
+
+kk2 = FogIoT(0.0001, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3)
+data2 = kk2.runGD('r', 0.05, "Baseline")
 
 
-#plt.legend([kk1.line, kk2.line], ["Baseline", "Q-learning"])
-plt.ylabel('Energy consumed by fog relay (%)')
+plt.legend([kk1.line, kk2.line], ["Q-learning", "Baseline"])
+plt.ylabel('Packet received (%)')
 plt.xlabel('Episodes')
 
 plt.show()

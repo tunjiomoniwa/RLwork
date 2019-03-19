@@ -275,7 +275,7 @@ class FogIoT:
                 if dead:
                     print("No more communications")
                     break
-            self.fog_cons = 100 - obs[1]
+            self.fog_cons = 100 - obs[2]
             print("End of episode #",epi, "  in ", iter , "iterations")
             #aa.append(iter)
             self.fog_energy_holder.append(self.fog_cons)
@@ -293,7 +293,7 @@ data2 = kk2.run('b', 1000, "Q-learning")
 
 
 #plt.legend([kk1.line, kk2.line], ["Baseline", "Q-learning"])
-plt.ylabel('Energy consumed by fog relay (%)')
+plt.ylabel('Energy consumed by IoT Sensor (%)')
 plt.xlabel('Episodes')
 
 plt.show()

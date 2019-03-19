@@ -48,14 +48,14 @@ action_space = spaces.Discrete(8)
 observation_space = spaces.Box(low, high, dtype=np.float32)
 
 iteration_steps = 100000
-episodes=1000
+episodes=400
 #epsilon =0.5
 alpha = 0.1
 gamma =0.9
 
 #len_action=8
 #len_states =100
-buckets =(50,10,10,) # learn
+buckets =(50,5,5,) # learn
 
 #Q = np.zeros(shape=[len_states, len_action], dtype=np.float32)
 Q = np.zeros(buckets + (action_space.n,))

@@ -48,7 +48,7 @@ action_space = spaces.Discrete(8)
 observation_space = spaces.Box(low, high, dtype=np.float32)
 
 iteration_steps = 100000
-episodes=500
+episodes=400
 #epsilon =0.5
 alpha = 0.1
 gamma =0.9
@@ -198,7 +198,7 @@ for epi in range(episodes):
     delta=0.1
     
     #np.random.randint() --discrete uniform distribution
-    obs = np.array([np.random.randint(0, 60), np.random.randint(65, max_energy_fog), np.random.randint(65, max_energy_IoT)])
+    obs = np.array([np.random.randint(0, 80), np.random.randint(95, max_energy_fog), np.random.randint(95, max_energy_IoT)])
     #obs = np.array([np.random.randint(min_outage, max_outage), np.random.randint(min_energy_fog, max_energy_fog), np.random.randint(min_energy_IoT, max_energy_IoT)])
     cur_action = action_space.sample()
     obs, reward, done, dead, _ = step(cur_action)
@@ -220,7 +220,7 @@ for epi in range(episodes):
         #epsilon =1-(epi/1000)
 
         #exp decay
-        epsilon =float(np.exp(-0.0015*epi))
+        epsilon =float(np.exp(-0.009*epi))
 
         #print(epsilon)
         action = select_action(epsilon, current_state, Q)
@@ -268,10 +268,10 @@ for epi in range(episodes):
 #print("The Q matrix is: \n ")
 #print(Q)
 
-#line=plt.plot(aa)
-line=plt.plot(IoT_energy_holder)
-plt.setp(line, color='r', linewidth=1.0)
-plt.ylabel('Energy consumed by IoT end-device (%)')
+line=plt.plot(aa)
+#line=plt.plot(IoT_energy_holder)
+plt.setp(line, color='b', linewidth=1.0)
+plt.ylabel('Iterations per episode')
 plt.xlabel('Episodes')
 
 plt.show()
