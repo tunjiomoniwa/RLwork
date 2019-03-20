@@ -579,9 +579,9 @@ where~$\alpha$ is the learning rate, which determines the impact of new experien
 
 \emph{\textbf{Goal}}: The goal is for the agent to learn to minimize the overall cost~$\mathcal{C}$ in the tuple, $\langle$Outage communication cost ($\mathcal{P}_{out}$) /Energy status of the fog relay (J) /Energy status of the IoT sensor (J)$\rangle$, by keeping all nodes within the link alive while ensuring that the packets received in each transmission does not fall below the pre-defined threshold, which was set at 95\%.
 
-\emph{\textbf{Rewards}}: The reward function used is given in (\ref{eqn1b}) as
+\emph{\textbf{Rewards}}: The reward function used is given in (\ref{eqn1c}) as
 
- \begin{equation}\label{eqn1b}
+ \begin{equation}\label{eqn1c}
     R =
     \begin{cases}
       100, & \text{if}\ goal==Reached \\
@@ -629,7 +629,7 @@ The MFRA's learning process is summarized in Algorithm \ref{fiotRL}. A new learn
 
 
 \section{Experimental Setup}
-We carried out experimentation using the Python IDE 3.7.2, and considered a single agent to help us compare our proposed approach with the baseline. 
+We carried out experimentation using the Python IDE 3.7.2, and considered a single agent to help us compare our proposed approach with the baseline.
 
 \subsection{Baselines}
 The baseline~\cite{OmoniwaRelay2018} used for the comparative analysis applied a gradient descent approach to arrive at a local optima in minimizing the communication outage within the network. The baseline approach is known to arrive at a local optima, however, may take significant amount of time to converge.
@@ -684,7 +684,7 @@ We carried out comparison of the proposed approach, applying the Q-learning algo
 \label{pckt_sent}
 \end{figure}
 
-Overall, the performance of the proposed approach yields better results than the baseline. In Fig. \ref{num_iter}, we observe the number of iterations required for the agent to reach it's goal following policy~$\epsilon$. After 200 episodes, we achieve convergence. This implies that the agent learns to reach the goal state faster and more efficiently. Similarly, in Fig. \ref{rew_iter}, which shows the number of iterations per reward, convergence was attained at about 200 episodes. This implies that the agent learns to follow policies that maximize its total expected reward. Therefore, the proposed RL approach has shown good performance behaviour as compared to the previous approach. 
+Overall, the performance of the proposed approach yields better results than the baseline. In Fig. \ref{num_iter}, we observe the number of iterations required for the agent to reach it's goal following policy~$\epsilon$. After 200 episodes, we achieve convergence. This implies that the agent learns to reach the goal state faster and more efficiently. Similarly, in Fig. \ref{rew_iter}, which shows the number of iterations per reward, convergence was attained at about 200 episodes. This implies that the agent learns to follow policies that maximize its total expected reward. Therefore, the proposed RL approach has shown good performance behaviour as compared to the previous approach.
 
 
 \begin{figure}[!t]
@@ -709,7 +709,7 @@ Overall, the performance of the proposed approach yields better results than the
 \end{figure}
 
 \subsection{Energy utilization}
-We examine the impact of the learning process on the energy utilization of both the fog relay and the IoT sensor. Fig. \ref{energy_fog}, shows the energy consumed by the fog relay during transmission. We observe that at about 50 episodes, the fog relay consumes less than 10\% of its energy in moving and transmitting. This has significant impact to increasing the longevity of fog devices within the network. A similar behaviour is also observed for the IoT sensor shown in Fig. \ref{energy_iot}, where the IoT sensor after about 60 episodes, spends less than 10\% of its energy on transmission. The outcome of this experiments reveal that energy management within the IoT domain can be efficiently tackled using RL approach. 
+We examine the impact of the learning process on the energy utilization of both the fog relay and the IoT sensor. Fig. \ref{energy_fog}, shows the energy consumed by the fog relay during transmission. We observe that at about 50 episodes, the fog relay consumes less than 10\% of its energy in moving and transmitting. This has significant impact to increasing the longevity of fog devices within the network. A similar behaviour is also observed for the IoT sensor shown in Fig. \ref{energy_iot}, where the IoT sensor after about 60 episodes, spends less than 10\% of its energy on transmission. The outcome of this experiments reveal that energy management within the IoT domain can be efficiently tackled using RL approach.
 
 
 \begin{figure}[!t]
