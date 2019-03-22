@@ -642,8 +642,8 @@ To evaluate our proposed approach, we examine the convergence of our approach in
 \section{Results and Discussions}
 In this section, we present the results of the fog-based IoT system. First, we compare the proposed approach with the baseline, then we examine the number of steps required by the agent to reach it's goal over learning episodes. Finally, we evaluate the energy utilization of both the fog relay agent and the IoT sensor.
 
-\subsection{Proposed approach vs. baselines}
-We carried out comparison of the proposed approach, applying the Q-learning algorithm and the baseline, using the gradient descent algorithm. Simulations were done using Python IDE 3.7.2, and Table~\ref{table:simparameters} shows a summary of the parameters used. Fig. \ref{pckt_sent} shows the percentage of packets successfully transmitted, with each algorithm learning to minimize the number of packets lost over each episode. We observe that in the first 20 episode, the baseline had better performance than the proposed approach, however, for the remaining part of the episodes, the proposed approach out-performed the baseline. This signifies that the agent's exploration within the environment plays some significant role in improving the packets successfully transmitted. Convergence can be observed around 200th episodes where about 55\% - 100\% of transmitted packets are successfully received at the destination. Interestingly, we know that gradient descent methods may be slow to converge, but always surely converge to a local optima~\cite{OmoniwaRelay2018}. This is well depicted Fig. \ref{pckt_sent}, where around 1000th episode the baseline approach is able to successfully transmit about 75\% of packets.
+\subsection{Proposed approach vs. baseline}
+We carried out comparison of the proposed approach, applying the Q-learning algorithm and the baseline, using the gradient descent algorithm. Simulations were done using Python IDE 3.7.2, and Table~\ref{table:simparameters} shows a summary of the parameters used. Fig. \ref{pckt_sent} shows the percentage of packets successfully transmitted, with each algorithm learning to minimize the number of packets lost over each episode. We observe that in the first 20 episode, the baseline had better performance than the proposed approach, however, for the remaining part of the episodes, the proposed approach out-performed the baseline. This signifies that the agent's exploration within the environment plays some significant role in improving the packets successfully transmitted. Convergence can be observed around 200th episodes where about 55\% - 100\% of transmitted packets are successfully received at the destination. Interestingly, we know that gradient descent methods may be slow to converge, but always surely converge to a local optima~\cite{OmoniwaRelay2018}. This is well depicted in Fig. \ref{pckt_sent}, where around 1000th episode the baseline approach is able to successfully transmit about 75\% of packets.
 
 \begin{table}
 \small
@@ -655,7 +655,7 @@ We carried out comparison of the proposed approach, applying the Q-learning algo
  \textit{Parameter} & \textit{Values} \\
   \hline \hline
 
-   $D_{I}$ & 40 metres\\
+   $D_{I}$ & 35 metres\\
    $P_{I}$ & [0.001, 0.3] Watts \\
    $D_{S}$ & 35 metres\\
    $P_{R}$ & 0.3 Watts\\
@@ -666,6 +666,7 @@ We carried out comparison of the proposed approach, applying the Q-learning algo
    Pre-defined threshold $\kappa$ & 1\\
    Discount factor $\gamma$ & 0.9\\
    Learning rate $\alpha$ & 0.1\\
+   Precision~$\varepsilon_{GD}$ & 0.00001\\
    Episodes $N$ & 1000\\
    Iteration runs & 100000\\
    Policy $\epsilon$ & $e^{-0.0015N}$\\
@@ -682,6 +683,26 @@ We carried out comparison of the proposed approach, applying the Q-learning algo
 % via \DeclareGraphicsExtensions.
 \caption{Percentage of packets successfully transmitted.}
 \label{pckt_sent}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3.8in]{pckt_sent1.eps}
+ %where an .eps filename suffix will be assumed under latex,
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Percentage of packets successfully transmitted.}
+\label{pckt_sent1}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3.8in]{pckt_sent2.eps}
+ %where an .eps filename suffix will be assumed under latex,
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Percentage of packets successfully transmitted.}
+\label{pckt_sent2}
 \end{figure}
 
 Overall, the performance of the proposed approach yields better results than the baseline. In Fig. \ref{num_iter}, we observe the number of iterations required for the agent to reach it's goal following policy~$\epsilon$. After 200 episodes, we achieve convergence. This implies that the agent learns to reach the goal state faster and more efficiently. Similarly, in Fig. \ref{rew_iter}, which shows the number of iterations per reward, convergence was attained at about 200 episodes. This implies that the agent learns to follow policies that maximize its total expected reward. Therefore, the proposed RL approach has shown good performance behaviour as compared to the previous approach.
@@ -737,9 +758,9 @@ We examine the impact of the learning process on the energy utilization of both 
 
 \section{Related Works}
 Considering the dynamics and heterogeneity within the ultra-distributed IoT environment, it is important for communication devices which are mobile to move seamlessly without degrading quality of service (QoS). More so, the constrained devices should communicate efficiently without depleting all their energy by transmitting at high-power, which may have long-term consequences to the network. Several non-RL-based approaches have been proposed to optimize the communication performance in IoT based networks, however, when some parameters in the network are changed, these approaches may fail.
-The work in~\cite{OmoniwaRelay2018} considered a multi-tier fog-based IoT architecture where a mobile/static fog node acts as an amplify and forward relay that transmits received information from a IoT sensor node to a higher hierarchically-placed fog device, which offers some localized services. In order to minimize the outage in communication, an iterative algorithm based on the steepest descent method (SDM) was proposed to jointly optimize the mobility pattern and power-control parameters. However, the single-agent based work did not take into consideration the performance of the approach in a highly-decentralised IoT environment. Furthermore, each time the topology is changed, the agent will need to recompute the model in other to act optimally.
+The work in~\cite{OmoniwaRelay2018} considered a multi-tier fog-based IoT architecture where a mobile/static fog node acts as an amplify and forward relay that transmits received information from a IoT sensor node to a higher hierarchically-placed fog device, which offers some localized services. In order to minimize the outage in communication, an iterative algorithm based on the steepest descent method (SDM) was proposed to jointly optimize the mobility pattern and power-control parameters. However, the work did not take into consideration the performance of the approach in a decentralised IoT environment. Furthermore, each time the topology is changed, the agent will need to recompute the gradient in other to act optimally, which is infeasible to achieve.
 
-RL can be applied to a new environment, since the it allows the agent to learn, by take actions that will improve its long-term return. Furthermore, RL can be applied to multiple agents. In \cite{Wilhelmi2017}, a decentralised, multi-agent-based stateless Q-learning approach was proposed, where no information about neighbouring nodes are available to agents. Though the paper was able to improve aggregate throughput in the network, by allowing the networks modify both the transmission power and the channel used, however, high variability was observed in the throughput of the individual networks. Only eight agents were observed using a stateless Q-learning approach. The work did not adequately depict the distributed nature of the IoT network. Moreover, mobility of agents was completely ignored.
+RL can be applied to a new environment, since the it allows the agent to learn, by take actions that will improve its long-term return. Furthermore, RL can be applied to multiple agents. In \cite{Wilhelmi2017}, a decentralised, multi-agent-based stateless Q-learning approach was proposed, where no information about neighbouring nodes are available to agents. Though the paper was able to improve aggregate throughput in the network, by allowing the networks modify both the transmission power and the channel used, however, high variability was observed in the throughput of the individual networks. Only eight agents were observed using a stateless Q-learning approach. The work did not adequately depict the distributed nature of the IoT network. Moreover, topology dynamism was completely ignored.
 
 Several works in WSN have applied the decentralised RL technique. In \cite{Liang2009}, a multi-agent reinforcement learning-based multi-hop mesh cooperative (MRL-CC) mechanism for the improvement of some QoS metrics in the WSNs. Though the mobility of the cooperative nodes were taken into account when learning the optimal policy, the MRL-CC failed to consider the power dissipated by the power-constrained devices, as well as the overall outage in communication.
 
@@ -747,7 +768,7 @@ In \cite{Chen2008}, a reliable and energy-efficient routing (REER) protocol was 
 
 
 We present a decentralised reinforcement learning approach that adequately addresses some key performance issues within the IoT domain.
-The main task of our work is to minimize global outage in communication within a fog-based IoT network, by optimizing the power-control parameter of the potential mobile fog-relay agent (MFRA), as well as optimizing the position of each relaying agents in the network. As such, each MFRA is compelled to take certain actions that may influence its environment. However, the duration it takes the MFRA to learn is significantly influenced by the state space, as well as the possible set of actions~\cite{Dusparic2009}. The variables for the state, action and reward of an agent may be discrete or continuous, with the former represented as small interval of values which imply distinct levels~\cite{Yau2012}, and can easily be represented in a tabular form. However, it is difficult to represent continuous space using Q-learning tables. The work in \cite{Vucevic2007} considered a RL agent that explores continuous state and action space using Gaussian unit search behaviour. Other works~\cite{Dusparic2009, Cuayahuitl2006} considered the reduction of states by eliminating states that are unlikely to occur. However, this may pose a big risk especially in a highly dynamic environment. RL can be effective for learning action policies in discrete stochastic environments, but its efficiency can decay exponentially with increasing state space~\cite{Uther1998}. Our proposed problem can be observed to have continuous state-action pairs, and is approached by discretizing the state and action space.
+The main task of our work is to minimize global outage in communication within a fog-based IoT network, by optimizing the power-control parameter of the potential mobile fog-relay agent (MFRA), as well as optimizing the position of each relaying agents in the network. As such, each MFRA is compelled to take certain actions that may influence its environment. However, the duration it takes the MFRA to learn is significantly influenced by the state space, as well as the possible set of actions~\cite{Dusparic2009}. The variables for the state, action and reward of an agent may be discrete or continuous, with the former represented as small interval of values which imply distinct levels~\cite{Yau2012}, and can easily be represented in a tabular form. However, it is difficult to represent continuous space using q-learning tables. The work in \cite{Vucevic2007} considered a RL agent that explores continuous state and action space using Gaussian unit search behaviour. Other works~\cite{Dusparic2009, Cuayahuitl2006} considered the reduction of states by eliminating states that are unlikely to occur. However, this may pose a big risk especially in a highly dynamic environment. RL can be effective for learning action policies in discrete stochastic environments, but its efficiency can decay exponentially with increasing state space~\cite{Uther1998}. Our proposed problem is approached by discretizing the  continuous state space observed from the environment.
 
 
 In this paper, we assume the following.
