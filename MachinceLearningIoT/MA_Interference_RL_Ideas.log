@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  27 MAR 2019 10:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  2 APR 2019 16:07
 entering extended mode
-**./RL_Ideas.tex
-(RL_Ideas.tex
+**./MA_Interference_RL_Ideas.tex
+(MA_Interference_RL_Ideas.tex
 LaTeX2e <2018-12-01>
 (IEEEtran.cls
 Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
@@ -502,8 +502,12 @@ Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
 \ALG@tmplength=\skip65
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
-) (RL_Ideas.aux)
-\openout1 = `RL_Ideas.aux'.
+) (MA_Interference_RL_Ideas.aux
+
+LaTeX Warning: Label `eqn1b' multiply defined.
+
+)
+\openout1 = `MA_Interference_RL_Ideas.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 405.
 LaTeX Font Info:    ... okay on input line 405.
@@ -573,120 +577,26 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <24> not available
 \makeMPintoPDFobject=\count144
 \everyMPtoPDFconversion=\toks32
 )
-Underfull \hbox (badness 7722) in paragraph at lines 491--493
-[]\T1/ptm/b/it/9 Index Terms\T1/ptm/b/n/9 ---Reinforcement learn-ing (RL), Fog-
-based
+Underfull \hbox (badness 3849) in paragraph at lines 491--493
+[]\T1/ptm/b/it/9 Index Terms\T1/ptm/b/n/9 ---Reinforcement learn-ing (RL), Inte
+rnet-of-
  []
 
-[1{C:/Users/tunji/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
-
-
-]
-Package epstopdf Info: Source file: <ideafig1.eps>
-(epstopdf)                    date: 2019-02-04 10:03:50
-(epstopdf)                    size: 239786 bytes
-(epstopdf)             Output file: <ideafig1-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-02-04 10:03:50
-(epstopdf)                    size: 185141 bytes
-(epstopdf)             Command: <epstopdf --outfile=ideafig1-eps-converted-to.p
-df ideafig1.eps>
-(epstopdf)             \includegraphics on input line 530.
-Package epstopdf Info: Output file is already uptodate.
-<ideafig1-eps-converted-to.pdf, id=8, 678.535pt x 606.265pt>
-File: ideafig1-eps-converted-to.pdf Graphic file (type pdf)
-<use ideafig1-eps-converted-to.pdf>
-Package pdftex.def Info: ideafig1-eps-converted-to.pdf  used on input line 530.
-
-(pdftex.def)             Requested size: 231.26378pt x 206.6269pt.
-LaTeX Font Info:    Try loading font information for U+msa on input line 542.
-
+LaTeX Font Info:    Try loading font information for U+msa on input line 522.
 ("C:\Program Files\MiKTeX 2.90\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 542.
+LaTeX Font Info:    Try loading font information for U+msb on input line 522.
 
 ("C:\Program Files\MiKTeX 2.90\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [2 <./ideafig1-eps-converted-to.pdf>]
-Underfull \hbox (badness 4819) in paragraph at lines 577--578
+) [1{C:/Users/tunji/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+
+
+]
+Underfull \hbox (badness 4819) in paragraph at lines 557--558
 []\T1/ptm/m/n/10 Power-level: Choose power-level and trans-mit, $\OML/cmm/m/it/
 10 P$\T1/ptm/m/n/10 ,
- []
-
-[3]
-Package epstopdf Info: Source file: <pckt_sent.eps>
-(epstopdf)                    date: 2019-03-20 10:30:26
-(epstopdf)                    size: 51461 bytes
-(epstopdf)             Output file: <pckt_sent-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-03-20 10:34:12
-(epstopdf)                    size: 22611 bytes
-(epstopdf)             Command: <epstopdf --outfile=pckt_sent-eps-converted-to.
-pdf pckt_sent.eps>
-(epstopdf)             \includegraphics on input line 680.
-Package epstopdf Info: Output file is already uptodate.
-
-
-pdfTeX warning: pdflatex.exe (file ./pckt_sent-eps-converted-to.pdf): PDF inclu
-sion: found PDF version <1.7>, but at most version <1.5> allowed
-<pckt_sent-eps-converted-to.pdf, id=58, 462.72874pt x 346.29375pt>
-File: pckt_sent-eps-converted-to.pdf Graphic file (type pdf)
-<use pckt_sent-eps-converted-to.pdf>
-Package pdftex.def Info: pckt_sent-eps-converted-to.pdf  used on input line 680
-.
-(pdftex.def)             Requested size: 274.6262pt x 205.52158pt.
-
-Overfull \hbox (22.6262pt too wide) in paragraph at lines 680--684
- [][] 
- []
-
-Package epstopdf Info: Source file: <pckt_sent1.eps>
-(epstopdf)                    date: 2019-03-20 13:55:05
-(epstopdf)                    size: 46670 bytes
-(epstopdf)             Output file: <pckt_sent1-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-03-20 13:55:47
-(epstopdf)                    size: 21758 bytes
-(epstopdf)             Command: <epstopdf --outfile=pckt_sent1-eps-converted-to
-.pdf pckt_sent1.eps>
-(epstopdf)             \includegraphics on input line 690.
-Package epstopdf Info: Output file is already uptodate.
-
-
-pdfTeX warning: pdflatex.exe (file ./pckt_sent1-eps-converted-to.pdf): PDF incl
-usion: found PDF version <1.7>, but at most version <1.5> allowed
-<pckt_sent1-eps-converted-to.pdf, id=59, 462.72874pt x 346.29375pt>
-File: pckt_sent1-eps-converted-to.pdf Graphic file (type pdf)
-<use pckt_sent1-eps-converted-to.pdf>
-Package pdftex.def Info: pckt_sent1-eps-converted-to.pdf  used on input line 69
-0.
-(pdftex.def)             Requested size: 274.6262pt x 205.52158pt.
-
-Overfull \hbox (22.6262pt too wide) in paragraph at lines 690--694
- [][] 
- []
-
-Package epstopdf Info: Source file: <pckt_sent2.eps>
-(epstopdf)                    date: 2019-03-20 15:04:38
-(epstopdf)                    size: 63272 bytes
-(epstopdf)             Output file: <pckt_sent2-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-03-20 15:27:56
-(epstopdf)                    size: 24974 bytes
-(epstopdf)             Command: <epstopdf --outfile=pckt_sent2-eps-converted-to
-.pdf pckt_sent2.eps>
-(epstopdf)             \includegraphics on input line 700.
-Package epstopdf Info: Output file is already uptodate.
-
-
-pdfTeX warning: pdflatex.exe (file ./pckt_sent2-eps-converted-to.pdf): PDF incl
-usion: found PDF version <1.7>, but at most version <1.5> allowed
-<pckt_sent2-eps-converted-to.pdf, id=60, 462.72874pt x 346.29375pt>
-File: pckt_sent2-eps-converted-to.pdf Graphic file (type pdf)
-<use pckt_sent2-eps-converted-to.pdf>
-Package pdftex.def Info: pckt_sent2-eps-converted-to.pdf  used on input line 70
-0.
-(pdftex.def)             Requested size: 274.6262pt x 205.52158pt.
-
-Overfull \hbox (22.6262pt too wide) in paragraph at lines 700--704
- [][] 
  []
 
 Package epstopdf Info: Source file: <num_iter.eps>
@@ -697,16 +607,16 @@ Package epstopdf Info: Source file: <num_iter.eps>
 (epstopdf)                    size: 14818 bytes
 (epstopdf)             Command: <epstopdf --outfile=num_iter-eps-converted-to.p
 df num_iter.eps>
-(epstopdf)             \includegraphics on input line 713.
+(epstopdf)             \includegraphics on input line 640.
 Package epstopdf Info: Output file is already uptodate.
-<num_iter-eps-converted-to.pdf, id=61, 462.72874pt x 346.29375pt>
+<num_iter-eps-converted-to.pdf, id=19, 462.72874pt x 346.29375pt>
 File: num_iter-eps-converted-to.pdf Graphic file (type pdf)
 <use num_iter-eps-converted-to.pdf>
-Package pdftex.def Info: num_iter-eps-converted-to.pdf  used on input line 713.
+Package pdftex.def Info: num_iter-eps-converted-to.pdf  used on input line 640.
 
 (pdftex.def)             Requested size: 274.6262pt x 205.52158pt.
 
-Overfull \hbox (22.6262pt too wide) in paragraph at lines 713--717
+Overfull \hbox (22.6262pt too wide) in paragraph at lines 640--644
  [][] 
  []
 
@@ -718,21 +628,44 @@ Package epstopdf Info: Source file: <rew_iter.eps>
 (epstopdf)                    size: 14743 bytes
 (epstopdf)             Command: <epstopdf --outfile=rew_iter-eps-converted-to.p
 df rew_iter.eps>
-(epstopdf)             \includegraphics on input line 724.
+(epstopdf)             \includegraphics on input line 651.
 Package epstopdf Info: Output file is already uptodate.
-<rew_iter-eps-converted-to.pdf, id=62, 462.72874pt x 346.29375pt>
+<rew_iter-eps-converted-to.pdf, id=20, 462.72874pt x 346.29375pt>
 File: rew_iter-eps-converted-to.pdf Graphic file (type pdf)
 <use rew_iter-eps-converted-to.pdf>
-Package pdftex.def Info: rew_iter-eps-converted-to.pdf  used on input line 724.
+Package pdftex.def Info: rew_iter-eps-converted-to.pdf  used on input line 651.
 
 (pdftex.def)             Requested size: 274.6262pt x 205.52158pt.
 
-Overfull \hbox (22.6262pt too wide) in paragraph at lines 724--728
+Overfull \hbox (22.6262pt too wide) in paragraph at lines 651--655
  [][] 
  []
 
-[4 <./pckt_sent-eps-converted-to.pdf> <./pckt_sent1-eps-converted-to.pdf> <./pc
-kt_sent2-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <pckt_sent.eps>
+(epstopdf)                    date: 2019-03-20 10:30:26
+(epstopdf)                    size: 51461 bytes
+(epstopdf)             Output file: <pckt_sent-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-03-20 10:34:12
+(epstopdf)                    size: 22611 bytes
+(epstopdf)             Command: <epstopdf --outfile=pckt_sent-eps-converted-to.
+pdf pckt_sent.eps>
+(epstopdf)             \includegraphics on input line 661.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex.exe (file ./pckt_sent-eps-converted-to.pdf): PDF inclu
+sion: found PDF version <1.7>, but at most version <1.5> allowed
+<pckt_sent-eps-converted-to.pdf, id=21, 462.72874pt x 346.29375pt>
+File: pckt_sent-eps-converted-to.pdf Graphic file (type pdf)
+<use pckt_sent-eps-converted-to.pdf>
+Package pdftex.def Info: pckt_sent-eps-converted-to.pdf  used on input line 661
+.
+(pdftex.def)             Requested size: 274.6262pt x 205.52158pt.
+
+Overfull \hbox (22.6262pt too wide) in paragraph at lines 661--665
+ [][] 
+ []
+
 Package epstopdf Info: Source file: <energy_fog.eps>
 (epstopdf)                    date: 2019-03-19 09:43:36
 (epstopdf)                    size: 32970 bytes
@@ -741,16 +674,16 @@ Package epstopdf Info: Source file: <energy_fog.eps>
 (epstopdf)                    size: 20713 bytes
 (epstopdf)             Command: <epstopdf --outfile=energy_fog-eps-converted-to
 .pdf energy_fog.eps>
-(epstopdf)             \includegraphics on input line 738.
+(epstopdf)             \includegraphics on input line 671.
 Package epstopdf Info: Output file is already uptodate.
-<energy_fog-eps-converted-to.pdf, id=197, 462.72874pt x 346.29375pt>
+<energy_fog-eps-converted-to.pdf, id=22, 462.72874pt x 346.29375pt>
 File: energy_fog-eps-converted-to.pdf Graphic file (type pdf)
 <use energy_fog-eps-converted-to.pdf>
-Package pdftex.def Info: energy_fog-eps-converted-to.pdf  used on input line 73
-8.
+Package pdftex.def Info: energy_fog-eps-converted-to.pdf  used on input line 67
+1.
 (pdftex.def)             Requested size: 274.6262pt x 205.52158pt.
 
-Overfull \hbox (22.6262pt too wide) in paragraph at lines 738--742
+Overfull \hbox (22.6262pt too wide) in paragraph at lines 671--675
  [][] 
  []
 
@@ -762,54 +695,56 @@ Package epstopdf Info: Source file: <energy_iot.eps>
 (epstopdf)                    size: 20995 bytes
 (epstopdf)             Command: <epstopdf --outfile=energy_iot-eps-converted-to
 .pdf energy_iot.eps>
-(epstopdf)             \includegraphics on input line 748.
+(epstopdf)             \includegraphics on input line 681.
 Package epstopdf Info: Output file is already uptodate.
-<energy_iot-eps-converted-to.pdf, id=198, 462.72874pt x 346.29375pt>
+<energy_iot-eps-converted-to.pdf, id=23, 462.72874pt x 346.29375pt>
 File: energy_iot-eps-converted-to.pdf Graphic file (type pdf)
 <use energy_iot-eps-converted-to.pdf>
-Package pdftex.def Info: energy_iot-eps-converted-to.pdf  used on input line 74
-8.
+Package pdftex.def Info: energy_iot-eps-converted-to.pdf  used on input line 68
+1.
 (pdftex.def)             Requested size: 274.6262pt x 205.52158pt.
 
-Overfull \hbox (22.6262pt too wide) in paragraph at lines 748--752
+Overfull \hbox (22.6262pt too wide) in paragraph at lines 681--685
  [][] 
  []
 
-[5 <./num_iter-eps-converted-to.pdf> <./rew_iter-eps-converted-to.pdf> <./energ
-y_fog-eps-converted-to.pdf> <./energy_iot-eps-converted-to.pdf>] [6] [7
+[2 <./num_iter-eps-converted-to.pdf>] [3 <./rew_iter-eps-converted-to.pdf> <./p
+ckt_sent-eps-converted-to.pdf> <./energy_fog-eps-converted-to.pdf> <./energy_io
+t-eps-converted-to.pdf>] (MA_Interference_RL_Ideas.aux)
 
-]
-(RL_Ideas.aux) ) 
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 6596 strings out of 492946
- 97814 string characters out of 3135087
- 182812 words of memory out of 3000000
- 10320 multiletter control sequences out of 15000+200000
- 124886 words of font info for 133 fonts, out of 3000000 for 9000
+ 6563 strings out of 492946
+ 97210 string characters out of 3135087
+ 187781 words of memory out of 3000000
+ 10291 multiletter control sequences out of 15000+200000
+ 123750 words of font info for 132 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,19n,35p,1596b,297s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.90/fonts/enc/dvips/base/8r.enc}<C:/P
-rogram Files/MiKTeX 2.90/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program 
-Files/MiKTeX 2.90/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/M
-iKTeX 2.90/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.
-90/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.90/fonts
-/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/p
-ublic/amsfonts/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/public/am
-sfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/public/amsfonts/c
-m/cmr5.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/public/amsfonts/cm/cmr6.pf
-b><C:/Program Files/MiKTeX 2.90/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Pro
-gram Files/MiKTeX 2.90/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program File
-s/MiKTeX 2.90/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTe
-X 2.90/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.90/f
-onts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.90/fonts/typ
-e1/public/amsfonts/cm/cmsy9.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/publi
-c/amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/urw/tim
-es/utmb8a.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/urw/times/utmbi8a.pfb><
-C:/Program Files/MiKTeX 2.90/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files
-/MiKTeX 2.90/fonts/type1/urw/times/utmri8a.pfb>
-Output written on RL_Ideas.pdf (7 pages, 543312 bytes).
+ 42i,19n,35p,945b,303s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.90/fonts/enc/dvips/base/8r.enc}<C:/Program Files/M
+iKTeX 2.90/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2
+.90/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.90/fon
+ts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1
+/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/public/
+amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/public/amsfonts
+/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/public/amsfonts/cm/cmr1
+0.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:
+/Program Files/MiKTeX 2.90/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program 
+Files/MiKTeX 2.90/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiK
+TeX 2.90/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.90/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.90/fonts/t
+ype1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/pub
+lic/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/public/amsf
+onts/cm/cmsy9.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/public/amsfonts/sym
+bols/msbm10.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/urw/times/utmb8a.pfb>
+<C:/Program Files/MiKTeX 2.90/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Fil
+es/MiKTeX 2.90/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.90/f
+onts/type1/urw/times/utmri8a.pfb>
+Output written on MA_Interference_RL_Ideas.pdf (3 pages, 295999 bytes).
 PDF statistics:
- 391 PDF objects out of 1000 (max. 8388607)
+ 258 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
