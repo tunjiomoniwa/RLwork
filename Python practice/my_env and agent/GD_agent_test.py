@@ -57,7 +57,7 @@ class FogIoT:
 
         #len_action=8
         #len_states =100
-        self.buckets =(50,5,5,) # learn
+        self.buckets =(3,3,3,) # learn
 
         #Q = np.zeros(shape=[len_states, len_action], dtype=np.float32)
         self.Q = np.zeros(self.buckets + (self.action_space.n,))

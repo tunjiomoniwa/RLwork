@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  2 APR 2019 16:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  3 APR 2019 13:35
 entering extended mode
 **./MA_Interference_RL_Ideas.tex
 (MA_Interference_RL_Ideas.tex
@@ -599,130 +599,21 @@ Underfull \hbox (badness 4819) in paragraph at lines 557--558
 10 P$\T1/ptm/m/n/10 ,
  []
 
-Package epstopdf Info: Source file: <num_iter.eps>
-(epstopdf)                    date: 2019-03-19 09:43:36
-(epstopdf)                    size: 28000 bytes
-(epstopdf)             Output file: <num_iter-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-03-19 09:43:36
-(epstopdf)                    size: 14818 bytes
-(epstopdf)             Command: <epstopdf --outfile=num_iter-eps-converted-to.p
-df num_iter.eps>
-(epstopdf)             \includegraphics on input line 640.
-Package epstopdf Info: Output file is already uptodate.
-<num_iter-eps-converted-to.pdf, id=19, 462.72874pt x 346.29375pt>
-File: num_iter-eps-converted-to.pdf Graphic file (type pdf)
-<use num_iter-eps-converted-to.pdf>
-Package pdftex.def Info: num_iter-eps-converted-to.pdf  used on input line 640.
+[2] [3
 
-(pdftex.def)             Requested size: 274.6262pt x 205.52158pt.
-
-Overfull \hbox (22.6262pt too wide) in paragraph at lines 640--644
- [][] 
- []
-
-Package epstopdf Info: Source file: <rew_iter.eps>
-(epstopdf)                    date: 2019-03-19 09:43:36
-(epstopdf)                    size: 21905 bytes
-(epstopdf)             Output file: <rew_iter-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-03-19 09:43:36
-(epstopdf)                    size: 14743 bytes
-(epstopdf)             Command: <epstopdf --outfile=rew_iter-eps-converted-to.p
-df rew_iter.eps>
-(epstopdf)             \includegraphics on input line 651.
-Package epstopdf Info: Output file is already uptodate.
-<rew_iter-eps-converted-to.pdf, id=20, 462.72874pt x 346.29375pt>
-File: rew_iter-eps-converted-to.pdf Graphic file (type pdf)
-<use rew_iter-eps-converted-to.pdf>
-Package pdftex.def Info: rew_iter-eps-converted-to.pdf  used on input line 651.
-
-(pdftex.def)             Requested size: 274.6262pt x 205.52158pt.
-
-Overfull \hbox (22.6262pt too wide) in paragraph at lines 651--655
- [][] 
- []
-
-Package epstopdf Info: Source file: <pckt_sent.eps>
-(epstopdf)                    date: 2019-03-20 10:30:26
-(epstopdf)                    size: 51461 bytes
-(epstopdf)             Output file: <pckt_sent-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-03-20 10:34:12
-(epstopdf)                    size: 22611 bytes
-(epstopdf)             Command: <epstopdf --outfile=pckt_sent-eps-converted-to.
-pdf pckt_sent.eps>
-(epstopdf)             \includegraphics on input line 661.
-Package epstopdf Info: Output file is already uptodate.
-
-
-pdfTeX warning: pdflatex.exe (file ./pckt_sent-eps-converted-to.pdf): PDF inclu
-sion: found PDF version <1.7>, but at most version <1.5> allowed
-<pckt_sent-eps-converted-to.pdf, id=21, 462.72874pt x 346.29375pt>
-File: pckt_sent-eps-converted-to.pdf Graphic file (type pdf)
-<use pckt_sent-eps-converted-to.pdf>
-Package pdftex.def Info: pckt_sent-eps-converted-to.pdf  used on input line 661
-.
-(pdftex.def)             Requested size: 274.6262pt x 205.52158pt.
-
-Overfull \hbox (22.6262pt too wide) in paragraph at lines 661--665
- [][] 
- []
-
-Package epstopdf Info: Source file: <energy_fog.eps>
-(epstopdf)                    date: 2019-03-19 09:43:36
-(epstopdf)                    size: 32970 bytes
-(epstopdf)             Output file: <energy_fog-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-03-19 09:43:36
-(epstopdf)                    size: 20713 bytes
-(epstopdf)             Command: <epstopdf --outfile=energy_fog-eps-converted-to
-.pdf energy_fog.eps>
-(epstopdf)             \includegraphics on input line 671.
-Package epstopdf Info: Output file is already uptodate.
-<energy_fog-eps-converted-to.pdf, id=22, 462.72874pt x 346.29375pt>
-File: energy_fog-eps-converted-to.pdf Graphic file (type pdf)
-<use energy_fog-eps-converted-to.pdf>
-Package pdftex.def Info: energy_fog-eps-converted-to.pdf  used on input line 67
-1.
-(pdftex.def)             Requested size: 274.6262pt x 205.52158pt.
-
-Overfull \hbox (22.6262pt too wide) in paragraph at lines 671--675
- [][] 
- []
-
-Package epstopdf Info: Source file: <energy_iot.eps>
-(epstopdf)                    date: 2019-03-19 09:43:36
-(epstopdf)                    size: 32973 bytes
-(epstopdf)             Output file: <energy_iot-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-03-19 09:43:36
-(epstopdf)                    size: 20995 bytes
-(epstopdf)             Command: <epstopdf --outfile=energy_iot-eps-converted-to
-.pdf energy_iot.eps>
-(epstopdf)             \includegraphics on input line 681.
-Package epstopdf Info: Output file is already uptodate.
-<energy_iot-eps-converted-to.pdf, id=23, 462.72874pt x 346.29375pt>
-File: energy_iot-eps-converted-to.pdf Graphic file (type pdf)
-<use energy_iot-eps-converted-to.pdf>
-Package pdftex.def Info: energy_iot-eps-converted-to.pdf  used on input line 68
-1.
-(pdftex.def)             Requested size: 274.6262pt x 205.52158pt.
-
-Overfull \hbox (22.6262pt too wide) in paragraph at lines 681--685
- [][] 
- []
-
-[2 <./num_iter-eps-converted-to.pdf>] [3 <./rew_iter-eps-converted-to.pdf> <./p
-ckt_sent-eps-converted-to.pdf> <./energy_fog-eps-converted-to.pdf> <./energy_io
-t-eps-converted-to.pdf>] (MA_Interference_RL_Ideas.aux)
+] (MA_Interference_RL_Ideas.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6563 strings out of 492946
- 97210 string characters out of 3135087
- 187781 words of memory out of 3000000
- 10291 multiletter control sequences out of 15000+200000
+ 6536 strings out of 492946
+ 96311 string characters out of 3135087
+ 185781 words of memory out of 3000000
+ 10270 multiletter control sequences out of 15000+200000
  123750 words of font info for 132 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,19n,35p,945b,303s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,19n,35p,945b,301s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.90/fonts/enc/dvips/base/8r.enc}<C:/Program Files/M
 iKTeX 2.90/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2
 .90/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.90/fon
@@ -742,9 +633,9 @@ bols/msbm10.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/urw/times/utmb8a.pfb>
 <C:/Program Files/MiKTeX 2.90/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Fil
 es/MiKTeX 2.90/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.90/f
 onts/type1/urw/times/utmri8a.pfb>
-Output written on MA_Interference_RL_Ideas.pdf (3 pages, 295999 bytes).
+Output written on MA_Interference_RL_Ideas.pdf (3 pages, 210087 bytes).
 PDF statistics:
- 258 PDF objects out of 1000 (max. 8388607)
+ 93 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
