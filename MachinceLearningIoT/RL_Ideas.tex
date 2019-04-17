@@ -514,13 +514,7 @@ However, in order for devices to communicate efficiently with minimal outage (lo
 
 Moreover, since power-control mechanisms and smart mobility are critical in minimizing outages in communication, these devices should be able to learn when to increase, decrease, or maintain their power-levels or to move efficiently in order to increase the long-term performance of the network. More so, near-optimal actions from these devices are required to drive several smart cities applications, most importantly the Industrial IoT (IIoT), where industrial robots are deployed to act intelligibly in a dynamic industrial setting, and intelligent monitoring applications, where surveillance drones are deployed in militarised zones to meet stringent quality-of-service (QoS) requirements~\cite{OmoniwaRelay2018}.
 
-The work in~\cite{OmoniwaRelay2018} used an iterative algorithm based on the steepest descent method to address the problem in a multi-tier fog-based IoT architecture with a fog relay device which could adjust its position and power-control parameter in order to minimize outage in communication. However, optimization was carried out using the gradient descent method with slow convergence and unspecified states and actions set. In \cite{Simiscuka2018}, a relay and mobility scheme for IoT (REMOS-IoT) was proposed to improve the network QoS by effective resource management and decision-making.
-
-
-
-
-
-In~\cite{Mozaffari2016}, a clustering algorithm was used on eight (8) unmanned aerial vehicle (UAVs) to collect data from ground IoT devices with an objective of minimizing the energy consumed by the IoT devices during uplink communications. However, this work considered a centralized network where the locations of every IoT device and UAV were known to the controller. Considering the highly-distributed nature of deployed IoT devices, it becomes infeasible to manage devices centrally~\cite{Wilhelmi2017}. As such, reinforcement learning can be effectively deployed on fog devices to allow them to act independently based on their local experiences in the environment, i.e. each fog device should be able to learn independently without a central entity.
+An iterative algorithm based on the steepest descent method was proposed in~\cite{OmoniwaRelay2018} to optimize communication performance a multi-tier fog-based IoT architecture, where a fog device acts as an amplify and forward relay that transmits received information from a sensor node to a higher hierarchically-placed destination fog device, which offers some localized services. However, the centralized solution is not scalable with increasing number of devices. In \cite{Simiscuka2018}, a relay and mobility scheme for IoT (REMOS-IoT) was proposed to improve the network QoS by effective resource management and decision-making. The centralized REMOS-IoT algorithm introduced also considered the mobility of fog gateways/relays in improving the network throughput, however, energy management of these power-constrained IoT devices was not considered. Considering the highly-distributed nature of deployed IoT devices, it becomes infeasible to manage devices centrally~\cite{Wilhelmi2017}. As such, reinforcement learning can be effectively deployed on fog devices to allow them to act independently based on their local experiences in the environment, i.e. each fog device should be able to learn independently without a central entity.
 
 A decentralised stateless Q-learning approach was proposed in \cite{Wilhelmi2017} to improve aggregate throughput in four coexistent wireless networks (WN). Each WN was considered to be an agent running the stateless Q-learning algorithm with agents having action space as channel number, and transmit power
 (dBm). A lightweight distributed learning approach was proposed in \cite{Azari2018} to increase energy efficiency and reliability of IoT communications. There was significant performance improvement when the proposed algorithm was compared to a centralized optimized strategy. Transmit power, sub-channel, and spreading factor made up the action space. However, the system model in both works was rather hierarchical than distributed, ie. each WN was assumed to be an independent central entity with no specifications to what is learnt within each sub-network. Though IoT is defined as a large-scale network where various sub-networks coexist~\cite{Omoniwa2018}, applying RL to end-devices within sub-network may bring about meaningful performance improvement in the overall IoT network.
@@ -835,9 +829,6 @@ M. Chiang and T. Zhang, ``Fog and IoT: An Overview of Research Opportuinities,''
 \bibitem{OmoniwaRelay2018}
 B. Omoniwa et al., "An Optimal Relay Scheme for Outage Minimization in Fog-based Internet-of-Things (IoT) Networks," in IEEE Internet of Things Journal.
 
-\bibitem{Simiscuka2018}
-A. A. Simiscuka and G. Muntean, "A Relay and Mobility Scheme for QoS Improvement in IoT Communications," 2018 IEEE International Conference on Communications Workshops (ICC Workshops), Kansas City, MO, 2018, pp. 1-6.
-
 
 \bibitem{Wilhelmi2017}
 F. Wilhelmi, B. Bellalta, C. Cano and A. Jonsson, "Implications of decentralized Q-learning resource allocation in wireless networks," 2017 IEEE 28th Annual International Symposium on Personal, Indoor, and Mobile Radio Communications (PIMRC), Montreal, QC, 2017, pp. 1-5.
@@ -851,6 +842,8 @@ M. Gueriau and I. Dusparic, "SAMoD: Shared Autonomous Mobility-on-Demand using D
 \bibitem{Azari2018}
 A. Azari and C. Cavdar, "Self-organized low-power IoT networks: A distributed learning approach," arxiv
 
+\bibitem{Simiscuka2018}
+A. A. Simiscuka and G. Muntean, "A Relay and Mobility Scheme for QoS Improvement in IoT Communications," 2018 IEEE International Conference on Communications Workshops (ICC Workshops), Kansas City, MO, 2018, pp. 1-6.
 
 \bibitem{Dusparic2009}
 I. Dusparic and V. Cahill, ``Distributed W-Learning: Multi-Policy Optimization in Self-Organizing Systems,'' 2009 Third IEEE International Conference on Self-Adaptive and Self-Organizing Systems, San Francisco, CA, 2009, pp. 20-29.
