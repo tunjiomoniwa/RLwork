@@ -48,7 +48,7 @@ action_space = spaces.Discrete(8)
 observation_space = spaces.Box(low, high, dtype=np.float32)
 
 iteration_steps = 100000
-episodes=5#800
+episodes=100#800
 
 alpha = 0.1
 gamma =0.9

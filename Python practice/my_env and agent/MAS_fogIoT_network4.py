@@ -29,6 +29,7 @@ class FogIoT:
         self.ed6 = 0.005
         self.ed7 = 0.007
         self.ed8 = 0.009
+        self.ed9 = 0 #not moving or transmiting
 
 
         self.min_outage = 0
@@ -43,10 +44,30 @@ class FogIoT:
         self.goal_ef = 0
         self.goal_ei = 0
 
-        self.low = np.array([self.min_outage, self.min_energy_fog, self.min_energy_IoT])
-        self.high = np.array([self.max_outage, self.max_energy_fog, self.max_energy_IoT])
+        self.min_nebo = 0
+        self.max_nebo = 2 #means greater than one nebo
 
-        self.action_space = spaces.Discrete(8)
+        #new attributes
+        self.obs = np.array([np.random.randint(0, 80), np.random.randint(95, 100), np.random.randint(0, 3)])
+        self.ECI = 0
+        self.ECF = 0
+        self.sum_pack = 0
+        self.final_pack = 0
+        self.deltak = np.random.randint(-5, 5)
+        self.sensorpower= random.uniform(0, 0.3)
+        self.packets_holder = []
+        #fog_energy_holder = []
+        self.final_packets_holder = []
+        self.outage, self.ef, self.neigbour_support = self.obs
+        self.done = bool(self.outage< self.goal_outage and self.ef>self.goal_ef and self.neigbour_support == 0)
+        self.dead = bool(self.ef == 0)
+
+
+        self.low = np.array([self.min_outage, self.min_energy_fog, self.min_nebo])
+        self.high = np.array([self.max_outage, self.max_energy_fog, self.max_nebo])
+
+        self.action_space = spaces.Discrete(3)
+        self.trigger_space = spaces.Discrete(5)
         self.observation_space = spaces.Box(self.low, self.high, dtype=np.float32)
 
         self.iteration_steps = 100000
@@ -67,33 +88,40 @@ class FogIoT:
 
 
 
-    def step(self, action):
+    def step(self, action, IoTTrigger):
         assert self.action_space.contains(action), "%r (%s) invalid" % (action, type(action))
+        assert self.trigger_space.contains(IoTTrigger), "%r (%s) invalid" % (IoTTrigger, type(IoTTrigger))
         
-        #global self.obs, self.ECF, self.ECI, self.deltak, self.delta, self.sensorpower
-        outage, ef, ei = self.obs 
+        #global self.obs:#, self.ECF, self.ECI, self.deltak, self.delta, self.sensorpower
+        self.outage, self.ef, self.neigbour_support = self.obs 
         if action==0:
             self.delta = self.cdelta
             self.ECF= self.ed1 #Energy consumed by fog node
+            #self.ef -= self.ECF
         elif action==1:
             self.delta = -self.cdelta
             self.ECF= self.ed2
-        elif action==2:
+            #self.ef -= self.ECF
+        elif action==2: #not moving or transmiting
+            self.ECF= self.ed9
+            self.ef -= self.ECF
+
+        if IoTTrigger==0:
             self.sensorpower = self.p1
             self.ECI= self.ed3
-        elif action==3:
+        elif IoTTrigger==1:
             self.sensorpower = self.p2
             self.ECI= self.ed4
-        elif action==4:
+        elif IoTTrigger==2:
             self.sensorpower = self.p3
             self.ECI= self.ed5
-        elif action==5:
+        elif IoTTrigger==3:
             self.sensorpower = self.p4
             self.ECI= self.ed6
-        elif action==6:
+        elif IoTTrigger==4:
             self.sensorpower = self.p5
             self.ECI= self.ed7
-        else:
+        elif IoTTrigger==5:
             self.sensorpower = self.p6
             self.ECI= self.ed8
 
@@ -109,42 +137,35 @@ class FogIoT:
             self.PP= np.sqrt((self.Noise * self.gamma)/(self.Power_relay *(35 + self.deltak)**(-self.alpha)))
             self.ZZ = (-self.Noise * self.gamma)/(self.Power_sensor *(40+self.deltak)**(-self.alpha))
             self.p_out = 100*(1 - (1 + 2* (self.PP**2) * np.log(2))*(np.exp(self.ZZ)))
-            outage = np.max([0,self.p_out])
-        else:
-            self.Power_relay = 0.30 
-            self.dist_sensor =40
-            self.dist_dest = 35
-            self.alpha = 3
-            self.Noise = 100*(10**-7)
-            self.gamma = 1
+            self.outage = np.max([0,self.p_out])
+        elif action == 2:
+            self.p_out = 100
+            self.outage = np.max([0,self.p_out])
 
-            self.PP= np.sqrt((self.Noise * self.gamma)/(self.Power_relay *(self.dist_dest)**(-self.alpha)))
-            self.ZZ = (-self.Noise * self.gamma)/(self.sensorpower *(self.dist_sensor)**(-self.alpha))
-            self.p_out = 100*(1 - (1 + 2* (self.PP**2) * np.log(2))*(np.exp(self.ZZ)))
-            outage = np.max([0,self.p_out])
 
-        if ef==0 or ei==0:
-            outage = self.max_outage
+        if self.ef==0:
+            self.outage = self.max_outage
             
-        outage = np.clip(outage, self.min_outage, self.max_outage)
+        self.outage = np.clip(self.outage, self.min_outage, self.max_outage)
 
 
-        ef -= self.ECF
-        ei -= self.ECI
-        ef = np.clip(ef, self.min_energy_fog, self.max_energy_fog)
-        ei = np.clip(ei, self.min_energy_IoT, self.max_energy_IoT)
+        self.ef -= self.ECF
         
-        done = bool(outage< self.goal_outage and ef>self.goal_ef and ei> self.goal_ei)
-        dead = bool(ef == 0 or ei == 0)
-        if done:
+        self.ef = np.clip(self.ef, self.min_energy_fog, self.max_energy_fog)
+        
+        self.neigbour_support = np.random.randint(0, 3)
+        
+        self.done = bool(self.outage< self.goal_outage and self.ef>self.goal_ef)
+        self.dead = bool(self.ef == 0)
+        if self.done:
             rew = 100
         else:
             rew = 0
-        reward = rew
+        self.reward = rew
 
 
-        self.obs = (outage, ef, ei)
-        return np.array(self.obs), reward, done, dead, {}
+        self.obs = (self.outage, self.ef, self.neigbour_support)
+        return np.array(self.obs), self.reward, self.done, self.dead, {}
         
 
         
@@ -176,32 +197,6 @@ class FogIoT:
             action = np.argmax(self.Q[state]) # Exploit learned values
         return action
 
-    def runGD(self,colorx, cutoff, labelx):
-        self.cur_x = 0.7 # The algorithm starts at x=3
-        self.d1= 35
-        self.d2 =35
-        self.rate = 0.08 # Learning rate
-        self.precision = 0.00001 #This tells us when to stop the algorithm
-        self.previous_step_size = 1 #
-        self.max_iters = 1500 # maximum number of iterations
-        self.iters = 0 #iteration counter
-
-        #Gradient of our function
-        self.df = lambda x: (-2*10**-6)* np.exp((-6.66667*10**-7) *(x + 35)**3) * (x + 35)**2 + (2.66667*10**-12)* np.exp((-6.66667*10**-7 )*(x + 35)**3) *((x + 35)**5)* np.log(0.000816497 * np.sqrt((x + 35)**3)) - (4*10**-6)* np.exp((-6.66667*10**-7)*(x + 35)**3) * ((x + 35)**2)* np.log(0.000816497*(np.sqrt((x + 35)**3)))
-
-        self.rec_pct_gd = []
-        while self.previous_step_size > self.precision and self.iters < self.max_iters and  self.cur_x > cutoff:
-            self.prev_x = self.cur_x #Store current x value in prev_x
-            self.cur_x = self.cur_x - self.rate * self.df(self.prev_x) #Grad descent
-            self.previous_step_size = abs(self.cur_x - self.prev_x) #Change in x
-            self.iters = self.iters+1 #iteration count
-            print("Iteration",self.iters,"\nX value is",self.cur_x) #Print iterations
-            self.gout = max(0,100*self.cur_x)
-            self.rec_pct_gd.append(100- self.gout)
-             
-        self.line, =plt.plot(self.rec_pct_gd, label=labelx)
-        plt.setp(self.line, color= colorx, linewidth=1.0)
-        
 
     def runRL(self,colorx, cutoff, labelx):
         self.packets_holder = []
@@ -220,11 +215,12 @@ class FogIoT:
             #self.delta=0.1
             self.dd=0
             #np.random.randint() --discrete uniform distribution
-            self.obs = np.array([np.random.randint(0, 80), np.random.randint(95, self.max_energy_fog), np.random.randint(95, self.max_energy_IoT)])
+            self.obs = np.array([np.random.randint(0, 80), np.random.randint(95, self.max_energy_fog), np.random.randint(0, 2)])
             
 
             cur_action = self.action_space.sample()
-            obs, reward, done, dead, _ = self.step(cur_action)
+            trigger = self.trigger_space.sample()
+            obs, reward, done, dead, _ = self.step(cur_action, trigger)
             #print(obs)
 
             current_state  = self.grouping(obs)
@@ -250,7 +246,8 @@ class FogIoT:
 
                 #print(epsilon)
                 action = self.select_action(self.epsilon, current_state)
-                obs, reward, done, dead, _ = self.step(action)
+                triggerx = self.trigger_space.sample()
+                obs, reward, done, dead, _ = self.step(action, triggerx)
                  
                 
 
@@ -299,61 +296,38 @@ class FogIoT:
         
 
 
-kk1 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
-data1 = kk1.runRL('b', 1000, "Agent - 1")
+dc1 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
+data1 = dc1.runRL('b', 1000, "Agent - 1")
 
-kk2 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
-data2 = kk2.runRL('g', 1000, "Agent - 2")
+dc2 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
+data2 = dc2.runRL('g', 1000, "Agent - 2")
 
-arr_fog1= kk1.final_packets_holder
-arr_fog2= kk2.final_packets_holder
+arr_fogdc1= dc1.final_packets_holder
+arr_fogdc2= dc2.final_packets_holder
 #print(arr_fog1)
 #print(arr_fog2)
 
-central = np.maximum(arr_fog1, arr_fog2)  #centralized picking best actions
-#########
-
-store =[]
-for inde in range(100):
-    
-    if np.random.randint(0,10)>5:
-        ffa =arr_fog1[inde]
-    else:
-        ffa=arr_fog2[inde]
-    store.append(ffa)
-
-roundy =[]
-for indr in range(100):
-    
-    if indr%2==0:
-        ffc =arr_fog1[indr]
-    else:
-        ffc=arr_fog2[indr]
-    roundy.append(ffc)
-
+decentralized = np.maximum(arr_fog1dc, arr_fogdc2)  #packets received successfully
 
 #####
-sumfog1 = np.sum(arr_fog1)
-sumfog2 = np.sum(arr_fog2)
-sumRandselect = np.sum(store)
-sumCentral = np.sum(central)
-sumRound = np.sum(roundy)
+sumfogdc1 = np.sum(arr_fogdc1)
+sumfogdc2 = np.sum(arr_fogdc2)
+
+RLdecentralized = np.sum(decentralized)
 
 
-print("Sum of packets fog 1#", sumfog1)
-print("Sum of packets fog 2#", sumfog2)
-print("Sum of packets Random Select scheme#", sumRandselect)
-print("Sum of packets Centralized scheme#", sumCentral)
-print("Sum of packets Round Robin scheme#", sumRound)
+print("Sum of packets fog 1#", sumfogdc1)
+print("Sum of packets fog 2#", sumfogdc2)
 
-#plt.plot(store, color='red')
+print("Sum of packets Decentralized RL scheme#", RLdecentralized)
+
+
+
 
 plt.legend([kk1.line1, kk2.line1], ["Agent - 1", "Agent - 2"])
 plt.ylabel('Packets successfully  transmitted (%)')
 plt.xlabel('Episodes')
 ##
 plt.show()
-##    
-##
 
 

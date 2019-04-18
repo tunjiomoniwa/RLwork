@@ -45,11 +45,13 @@ Q = [[7, 5],
 ##kk = np.random.randint(0, 99)
 ##print(kk)
 
+##x =np.array([2,3,8])
+##y=np.array([-2,0,6])
 x =[2,3,8]
 y=[-2,0,6]
-sumx = np.sum(x)
+sumx = np.add(x,y)
 
-##print(sumx)
+print(sumx)
 ##
 ##store =[]
 ##for inde in range(3):
@@ -74,9 +76,5 @@ sumx = np.sum(x)
 ##print(roundy)
 ##        
 ##print(roundy[1])
-
-list = ['a','b']#[1, 3, 5, 7, 9] 
-   
-# Using for loop 
-for i in list: 
-    print(i) 
+##for kk in range(10):
+##    print(np.random.randint(0, 3))
