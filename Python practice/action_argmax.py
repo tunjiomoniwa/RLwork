@@ -2,6 +2,7 @@ import numpy as np
 import pylab as plt
 import math
 import random
+import pandas as pd
 from random import randint
 
 
@@ -47,11 +48,11 @@ Q = [[7, 5],
 
 ##x =np.array([2,3,8])
 ##y=np.array([-2,0,6])
-x =[2,3,8]
-y=[-2,0,6]
-sumx = np.add(x,y)
+##x =[2,3,8]
+##y=[-2,0,6]
+##addx = np.add(x,y)
 
-print(sumx)
+
 ##
 ##store =[]
 ##for inde in range(3):
@@ -78,3 +79,7 @@ print(sumx)
 ##print(roundy[1])
 ##for kk in range(10):
 ##    print(np.random.randint(0, 3))
+print(np.random.rand(10, 3))
+df = pd.DataFrame(np.random.rand(10, 3), columns = ['A', 'B', 'C'])
+df.plot.box(grid = True)
+plt.show()

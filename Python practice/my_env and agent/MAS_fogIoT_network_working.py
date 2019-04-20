@@ -1,5 +1,6 @@
 import numpy as np
 import pylab as plt
+import pandas as pd
 from collections import deque
 from collections import defaultdict
 from tjays import spaces
@@ -109,21 +110,27 @@ class FogIoT:
         if IoTTrigger==0:
             self.sensorpower = self.p1
             self.ECI= self.ed3
+            self.redundant = 0
         elif IoTTrigger==1:
             self.sensorpower = self.p2
             self.ECI= self.ed4
+            self.redundant = 1
         elif IoTTrigger==2:
             self.sensorpower = self.p3
             self.ECI= self.ed5
+            self.redundant = 2
         elif IoTTrigger==3:
             self.sensorpower = self.p4
             self.ECI= self.ed6
+            self.redundant = 3
         elif IoTTrigger==4:
             self.sensorpower = self.p5
             self.ECI= self.ed7
+            self.redundant = 4
         elif IoTTrigger==5:
             self.sensorpower = self.p6
             self.ECI= self.ed8
+            self.redundant = 5
 
         if action==0 or action==1:
             self.Power_sensor = 0.1
@@ -153,7 +160,7 @@ class FogIoT:
         
         self.ef = np.clip(self.ef, self.min_energy_fog, self.max_energy_fog)
         
-        self.neigbour_support = np.random.randint(0, 3)
+        self.neigbour_support = self.redundant
         
         self.done = bool(self.outage< self.goal_outage and self.ef>self.goal_ef)
         self.dead = bool(self.ef == 0)
@@ -215,7 +222,7 @@ class FogIoT:
             #self.delta=0.1
             self.dd=0
             #np.random.randint() --discrete uniform distribution
-            self.obs = np.array([np.random.randint(0, 80), np.random.randint(95, self.max_energy_fog), np.random.randint(0, 2)])
+            self.obs = np.array([np.random.randint(0, 80), np.random.randint(95, self.max_energy_fog), np.random.randint(0, 5)])
             
 
             cur_action = self.action_space.sample()
@@ -258,7 +265,7 @@ class FogIoT:
                 reward_tj = reward#self.map_reward(new_state)
                 #print(obs[0])
                 #print(new_state)
-                self.sum_pack+=(100 - obs[0])
+                #self.sum_pack+=(100 - obs[0])
                 
            
                 # do learning thingy
@@ -277,17 +284,18 @@ class FogIoT:
                 if dead:
                     #print("No more communications")
                     break
-            self.ave_pack = self.sum_pack/iter
-            self.final_pack = (100 - obs[0])
-            self.fog_cons = 100 - obs[1]
-            #print("End of episode #",epi, "  in ", iter , "iterations")
-            self.packets_holder.append(self.ave_pack)
-            self.final_packets_holder.append(self.final_pack)
-            self.fog_energy_holderk.append(self.fog_cons)
+            if epi>59:
+                #self.ave_pack = self.sum_pack/iter
+                self.final_pack = (100 - obs[0])
+                self.fog_cons = 100 - obs[1]
+                #print("End of episode #",epi, "  in ", iter , "iterations")
+                #self.packets_holder.append(self.ave_pack)
+                self.final_packets_holder.append(self.final_pack)
+                self.fog_energy_holderk.append(self.fog_cons)
         #print(self.final_packets_holder)  
         #self.line2, =plt.plot(self.packets_holder, label=labelx)
-        self.line1, =plt.plot(self.final_packets_holder, label=labelx)
-        plt.setp(self.line1, color= colorx, linewidth=1.0)
+        #self.line1, =plt.plot(self.final_packets_holder, label=labelx)
+        #plt.setp(self.line1, color= colorx, linewidth=1.0)
         #plt.setp(self.line2, color= colory, linewidth=1.0,  linestyle='dashed')
         
 
@@ -309,7 +317,7 @@ class FogIoT:
             #self.delta=0.1
             self.dd=0
             #np.random.randint() --discrete uniform distribution
-            self.obs = np.array([np.random.randint(0, 80), np.random.randint(95, self.max_energy_fog), np.random.randint(0, 2)])
+            self.obs = np.array([np.random.randint(0, 80), np.random.randint(95, self.max_energy_fog), np.random.randint(0, 5)])
             
 
             cur_action = self.action_space.sample()
@@ -352,7 +360,7 @@ class FogIoT:
                 reward_tj = reward#self.map_reward(new_state)
                 #print(obs[0])
                 #print(new_state)
-                self.sum_pack+=(100 - obs[0])
+                #self.sum_pack+=(100 - obs[0])
                 
            
                 # do learning thingy
@@ -374,112 +382,140 @@ class FogIoT:
                 if dead:
                     #print("No more communications")
                     break
-            self.ave_pack = self.sum_pack/iter
-            self.final_pack = (100 - obs[0])
-            self.fog_cons = 100 - obs[1]
-            #print("End of episode #",epi, "  in ", iter , "iterations")
-            self.packets_holder.append(self.ave_pack)
-            self.final_packets_holder.append(self.final_pack)
-            self.fog_energy_holder.append(self.fog_cons)
+            if epi>59:
+                #self.ave_pack = self.sum_pack/iter
+                self.final_pack = (100 - obs[0])
+                self.fog_cons = 100 - obs[1]
+                #print("End of episode #",epi, "  in ", iter , "iterations")
+                #self.packets_holder.append(self.ave_pack)
+                self.final_packets_holder.append(self.final_pack)
+                self.fog_energy_holder.append(self.fog_cons)
         #print(self.final_packets_holder)  
         #self.line2, =plt.plot(self.packets_holder, label=labelx)
-        self.line1, =plt.plot(self.final_packets_holder, label=labelx)
-        plt.setp(self.line1, color= colorx, linewidth=1.0)
+        #self.line1, =plt.plot(self.final_packets_holder, label=labelx)
+        #plt.setp(self.line1, color= colorx, linewidth=1.0)
         #plt.setp(self.line2, color= colory, linewidth=1.0,  linestyle='dashed')
         
+#print('RLdecentralized', '|', 'Rule-based + Centralized', '|', 'Rule-based + Random', '|', 'Rule-based + Round Robin', '|', 'Energy Centralized', '|', 'Energy RL decentralized')
+boxcontainer1 =[]
+boxcontainer2 =[]
+for experiments in range(49):
+    pp=0
+    ppenergy=0
+    print('Experiment #',experiments + 1)
+    kk1 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
+    data1 = kk1.runCentral('b', 1000, "Agent - 1")
+
+    kk2 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
+    data2 = kk2.runCentral('g', 1000, "Agent - 2")
+
+    arr_fog1= kk1.final_packets_holder
+    arr_fog2= kk2.final_packets_holder
+
+    energy_arr_fog1= kk1.fog_energy_holderk
+    energy_arr_fog2= kk2.fog_energy_holderk
 
 
-kk1 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
-data1 = kk1.runCentral('b', 1000, "Agent - 1")
+    central = np.maximum(arr_fog1, arr_fog2)  #centralized picking best actions
+    #########
+    energy_central = np.add(energy_arr_fog1, energy_arr_fog2)
 
-kk2 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
-data2 = kk2.runCentral('g', 1000, "Agent - 2")
+    store =[]
+    for inde in range(40):
+        
+        if np.random.randint(0,10)>5:
+            ffa =arr_fog1[inde]
+        else:
+            ffa=arr_fog2[inde]
+        store.append(ffa)
 
-arr_fog1= kk1.final_packets_holder
-arr_fog2= kk2.final_packets_holder
+    roundy =[]
+    for indr in range(40):
+        
+        if indr%2==0:
+            ffc =arr_fog1[indr]
+        else:
+            ffc=arr_fog2[indr]
+        roundy.append(ffc)
 
-energy_arr_fog1= kk1.fog_energy_holderk
-energy_arr_fog2= kk2.fog_energy_holderk
+    ###################
 
+    dc1 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
+    data1 = dc1.runRL('b', 1000, "Agent - 1")
 
-central = np.maximum(arr_fog1, arr_fog2)  #centralized picking best actions
-#########
-energy_central = np.add(energy_arr_fog1, energy_arr_fog2)
+    dc2 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
+    data2 = dc2.runRL('g', 1000, "Agent - 2")
 
-store =[]
-for inde in range(100):
-    
-    if np.random.randint(0,10)>5:
-        ffa =arr_fog1[inde]
-    else:
-        ffa=arr_fog2[inde]
-    store.append(ffa)
+    arr_fogdc1= dc1.final_packets_holder
+    arr_fogdc2= dc2.final_packets_holder
 
-roundy =[]
-for indr in range(100):
-    
-    if indr%2==0:
-        ffc =arr_fog1[indr]
-    else:
-        ffc=arr_fog2[indr]
-    roundy.append(ffc)
+    energy_arr_fogdc1 = dc1.fog_energy_holder
+    energy_arr_fogdc2 = dc1.fog_energy_holder
 
-###################
+    #print(arr_fog1)
+    #print(arr_fog2)
 
-dc1 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
-data1 = dc1.runRL('b', 1000, "Agent - 1")
+    decentralized = np.maximum(arr_fogdc1, arr_fogdc2)  #packets received successfully
 
-dc2 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
-data2 = dc2.runRL('g', 1000, "Agent - 2")
+    energy_decentralized = np.add(energy_arr_fogdc1, energy_arr_fogdc2)
+    #####
+    sumfogdc1 = np.sum(arr_fogdc1)
+    sumfogdc2 = np.sum(arr_fogdc2)
 
-arr_fogdc1= dc1.final_packets_holder
-arr_fogdc2= dc2.final_packets_holder
-
-energy_arr_fogdc1 = dc1.fog_energy_holder
-energy_arr_fogdc2 = dc1.fog_energy_holder
-
-#print(arr_fog1)
-#print(arr_fog2)
-
-decentralized = np.maximum(arr_fogdc1, arr_fogdc2)  #packets received successfully
-
-energy_decentralized = np.add(energy_arr_fogdc1, energy_arr_fogdc2)
-#####
-sumfogdc1 = np.sum(arr_fogdc1)
-sumfogdc2 = np.sum(arr_fogdc2)
-
-RLdecentralized = np.sum(decentralized)
+    RLdecentralized = np.sum(decentralized)
 
 
-#print("Sum of packets fog 1#", sumfogdc1)
-#print("Sum of packets fog 2#", sumfogdc2)
+    #print("Sum of packets fog 1#", sumfogdc1)
+    #print("Sum of packets fog 2#", sumfogdc2)
 
-print("Sum of packets Decentralized RL scheme#", RLdecentralized)
+   
 
 
 
-##### Centralized result
-sumfog1 = np.sum(arr_fog1)
-sumfog2 = np.sum(arr_fog2)
-sumRandselect = np.sum(store)
-sumCentral = np.sum(central)
-sumRound = np.sum(roundy)
-sumCentralEnergy = np.sum(energy_central)
-sumDecentralizedEnergy = np.sum(energy_decentralized)
+    ##### Centralized result
+    sumfog1 = np.sum(arr_fog1)
+    sumfog2 = np.sum(arr_fog2)
+    sumRandselect = np.sum(store)
+    sumCentral = np.sum(central)
+    sumRound = np.sum(roundy)
+    sumCentralEnergy = np.sum(energy_central)
+    sumDecentralizedEnergy = np.sum(energy_decentralized)
 
-#print("Sum of packets fog 1#", sumfog1)
-#print("Sum of packets fog 2#", sumfog2)
-print("Sum of packets Random Select scheme#", sumRandselect)
-print("Sum of packets Centralized scheme#", sumCentral)
-print("Sum of packets Round Robin scheme#", sumRound)
-print("Energy consumed in centralized system with 2 agents#", sumCentralEnergy)
-print("Energy consumed in RL decentralized system with 2 agents#", sumDecentralizedEnergy)
+    #print("Sum of packets fog 1#", sumfog1)
+    #print("Sum of packets fog 2#", sumfog2)
+##    print("Sum of packets Decentralized RL scheme#", RLdecentralized)
+##    print("Sum of packets Rule-based + Centralized selection scheme#", sumCentral)
+##    print("Sum of packets Rule-based + Random selection scheme#", sumRandselect)
+##    print("Sum of packets Rule-based + Round Robin scheme#", sumRound)
+##    print("Energy consumed in centralized system with 2 agents#", sumCentralEnergy)
+##    print("Energy consumed in RL decentralized system with 2 agents#", sumDecentralizedEnergy)
+##    print(RLdecentralized, sumCentral, sumRandselect, sumRound, sumCentralEnergy, sumDecentralizedEnergy)
+    pp = [RLdecentralized/40, sumCentral/40, sumRandselect/40, sumRound/40]
+    ppenergy = [sumDecentralizedEnergy/40, sumCentralEnergy/40]
+    boxcontainer1.append(pp)
+    boxcontainer2.append(ppenergy)
+#print(boxcontainer)
+     
+plt.figure(1)
+df1 = pd.DataFrame(boxcontainer1, columns = ['RL', 'RB_CS', 'RB_R', 'RB_RR'])
+df1.plot.box(grid = True)
+plt.ylabel('Packets successfully  transmitted (%)')
+plt.xlabel('RL vs. Baselines')
 
+
+plt.figure(2)
+df2 = pd.DataFrame(boxcontainer2, columns = ['Energy_RL', 'Energy_C'])
+df2.plot.box(grid = True)
+plt.ylabel('Energy consumed by fog agents (%)')
+plt.xlabel('RL vs. Baseline')
+
+
+plt.show()
 #plt.plot(store, color='red')
 
 #plt.legend([kk1.line1, kk2.line1], ["Agent - 1", "Agent - 2"])
-#plt.ylabel('Packets successfully  transmitted (%)')
-#plt.xlabel('Episodes')
+##plt.ylabel('Packets successfully  transmitted (%)')
+##plt.xlabel('Episodes')
 ##
 #plt.show()
 ##    
