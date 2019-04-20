@@ -50,7 +50,7 @@ class FogIoT:
         self.observation_space = spaces.Box(self.low, self.high, dtype=np.float32)
 
         self.iteration_steps = 100000
-        self.episodes=1000
+        self.episodes=100
 
         self.alpha = 0.1
         self.gamma =0.9
@@ -147,6 +147,7 @@ class FogIoT:
         return np.array(self.obs), reward, done, dead, {}
         
 
+        
     def grouping(self, obs):
         upper_bounds = [self.observation_space.high[0], self.observation_space.high[1], self.observation_space.high[2]]
         lower_bounds = [self.observation_space.low[0], self.observation_space.low[1], self.observation_space.low[2]]
@@ -176,13 +177,13 @@ class FogIoT:
         return action
 
     def runGD(self,colorx, cutoff, labelx):
-        self.cur_x = 0.5 # The algorithm starts at x=3
+        self.cur_x = 0.7 # The algorithm starts at x=3
         self.d1= 35
         self.d2 =35
         self.rate = 0.08 # Learning rate
         self.precision = 0.00001 #This tells us when to stop the algorithm
         self.previous_step_size = 1 #
-        self.max_iters = 1000 # maximum number of iterations
+        self.max_iters = 1500 # maximum number of iterations
         self.iters = 0 #iteration counter
 
         #Gradient of our function
@@ -195,7 +196,8 @@ class FogIoT:
             self.previous_step_size = abs(self.cur_x - self.prev_x) #Change in x
             self.iters = self.iters+1 #iteration count
             print("Iteration",self.iters,"\nX value is",self.cur_x) #Print iterations
-            self.rec_pct_gd.append(100- 100*self.cur_x)
+            self.gout = max(0,100*self.cur_x)
+            self.rec_pct_gd.append(100- self.gout)
              
         self.line, =plt.plot(self.rec_pct_gd, label=labelx)
         plt.setp(self.line, color= colorx, linewidth=1.0)
@@ -204,7 +206,7 @@ class FogIoT:
     def runRL(self,colorx, cutoff, labelx):
         self.packets_holder = []
         #fog_energy_holder = []
-        #self.fog_energy_holder = []
+        self.final_packets_holder = []
 
         for epi in range(self.episodes):
 
@@ -233,6 +235,7 @@ class FogIoT:
             
             iter=0
             self.sum_pack = 0
+            self.final_pack = 0
             while ((iter < self.iteration_steps) and  not done):#(current_state[0]>=8 and current_state[1]>0 and current_state[2]> 0)): #current_state[0]!= 0):
 
                 iter+=1
@@ -274,36 +277,83 @@ class FogIoT:
                 
 
                 if done:
-                    print("Reached goal state")
+                    #print("Reached goal state")
                     #print(reward_tj)
                     break
                 if dead:
-                    print("No more communications")
+                    #print("No more communications")
                     break
             self.ave_pack = self.sum_pack/iter
-            self.final_pckt = (100 - obs[0])
-            print("End of episode #",epi, "  in ", iter , "iterations")
-            self.packets_holder.append(self.final_pckt)
-        self.line, =plt.plot(self.packets_holder, label=labelx)
-        plt.setp(self.line, color= colorx, linewidth=1.0)
+            self.final_pack = (100 - obs[0])
+            #print("End of episode #",epi, "  in ", iter , "iterations")
+            self.packets_holder.append(self.ave_pack)
+            self.final_packets_holder.append(self.final_pack)
+        #print(self.final_packets_holder)  
+        #self.line2, =plt.plot(self.packets_holder, label=labelx)
+        self.line1, =plt.plot(self.final_packets_holder, label=labelx)
+        plt.setp(self.line1, color= colorx, linewidth=1.0)
+        #plt.setp(self.line2, color= colory, linewidth=1.0,  linestyle='dashed')
         
+
 
         
 
 
 kk1 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
-data1 = kk1.runRL('b', 1000, "Q-learning")
+data1 = kk1.runRL('b', 1000, "Agent - 1")
 
-kk2 = FogIoT(0.0001, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3)
-data2 = kk2.runGD('r', 0.05, "Baseline")
+kk2 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
+data2 = kk2.runRL('g', 1000, "Agent - 2")
 
+arr_fog1= kk1.final_packets_holder
+arr_fog2= kk2.final_packets_holder
+#print(arr_fog1)
+#print(arr_fog2)
 
-plt.legend([kk1.line, kk2.line], ["Q-learning", "Baseline"])
-plt.ylabel('Packet received (%)')
-plt.xlabel('Episodes')
+central = np.maximum(arr_fog1, arr_fog2)  #centralized picking best actions
+#########
 
-plt.show()
+store =[]
+for inde in range(100):
     
+    if np.random.randint(0,10)>5:
+        ffa =arr_fog1[inde]
+    else:
+        ffa=arr_fog2[inde]
+    store.append(ffa)
 
+roundy =[]
+for indr in range(100):
+    
+    if indr%2==0:
+        ffc =arr_fog1[indr]
+    else:
+        ffc=arr_fog2[indr]
+    roundy.append(ffc)
+
+
+#####
+sumfog1 = np.sum(arr_fog1)
+sumfog2 = np.sum(arr_fog2)
+sumRandselect = np.sum(store)
+sumCentral = np.sum(central)
+sumRound = np.sum(roundy)
+
+
+print("Sum of packets fog 1#", sumfog1)
+print("Sum of packets fog 2#", sumfog2)
+print("Sum of packets Random Select scheme#", sumRandselect)
+print("Sum of packets Centralized scheme#", sumCentral)
+print("Sum of packets Round Robin scheme#", sumRound)
+
+#plt.plot(store, color='red')
+
+plt.legend([kk1.line1, kk2.line1], ["Agent - 1", "Agent - 2"])
+plt.ylabel('Packets successfully  transmitted (%)')
+plt.xlabel('Episodes')
+##
+plt.show()
+##    
+##
 
 
