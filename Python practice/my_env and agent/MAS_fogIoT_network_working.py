@@ -400,7 +400,7 @@ class FogIoT:
 #print('RLdecentralized', '|', 'Rule-based + Centralized', '|', 'Rule-based + Random', '|', 'Rule-based + Round Robin', '|', 'Energy Centralized', '|', 'Energy RL decentralized')
 boxcontainer1 =[]
 boxcontainer2 =[]
-for experiments in range(4):
+for experiments in range(49):
     pp=0
     ppenergy=0
     print('Experiment #',experiments + 1)
@@ -495,8 +495,8 @@ for experiments in range(4):
     ppenergy = [sumDecentralizedEnergy/40, sumCentralEnergy/40]
     boxcontainer1.append(pp)
     boxcontainer2.append(ppenergy)
-print(boxcontainer1)
-print(boxcontainer2)
+#print(boxcontainer1)
+#print(boxcontainer2)
      
 plt.subplot(2,1,1)
 plt.boxplot(np.row_stack(boxcontainer1), notch =True, patch_artist =True,  labels = ['RL', 'RB_CS', 'RB_R', 'RB_RR'])
