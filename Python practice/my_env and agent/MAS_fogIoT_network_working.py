@@ -1,6 +1,7 @@
 import numpy as np
 import pylab as plt
 import pandas as pd
+import matplotlib.pyplot as plt
 from collections import deque
 from collections import defaultdict
 from tjays import spaces
@@ -399,7 +400,7 @@ class FogIoT:
 #print('RLdecentralized', '|', 'Rule-based + Centralized', '|', 'Rule-based + Random', '|', 'Rule-based + Round Robin', '|', 'Energy Centralized', '|', 'Energy RL decentralized')
 boxcontainer1 =[]
 boxcontainer2 =[]
-for experiments in range(49):
+for experiments in range(4):
     pp=0
     ppenergy=0
     print('Experiment #',experiments + 1)
@@ -494,23 +495,31 @@ for experiments in range(49):
     ppenergy = [sumDecentralizedEnergy/40, sumCentralEnergy/40]
     boxcontainer1.append(pp)
     boxcontainer2.append(ppenergy)
-#print(boxcontainer)
+print(boxcontainer1)
+print(boxcontainer2)
      
-plt.figure(1)
-df1 = pd.DataFrame(boxcontainer1, columns = ['RL', 'RB_CS', 'RB_R', 'RB_RR'])
-df1.plot.box(grid = True)
-plt.ylabel('Packets successfully  transmitted (%)')
-plt.xlabel('RL vs. Baselines')
+plt.subplot(2,1,1)
+plt.boxplot(np.row_stack(boxcontainer1), notch =True, patch_artist =True,  labels = ['RL', 'RB_CS', 'RB_R', 'RB_RR'])
+plt.ylabel('Packets delivered(%)')
+#plt.xlabel('RL vs. Baselines')
+plt.title('(A)')
 
-
-plt.figure(2)
-df2 = pd.DataFrame(boxcontainer2, columns = ['Energy_RL', 'Energy_C'])
-df2.plot.box(grid = True)
-plt.ylabel('Energy consumed by fog agents (%)')
+plt.subplot(2,1,2)
+plt.boxplot(np.row_stack(boxcontainer2), notch =True, patch_artist =True,  labels = ['Energy_RL', 'Energy_C'])
+plt.ylabel('Energy consumed (%)')
 plt.xlabel('RL vs. Baseline')
+plt.title('(B)')
 
+plt.tight_layout()
 
 plt.show()
+
+
+
+
+
+
+
 #plt.plot(store, color='red')
 
 #plt.legend([kk1.line1, kk2.line1], ["Agent - 1", "Agent - 2"])
@@ -520,3 +529,15 @@ plt.show()
 #plt.show()
 ##    
 ##
+##plt.subplot(2,1,1)
+##plt.plot([2,4,5])
+##plt.ylabel('Packets successfully  transmitted (%)')
+##plt.xlabel('RL vs. Baselines')
+##
+##plt.subplot(2,1,2)
+##plt.plot([2,6,5])
+##plt.ylabel('Packets successfully  transmitted (%)')
+##plt.xlabel('RL vs. Baselines')
+##plt.title('(b)')
+##plt.tight_layout()
+##plt.show()
