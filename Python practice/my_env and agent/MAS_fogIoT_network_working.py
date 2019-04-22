@@ -400,7 +400,7 @@ class FogIoT:
 #print('RLdecentralized', '|', 'Rule-based + Centralized', '|', 'Rule-based + Random', '|', 'Rule-based + Round Robin', '|', 'Energy Centralized', '|', 'Energy RL decentralized')
 boxcontainer1 =[]
 boxcontainer2 =[]
-for experiments in range(49):
+for experiments in range(50):
     pp=0
     ppenergy=0
     print('Experiment #',experiments + 1)
@@ -517,27 +517,4 @@ plt.show()
 
 
 
-
-
-
-#plt.plot(store, color='red')
-
-#plt.legend([kk1.line1, kk2.line1], ["Agent - 1", "Agent - 2"])
-##plt.ylabel('Packets successfully  transmitted (%)')
-##plt.xlabel('Episodes')
-##
-#plt.show()
-##    
-##
-##plt.subplot(2,1,1)
-##plt.plot([2,4,5])
-##plt.ylabel('Packets successfully  transmitted (%)')
-##plt.xlabel('RL vs. Baselines')
-##
-##plt.subplot(2,1,2)
-##plt.plot([2,6,5])
-##plt.ylabel('Packets successfully  transmitted (%)')
-##plt.xlabel('RL vs. Baselines')
-##plt.title('(b)')
-##plt.tight_layout()
-##plt.show()
+ 
