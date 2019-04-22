@@ -531,7 +531,7 @@ The remainder of this work is organized as follows.~In Section II, we reviewed r
  %where an .eps filename suffix will be assumed under latex,
 % and a .pdf suffix will be assumed for pdflatex; or what has been declared
 % via \DeclareGraphicsExtensions.
-\caption{Single-agent fog-based IoT system.}
+caption{System model.}
 \label{ideafig1}
 \end{figure}
 
@@ -539,12 +539,12 @@ The remainder of this work is organized as follows.~In Section II, we reviewed r
 In this section, we provide full description of the system model, as well the RL approach used to address the problem. The Mobile Fog Relay Agent (MFRA) and its environment are discussed below.
 
 \subsection{MFRA environment}
-\emph{\textbf{States}}: The states are defined as a tuple, $\langle$Outage communication cost ($\mathcal{P}_{out}$) /Energy status of the fog relay (J) /Energy status of the IoT sensor (J)$\rangle$.
+\emph{\textbf{States}}: The states are defined as a tuple, $\langle$Outage communication cost ($\mathcal{P}_{out}$) /Energy status of the fog relay (J) /Neighbour potential to relay message (Availability of redundant nodes)$\rangle$.
 
 \begin{itemize}
   \item Outage communication cost: Outage observations from the environment is estimated using (\ref{eqn1a}) from \cite{OmoniwaRelay2018}, which gives an estimate of the communication outage when the agent takes an action, such as changing power levels or location, or both.
   \item Energy expended by fog relay: This observation gives the agent insight on how much energy by the fog agent when following policy~$\omega_i \in \omega_{fog}$. If the fog agent continues to take sub-optimal actions, it depletes its energy and dies out.
-  \item Energy expended by IoT sensor: This observation gives the agent insight on how much energy the IoT sensor has used up by following a policy~$\omega_i \in \omega_{IoT}$. If the IoT sensor continues to take sub-optimal actions, it depletes its energy and dies out.
+  \item Neighbour potential to relay message (Availability of redundant nodes): This observation gives the agent insight on the availability of redundant nodes that can help in relaying same type of message emanating from a particular IoT sensor. If there exist no potential relay agent to convey message from an IoT sensor to a remote destination, then the agent should learn to remain active for that transmission phase. However, if there exist one or more potential relays agents, the agent should learn to take no action to help conserve energy and improve the longevity of the network.
 \end{itemize}
 
 
@@ -560,7 +560,7 @@ where~$\Psi = \sqrt{(N_0 \tilde{\kappa})/(P_{R}(D_{S} + \delta)^{-\sigma})}$, an
 \subsection{MRFA agent}
 We apply a the Q-Learning algorithm, an RL approach which requires no prior knowledge of the environment by the agent. In Q-learning, the agent interacts with the environment over periods of time according to a policy~$\omega$. At every time-step~$k \in N$, the environment produces an observation~$s_{k} \in \mathbb{R}^{D_s}$. By sampling, the agent then picks an action~$a_{k}$ over~$\omega(s_{k})$,~$a_{k} \in \mathbb{R}^{D_a}$, which is applied to the environment. The environment consequently produces a reward~$r(s_{k}, a_{k})$ and may end the episode at state~$s_{N}$ or transits to a new state~$s_{k + 1}$. The agent's goal is to minimize the expected cumulative cost,~$\min_{\omega} \mathbb{E}_{s_0, a_0, s_1, a_1, ..., s_N} \Big[ \sum_{i=0}^{N} \gamma^i \mathcal{C}(s_i) \Big]$, where~$0 \leq \gamma \leq 1$ is the discount factor, and~$\mathcal{C}$ is the overall cost function of our model.
 
-First, the agent takes an initial random action~$a_{k}$ and gets observations from the environment which corresponds to that action, as well as a reward. It then discretizes the continuous observations emanating from the environment into a~$50 \times 5 \times 5$ state space corresponding to the tuple, $\langle$Outage communication cost ($\mathcal{P}_{out}$) /Energy status of the fog relay (J) /Energy status of the IoT sensor (J)$\rangle$. The agent then updates it's Q-values at each time-step~$k$ following (\ref{eqn1b}).
+First, the agent takes an initial random action~$a_{k}$ and gets observations from the environment which corresponds to that action, as well as a reward. It then discretizes the continuous observations emanating from the environment into a~$3 \times 3 \times 3$ state space corresponding to the tuple, $\langle$Outage communication cost ($\mathcal{P}_{out}$) /Energy status of the fog relay (J) /Neighbour potential to relay message (Availability of redundant nodes)$\rangle$. The agent then updates it's Q-values at each time-step~$k$ following (\ref{eqn1b}).
 
 \begin{equation}\label{eqn1b}
 \begin{split}
@@ -577,7 +577,7 @@ where~$\alpha$ is the learning rate, which determines the impact of new experien
   \item Power-level: Choose power-level and transmit, $P$, where~transmit power ranges (W) = [0.001, 0.01, 0.15, 0.2, 0.25, 0.3]
 \end{itemize}
 
-\emph{\textbf{Goal}}: The goal is for the agent to learn to minimize the overall cost~$\mathcal{C}$ in the tuple, $\langle$Outage communication cost ($\mathcal{P}_{out}$) /Energy status of the fog relay (J) /Energy status of the IoT sensor (J)$\rangle$, by keeping all nodes within the link alive while ensuring that the packets received in each transmission does not fall below the pre-defined threshold, which was set at 95\%.
+\emph{\textbf{Goal}}: The goal is for the agent to learn to minimize the outage communication cost ($\mathcal{P}_{out}$) and energy consumed by the fog relay agent (J), ie. keeping all nodes within the link alive while ensuring that the packets received in each transmission phase does not fall below the pre-defined threshold, which was set at 95\%.
 
 \emph{\textbf{Rewards}}: The reward function used is given in (\ref{eqn1c}) as
 
@@ -590,7 +590,7 @@ where~$\alpha$ is the learning rate, which determines the impact of new experien
   \end{equation}
 
 
-\emph{\textbf{Metrics}}: Outage probability, i.e. the ratio of the number of packet lost to those transmitted, which we measure in percentages, and energy status of the fog relay agent and the IoT sensor, i.e. the ratio of depleted energy to the initial capacity in Joules, which we measure as a percentage.
+\emph{\textbf{Metrics}}: Outage probability, i.e. the ratio of the number of packet lost to those transmitted, which we measure in percentages, and energy status of the fog relay agent, i.e. the ratio of depleted energy to the initial capacity in Joules, which we measure as a percentage.
 
 
 The MFRA's learning process is summarized in Algorithm \ref{fiotRL}. A new learning episode is terminated when the agent attains the pre-defined goal of minimizing the communication outage in the link, or when either the fog relay or the IoT sensor dies out due to taking sub-optimal actions without getting to the goal. When an fog relay moves closer to the communicating parties, the IoT sensor uses a lower power level as compared to when it is far away, hereby saving IoT sensor energy. However, mobility have some cost and if the fog relay continues to move in order to minimize the communication outage, it may die out soon, hereby causing a point-of-failure to the network. As each episode is completed, a reward of 100 points is given to the agent if it reaches its goal and a 0 points otherwise. The reward is updated in the Q-learning table, with environmental information updated as well.
@@ -598,7 +598,7 @@ The MFRA's learning process is summarized in Algorithm \ref{fiotRL}. A new learn
 \begin{algorithm}
 \caption{MFRA Learning Process}\label{fiotRL}
 \begin{algorithmic}[1]
-\State \textbf{Initialize:} Power levels (W) = [0.001, 0.01, 0.15, 0.2, 0.25, 0.3],~$\delta = \pm0.25m$ and mobility range (m) = [-30, 30]
+\State \textbf{Initialize:} Power levels triggered from sensors (W) = [0.001, 0.01, 0.15, 0.2, 0.25, 0.3],~$\delta = \pm0.25m$ and mobility range (m) = [-30, 30]
 \BState \emph{top}:
 \State ResetEnvironment()
 \State \emph{state} $\leftarrow$ MapLocalObservationToState(\emph{env})
@@ -632,7 +632,31 @@ The MFRA's learning process is summarized in Algorithm \ref{fiotRL}. A new learn
 We carried out experimentation using the Python IDE 3.7.2, and considered a single agent to help us compare our proposed approach with the baseline.
 
 \subsection{Baselines}
-The baseline~\cite{OmoniwaRelay2018} used for the comparative analysis applied a gradient descent approach to arrive at a local optima in minimizing the communication outage within the network. The baseline approach is known to arrive at a local optima, however, may take significant amount of time to converge.
+In this work, we consider three existing baselines, namely:
+\begin{enumerate}
+  \item $RB_CS$:
+  \item $RB_RR$:
+  \item $RB_RR$:
+\end{enumerate}
+
+\begin{table}
+\small
+\centering
+\caption{Acronyms}
+\label{table:Baseline}
+\begin{tabular}{ll}
+  \hline
+ \textit{Acronym} & \textit{Definition} \\
+  \hline \hline
+
+   $RL$ & Reinforcement learning approach\\
+   $RB_CS$ & Rule-based + centralised selection\\
+   $RB_RR$ & Rule-based + round robin selection\\
+   $RB_R$ & Rule-based + randomized selection\\
+   
+   \hline \hline
+ \end{tabular}
+ \end{table}
 
 \subsection{Indicators}
 To evaluate our proposed approach, we examine the convergence of our approach in minimizing the steps it takes the agent to get to its goal, the energy utilization of the fog relay and IoT sensor.
@@ -640,10 +664,12 @@ To evaluate our proposed approach, we examine the convergence of our approach in
 
 
 \section{Results and Discussions}
-In this section, we present the results of the fog-based IoT system. First, we compare the proposed approach with the baseline, then we examine the number of steps required by the agent to reach it's goal over learning episodes. Finally, we evaluate the energy utilization of both the fog relay agent and the IoT sensor.
+In this section, we present the results of our fog-based IoT system. We compare the proposed approach with some baseline by evaluating the percentage of packets successfully transmitted via potential fog relay agents, then we examine energy utilization of our proposed approach with the baseline.
 
 \subsection{Proposed approach vs. baseline}
-We carried out comparison of the proposed approach, applying the Q-learning algorithm and the baseline, using the gradient descent algorithm. Simulations were done using Python IDE 3.7.2, and Table~\ref{table:simparameters} shows a summary of the parameters used. Fig. \ref{pckt_sent} shows the percentage of packets successfully transmitted, with each algorithm learning to minimize the number of packets lost over each episode. We observe that in the first 20 episode, the baseline had better performance than the proposed approach, however, for the remaining part of the episodes, the proposed approach out-performed the baseline. This signifies that the agent's exploration within the environment plays some significant role in improving the packets successfully transmitted. Convergence can be observed around 200th episodes where about 55\% - 100\% of transmitted packets are successfully received at the destination. Interestingly, we know that gradient descent methods may be slow to converge, but always surely converge to a local optima~\cite{OmoniwaRelay2018}. This is well depicted in Fig. \ref{pckt_sent}, where around 1000th episode the baseline approach is able to successfully transmit about 75\% of packets.
+We compared our proposed RL approach with existing baselines. Simulations were done using Python IDE 3.7.2, and Table~\ref{table:simparameters} shows a summarises the parameters used in the experiments. For the sake of evaluation, we considered the last forty episodes to ensure convergence in the learning process. Fig. \ref{agent} (A) shows the percentage of packets successfully transmitted when two fog relay agents are deployed to convey message from an IoT sensor to a remote destination. We observe that about 95\% packets in our proposed approach is successfully transmitted. The $RB_CS$ strategy performed closely to the proposed approach with values ranging between 94\% - 94.7\% packets successfully transmitted. This performance is based on the assumption that a central controller selects the best performing agent in each transmission phase. We observe lesser variability in the $RB_CS$ baseline as compared to $RB_RR$ and $RB_R$ strategies.
+
+The $RB_R$ strategy, which has normally distributed values of the packet received, with values ranging between 89.2\% - 94.5\% performed slightly better than the $RB_RR$ strategy, which is left-skewed, with values ranging between 88\% - 94\%. In general, we observe variability mostly in the baselines as compared to our proposed approach.
 
 \begin{table}
 \small
@@ -667,7 +693,7 @@ We carried out comparison of the proposed approach, applying the Q-learning algo
    Discount factor $\gamma$ & 0.9\\
    Learning rate $\alpha$ & 0.1\\
    Precision~$\varepsilon_{GD}$ & 0.00001\\
-   Episodes $N$ & 1000\\
+   Episodes $N$ & 100\\
    Iteration runs & 100000\\
    Policy $\epsilon$ & $e^{-0.0015N}$\\
 
@@ -675,86 +701,23 @@ We carried out comparison of the proposed approach, applying the Q-learning algo
  \end{tabular}
  \end{table}
 
-\begin{figure}[!t]
-\centering
-\includegraphics[width=3.8in]{pckt_sent.eps}
- %where an .eps filename suffix will be assumed under latex,
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-\caption{Percentage of packets successfully transmitted.}
-\label{pckt_sent}
-\end{figure}
-
-%\begin{figure}[!t]
-%\centering
-%\includegraphics[width=3.8in]{pckt_sent1.eps}
-% %where an .eps filename suffix will be assumed under latex,
-%% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-%% via \DeclareGraphicsExtensions.
-%\caption{Percentage of packets successfully transmitted.}
-%\label{pckt_sent1}
-%\end{figure}
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=3.8in]{pckt_sent2.eps}
- %where an .eps filename suffix will be assumed under latex,
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-\caption{Percentage of packets successfully transmitted.}
-\label{pckt_sent2}
-\end{figure}
-
-Overall, the performance of the proposed approach yields better results than the baseline. In Fig. \ref{num_iter}, we observe the number of iterations required for the agent to reach it's goal following policy~$\epsilon$. After 200 episodes, we achieve convergence. This implies that the agent learns to reach the goal state faster and more efficiently. Similarly, in Fig. \ref{rew_iter}, which shows the number of iterations per reward, convergence was attained at about 200 episodes. This implies that the agent learns to follow policies that maximize its total expected reward. Therefore, the proposed RL approach has shown good performance behaviour as compared to the previous approach.
 
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=3.8in]{num_iter.eps}
+\includegraphics[width=3.6in]{2agentbaseline.eps}
  %where an .eps filename suffix will be assumed under latex,
 % and a .pdf suffix will be assumed for pdflatex; or what has been declared
 % via \DeclareGraphicsExtensions.
-\caption{Number of iteration over episodes.}
-\label{num_iter}
+\caption{Comparison of RL with baselines over 50 runs in a 2 agents environment.}
+\label{2agent}
 \end{figure}
 
 
-\begin{figure}[!t]
-\centering
-\includegraphics[width=3.8in]{rew_iter.eps}
- %where an .eps filename suffix will be assumed under latex,
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-\caption{Normalized Iterations per reward over episodes.}
-\label{rew_iter}
-\end{figure}
 
 \subsection{Energy utilization}
-We examine the impact of the learning process on the energy utilization of both the fog relay and the IoT sensor. Fig. \ref{energy_fog}, shows the energy consumed by the fog relay during transmission. We observe that after approximately 50 episodes, the fog relay learns to consume less than 10\% of its energy in moving and transmitting. This has significant impact to increasing the longevity of fog devices within the network. A similar behaviour is also observed for the IoT sensor shown in Fig. \ref{energy_iot}, where the IoT sensor after about 60 episodes learns to spend less than 10\% of its energy on transmission. The outcome of this experiments reveals that energy management within the IoT domain can be efficiently tackled using RL approach.
-
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=3.8in]{energy_fog.eps}
- %where an .eps filename suffix will be assumed under latex,
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-\caption{Energy consumed by fog agent over episodes.}
-\label{energy_fog}
-\end{figure}
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=3.8in]{energy_iot.eps}
- %where an .eps filename suffix will be assumed under latex,
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-\caption{Energy consumed by IoT sensor over episodes.}
-\label{energy_iot}
-\end{figure}
-
-
-
+Fig. \ref{agent} (B) depicts the percentage of energy consumed by potential fog relay agents in the network. Our proposed RL approach out-performs the baseline by a wide margin. A higher variation is observed in the baseline as compared to the proposed approach. This shows that the decentralized learning by agents within the system significantly improves its energy utilization. The agents can learn when not to be active in order to minimize energy cost.
+Overall, the performance of the proposed approach yields better results than the baseline.
 
 \section{Related Works}
 Considering the dynamics and heterogeneity within the ultra-distributed IoT environment, it is important for communication devices which are mobile to move seamlessly without degrading quality of service (QoS). More so, the constrained devices should communicate efficiently without depleting all their energy by transmitting at high-power, which may have long-term consequences to the network. Several non-RL-based approaches have been proposed to optimize the communication performance in IoT based networks, however, when some parameters in the network are changed, these approaches may fail.
