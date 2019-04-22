@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.1)  22 APR 2019 08:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.11.1)  22 APR 2019 22:17
 entering extended mode
 **./RL_Ideas.tex
 (RL_Ideas.tex
@@ -571,15 +571,11 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <24> not available
 \makeMPintoPDFobject=\count143
 \everyMPtoPDFconversion=\toks32
 )
-Underfull \hbox (badness 7722) in paragraph at lines 491--493
+Underfull \hbox (badness 7722) in paragraph at lines 490--492
 []\T1/ptm/b/it/9 Index Terms\T1/ptm/b/n/9 ---Reinforcement learn-ing (RL), Fog-
 based
  []
 
-[1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
-
-
-]
 Package epstopdf Info: Source file: <ideafig1.eps>
 (epstopdf)                    date: 2019-04-20 10:40:32
 (epstopdf)                    size: 1717613 bytes
@@ -588,96 +584,82 @@ Package epstopdf Info: Source file: <ideafig1.eps>
 (epstopdf)                    size: 672153 bytes
 (epstopdf)             Command: <epstopdf --outfile=ideafig1-eps-converted-to.p
 df ideafig1.eps>
-(epstopdf)             \includegraphics on input line 530.
+(epstopdf)             \includegraphics on input line 525.
 Package epstopdf Info: Output file is already uptodate.
-
-<ideafig1-eps-converted-to.pdf, id=8, 618.31pt x 545.03625pt>
+<ideafig1-eps-converted-to.pdf, id=1, 618.31pt x 545.03625pt>
 File: ideafig1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ideafig1-eps-converted-to.pdf>
-Package pdftex.def Info: ideafig1-eps-converted-to.pdf used on input line 530.
+Package pdftex.def Info: ideafig1-eps-converted-to.pdf used on input line 525.
 (pdftex.def)             Requested size: 231.26378pt x 203.85583pt.
-LaTeX Font Info:    Try loading font information for U+msa on input line 542.
+LaTeX Font Info:    Try loading font information for U+msa on input line 534.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 542.
+LaTeX Font Info:    Try loading font information for U+msb on input line 534.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [2 <./ideafig1-eps-converted-to.pdf>]
-Underfull \hbox (badness 4819) in paragraph at lines 577--578
-[]\T1/ptm/m/n/10 Power-level: Choose power-level and trans-mit, $\OML/cmm/m/it/
-10 P$\T1/ptm/m/n/10 ,
- []
+) [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
-[3]
 
-LaTeX Warning: Reference `agent' on page 4 undefined on input line 670.
-
+] [2 <./ideafig1-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <2agentbaseline.eps>
-(epstopdf)                    date: 2019-04-22 00:37:20
-(epstopdf)                    size: 34696 bytes
+(epstopdf)                    date: 2019-04-22 11:32:25
+(epstopdf)                    size: 34715 bytes
 (epstopdf)             Output file: <2agentbaseline-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-04-22 00:38:38
-(epstopdf)                    size: 21407 bytes
+(epstopdf)                    date: 2019-04-22 11:33:46
+(epstopdf)                    size: 22180 bytes
 (epstopdf)             Command: <epstopdf --outfile=2agentbaseline-eps-converte
 d-to.pdf 2agentbaseline.eps>
-(epstopdf)             \includegraphics on input line 708.
+(epstopdf)             \includegraphics on input line 699.
 Package epstopdf Info: Output file is already uptodate.
-<2agentbaseline-eps-converted-to.pdf, id=136, 462.72874pt x 346.29375pt>
+
+<2agentbaseline-eps-converted-to.pdf, id=131, 462.72874pt x 346.29375pt>
 File: 2agentbaseline-eps-converted-to.pdf Graphic file (type pdf)
 
 <use 2agentbaseline-eps-converted-to.pdf>
 Package pdftex.def Info: 2agentbaseline-eps-converted-to.pdf used on input line
- 708.
+ 699.
 (pdftex.def)             Requested size: 260.17244pt x 194.7052pt.
 
-Overfull \hbox (8.17244pt too wide) in paragraph at lines 708--712
+Overfull \hbox (8.17244pt too wide) in paragraph at lines 699--703
  [][] 
  []
 
-
-LaTeX Warning: Reference `agent' on page 4 undefined on input line 719.
-
-[4 <./2agentbaseline-eps-converted-to.pdf>] [5] [6
-
-] (RL_Ideas.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+[3] [4 <./2agentbaseline-eps-converted-to.pdf>] [5] (RL_Ideas.aux) ) 
 Here is how much of TeX's memory you used:
- 6262 strings out of 493334
- 90555 string characters out of 3139231
- 175417 words of memory out of 3000000
- 9625 multiletter control sequences out of 15000+200000
+ 6261 strings out of 493334
+ 90548 string characters out of 3139231
+ 177417 words of memory out of 3000000
+ 9624 multiletter control sequences out of 15000+200000
  124886 words of font info for 133 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,19n,35p,1596b,295s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmmi9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy
-9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.p
-fb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/ti
-mes/utmri8a.pfb>
-Output written on RL_Ideas.pdf (6 pages, 925178 bytes).
+ 42i,19n,35p,1505b,276s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program
+ Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmm
+i7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/ur
+w/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.p
+fb>
+Output written on RL_Ideas.pdf (5 pages, 921065 bytes).
 PDF statistics:
- 254 PDF objects out of 1000 (max. 8388607)
+ 252 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

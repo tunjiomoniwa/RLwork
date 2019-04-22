@@ -483,18 +483,13 @@
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \begin{abstract}
-Reinforcement learning (RL) algorithms offers more insights about the overall futuristic functionalities for intelligent Internet-of-Things (IoT) devices. With the explosive growth in the number of IoT devices, as well as the highly-distributed deployments of these devices today, managing the IoT devices centrally becomes infeasible. As such, several disruptive paradigms have emerged, one of which is the fog computing-based IoT, which aim towards shifting computation, control, and decision-making closer to the network edge. However, mobility and power-constrain of these fog devices remains an issue of concern. In this paper, we apply a q-learning algorithm to minimize the outage in communication within a fog-based IoT network, by optimizing the power-control parameter of the agent, as well as optimizing the physical position. Furthermore, the agent was able to efficiently minimize the energy consumed by the fog relay and the IoT sensor, while guaranteeing efficient transmission.
-
+Reinforcement learning (RL) algorithms offers more insights about the overall futuristic functionalities for intelligent Internet-of-Things (IoT) devices. With the explosive growth in the number of IoT devices, as well as the highly-distributed deployments of these devices today, managing the IoT devices centrally becomes infeasible. As such, several disruptive paradigms have emerged, one of which is the fog computing-based IoT, which aim towards shifting computation, control, and decision-making closer to the network edge. However, mobility and power-constrain of these fog devices remains an issue of concern. In this paper, we apply a q-learning algorithm to minimize the communication outage cost and optimize energy utilization within a fog-based IoT network. Our proposed approach out-performed results from previous works by guaranteeing reliable delivery of data and minimizing overall energy cost within the network. Future work will focus on ensuring fairness within the system and consider priotized data in the learning process.
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
 Reinforcement learning (RL), Fog-based Internet-of-Things (IoT), q-learning, communication outage, energy management.
 \end{IEEEkeywords}
-
-
-
-
 
 
 % For peer review papers, you can put extra information on the cover
@@ -508,20 +503,20 @@ Reinforcement learning (RL), Fog-based Internet-of-Things (IoT), q-learning, com
 \IEEEpeerreviewmaketitle
 
 \section{Background}
-\IEEEPARstart{T}{he} fog computing-based IoT paradigm aims at moving computation, control, and decision-making within the IoT ecosystem closer to the network edge~\cite{Omoniwa2018}. The key driver of this paradigm are fog devices, which may be energy-constrained or not, and can either be mobile or static. The deployment and efficient utilization of these fog devices will contribute to the success of future IoT systems~\cite{Chiangh2016}, one of which is serving as relays to overcome communication outages due to obstacles or long distances between a source node and a remote destination node where IoT services may be rendered.
+\IEEEPARstart{T}{he} fog computing-based IoT paradigm aims at moving computation, control, and decision-making within the IoT ecosystem closer to the network edge~\cite{Omoniwa2018}. The key driver of this paradigm are fog devices, which may be energy-constrained or not, and can either be mobile or static. The deployment and efficient utilization of these fog devices will contribute to the success of future IoT systems~\cite{Chiangh2016}, one of which is serving as relays to overcome communication outages due to obstacles or long distances between a source IoT sensor and a remote destination node where IoT services may be rendered.
 
-However, in order for devices to communicate efficiently with minimal outage (loss of transmitted packets), several bottlenecks may arise, one of which is the efficient utilization of energy by power-constrained IoT devices. Energy can be used up when these devices unnecessarily increase their power-level in order to communicate with neighbouring devices within the network, conversely, energy can be saved when the devices regulate their transmission power, especially in situations when they are relatively close to the communicating parties. For example, an IoT end-device that transmits at high power irrespective of the channel conditions or proximity of its neighbours may drastically deplete its energy and die-out, hence, resulting in communication breakdown due to a point-of-failure within the network. Another challenge to be addressed is the energy consumed due to mobility. In order to deliver on some acceptable quality-of-service (QoS) within the IoT ecosystem, it is imperative for devices to be mobile, however, these devices are at risk of draining most of their energy on movement. For instance, energy will be inefficiently used if a power-constrained fog device decides to move closer to the communicating party only to relay very few numbers of packets, though having a guarantee that all the packets are delivered to the destination. However, if the size of the number of packets to be relayed is large, it may be optimal for the fog device to move closer, hence, conserving the energy of the IoT end-device, who can now transmit at a lower power level.
+However, in order for devices to communicate efficiently with minimal outage (loss of transmitted packets), several bottlenecks may arise, one of which is the efficient utilization of energy by power-constrained mobile fog devices. Energy can be used up when these devices actively communicate with neighbouring devices within the network, conversely, energy can be saved when the devices regulate their transmission by entering a passive mode, especially in situations when there are redundant relays that can convey same information. For example, if multiple fog relays are in an active mode and unintelligently keep forwarding same message from an IoT end-device to a remote destination, soon they may run out of energy and die-out, hence, resulting in communication breakdown due to a point-of-failure within the network. 
 
-Moreover, since power-control mechanisms and smart mobility are critical in minimizing outages in communication, these devices should be able to learn when to increase, decrease, or maintain their power-levels or to move efficiently in order to increase the long-term performance of the network. More so, near-optimal actions from these devices are required to drive several smart cities applications, most importantly the Industrial IoT (IIoT), where industrial robots are deployed to act intelligibly in a dynamic industrial setting, and intelligent monitoring applications, where surveillance drones are deployed in militarised zones to meet stringent quality-of-service (QoS) requirements~\cite{OmoniwaRelay2018}.
+The fog computing-based IoT paradigm leverages on mobile fog devices, such as robots, drones, smart phones, smart watches, etc., to offer localized services to end-devices. However, these devices are at risk of draining most of their energy when they move. Power-control mechanisms and smart mobility are critical in minimizing outages in communication, as well as optimize energy utilization. This is crucial to drive several smart cities applications, most importantly the Industrial IoT (IIoT), where industrial robots are deployed in a dynamic industrial setting, and intelligent monitoring applications, where surveillance drones are deployed in militarised zones to meet stringent quality-of-service (QoS) requirements~\cite{OmoniwaRelay2018}.
 
-An iterative algorithm based on the steepest descent method was proposed in~\cite{OmoniwaRelay2018} to optimize communication performance a multi-tier fog-based IoT architecture, where a fog device acts as an amplify and forward relay that transmits received information from a sensor node to a higher hierarchically-placed destination fog device, which offers some localized services. However, the centralized solution is not scalable with increasing number of devices. In \cite{Simiscuka2018}, a relay and mobility scheme for IoT (REMOS-IoT) was proposed to improve the network QoS by effective resource management and decision-making. The centralized REMOS-IoT algorithm introduced also considered the mobility of fog gateways/relays in improving the network throughput, however, energy management of these power-constrained IoT devices was not considered. Considering the highly-distributed nature of deployed IoT devices, it becomes infeasible to manage devices centrally~\cite{Wilhelmi2017}. As such, reinforcement learning can be effectively deployed on fog devices to allow them to act independently based on their local experiences in the environment, i.e. each fog device should be able to learn independently without a central entity.
+An iterative algorithm based on the steepest descent method was proposed in~\cite{OmoniwaRelay2018} to optimize communication performance a multi-tier fog-based IoT architecture, where a fog device acts as an amplify and forward relay that transmits received information from a sensor node to a higher hierarchically-placed destination fog device, which offers some localized services. However, the centralized solution is not practical in a highly dynamic enviroment. In \cite{Simiscuka2018}, a relay and mobility scheme for IoT (REMOS-IoT) was proposed to improve the network QoS by effective resource management and decision-making. The centralized REMOS-IoT algorithm introduced also considered the mobility of fog gateways/relays in improving the network throughput, however, energy management of these power-constrained IoT devices was not considered. 
 
-A decentralised stateless Q-learning approach was proposed in \cite{Wilhelmi2017} to improve aggregate throughput in four coexistent wireless networks (WN). Each WN was considered to be an agent running the stateless Q-learning algorithm with agents having action space as channel number, and transmit power
-(dBm). A lightweight distributed learning approach was proposed in \cite{Azari2018} to increase energy efficiency and reliability of IoT communications. There was significant performance improvement when the proposed algorithm was compared to a centralized optimized strategy. Transmit power, sub-channel, and spreading factor made up the action space. However, the system model in both works was rather hierarchical than distributed, ie. each WN was assumed to be an independent central entity with no specifications to what is learnt within each sub-network. Though IoT is defined as a large-scale network where various sub-networks coexist~\cite{Omoniwa2018}, applying RL to end-devices within sub-network may bring about meaningful performance improvement in the overall IoT network.
+%Considering the highly-distributed nature of deployed IoT devices, it becomes infeasible to manage devices centrally~\cite{Wilhelmi2017}. As such, reinforcement learning can be effectively deployed on fog devices to allow them to act independently based on their local experiences in the environment, i.e. each fog device should be able to learn independently without a central entity.
+%
+%A decentralised stateless Q-learning approach was proposed in \cite{Wilhelmi2017} to improve aggregate throughput in four coexistent wireless networks (WN). Each WN was considered to be an agent running the stateless Q-learning algorithm with agents having action space as channel number, and transmit power
+%(dBm). A lightweight distributed learning approach was proposed in \cite{Azari2018} to increase energy efficiency and reliability of IoT communications. There was significant performance improvement when the proposed algorithm was compared to a centralized optimized strategy. Transmit power, sub-channel, and spreading factor made up the action space. However, the system model in both works was rather hierarchical than distributed, ie. each WN was assumed to be an independent central entity with no specifications to what is learnt within each sub-network. Though IoT is defined as a large-scale network where various sub-networks coexist~\cite{Omoniwa2018}, applying RL to end-devices within sub-network may bring about meaningful performance improvement in the overall IoT network.
 
-The main contribution of this paper is to propose a decentralised reinforcement learning approach as in~\cite{Gueriau2018} that addresses communication performance within a fog-based IoT architecture. First, we assumed a single-agent scenario of possible state-action pair for each communication scenario as seen in  Fig. \ref{ideafig1}, where an agent may be faced with a unique topology and environment. Next, in order to guarantee energy-efficient communications for the fog devices in the dynamic environment, we apply a decentralised q-learning algorithm, where each agent observes its position with respect to the communicating party, as well as its present transmit power level and learns to take actions that minimize loss of packets, as well as efficient energy utilization.
-
-The remainder of this work is organized as follows.~In Section II, we reviewed related works, and present our proposed approach in Section III. In Section IV, we evaluate the proposed fog-based IoT system, and present the results in Section V. Section V concludes the paper and outlines future directions.
+The main contribution of this paper is to propose a decentralised reinforcement learning approach as in~\cite{Gueriau2018} that addresses communication performance within a fog-based IoT architecture. Our work optimizes energy utilization within the network, and also takes into consideration dynamicity when nodes die, which makes our decentralised approach robust to failure as compared to centralised approaches. The remainder of this work is organized as follows.~In Section II, we reviewed related works, and present our proposed approach in Section III. In Section IV, we evaluate the proposed fog-based IoT system, and present the results in Section V. Section V concludes the paper and outlines future directions.
 
 
 
@@ -531,12 +526,13 @@ The remainder of this work is organized as follows.~In Section II, we reviewed r
  %where an .eps filename suffix will be assumed under latex,
 % and a .pdf suffix will be assumed for pdflatex; or what has been declared
 % via \DeclareGraphicsExtensions.
-caption{System model.}
+\caption{System model.}
 \label{ideafig1}
 \end{figure}
 
 \section{Problem Definition}
-In this section, we provide full description of the system model, as well the RL approach used to address the problem. The Mobile Fog Relay Agent (MFRA) and its environment are discussed below.
+In this section, we provide full description of the system model, as well the RL approach used to address the problem. In Fig. \ref{ideafig1}, we show a network topology at time~$t$ where some randomly deployed IoT sensors have data/service request to send to a remote destination via some mobile fog relay agents. We observe that source A has two possibilities, source B has a possibility, and source C has three possibilities of reaching the destination.
+The Mobile Fog Relay Agent (MFRA) and its environment are discussed below.
 
 \subsection{MFRA environment}
 \emph{\textbf{States}}: The states are defined as a tuple, $\langle$Outage communication cost ($\mathcal{P}_{out}$) /Energy status of the fog relay (J) /Neighbour potential to relay message (Availability of redundant nodes)$\rangle$.
@@ -570,14 +566,10 @@ Q(s_k, a_k) &:= Q(s_k, a_k)\\
 \end{equation}
 where~$\alpha$ is the learning rate, which determines the impact of new experience on the Q-value,~$r_{k + 1}$ is the reward the agent receives by being in~$s_{k + 1}$ from~$s_{k}$. Based on the policy followed by the agent, it gets observations and rewards from the environment.
 
-\emph{\textbf{Action space}}: The actions are move and transmit by fog relay, and select a power-level and transmit by IoT end-device, which make up eight possible actions.
-
- \begin{itemize}
-  \item Mobility: Move by $\pm \delta$ and transmit, where~$\delta = \pm0.25m$ and mobility range (m) = [-30, 30]
-  \item Power-level: Choose power-level and transmit, $P$, where~transmit power ranges (W) = [0.001, 0.01, 0.15, 0.2, 0.25, 0.3]
-\end{itemize}
-
-\emph{\textbf{Goal}}: The goal is for the agent to learn to minimize the outage communication cost ($\mathcal{P}_{out}$) and energy consumed by the fog relay agent (J), ie. keeping all nodes within the link alive while ensuring that the packets received in each transmission phase does not fall below the pre-defined threshold, which was set at 95\%.
+\emph{\textbf{Action space}}: The actions for the fog relay agent are move closer and transmit, move farther and transmit, and do nothing (become passive).
+%Mobility: Move by $\pm \delta$ and transmit, where~$\delta = \pm0.25m$ and mobility range (m) = [-30, 30]
+ 
+\emph{\textbf{Goal}}: The goal of the agent first, is to be alive during the transmission phase and relay message received from source to destination at a reasonably QoS by ensuring that the packets received in each transmission phase do not fall below some pre-defined threshold, which was set at 95\%, and endeavour to be active when there exist no potential relays to convey same message from IoT sensor to remote destination.
 
 \emph{\textbf{Rewards}}: The reward function used is given in (\ref{eqn1c}) as
 
@@ -592,27 +584,26 @@ where~$\alpha$ is the learning rate, which determines the impact of new experien
 
 \emph{\textbf{Metrics}}: Outage probability, i.e. the ratio of the number of packet lost to those transmitted, which we measure in percentages, and energy status of the fog relay agent, i.e. the ratio of depleted energy to the initial capacity in Joules, which we measure as a percentage.
 
-
-The MFRA's learning process is summarized in Algorithm \ref{fiotRL}. A new learning episode is terminated when the agent attains the pre-defined goal of minimizing the communication outage in the link, or when either the fog relay or the IoT sensor dies out due to taking sub-optimal actions without getting to the goal. When an fog relay moves closer to the communicating parties, the IoT sensor uses a lower power level as compared to when it is far away, hereby saving IoT sensor energy. However, mobility have some cost and if the fog relay continues to move in order to minimize the communication outage, it may die out soon, hereby causing a point-of-failure to the network. As each episode is completed, a reward of 100 points is given to the agent if it reaches its goal and a 0 points otherwise. The reward is updated in the Q-learning table, with environmental information updated as well.
+The MFRA's learning process is summarized in Algorithm \ref{fiotRL}. A new learning episode is terminated when the agent attains the pre-defined goal of minimizing the communication outage in the link, or when either the fog relay agent die out, which may be due to taking sub-optimal actions without getting to the goal. When a fog relay agent decides to do nothing, it should imply that there exist other available agents more capable of transmitting during that transmision phase, as such the agent learns to conserve energy. On the contrary, if the fog relay agent continues to move and transmit even when there exist sufficient redundancy to relay same message, it may die out soon, hereby causing a point-of-failure to the network. In this work, an episode is completed either when the agent reaches its goal, when the agent dies, or when the maximum step for an episode is reached. The reward is updated in the Q-learning table, with environmental information updated as well.
 
 \begin{algorithm}
 \caption{MFRA Learning Process}\label{fiotRL}
 \begin{algorithmic}[1]
-\State \textbf{Initialize:} Power levels triggered from sensors (W) = [0.001, 0.01, 0.15, 0.2, 0.25, 0.3],~$\delta = \pm0.25m$ and mobility range (m) = [-30, 30]
+\State \textbf{Initialize:} ~$\delta = \pm0.25m$ and mobility range (m) = [-30, 30]
+%Power levels triggered from sensors (W) = [0.001, 0.01, 0.15, 0.2, 0.25, 0.3],
 \BState \emph{top}:
 \State ResetEnvironment()
 \State \emph{state} $\leftarrow$ MapLocalObservationToState(\emph{env})
 \State \emph{action} $\leftarrow$ QLearning.SelectAction(\emph{state})
 %\BState \emph{top}:
-\If { \emph{action}  == ``move close and Tx''} %\Return stop,
-\State Env.EstimateOutage (\ref{eqn1a})
-\State Env.EstimateFogEnergyStatus
-\ElsIf {\emph{action}  == ``move away and Tx''}
-\State Env.EstimateOutage (\ref{eqn1a})
-\State Env.EstimateSensorEnergyStatus
-\ElsIf { \emph{action}  == ``choose power level and Tx''}
-\State Env.EstimateOutage (\ref{eqn1a})
-\State Env.EstimateSensorEnergyStatus
+\If { \emph{action}  == ``move close and Tx''||``move away and Tx''} %\Return stop,
+\State Env.EstimateOutage using (\ref{eqn1a})
+\State Env.EstimateFogEnergyUsed
+\State Env.CheckAvailableActiveFogNeighbour
+\ElsIf {\emph{action}  == ``do nothing''} %\Return stop,
+\State 100\% $\leftarrow$ Env.EstimateOutage
+\State 0J $\leftarrow$ Env.FogEnergyUsed
+\State Env.CheckAvailableActiveFogNeighbour
 \EndIf
 \State \textbf{endif}
 \State InvokePolicy(ExponentialDecay)
@@ -634,9 +625,9 @@ We carried out experimentation using the Python IDE 3.7.2, and considered a sing
 \subsection{Baselines}
 In this work, we consider three existing baselines, namely:
 \begin{enumerate}
-  \item $RB_CS$:
-  \item $RB_RR$:
-  \item $RB_RR$:
+  \item RB-CS:
+  \item RB-RR:
+  \item RB-R:
 \end{enumerate}
 
 \begin{table}
@@ -649,10 +640,10 @@ In this work, we consider three existing baselines, namely:
  \textit{Acronym} & \textit{Definition} \\
   \hline \hline
 
-   $RL$ & Reinforcement learning approach\\
-   $RB_CS$ & Rule-based + centralised selection\\
-   $RB_RR$ & Rule-based + round robin selection\\
-   $RB_R$ & Rule-based + randomized selection\\
+   RL & Reinforcement learning approach\\
+   RB-CS & Rule-based + centralised selection\\
+   RB-RR & Rule-based + round robin selection\\
+   RB-R & Rule-based + randomized selection\\
    
    \hline \hline
  \end{tabular}
@@ -667,9 +658,9 @@ To evaluate our proposed approach, we examine the convergence of our approach in
 In this section, we present the results of our fog-based IoT system. We compare the proposed approach with some baseline by evaluating the percentage of packets successfully transmitted via potential fog relay agents, then we examine energy utilization of our proposed approach with the baseline.
 
 \subsection{Proposed approach vs. baseline}
-We compared our proposed RL approach with existing baselines. Simulations were done using Python IDE 3.7.2, and Table~\ref{table:simparameters} shows a summarises the parameters used in the experiments. For the sake of evaluation, we considered the last forty episodes to ensure convergence in the learning process. Fig. \ref{agent} (A) shows the percentage of packets successfully transmitted when two fog relay agents are deployed to convey message from an IoT sensor to a remote destination. We observe that about 95\% packets in our proposed approach is successfully transmitted. The $RB_CS$ strategy performed closely to the proposed approach with values ranging between 94\% - 94.7\% packets successfully transmitted. This performance is based on the assumption that a central controller selects the best performing agent in each transmission phase. We observe lesser variability in the $RB_CS$ baseline as compared to $RB_RR$ and $RB_R$ strategies.
+We compared our proposed RL approach with existing baselines. Simulations were done using Python IDE 3.7.2, and Table~\ref{table:simparameters} shows a summarises the parameters used in the experiments. For the sake of evaluation, we considered the last forty episodes to ensure convergence in the learning process. Fig. \ref{2agent} (A) shows the percentage of packets successfully transmitted when two fog relay agents are deployed to convey message from an IoT sensor to a remote destination. We observe that about 95\% packets in our proposed approach is successfully transmitted. The RB-CS strategy performed closely to the proposed approach with values ranging between 94\% - 94.7\% packets successfully transmitted. This performance is based on the assumption that a central controller selects the best performing agent in each transmission phase. We observe lesser variability in the RB-CS baseline as compared to RB-RR and RB-R strategies.
 
-The $RB_R$ strategy, which has normally distributed values of the packet received, with values ranging between 89.2\% - 94.5\% performed slightly better than the $RB_RR$ strategy, which is left-skewed, with values ranging between 88\% - 94\%. In general, we observe variability mostly in the baselines as compared to our proposed approach.
+The RB-R strategy, which has normally distributed values of the packet received, with values ranging between 89.2\% - 94.5\% performed slightly better than the RB-RR strategy, which is left-skewed, with values ranging between 88\% - 94\%. In general, we observe variability mostly in the baselines as compared to our proposed approach.
 
 \begin{table}
 \small
@@ -716,7 +707,7 @@ The $RB_R$ strategy, which has normally distributed values of the packet receive
 
 
 \subsection{Energy utilization}
-Fig. \ref{agent} (B) depicts the percentage of energy consumed by potential fog relay agents in the network. Our proposed RL approach out-performs the baseline by a wide margin. A higher variation is observed in the baseline as compared to the proposed approach. This shows that the decentralized learning by agents within the system significantly improves its energy utilization. The agents can learn when not to be active in order to minimize energy cost.
+Fig. \ref{2agent} (B) depicts the percentage of energy consumed by potential fog relay agents in the network. Our proposed RL approach out-performs the baseline by a wide margin. A higher variation is observed in the baseline as compared to the proposed approach. This shows that the decentralized learning by agents within the system significantly improves its energy utilization. The agents can learn when not to be active in order to minimize energy cost.
 Overall, the performance of the proposed approach yields better results than the baseline.
 
 \section{Related Works}
