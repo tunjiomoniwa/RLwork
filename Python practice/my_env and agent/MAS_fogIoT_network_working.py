@@ -419,25 +419,34 @@ for experiments in range(50):
 
     central = np.maximum(arr_fog1, arr_fog2)  #centralized picking best actions
     #########
-    energy_central = np.add(energy_arr_fog1, energy_arr_fog2)
+    energy_central = np.minimum(energy_arr_fog1, energy_arr_fog2)
+    #energy_central = np.add(energy_arr_fog1, energy_arr_fog2)
 
     store =[]
+    store_e = []
     for inde in range(40):
         
         if np.random.randint(0,10)>5:
             ffa =arr_fog1[inde]
+            eea = energy_arr_fog1[inde]
         else:
             ffa=arr_fog2[inde]
+            eea = energy_arr_fog2[inde]
         store.append(ffa)
+        store_e.append(eea)
 
     roundy =[]
+    roundy_e =[]
     for indr in range(40):
         
         if indr%2==0:
             ffc =arr_fog1[indr]
+            eec = energy_arr_fog1[indr]
         else:
             ffc=arr_fog2[indr]
+            eec = energy_arr_fog2[indr]
         roundy.append(ffc)
+        roundy_e.append(eec)
 
     ###################
 
@@ -451,14 +460,15 @@ for experiments in range(50):
     arr_fogdc2= dc2.final_packets_holder
 
     energy_arr_fogdc1 = dc1.fog_energy_holder
-    energy_arr_fogdc2 = dc1.fog_energy_holder
+    energy_arr_fogdc2 = dc2.fog_energy_holder
 
     #print(arr_fog1)
     #print(arr_fog2)
 
     decentralized = np.maximum(arr_fogdc1, arr_fogdc2)  #packets received successfully
 
-    energy_decentralized = np.add(energy_arr_fogdc1, energy_arr_fogdc2)
+    energy_decentralized = np.minimum(energy_arr_fogdc1, energy_arr_fogdc2)
+    #energy_decentralized = np.add(energy_arr_fogdc1, energy_arr_fogdc2)
     #####
     sumfogdc1 = np.sum(arr_fogdc1)
     sumfogdc2 = np.sum(arr_fogdc2)
@@ -481,6 +491,8 @@ for experiments in range(50):
     sumRound = np.sum(roundy)
     sumCentralEnergy = np.sum(energy_central)
     sumDecentralizedEnergy = np.sum(energy_decentralized)
+    sumRandselectEnergy = np.sum(store_e)
+    sumRoundEnergy = np.sum(roundy_e)
 
     #print("Sum of packets fog 1#", sumfog1)
     #print("Sum of packets fog 2#", sumfog2)
@@ -492,23 +504,23 @@ for experiments in range(50):
 ##    print("Energy consumed in RL decentralized system with 2 agents#", sumDecentralizedEnergy)
 ##    print(RLdecentralized, sumCentral, sumRandselect, sumRound, sumCentralEnergy, sumDecentralizedEnergy)
     pp = [RLdecentralized/40, sumCentral/40, sumRandselect/40, sumRound/40]
-    ppenergy = [sumDecentralizedEnergy/40, sumCentralEnergy/40]
+    ppenergy = [sumDecentralizedEnergy/40, sumCentralEnergy/40, sumRandselectEnergy/40, sumRoundEnergy/40]
     boxcontainer1.append(pp)
     boxcontainer2.append(ppenergy)
 #print(boxcontainer1)
 #print(boxcontainer2)
      
 plt.subplot(2,1,1)
-plt.boxplot(np.row_stack(boxcontainer1), notch =True, patch_artist =True,  labels = ['RL', 'RB_CS', 'RB_R', 'RB_RR'])
+plt.boxplot(np.row_stack(boxcontainer1), notch =True, patch_artist =True,  labels = ['RL', 'RB-CS', 'RB-R', 'RB-RR'])
 plt.ylabel('Packets delivered(%)')
 #plt.xlabel('RL vs. Baselines')
-plt.title('(A)')
+plt.title('(a)')
 
 plt.subplot(2,1,2)
-plt.boxplot(np.row_stack(boxcontainer2), notch =True, patch_artist =True,  labels = ['Energy_RL', 'Energy_C'])
+plt.boxplot(np.row_stack(boxcontainer2), notch =True, patch_artist =True,  labels = ['RL', 'RB-CS', 'RB-R', 'RB-RR'])
 plt.ylabel('Energy consumed (%)')
-plt.xlabel('RL vs. Baseline')
-plt.title('(B)')
+plt.xlabel('RL vs. Baselines')
+plt.title('(b)')
 
 plt.tight_layout()
 

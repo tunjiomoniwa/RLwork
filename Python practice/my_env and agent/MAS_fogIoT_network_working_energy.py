@@ -460,7 +460,7 @@ for experiments in range(50):
     arr_fogdc2= dc2.final_packets_holder
 
     energy_arr_fogdc1 = dc1.fog_energy_holder
-    energy_arr_fogdc2 = dc1.fog_energy_holder
+    energy_arr_fogdc2 = dc2.fog_energy_holder
 
     #print(arr_fog1)
     #print(arr_fog2)
@@ -511,15 +511,15 @@ for experiments in range(50):
 #print(boxcontainer2)
      
 plt.subplot(2,1,1)
-plt.boxplot(np.row_stack(boxcontainer1), notch =True, patch_artist =True,  labels = ['RL', 'RB_CS', 'RB_R', 'RB_RR'])
+plt.boxplot(np.row_stack(boxcontainer1), notch =True, patch_artist =True,  labels = ['RL', 'RB-CS', 'RB-R', 'RB-RR'])
 plt.ylabel('Packets delivered(%)')
 #plt.xlabel('RL vs. Baselines')
 plt.title('(a)')
 
 plt.subplot(2,1,2)
-plt.boxplot(np.row_stack(boxcontainer2), notch =True, patch_artist =True,  labels = ['RL', 'RB_CS', 'RB_R', 'RB_RR'])
+plt.boxplot(np.row_stack(boxcontainer2), notch =True, patch_artist =True,  labels = ['RL', 'RB-CS', 'RB-R', 'RB-RR'])
 plt.ylabel('Energy consumed (%)')
-plt.xlabel('RL vs. Baseline')
+plt.xlabel('RL vs. Baselines')
 plt.title('(b)')
 
 plt.tight_layout()

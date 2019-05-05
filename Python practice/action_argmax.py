@@ -5,7 +5,7 @@ import random
 import pandas as pd
 from random import randint
 import matplotlib.pyplot as plt
-
+from numpy import random, dstack
 
 
 Q = [[7, 5],
@@ -82,19 +82,34 @@ Q = [[7, 5],
 ##for kk in range(10):
 ##    print(np.random.randint(0, 3))
 
-dd1 = [[0.14589771, 0.6032966,  0.59302943],[0.13559722, 0.74431867, 0.30560841]]
-d1 = np.row_stack(dd1)
-print(d1)
-plt.subplot(2,1,1)
-boxp =  d1#np.random.rand(2, 3)
-plt.boxplot(boxp, notch =True, patch_artist =True,  labels = ['A', 'B', 'C']) 
-plt.ylabel('Packets successfully  transmitted (%)')
-plt.xlabel('RL vs. Baselines')
+##dd1 = [[0.14589771, 0.6032966,  0.59302943],[0.13559722, 0.74431867, 0.30560841]]
+##d1 = np.row_stack(dd1)
+##print(d1)
+##plt.subplot(2,1,1)
+##boxp =  d1#np.random.rand(2, 3)
+##plt.boxplot(boxp, notch =True, patch_artist =True,  labels = ['A', 'B', 'C']) 
+##plt.ylabel('Packets successfully  transmitted (%)')
+##plt.xlabel('RL vs. Baselines')
+##
+##plt.subplot(2,1,2)
+##boxpa = d1#np.random.rand(2, 2)
+##plt.boxplot(boxpa,  notch =True, patch_artist =True,  labels = ['A', 'B', 'c']) 
+##plt.ylabel('Packets successfully  transmitted (%)')
+##plt.xlabel('RL vs. Baselines')
+##plt.tight_layout()
+##plt.show()
 
-plt.subplot(2,1,2)
-boxpa = d1#np.random.rand(2, 2)
-plt.boxplot(boxpa,  notch =True, patch_artist =True,  labels = ['A', 'B', 'c']) 
-plt.ylabel('Packets successfully  transmitted (%)')
-plt.xlabel('RL vs. Baselines')
-plt.tight_layout()
-plt.show()
+##for ii in range(100):
+##    print(np.random.randint(1,11))
+
+aa =[2, 5]
+bb= [5, 2]
+cc= [4, 9]
+
+stacked_array = dstack((aa,bb,cc))
+maxval  = stacked_array.min(2)
+print(maxval[0])
+
+dd = np.maximum(aa,bb)
+print(dd)
+
