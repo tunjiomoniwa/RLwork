@@ -581,7 +581,7 @@ We present a decentralised reinforcement learning approach that adequately addre
 Furthermore, we applied the Q-learning algorithm on the defined problem. To the best of our knowledge, this is the first work that applies Q-learning to a fog-based IoT network.
 
 
-\section{Problem Definition}
+\section{System Model}
 In this section, we provide a full description of the system model, as well the RL approach used to address the problem. In Fig. \ref{ideafig1}, we show a network topology at time~$t$ where some randomly deployed IoT sensors have data/service request to send to remote destinations via some mobile fog relay agents (MFRA). We depict a realistic scenario where sensors may at some point in time be unable to reach the destination via all available MFRA due to long separation or obstructions between source and destination. We observe that source A can reach the local server via two MFRA, source B via a MFRA, and source C via three MFRA. As such, we try as much as possible to capture the features of the MFRA and its environment.
 
 \subsection{MFRA environment}
@@ -647,7 +647,7 @@ The MFRA's learning process is summarized in Algorithm \ref{fiotRL}. A new learn
 \State Env.EstimateFogEnergyUsed
 \State Env.CheckAvailableActiveFogNeighbour
 \ElsIf {\emph{action}  == ``do nothing''} %\Return stop,
-\State 100\% $\leftarrow$ Env.EstimateOutage
+\State 100\% $\leftarrow$ Env.Outage
 \State 0J $\leftarrow$ Env.FogEnergyUsed
 \State Env.CheckAvailableActiveFogNeighbour
 \EndIf
@@ -824,7 +824,7 @@ M. Chiang and T. Zhang, ``Fog and IoT: An Overview of Research Opportuinities,''
 2016.
 
 \bibitem{OmoniwaRelay2018}
-B. Omoniwa et al., "An Optimal Relay Scheme for Outage Minimization in Fog-based Internet-of-Things (IoT) Networks," in IEEE Internet of Things Journal.
+B. Omoniwa et al., "An Optimal Relay Scheme for Outage Minimization in Fog-based Internet-of-Things (IoT) Networks," in IEEE Internet of Things Journal, vol. 6, no. 2, pp. 3044-3054, April 2019.
 
 \bibitem{Simiscuka2018}
 A. A. Simiscuka and G. Muntean, "A Relay and Mobility Scheme for QoS Improvement in IoT Communications," 2018 IEEE International Conference on Communications Workshops (ICC Workshops), Kansas City, MO, 2018, pp. 1-6.

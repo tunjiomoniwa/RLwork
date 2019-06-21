@@ -9,6 +9,7 @@ import seeding
 import math
 import random
 from random import randint
+import time
 
 class FogIoT:
     def __init__(self, deltaval, pw1, pw2, pw3, pw4, pw5, pw6):
@@ -400,12 +401,18 @@ class FogIoT:
 #print('RLdecentralized', '|', 'Rule-based + Centralized', '|', 'Rule-based + Random', '|', 'Rule-based + Round Robin', '|', 'Energy Centralized', '|', 'Energy RL decentralized')
 boxcontainer1 =[]
 boxcontainer2 =[]
+timekeeper = []
 for experiments in range(50):
     pp=0
     ppenergy=0
     print('Experiment #',experiments + 1)
+    
+    #startcentral = time.time()
+       
     kk1 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
     data1 = kk1.runCentral('b', 1000, "Agent - 1")
+    #endcentral = time.time()
+    #print('Central: ',endcentral - startcentral)
 
     kk2 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
     data2 = kk2.runCentral('g', 1000, "Agent - 2")
@@ -449,13 +456,17 @@ for experiments in range(50):
         roundy_e.append(eec)
 
     ###################
-
+    startRL = time.time()
+    
     dc1 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
     data1 = dc1.runRL('b', 1000, "Agent - 1")
 
+        
+    
     dc2 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
     data2 = dc2.runRL('g', 1000, "Agent - 2")
-
+    endRL = time.time()
+    
     arr_fogdc1= dc1.final_packets_holder
     arr_fogdc2= dc2.final_packets_holder
 
@@ -507,9 +518,11 @@ for experiments in range(50):
     ppenergy = [sumDecentralizedEnergy/40, sumCentralEnergy/40, sumRandselectEnergy/40, sumRoundEnergy/40]
     boxcontainer1.append(pp)
     boxcontainer2.append(ppenergy)
-#print(boxcontainer1)
-#print(boxcontainer2)
-     
+    timekeeper.append(endRL - startRL)
+print(boxcontainer1)
+print(boxcontainer2)
+print(timekeeper)
+   
 plt.subplot(2,1,1)
 plt.boxplot(np.row_stack(boxcontainer1), notch =True, patch_artist =True,  labels = ['RL', 'RB-CS', 'RB-R', 'RB-RR'])
 plt.ylabel('Packets delivered(%)')

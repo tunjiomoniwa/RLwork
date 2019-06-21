@@ -7,8 +7,9 @@ import seeding
 import math
 import random
 from random import randint
+import time
 
-
+start = time.time()
 ##Paremeters of actions
 cdelta = 0.25 # in meters
 p1 = 0.001 # in watts
@@ -268,8 +269,8 @@ for epi in range(episodes):
     print("End of episode #",epi, "  in ", iter , "iterations")
     
     
-    
-     
+end = time.time()    
+print(end - start)     
 plt.plot(cum_rew/np.max(cum_rew)*1)
 plt.ylabel('Iterations/reward')
 plt.xlabel('Episodes')

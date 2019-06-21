@@ -403,6 +403,7 @@ class FogIoT:
 boxcontainer1 =[]
 boxcontainer2 =[]
 timekeeper = []
+
 for experiments in range(50):
     pp=0
     ppenergy=0
@@ -419,26 +420,25 @@ for experiments in range(50):
     kk4 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
     data4 = kk4.runCentral('g', 1000, "Agent - 4")
 
-    kk5 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
-    data5 = kk5.runCentral('g', 1000, "Agent - 5")
+    
 
     arr_fog1= kk1.final_packets_holder
     arr_fog2= kk2.final_packets_holder
     arr_fog3= kk3.final_packets_holder
     arr_fog4= kk4.final_packets_holder
-    arr_fog5= kk5.final_packets_holder
+    
 
     energy_arr_fog1= kk1.fog_energy_holderk
     energy_arr_fog2= kk2.fog_energy_holderk
     energy_arr_fog3= kk3.fog_energy_holderk
     energy_arr_fog4= kk4.fog_energy_holderk
-    energy_arr_fog5= kk5.fog_energy_holderk
+    
 
-    central_stacked_array = dstack((arr_fog1, arr_fog2, arr_fog3, arr_fog4, arr_fog5))
+    central_stacked_array = dstack((arr_fog1, arr_fog2, arr_fog3, arr_fog4))
     central_sa  = central_stacked_array.max(2)
     central = central_sa[0]
          #########
-    energy_central_stacked_array = dstack((energy_arr_fog1, energy_arr_fog2, energy_arr_fog3, energy_arr_fog4, energy_arr_fog5))
+    energy_central_stacked_array = dstack((energy_arr_fog1, energy_arr_fog2, energy_arr_fog3, energy_arr_fog4))
     energy_central_sa  = energy_central_stacked_array.min(2)
     energy_central = energy_central_sa[0]
 
@@ -447,7 +447,7 @@ for experiments in range(50):
     store =[]
     store_e = []
     for inde in range(40):
-        met = np.random.randint(1,11)
+        met = np.random.randint(1,9)
         if met==1 or met==2:
             ffa =arr_fog1[inde]
             eea = energy_arr_fog1[inde]
@@ -460,9 +460,7 @@ for experiments in range(50):
         elif met==7 or met==8:
             ffa=arr_fog4[inde]
             eea = energy_arr_fog4[inde]
-        elif met==9 or met==10:
-            ffa=arr_fog5[inde]
-            eea = energy_arr_fog5[inde]
+        
         store.append(ffa)
         store_e.append(eea)
 
@@ -470,21 +468,19 @@ for experiments in range(50):
     roundy_e =[]
     for indr in range(40):
         
-        if indr%5==0:
+        if indr%4==0:
             ffc =arr_fog1[indr]
             eec = energy_arr_fog1[indr]
-        elif indr%5==1:
+        elif indr%4==1:
             ffc=arr_fog2[indr]
             eec = energy_arr_fog2[indr]
-        elif indr%5==2:
+        elif indr%4==2:
             ffc=arr_fog3[indr]
             eec = energy_arr_fog3[indr]
-        elif indr%5==3:
+        elif indr%4==3:
             ffc=arr_fog4[indr]
             eec = energy_arr_fog4[indr]
-        elif indr%5==4:
-            ffc=arr_fog5[indr]
-            eec = energy_arr_fog5[indr]
+        
         roundy.append(ffc)
         roundy_e.append(eec)
 
@@ -502,31 +498,29 @@ for experiments in range(50):
     dc4 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
     data4 = dc4.runRL('g', 1000, "Agent - 4")
 
-    dc5 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
-    data5 = dc5.runRL('g', 1000, "Agent - 5")
     endRL = time.time()
 
     arr_fogdc1= dc1.final_packets_holder
     arr_fogdc2= dc2.final_packets_holder
     arr_fogdc3= dc3.final_packets_holder
     arr_fogdc4= dc4.final_packets_holder
-    arr_fogdc5= dc5.final_packets_holder
+    
 
     energy_arr_fogdc1 = dc1.fog_energy_holder
     energy_arr_fogdc2 = dc2.fog_energy_holder
     energy_arr_fogdc3 = dc3.fog_energy_holder
     energy_arr_fogdc4 = dc4.fog_energy_holder
-    energy_arr_fogdc5 = dc5.fog_energy_holder
+    
 
     #print(arr_fog1)
     #print(arr_fog2)
 
-    decentralized_stacked_array = dstack((arr_fogdc1, arr_fogdc2, arr_fogdc3, arr_fogdc4, arr_fogdc5))
+    decentralized_stacked_array = dstack((arr_fogdc1, arr_fogdc2, arr_fogdc3, arr_fogdc4))
     decentralized_sa  = decentralized_stacked_array.max(2)
     decentralized = decentralized_sa[0] #packets received successfully
 
 
-    energy_decentralized_stacked_array = dstack((energy_arr_fogdc1, energy_arr_fogdc2, energy_arr_fogdc3, energy_arr_fogdc4, energy_arr_fogdc5))
+    energy_decentralized_stacked_array = dstack((energy_arr_fogdc1, energy_arr_fogdc2, energy_arr_fogdc3, energy_arr_fogdc4))
     energy_decentralized_sa  = energy_decentralized_stacked_array.min(2)
     energy_decentralized = energy_decentralized_sa[0]
 
@@ -578,6 +572,7 @@ print(boxcontainer1)
 print(boxcontainer2)
 print(timekeeper)
 
+     
 plt.subplot(2,1,1)
 plt.boxplot(np.row_stack(boxcontainer1), notch =True, patch_artist =True,  labels = ['RL', 'RB-CS', 'RB-R', 'RB-RR'])
 plt.ylabel('Packets delivered(%)')

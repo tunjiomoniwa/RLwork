@@ -10,6 +10,7 @@ import math
 import random
 from random import randint
 from numpy import random, dstack
+import time
 
 class FogIoT:
     def __init__(self, deltaval, pw1, pw2, pw3, pw4, pw5, pw6):
@@ -401,7 +402,7 @@ class FogIoT:
 #print('RLdecentralized', '|', 'Rule-based + Centralized', '|', 'Rule-based + Random', '|', 'Rule-based + Round Robin', '|', 'Energy Centralized', '|', 'Energy RL decentralized')
 boxcontainer1 =[]
 boxcontainer2 =[]
-
+timekeeper = []
 for experiments in range(50):
     pp=0
     ppenergy=0
@@ -502,6 +503,7 @@ for experiments in range(50):
         elif met==19 or met==20:
             ffa=arr_fog10[inde]
             eea = energy_arr_fog10[inde]
+            
         store.append(ffa)
         store_e.append(eea)
 
@@ -543,7 +545,7 @@ for experiments in range(50):
         roundy_e.append(eec)
 
     ###################
-
+    startRL = time.time()
     dc1 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
     data1 = dc1.runRL('b', 1000, "Agent - 1")
 
@@ -560,19 +562,20 @@ for experiments in range(50):
     data5 = dc5.runRL('g', 1000, "Agent - 5")
 
     dc6 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
-    data6 = dc6.runRL('b', 1000, "Agent - 1")
+    data6 = dc6.runRL('g', 1000, "Agent - 6")
 
     dc7 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
-    data7 = dc7.runRL('g', 1000, "Agent - 2")
+    data7 = dc7.runRL('g', 1000, "Agent - 7")
 
     dc8 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
-    data8 = dc8.runRL('g', 1000, "Agent - 3")
+    data8 = dc8.runRL('g', 1000, "Agent - 8")
 
     dc9 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
-    data9 = dc9.runRL('g', 1000, "Agent - 4")
+    data9 = dc9.runRL('g', 1000, "Agent - 9")
 
     dc10 = FogIoT(0.25, 0.001, 0.01, 0.15, 0.2, 0.25, 0.3)
-    data10 = dc10.runRL('g', 1000, "Agent - 5")
+    data10 = dc10.runRL('g', 1000, "Agent - 10")
+    endRL = time.time()
 
     arr_fogdc1= dc1.final_packets_holder
     arr_fogdc2= dc2.final_packets_holder
@@ -595,8 +598,6 @@ for experiments in range(50):
     energy_arr_fogdc8 = dc8.fog_energy_holder
     energy_arr_fogdc9 = dc9.fog_energy_holder
     energy_arr_fogdc10 = dc10.fog_energy_holder
-
-    
 
     #print(arr_fog1)
     #print(arr_fog2)
@@ -653,9 +654,11 @@ for experiments in range(50):
     ppenergy = [sumDecentralizedEnergy/40, sumCentralEnergy/40, sumRandselectEnergy/40, sumRoundEnergy/40]
     boxcontainer1.append(pp)
     boxcontainer2.append(ppenergy)
-#print(boxcontainer1)
-#print(boxcontainer2)
-     
+    timekeeper.append(endRL - startRL)
+print(boxcontainer1)
+print(boxcontainer2)
+print(timekeeper)
+
 plt.subplot(2,1,1)
 plt.boxplot(np.row_stack(boxcontainer1), notch =True, patch_artist =True,  labels = ['RL', 'RB-CS', 'RB-R', 'RB-RR'])
 plt.ylabel('Packets delivered(%)')
