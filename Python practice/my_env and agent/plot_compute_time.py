@@ -130,7 +130,7 @@ set_box_color(bpr, '#2C7BB6')
 set_box_color(bpsin, 'brown')
 
 # draw temporary red and blue lines and use them to create a legend
-plt.plot([], c='#D7191C', label='Q-learning agents total')
+plt.plot([], c='red', label='Q-learning agents total')
 plt.plot([], c='brown', label='Q-learning per single agent')
 plt.plot([], c='#2C7BB6', label='Centralized')
 plt.legend()
