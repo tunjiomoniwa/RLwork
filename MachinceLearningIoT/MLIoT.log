@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  29 APR 2019 12:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.7)  8 AUG 2019 16:47
 entering extended mode
 **./MLIoT.tex
 (MLIoT.tex
@@ -465,7 +465,11 @@ Package: xtab 2011/07/31 v2.3f Extended supertabular package
 Package: threeparttable 2003/06/13  v 3.0
 \@tempboxb=\box41
 )
-(MLIoT.aux)
+(MLIoT.aux
+
+LaTeX Warning: Label `table:classification' multiply defined.
+
+)
 \openout1 = `MLIoT.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 401.
@@ -536,7 +540,7 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <24> not available
 \makeMPintoPDFobject=\count135
 \everyMPtoPDFconversion=\toks29
 )
-Underfull \hbox (badness 3849) in paragraph at lines 489--491
+Underfull \hbox (badness 3849) in paragraph at lines 486--488
 []\T1/ptm/b/it/9 Index Terms\T1/ptm/b/n/9 ---Reinforcement learn-ing (RL), Inte
 rnet-of-
  []
@@ -545,77 +549,53 @@ rnet-of-
 
 
 ]
-LaTeX Font Info:    Try loading font information for U+msa on input line 540.
+LaTeX Font Info:    Try loading font information for U+msa on input line 538.
 
 ("C:\Program Files\MiKTeX 2.90\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 540.
+LaTeX Font Info:    Try loading font information for U+msb on input line 538.
 
 ("C:\Program Files\MiKTeX 2.90\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [2]
-Overfull \hbox (40.07478pt too wide) in paragraph at lines 612--623
+Overfull \hbox (40.07478pt too wide) in paragraph at lines 610--621
  [][] 
  []
 
-[3] [4
-
-] [5]
-
-LaTeX Warning: Float too large for page by 34.77136pt on input line 738.
-
-
-Overfull \hbox (876.0pt too wide) has occurred while \output is active
-[] []|[] []
- []
-
-[6
-
-
-
-]
-Overfull \hbox (6.1181pt too wide) in paragraph at lines 752--780
+[3]
+Overfull \hbox (48.45776pt too wide) in paragraph at lines 678--688
  [][] 
  []
 
+[4] [5] (MLIoT.aux)
 
-Overfull \hbox (876.0pt too wide) has occurred while \output is active
-[] []|[] []
- []
+LaTeX Warning: There were multiply-defined labels.
 
-[7
-
-
-
-] [8
-
-] [9
-
-] (MLIoT.aux) ) 
+ ) 
 Here is how much of TeX's memory you used:
- 5938 strings out of 492946
- 87468 string characters out of 3135087
- 178859 words of memory out of 3000000
- 9691 multiletter control sequences out of 15000+200000
+ 5939 strings out of 492946
+ 87471 string characters out of 3135087
+ 176897 words of memory out of 3000000
+ 9692 multiletter control sequences out of 15000+200000
  122683 words of font info for 131 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,19n,35p,1790b,304s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.90/fonts/enc/dvips/base/8r.enc}<C:/Pr
-ogram Files/MiKTeX 2.90/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program F
-iles/MiKTeX 2.90/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/Mi
-KTeX 2.90/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9
-0/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2.90/fonts/
-type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/pu
-blic/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/public/amsf
-onts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/public/amsfonts/cm
-/cmsy7.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/urw/times/utmb8a.pfb><C:/P
-rogram Files/MiKTeX 2.90/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/Mi
-KTeX 2.90/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.90/fonts/
-type1/urw/times/utmri8a.pfb>
-Output written on MLIoT.pdf (9 pages, 164225 bytes).
+{C:/Program Files/MiKTeX 2.90/fonts/enc/dvips/base/8r.enc}<C:/Program Files/M
+iKTeX 2.90/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2
+.90/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.90/fon
+ts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1
+/public/amsfonts/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/public/
+amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/public/amsfonts
+/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/public/amsfonts/cm/cmsy1
+0.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C
+:/Program Files/MiKTeX 2.90/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/
+MiKTeX 2.90/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.90/fon
+ts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.90/fonts/type1/urw/tim
+es/utmri8a.pfb>
+Output written on MLIoT.pdf (5 pages, 155744 bytes).
 PDF statistics:
- 81 PDF objects out of 1000 (max. 8388607)
+ 67 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -479,15 +479,12 @@
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \begin{abstract}
-Reinforcement learning (RL) algorithms are the platform for connecting intelligent Internet-of-Things (IoT) devices. The data provided by
-these intelligent devices can offer more insights about the overall futuristic functionalities in terms of usage
-and preferences. Machine learning algorithms have been widely used for predictions, with several optimization algorithms using reinforcement learning techniques to improve the performance and interaction of devices within a dynamic IoT ecosystem. In this paper, we present a comprehensive review of state-of-the-art RL techniques that have been applied to solve trending problems in the IoT and cyber-physical systems domain. Furthermore, we give an in-depth analysis into its applications in the emerging fog-based IoT networks. Finally, we propose alternative research directions that may yield better outcomes.
-
+Reinforcement learning (RL) is an unsupervised learning technique in which an agent learns optimal behaviour through interaction with the environment. Reinforcement learning algorithm has been widely used to significantly improve system performance within the IoT domain. In this paper, we present a comprehensive survey of trending issues within the IoT ecosystem that can be tackled using state-of-the-art RL techniques. Furthermore, we give an in-depth analysis into the application of these RL-based algorithms in the emerging fog-based IoT networks. Finally, we propose alternative research directions that may yield better outcomes.
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-Reinforcement learning (RL), Internet-of-Things (IoT), Fog-based IoT, Markov decision process (MDP), machine learning (ML).
+Reinforcement learning (RL), Internet-of-Things (IoT), Fog-based IoT, Q-learning.
 \end{IEEEkeywords}
 
 
@@ -507,11 +504,12 @@ Reinforcement learning (RL), Internet-of-Things (IoT), Fog-based IoT, Markov dec
 
 \section{Introduction}
 \label{sec:Introduction}
-\IEEEPARstart{R}{einforcement} learning algorithms are the platform for connecting intelligent Internet-of-Things (IoT) devices. Over the years, there has been several applications of machine learning (ML) in IoTs and Cyber-physical systems (CPS). Nest learning thermostats are good examples of how IoT devices leverage data patterns to predict the preferred temperature in a room during a particular time of day. The prediction of the room temperature can also be on an aggregated neighborhood level, where energy loads can be remotely shifted by the power utility in homes operating Nest devices. Another practical application is the Amazon personal assistant that has the capability of learning voice patterns, the Jaguar's Land Monitoring system, which depends on a complex software that allows the automobile to observe, predict, monitor and notify the car's passengers to assist the driver automatically delegate his tasks and minimize the burden of driving.
+Just drafts...skip please
+\IEEEPARstart{O}{ver} the years, there has been several applications of machine learning (ML) in IoTs and Cyber-physical systems (CPS). From nest learning thermostats that predicts the temperature in a room during a particular time of day to industrial robots that facilitate the automation process, machine learning algorithms and their applications are becoming more popular. Another interesting application is the Amazon personal assistant that has the capability of learning voice patterns, the Jaguar's Land Monitoring system, which depends on a complex software that allows the automobile to observe, predict, monitor and notify the car's passengers to assist the driver automatically delegate his tasks and minimize the burden of driving.
 
-Optimization is a very old field with interesting algorithms that has been used to solve simple to complex problems in various areas. Many optimization algorithms use RL techniques to optimize the behaviour of devices in the IoT ecosystem. For instance, in Intelligent Transport Systems (ITS), where cars act smartly, optimality in the interaction between cars and the environment is highly required. Several CPS applications like the Industrial Internet of Things (IIoT), smart grid, and ultimately smart cities, will allow intelligent machine-type interactions. These interactions may often will require robust algorithms that evolve and are adaptable, in order for the IoT devices to be able to achieve desired objectives given some set of operational parameters.
+Optimization is a very old field with interesting algorithms that has been used to solve simple to complex problems in various areas. Many optimization algorithms use reinforcement learning (RL) techniques to optimize the behaviour of devices in the IoT ecosystem. For instance, in Intelligent Transport Systems (ITS), where cars act smartly, optimality in the interaction between cars and the environment is highly required. Several CPS applications like the Industrial Internet of Things (IIoT), smart grid, and ultimately smart cities, will allow intelligent machine-type interactions. These interactions may often will require robust algorithms that evolve and are adaptable, in order for the IoT devices to be able to achieve desired objectives given some set of operational parameters.
 
-With the inherent heterogeneity in the IoT ecosystem and devices operating in a highly dynamic environment, it becomes necessary to leverage robust and resource-fitting machine learning techniques that will match the resource-constrained nature and stochastic behaviour of the IoT network. Moreover, the magnanimity of the IoT has led to the emergence of the fog-based IoT architecture~\cite{Omoniwa2018}, which promises to run IoT-enabled applications for real-time control and analytics, with millisecond response time. The realization of an optimal real-time control and data analytics is subject to the ability for agents to make optimal decisions that will improve the overall performance in the network. As such, we aim to examine RL techniques as used in previous works to help us understand the intrinsic benefits to the future IoT networks.
+With the inherent heterogeneity in the IoT ecosystem and devices operating in a highly dynamic environment, it becomes necessary to leverage robust and resource-fitting machine learning techniques that will match the resource-constrained nature and stochastic behaviour of the IoT network. Moreover, the magnanimity of the IoT has led to the emergence of the fog-based IoT architecture~\cite{Omoniwa2018}, which promises to run IoT-enabled applications for real-time control and analytics, with millisecond response time. The realization of an optimal real-time control and data analytics is subject to the ability for agents to make optimal decisions that will improve the overall performance in the network. As such, we aim to examine RL techniques as used in previous research to help us understand the intrinsic benefits to the future IoT networks.
 
 The contribution of our work is three-fold, which are listed as follows.
 \indent
@@ -528,7 +526,7 @@ The contribution of our work is three-fold, which are listed as follows.
 The remainder of this work is organized as follows.~In Section
 
 \section{Reinforcement Learning in IoT}\label{sec:RLIoT}
-Reinforcement Learning (RL) is learning that involves mapping situations to actions with an objective of maximizing a numerical reward. Actions are made by an agent, which have the ability to sense the state of the dynamic environment and consequently take actions that influence its environment. RL facilitates sequential decision making under uncertainty, thereby making it a useful tool in prediction of non-linear phenomenon~\cite{Zhang18}. Several works have been published in the area of RL in IoT and CPS, however, there has not been any detailed review that covers their applicability in IoT and the underlying research issues in this field.
+Reinforcement Learning (RL) is learning that involves mapping situations to actions with an objective of maximizing a numerical reward. Actions are made by an agent, which have the ability to sense the state of the dynamic environment and consequently take actions that influence its environment. RL facilitates sequential decision making under uncertainty, thereby making it a useful tool in prediction of non-linear phenomenon~\cite{Zhang18}. Several work have been published in the area of RL in IoT and CPS, however, there has not been any detailed review that covers their applicability in IoT and the underlying research issues in this field.
 
 \subsection{Basic Overview}
 
@@ -569,20 +567,20 @@ Q_{t + 1}(s_t, a_t) &:= Q_{t}(s_t, a_t)\\
 & + \alpha \Big[ r_{t + 1} + \gamma Q_{t}(s_{t + 1}, a_{t + 1}) -  Q_{t}(s_t, a_t) \Big].
    \end{split}
 \end{equation}
+%
+%\subsubsection{Deep Q Net (DQN)}
+%
+%\subsubsection{Deep Deterministic Policy Gradients (DDPG)}
+%
+%\subsubsection{Normalized Advantage Functions (NAF)}
+%
+%\subsubsection{Asynchronous Advantage Actor-Critic (A3C)}
 
-\subsubsection{Deep Q Net (DQN)}
-
-\subsubsection{Deep Deterministic Policy Gradients (DDPG)}
-
-\subsubsection{Normalized Advantage Functions (NAF)}
-
-\subsubsection{Asynchronous Advantage Actor-Critic (A3C)}
-
-\subsection{Related Works in IoT}
-Over the years, many perceived difficult sub-problems have began to receive research attention, some of which are categorized as follows.
+\subsection{Related Research in IoT}
+Over the years, many perceived problems within the IoT domain have began to receive research attention, some of which are categorized as follows.
 \indent
     \begin{enumerate}[leftmargin=*,label= \arabic*)]
-      \item \textit{Energy allocation and utilization within the network}: IoT devices deplete energy in several ways, such as when transmitting and receiving data, listening to the medium, performing computation or even changing position. There exist several works that have used RL and its variants to optimize energy usage in different domains, some of which could be modified to suit the resource-limitation in the typical IoT domain. Zhong \emph{et al.} in \cite{Zhong2018} designed sensor energy utilization and power allocation in IoT sensors to maximize the total data throughput of the system. They proposed a low-complexity algorithm to optimally solve the two formulated sub-problems. The energy utilization sub-problem was formulated as a MDP, while the power allocation sub-problem was approached using discrete optimization. The proposed algorithm performed better than some simple heuristics when simulated. However, the work considered a scenario where the channel state is perfectly known.
+      \item \textit{Energy allocation and utilization within the network}: IoT devices deplete energy in several ways, such as when transmitting and receiving data, listening to the medium, performing computation or even changing position. There exist several research that have used RL and its variants to optimize energy usage in different domains, some of which could be modified to suit the resource-limitation in the typical IoT domain. Zhong \emph{et al.} in \cite{Zhong2018} designed sensor energy utilization and power allocation in IoT sensors to maximize the total data throughput of the system. They proposed a low-complexity algorithm to optimally solve the two formulated sub-problems. The energy utilization sub-problem was formulated as a MDP, while the power allocation sub-problem was approached using discrete optimization. The proposed algorithm performed better than some simple heuristics when simulated. However, the work considered a scenario where the channel state is perfectly known.
 
           A Markov-based analytical model was integrated with a RL process in Conti \emph{et al.} \cite{Conti2017} to optimize the server activation policy, where optimal control of an energy storage system in a green fog-computing node is needed to improve the system performance, hereby allowing the system to bear high job arrivals even at low-power generation periods. The fog-computing nodes used in this work are not typical of those used in a typical fog-based IoT environment. A Q-learning-based adaptive power management was proposed by Debizet \emph{et al.} in \cite{Debizet2018} to optimize the power consumed during the suspend state of an Internet-of-Things (loT) System-on-Chip (SoC) with eight embedded power states. The algorithm out-performed some expert-based solution for most suspend sequences under 12000 cycles, however, with an additional power cost. Just like the traditional IoT architecture, the fog-based IoT networks are often power-constrained and as such, require low complexity learning algorithms to optimize the energy utilization.
 
@@ -607,11 +605,11 @@ Over the years, many perceived difficult sub-problems have began to receive rese
 \begin{table}
 \small
 \centering
-\caption{Some related works addressing key issues}
+\caption{Some related work addressing key issues}
 \label{table:refissues}
 \begin{tabular}{lll}
   \hline
- \textit{Issues} & \textit{IoT works} & \textit{WSN works} \\
+ \textit{Issues} & \textit{IoT} & \textit{WSN} \\
   \hline \hline
    \multicolumn{1}{m{3cm}}{Energy allocation and utilization} &\multicolumn{1}{m{3cm}}{ \cite{Zhong2018}, \cite{Conti2017}, \cite{Debizet2018} }& \multicolumn{1}{m{3cm}}{ \cite{Chen2008}, \cite{Chen2011}}\\ \hline
    \multicolumn{1}{m{3cm}}{Latency Minimization} &\multicolumn{1}{m{3cm}}{ \cite{Mai2018}, \cite{Li2014}, \cite{Liu2017}, \cite{routray2017}}&\multicolumn{1}{m{3cm}}{ \cite{Liang2009}, \cite{Chen2009} }  \\ \hline
@@ -624,12 +622,12 @@ Over the years, many perceived difficult sub-problems have began to receive rese
 
 
 
-\subsection{Works in WSN}
+\subsection{Research in WSN}
 
-In \cite{Chen2008}, a reliable and energy-efficient routing (REER) protocol was proposed using a geographic routing approach. The work considered the idea of a central entity, called a reference node (RN), which is assumed to be situated at an ideal location between source and destination. Several other cooperative nodes, which contend to relay data, are assumed to be situated around the RN. The work was able to examine the trade-off between reliability and energy-efficiency when the distances between RNs was adjusted. The work in \cite{Chen2011} proposed an improvement to \cite{Chen2008}, addressing the issue of scalability in a dynamic network. As such, a novel distributed multi-hop cooperative communication scheme (DMC) was proposed to improve certain QoS metrics such as the communication energy, hop count, and end-to-end delay. However, both works assumed complete prior knowledge of the network environment.
+In \cite{Chen2008}, a reliable and energy-efficient routing (REER) protocol was proposed using a geographic routing approach. The work considered the idea of a central entity, called a reference node (RN), which is assumed to be situated at an ideal location between source and destination. Several other cooperative nodes, which contend to relay data, are assumed to be situated around the RN. The work was able to examine the trade-off between reliability and energy-efficiency when the distances between RNs was adjusted. The work in \cite{Chen2011} proposed an improvement to \cite{Chen2008}, addressing the issue of scalability in a dynamic network. As such, a novel distributed multi-hop cooperative communication scheme (DMC) was proposed to improve certain QoS metrics such as the communication energy, hop count, and end-to-end delay. However, both approaches assumed complete prior knowledge of the network environment.
 In \cite{Liang2009}, a multi-agent reinforcement learning-based multi-hop mesh cooperative (MRL-CC) mechanism for the improvement of some QoS metrics such as the end-to-end delay, packet delivery ratio in the WSNs. The work out-performed the work in \cite{Chen2009}, which incurred higher delay, and was distance-based, which is not suitable for a dynamic network environment. Though the mobility of the cooperative nodes were taken into account when learning the optimal policy, the MRL-CC failed to consider the power dissipated by the power-constrained devices.
 
-A self-organizing RL technique for scheduling the wake-up cycles of nodes was proposed in \cite{Mihaylov} to effectively ensure the successful delivery of messages along a routing tree while minimizing interference. A node synchronization /desynchronization strategy was used to minimize interferences, as well as decrease the data retrieval and energy consumption. Experimentation was carried using three static topologies (line, mesh and grid) with results averaged over 50 runs, however, this does not depict a typical dynamic IoT environment. In \cite{Shah2007}, a distributed independent reinforcement learning (DIRL) techniques, which is based on Q-learning, was introduced to allow autonomous self-learning applications with inherent support for efficient task management. The DIRL approach showed significant performance improvement when compared to traditional static scheduling schemes. A resource management framework based on a two-tier RL scheme was proposed in \cite{Shah2013} to enable autonomous self-learning and adaptive applications with inherent support for efficient resource management. However, the works~\cite{Shah2007, Shah2013} only considered task scheduling.
+A self-organizing RL technique for scheduling the wake-up cycles of nodes was proposed in \cite{Mihaylov} to effectively ensure the successful delivery of messages along a routing tree while minimizing interference. A node synchronization /desynchronization strategy was used to minimize interferences, as well as decrease the data retrieval and energy consumption. Experimentation was carried using three static topologies (line, mesh and grid) with results averaged over 50 runs, however, this does not depict a typical dynamic IoT environment. In \cite{Shah2007}, a distributed independent reinforcement learning (DIRL) techniques, which is based on Q-learning, was introduced to allow autonomous self-learning applications with inherent support for efficient task management. The DIRL approach showed significant performance improvement when compared to traditional static scheduling schemes. A resource management framework based on a two-tier RL scheme was proposed in \cite{Shah2013} to enable autonomous self-learning and adaptive applications with inherent support for efficient resource management. However, the approach in~\cite{Shah2007, Shah2013} only considered task scheduling.
 
 A RL-based Q-routing technique, the Feedback Routing for Optimizing Multiple Sinks (FROMS), was proposed in \cite{Forster2007, Forster2007FROMS} to enable efficient routing to multiple sinks without overhead. Simulations were done under scenarios where the sink nodes are mobile and with consideration for node failure. However, the mobility pattern and speed was bounded. Moreover, an important cost metric such as the energy consumed by the mobile nodes was not considered. In \cite{Forster2008}, an evaluation was carried out on the previously proposed FROMS framework using real WSN hardware. The objective was to show that machine learning algorithms could be efficiently deployed on resource-constrained devices. However, during the implementation phase, certain bottlenecks were encountered such as dynamic memory allocation, interference in the wireless channel, poor data gathering, and difficulty in handling lost or corrupted packets. As such, a data clustering and aggregation approach, CLIQUE, was proposed in \cite{Forster2009} to minimize the energy expended by the selecting a cluster head using Q-learning. The approach was able to save significant amount of energy when compared to the traditional and random cluster head selection approach.
 
@@ -641,7 +639,7 @@ A RL-based Q-routing technique, the Feedback Routing for Optimizing Multiple Sin
 \begin{table*}
  \small
 \centering
-\caption{Classifications of Some Related Works}
+\caption{Classifications of Some Related Research}
 \label{table:classification}
   \begin{tabular}{|l|lllll|}
   \hline
@@ -669,116 +667,134 @@ A RL-based Q-routing technique, the Feedback Routing for Optimizing Multiple Sin
 
 
 
+\section{Reinforcement Learning within the IoT Domain}
 
 
-
-
-
-\pagestyle{empty}
-\begin{landscape}
-
-
-\xentrystretch{-0.1}
-
-% increase spacing between table's rows
-\renewcommand{\arraystretch}{1.2}
-
-
-%\section*{Table II}
-\begin{table}
-\small
+\begin{table*}
+ \small
 \centering
-\caption{Summary of works in Reinforcement Learning.}
-
-
-\centering
-
-\label{table:review}
-\begin{tabular}{llll}
-
-
+\caption{Research in IoT using Reinforcement Learning}
+\label{table:classification}
+  \begin{tabular}{|l|llll|}
   \hline
-    Reinforcement learning techniques & Details  & Limitations & Potential contributions \\
+ \textit{Paper} & \textit{Algorithm} & \textit{Agents resides} & \textit{Multi-agent} & \textit{Problem addressed}  \\
   \hline \hline
-  \multicolumn{1}{m{3cm}}{RL-based mapping table (RLMT) and RL-based resource allocation} & \multicolumn{1}{m{6cm}}{These algorithm was introduced Gai \emph{et al.} in \cite{Gai2018} to handle cost mapping tables creation and for optimal resource allocation in IoT content-centric services.} & \multicolumn{1}{m{6cm}}{The work was limited to the use QoE in examining service level, which allowed a dynamic resource allocation and avoided a fixed task table.} & \multicolumn{1}{m{6cm}}{To apply RL-based approach on several other KPIs that may improve IoT services.}\\ \hline
-
-\multicolumn{1}{m{3cm}}{Deep-Q-learning} & \multicolumn{1}{m{6cm}}{This variant of Q-learning was introduced by Zhu \emph{et al.} in \cite{Zhu2018} to maximize system throughput by applying appropriate scheduling strategy for cognitive radio-based IoT networks.} & \multicolumn{1}{m{6cm}}{This work performed poorly when compared with the strategy iteration algorithm, though with a reduced computational complexity.} & \multicolumn{1}{m{6cm}}{To adapt the concept of cognition to our proposed IoT network and with the consideration of several network dynamics.}\\ \hline
-
-
-\multicolumn{1}{m{3cm}}{Deep Reinforcement Learning (DRL)} & \multicolumn{1}{m{6cm}}{A semi-supervised DRL model that suits IoT and smart city applications was introduced in Mohammadi \emph{et al.} in \cite{Mohammadi2018} for performance improvement and accuracy in the learning agent.} & \multicolumn{1}{m{6cm}}{The work employed an indoor localization based on the Bluetooth low energy signal strength, and limited its findings to a single floor of a building.} & \multicolumn{1}{m{6cm}}{To consider multi-agent environment and conduct some outdoor experimentation.}\\ \hline
-
-
-\multicolumn{1}{m{3cm}}{RL using a Markov-based analytical model} & \multicolumn{1}{m{6cm}}{A Markov-based analytical model was integrated with a RL process in Conti \emph{et al.} \cite{Conti2017} to optimize the server activation policy, where optimal control of an energy storage system in a green fog-computing node is needed to improve the system performance, hereby allowing the system to bear high job arrivals even at low-power generation periods.} & \multicolumn{1}{m{6cm}}{The fog-computing nodes used in this work is fixed and has a large energy source, which fails to depict the resource-constrained nature of fog devices.} & \multicolumn{1}{m{6cm}}{We will consider a multi-tier fog architecture with lots of heterogeneity, having static and mobile fog nodes which may or may not be power-constrained.}\\ \hline
-
-
-\multicolumn{1}{m{3cm}}{Q-learning} & \multicolumn{1}{m{6cm}}{Wen \emph{et al.} in \cite{Wen15} formulated an automated energy management system (EMS) rescheduling problem as a reinforcement learning (RL) problem. Simulations were carried out using Q-learning technique on a specific scenario with good results.} & \multicolumn{1}{m{6cm}}{The paper considers the EMS to act as an agent for energy users. This approach is not practical in a real IoT scenario, where nodes are mobile with dynamic system requirements.} & \multicolumn{1}{m{6cm}}{We will consider a decentralized agent-based system to support for a realistic IoT scenario.}\\ \hline
-
-
-\multicolumn{1}{m{3cm}}{Evolutionary strategies and RL} & \multicolumn{1}{m{6cm}}{A RL approach that made use of evolution strategies for real-time task assignment among fog servers was introduced by Mai \emph{et al.} in \cite{Mai2018} to minimize the total computation latency during a long-term period.} & \multicolumn{1}{m{6cm}}{The paper claimed that the proposed model is scalable when the number of IoT devices increases, however, the approach proposed failed to examine real-world IoT-scaled scenario.} & \multicolumn{1}{m{6cm}}{We aim to apply a variant of these techniques to realistic IoT scenarios.}\\ \hline
-
-\multicolumn{1}{m{3cm}}{Q-learning-based duty cycle control} & \multicolumn{1}{m{6cm}}{This RL-based duty cycle control technique was introduced by Li \emph{et al.} in \cite{Li2015} to provide improved performance and reliable M2M communication for IoT applications.} & \multicolumn{1}{m{6cm}}{The performance evaluation  of the proposed Q-learning based duty cycle control only considered a two-hop cluster tree network.} & \multicolumn{1}{m{6cm}}{The proposed approach can be enhanced to capture a larger network size, and DP approach employed may not be suitable.}\\ \hline
-
-
-\multicolumn{1}{m{3cm}}{Dynamic programming based duty cycle control} & \multicolumn{1}{m{6cm}}{This technique used by Li \emph{et al.} in \cite{Li2014} to provide an optimal solution to an inventory control problem. The focus was on optimizing the duty cycle by jointly considering energy efficiency, end-to-end delay and reliability of the network.} & \multicolumn{1}{m{6cm}}{A two-hop cluster tree network model was used in the work, and the problem was evaluated using the DP approach} & \multicolumn{1}{m{6cm}}{The proposed approach can be enhanced to capture a larger network size, and the DP approach used may not be suitable for a realistic IoT scenario.}\\ \hline
-
-\multicolumn{1}{m{3cm}}{Predictive and Resilient Q-learning} & \multicolumn{1}{m{6cm}}{A variant of Q-learning algorithm employed by Grammatopoulou \emph{et al.} in \cite{Grammatopoulou2018}, which considers historical data about irregular operations such as faults and attacks by malicious agents in an IoT network (a smart water supply system).} & \multicolumn{1}{m{6cm}}{The work relied upon historical data about irregular operations such as faults and attacks by malicious agents which may not be readily available in a typical IoT network.} & \multicolumn{1}{m{6cm}}{We will attempt to depict a realistic IoT scenario where historical data will not be available, and the agent will be required to learn the optimal policy in a new and dynamic environment.}\\ \hline
-
-
-%\multicolumn{1}{m{3cm}}{Distributed W-learning} & \multicolumn{1}{m{6cm}}{This variant of W-learning was introduced by Dusparic \emph{et al.} in \cite{Dusparic2009} to address the problem of multi-policy optimization agent-based self-organizing systems.} & \multicolumn{1}{m{6cm}}{The work was limited to urban traffic control (UTC) systems in Dublin with experiments only conducted five times.} & \multicolumn{1}{m{6cm}}{To adapt the technique to broader IoT networks with mobile agents.}\\ \hline
-%
-%
-%\multicolumn{1}{m{3cm}}{Neural networks-based fitted Q-iteration (FQI) method} & \multicolumn{1}{m{6cm}}{This approach was introduced by Hans \emph{et al.} in \cite{Hans2010}, which used ensembles to make the learning process more robust and reliable, with little requirement on fine-tuning of various parameters.} & \multicolumn{1}{m{6cm}}{Further experiments will be required to validate the proposed approach, moreover, the validation error is
-%not sufficient to asses the quality of the resulting policy.} & \multicolumn{1}{m{6cm}}{To experiment using different IoT scenarios on some selected RL techniques.}\\ \hline
-%
-%\multicolumn{1}{m{3cm}}{Reinforcement Learning with Network-Assisted Feedback (RLNF)} & \multicolumn{1}{m{6cm}}{This decentralised framework was introduced by Nguyen \emph{et al.} in \cite{Nguyen2017}, which assures high efficient with fast convergence time and low signaling overheads, and has the flexibility of supporting a wide range of network-assisted feedback.} & \multicolumn{1}{m{6cm}}{This approach may not be suitable in all environments.} & \multicolumn{1}{m{6cm}}{To experiment using different IoT scenarios on some selected RL techniques.}\\ \hline
-
-
-\hline
+  
+\cite{Hu2019} & Q-learning & UAV & Yes & Trajectory design where UAVs sense and send data to base stations (BS) from IoT things \\
+\cite{Mohammadi2018} & Deep RL & Fixed access point & No & Indoor localization based on BLE signal strength \\
+\cite{Min2019} & Deep RL & IoT device & No & Energy consumption, computation latency, and task drop rate from IoT devices \\
+      \hline \hline
  \end{tabular}
- \end{table}
-\end{landscape}
+ \end{table*}
 
-\newpage
- \begin{landscape}
- \xentrystretch{-0.1}
+%
+%
+%
+%\pagestyle{empty}
+%\begin{landscape}
+%
+%
+%\xentrystretch{-0.1}
 %
 %% increase spacing between table's rows
-\renewcommand{\arraystretch}{1.2}
-
- %\small
-\section*{Summary of works in Reinforcement Learning. (Contd. 1)}
-\centering
-
-\begin{tabular}{llll}
-
- \hline
-    Reinforcement learning techniques & Details  & Limitations & Potential contributions \\
-  \hline \hline
-  \multicolumn{1}{m{3cm}}{Q-learning-based adaptive power management} & \multicolumn{1}{m{6cm}}{A Q-learning-based adaptive power management was proposed by Debizet \emph{et al.} in \cite{Debizet2018} to optimize the power consumed during the suspend state of an Internet-of-Things (loT) System-on-
-Chip (SoC) with 8 embedded power states.} & \multicolumn{1}{m{6cm}}{The algorithm out-performed some expert-based
-solution for most suspend sequences under 12000 cycles, however, with an additional power cost.} & \multicolumn{1}{m{6cm}}{The parameters used in the study may be better tuned to produce more satisfactory performance.}\\ \hline
-
-
-\multicolumn{1}{m{3cm}}{Cooperative reinforcement learning} & \multicolumn{1}{m{6cm}}{A cooperative reinforcement learning algorithm was introduced by Khan \emph{et al.} in \cite{Khan2018} for adaptive power allocation in D2D communication.} & \multicolumn{1}{m{6cm}}{When compared with the Distributed RL algorithm, the proposed approach provides better system throughput as well as D2D throughput with less interference to pave way for the massive MTC in IoT. However, the experiments were conducted in a single cell.} & \multicolumn{1}{m{6cm}}{Experiments using the proposed algorithm may be conducted to in a heterogenous multi-cell environment to depict a realistic IoT scenario.}\\ \hline
-
-
-
-\multicolumn{1}{m{3cm}}{Dynamic programming} & \multicolumn{1}{m{6cm}}{A dynamic programming approach was deployed by Routray \emph{et al.} in \cite{routray2017} to provide near optimal results under high traffic conditions in an IoT network scenario with consideration for node mobility.} & \multicolumn{1}{m{6cm}}{The DP approach was used in routing in a dynamically changing network. However, all the nodes in the network were assumed to be routers, which is often not the case in a typical IoT environment.} & \multicolumn{1}{m{6cm}}{We will consider heterogeneity in IoT device, with some devices IoT sensors, and fog devices, which may be static or dormant, active or inactive.}\\ \hline
-
-
-\multicolumn{1}{m{3cm}}{Multi-agent Q-learning} & \multicolumn{1}{m{6cm}}{A distributed multi-agent Q learning algorithm was proposed by Liu \emph{et al.} in \cite{Liu2017} to optimize both the motorized and non-motorized traffic. The work considered several constraints to help depict real operational scenarios.} & \multicolumn{1}{m{6cm}}{The paper applied AI powered Internet-of-Things (AIoT) technologies for traffic light control, which is a key to the success of ITS. However, the agents considered are static and may not be suitable for other IoT applications.} & \multicolumn{1}{m{6cm}}{This approach may be applied in scenarios of non-stationary agents to examine the overall system performance in a dynamic IoT environment.}\\ \hline
-
-
-\multicolumn{1}{m{3cm}}{On-line RL} & \multicolumn{1}{m{6cm}}{A Q-learning algorithm was introduced by Dias \emph{et al.} in \cite{Dias2016} to adjust sensors' sampling interval in real-time, with respect to environmental conditions and application requirements.} & \multicolumn{1}{m{6cm}}{This work was able to learn the most suitable sampling intervals under different conditions, without an a-priori model of the environment's evolution. However, it considered only static sensor devices, of which no clear indication on where the learning computation will take place.} & \multicolumn{1}{m{6cm}}{Considering the resource-limitation of IoT sensor nodes, we leverage on the fog/edge computing paradigm to provide some learning and computational capability.}\\ \hline
-
-\multicolumn{1}{m{3cm}}{Parallel Q-learning} & \multicolumn{1}{m{6cm}}{A scalable parallel Q-learning algorithm was introduced by Camelo \emph{et al.} in \cite{Camelo2016} to minimize communication cost.} & \multicolumn{1}{m{6cm}}{The work considered distributed and resource-constrained environment.} & \multicolumn{1}{m{6cm}}{y.}\\ \hline
-
-\multicolumn{1}{m{3cm}}{Parallel Q-learning} & \multicolumn{1}{m{6cm}}{A scalable parallel Q-learning algorithm was introduced by Camelo \emph{et al.} in \cite{Camelo2016} to minimize communication cost.} & \multicolumn{1}{m{6cm}}{The work considered distributed and resource-constrained environment.} & \multicolumn{1}{m{6cm}}{yyyyy.}\\ \hline
-
-\hline
- \end{tabular}
-\end{landscape}
-
+%\renewcommand{\arraystretch}{1.2}
+%
+%
+%%\section*{Table II}
+%\begin{table}
+%\small
+%\centering
+%\caption{Summary of works in Reinforcement Learning.}
+%
+%
+%\centering
+%
+%\label{table:review}
+%\begin{tabular}{llll}
+%
+%
+%  \hline
+%    Reinforcement learning techniques & Details  & Limitations & Potential contributions \\
+%  \hline \hline
+%  \multicolumn{1}{m{3cm}}{RL-based mapping table (RLMT) and RL-based resource allocation} & \multicolumn{1}{m{6cm}}{These algorithm was introduced Gai \emph{et al.} in \cite{Gai2018} to handle cost mapping tables creation and for optimal resource allocation in IoT content-centric services.} & \multicolumn{1}{m{6cm}}{The work was limited to the use QoE in examining service level, which allowed a dynamic resource allocation and avoided a fixed task table.} & \multicolumn{1}{m{6cm}}{To apply RL-based approach on several other KPIs that may improve IoT services.}\\ \hline
+%
+%\multicolumn{1}{m{3cm}}{Deep-Q-learning} & \multicolumn{1}{m{6cm}}{This variant of Q-learning was introduced by Zhu \emph{et al.} in \cite{Zhu2018} to maximize system throughput by applying appropriate scheduling strategy for cognitive radio-based IoT networks.} & \multicolumn{1}{m{6cm}}{This work performed poorly when compared with the strategy iteration algorithm, though with a reduced computational complexity.} & \multicolumn{1}{m{6cm}}{To adapt the concept of cognition to our proposed IoT network and with the consideration of several network dynamics.}\\ \hline
+%
+%
+%\multicolumn{1}{m{3cm}}{Deep Reinforcement Learning (DRL)} & \multicolumn{1}{m{6cm}}{A semi-supervised DRL model that suits IoT and smart city applications was introduced in Mohammadi \emph{et al.} in \cite{Mohammadi2018} for performance improvement and accuracy in the learning agent.} & \multicolumn{1}{m{6cm}}{The work employed an indoor localization based on the Bluetooth low energy signal strength, and limited its findings to a single floor of a building.} & \multicolumn{1}{m{6cm}}{To consider multi-agent environment and conduct some outdoor experimentation.}\\ \hline
+%
+%
+%\multicolumn{1}{m{3cm}}{RL using a Markov-based analytical model} & \multicolumn{1}{m{6cm}}{A Markov-based analytical model was integrated with a RL process in Conti \emph{et al.} \cite{Conti2017} to optimize the server activation policy, where optimal control of an energy storage system in a green fog-computing node is needed to improve the system performance, hereby allowing the system to bear high job arrivals even at low-power generation periods.} & \multicolumn{1}{m{6cm}}{The fog-computing nodes used in this work is fixed and has a large energy source, which fails to depict the resource-constrained nature of fog devices.} & \multicolumn{1}{m{6cm}}{We will consider a multi-tier fog architecture with lots of heterogeneity, having static and mobile fog nodes which may or may not be power-constrained.}\\ \hline
+%
+%
+%\multicolumn{1}{m{3cm}}{Q-learning} & \multicolumn{1}{m{6cm}}{Wen \emph{et al.} in \cite{Wen15} formulated an automated energy management system (EMS) rescheduling problem as a reinforcement learning (RL) problem. Simulations were carried out using Q-learning technique on a specific scenario with good results.} & \multicolumn{1}{m{6cm}}{The paper considers the EMS to act as an agent for energy users. This approach is not practical in a real IoT scenario, where nodes are mobile with dynamic system requirements.} & \multicolumn{1}{m{6cm}}{We will consider a decentralized agent-based system to support for a realistic IoT scenario.}\\ \hline
+%
+%
+%\multicolumn{1}{m{3cm}}{Evolutionary strategies and RL} & \multicolumn{1}{m{6cm}}{A RL approach that made use of evolution strategies for real-time task assignment among fog servers was introduced by Mai \emph{et al.} in \cite{Mai2018} to minimize the total computation latency during a long-term period.} & \multicolumn{1}{m{6cm}}{The paper claimed that the proposed model is scalable when the number of IoT devices increases, however, the approach proposed failed to examine real-world IoT-scaled scenario.} & \multicolumn{1}{m{6cm}}{We aim to apply a variant of these techniques to realistic IoT scenarios.}\\ \hline
+%
+%\multicolumn{1}{m{3cm}}{Q-learning-based duty cycle control} & \multicolumn{1}{m{6cm}}{This RL-based duty cycle control technique was introduced by Li \emph{et al.} in \cite{Li2015} to provide improved performance and reliable M2M communication for IoT applications.} & \multicolumn{1}{m{6cm}}{The performance evaluation  of the proposed Q-learning based duty cycle control only considered a two-hop cluster tree network.} & \multicolumn{1}{m{6cm}}{The proposed approach can be enhanced to capture a larger network size, and DP approach employed may not be suitable.}\\ \hline
+%
+%
+%\multicolumn{1}{m{3cm}}{Dynamic programming based duty cycle control} & \multicolumn{1}{m{6cm}}{This technique used by Li \emph{et al.} in \cite{Li2014} to provide an optimal solution to an inventory control problem. The focus was on optimizing the duty cycle by jointly considering energy efficiency, end-to-end delay and reliability of the network.} & \multicolumn{1}{m{6cm}}{A two-hop cluster tree network model was used in the work, and the problem was evaluated using the DP approach} & \multicolumn{1}{m{6cm}}{The proposed approach can be enhanced to capture a larger network size, and the DP approach used may not be suitable for a realistic IoT scenario.}\\ \hline
+%
+%\multicolumn{1}{m{3cm}}{Predictive and Resilient Q-learning} & \multicolumn{1}{m{6cm}}{A variant of Q-learning algorithm employed by Grammatopoulou \emph{et al.} in \cite{Grammatopoulou2018}, which considers historical data about irregular operations such as faults and attacks by malicious agents in an IoT network (a smart water supply system).} & \multicolumn{1}{m{6cm}}{The work relied upon historical data about irregular operations such as faults and attacks by malicious agents which may not be readily available in a typical IoT network.} & \multicolumn{1}{m{6cm}}{We will attempt to depict a realistic IoT scenario where historical data will not be available, and the agent will be required to learn the optimal policy in a new and dynamic environment.}\\ \hline
+%
+%
+%%\multicolumn{1}{m{3cm}}{Distributed W-learning} & \multicolumn{1}{m{6cm}}{This variant of W-learning was introduced by Dusparic \emph{et al.} in \cite{Dusparic2009} to address the problem of multi-policy optimization agent-based self-organizing systems.} & \multicolumn{1}{m{6cm}}{The work was limited to urban traffic control (UTC) systems in Dublin with experiments only conducted five times.} & \multicolumn{1}{m{6cm}}{To adapt the technique to broader IoT networks with mobile agents.}\\ \hline
+%%
+%%
+%%\multicolumn{1}{m{3cm}}{Neural networks-based fitted Q-iteration (FQI) method} & \multicolumn{1}{m{6cm}}{This approach was introduced by Hans \emph{et al.} in \cite{Hans2010}, which used ensembles to make the learning process more robust and reliable, with little requirement on fine-tuning of various parameters.} & \multicolumn{1}{m{6cm}}{Further experiments will be required to validate the proposed approach, moreover, the validation error is
+%%not sufficient to asses the quality of the resulting policy.} & \multicolumn{1}{m{6cm}}{To experiment using different IoT scenarios on some selected RL techniques.}\\ \hline
+%%
+%%\multicolumn{1}{m{3cm}}{Reinforcement Learning with Network-Assisted Feedback (RLNF)} & \multicolumn{1}{m{6cm}}{This decentralised framework was introduced by Nguyen \emph{et al.} in \cite{Nguyen2017}, which assures high efficient with fast convergence time and low signaling overheads, and has the flexibility of supporting a wide range of network-assisted feedback.} & \multicolumn{1}{m{6cm}}{This approach may not be suitable in all environments.} & \multicolumn{1}{m{6cm}}{To experiment using different IoT scenarios on some selected RL techniques.}\\ \hline
+%
+%
+%\hline
+% \end{tabular}
+% \end{table}
+%\end{landscape}
+%
+%\newpage
+% \begin{landscape}
+% \xentrystretch{-0.1}
+%%
+%%% increase spacing between table's rows
+%\renewcommand{\arraystretch}{1.2}
+%
+% %\small
+%\section*{Summary of works in Reinforcement Learning. (Contd. 1)}
+%\centering
+%
+%\begin{tabular}{llll}
+%
+% \hline
+%    Reinforcement learning techniques & Details  & Limitations & Potential contributions \\
+%  \hline \hline
+%  \multicolumn{1}{m{3cm}}{Q-learning-based adaptive power management} & \multicolumn{1}{m{6cm}}{A Q-learning-based adaptive power management was proposed by Debizet \emph{et al.} in \cite{Debizet2018} to optimize the power consumed during the suspend state of an Internet-of-Things (loT) System-on-
+%Chip (SoC) with 8 embedded power states.} & \multicolumn{1}{m{6cm}}{The algorithm out-performed some expert-based
+%solution for most suspend sequences under 12000 cycles, however, with an additional power cost.} & \multicolumn{1}{m{6cm}}{The parameters used in the study may be better tuned to produce more satisfactory performance.}\\ \hline
+%
+%
+%\multicolumn{1}{m{3cm}}{Cooperative reinforcement learning} & \multicolumn{1}{m{6cm}}{A cooperative reinforcement learning algorithm was introduced by Khan \emph{et al.} in \cite{Khan2018} for adaptive power allocation in D2D communication.} & \multicolumn{1}{m{6cm}}{When compared with the Distributed RL algorithm, the proposed approach provides better system throughput as well as D2D throughput with less interference to pave way for the massive MTC in IoT. However, the experiments were conducted in a single cell.} & \multicolumn{1}{m{6cm}}{Experiments using the proposed algorithm may be conducted to in a heterogenous multi-cell environment to depict a realistic IoT scenario.}\\ \hline
+%
+%
+%
+%\multicolumn{1}{m{3cm}}{Dynamic programming} & \multicolumn{1}{m{6cm}}{A dynamic programming approach was deployed by Routray \emph{et al.} in \cite{routray2017} to provide near optimal results under high traffic conditions in an IoT network scenario with consideration for node mobility.} & \multicolumn{1}{m{6cm}}{The DP approach was used in routing in a dynamically changing network. However, all the nodes in the network were assumed to be routers, which is often not the case in a typical IoT environment.} & \multicolumn{1}{m{6cm}}{We will consider heterogeneity in IoT device, with some devices IoT sensors, and fog devices, which may be static or dormant, active or inactive.}\\ \hline
+%
+%
+%\multicolumn{1}{m{3cm}}{Multi-agent Q-learning} & \multicolumn{1}{m{6cm}}{A distributed multi-agent Q learning algorithm was proposed by Liu \emph{et al.} in \cite{Liu2017} to optimize both the motorized and non-motorized traffic. The work considered several constraints to help depict real operational scenarios.} & \multicolumn{1}{m{6cm}}{The paper applied AI powered Internet-of-Things (AIoT) technologies for traffic light control, which is a key to the success of ITS. However, the agents considered are static and may not be suitable for other IoT applications.} & \multicolumn{1}{m{6cm}}{This approach may be applied in scenarios of non-stationary agents to examine the overall system performance in a dynamic IoT environment.}\\ \hline
+%
+%
+%\multicolumn{1}{m{3cm}}{On-line RL} & \multicolumn{1}{m{6cm}}{A Q-learning algorithm was introduced by Dias \emph{et al.} in \cite{Dias2016} to adjust sensors' sampling interval in real-time, with respect to environmental conditions and application requirements.} & \multicolumn{1}{m{6cm}}{This work was able to learn the most suitable sampling intervals under different conditions, without an a-priori model of the environment's evolution. However, it considered only static sensor devices, of which no clear indication on where the learning computation will take place.} & \multicolumn{1}{m{6cm}}{Considering the resource-limitation of IoT sensor nodes, we leverage on the fog/edge computing paradigm to provide some learning and computational capability.}\\ \hline
+%
+%\multicolumn{1}{m{3cm}}{Parallel Q-learning} & \multicolumn{1}{m{6cm}}{A scalable parallel Q-learning algorithm was introduced by Camelo \emph{et al.} in \cite{Camelo2016} to minimize communication cost.} & \multicolumn{1}{m{6cm}}{The work considered distributed and resource-constrained environment.} & \multicolumn{1}{m{6cm}}{y.}\\ \hline
+%
+%\multicolumn{1}{m{3cm}}{Parallel Q-learning} & \multicolumn{1}{m{6cm}}{A scalable parallel Q-learning algorithm was introduced by Camelo \emph{et al.} in \cite{Camelo2016} to minimize communication cost.} & \multicolumn{1}{m{6cm}}{The work considered distributed and resource-constrained environment.} & \multicolumn{1}{m{6cm}}{yyyyy.}\\ \hline
+%
+%\hline
+% \end{tabular}
+%\end{landscape}
+%
 
 
 %\section{Practical issues that RL could be applied to IoT (thoughts when reading your paper)}
@@ -995,6 +1011,13 @@ W. T. B. Uther and M. M. Veloso, ``Tree Based Discretization for Continuous Stat
 
 \bibitem{Cuayahuitl2006}
 H. Cuayahuitl, S. Renals, O. Lemon, and H. Shimodaira. ``Learning multi-goal dialogue strategies using reinforcement learning with reduced state-action spaces,'' In Int. Journal of Game Theory, pp. 547–565, 2006.
+
+%%%%RL
+\bibitem{Hu2019}
+J. Hu, H. Zhang and L. Song, ``Reinforcement Learning for Decentralized Trajectory Design in Cellular UAV Networks With Sense-and-Send Protocol,'' in IEEE Internet of Things Journal, vol. 6, no. 4, pp. 6177-6189, Aug. 2019.
+
+\bibitem{Min2019}
+M. Min, L. Xiao, Y. Chen, P. Cheng, D. Wu and W. Zhuang, "Learning-Based Computation Offloading for IoT Devices With Energy Harvesting," in IEEE Transactions on Vehicular Technology, vol. 68, no. 2, pp. 1930-1941, Feb. 2019.
 
 \end{thebibliography}
 
